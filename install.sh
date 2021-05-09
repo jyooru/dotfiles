@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
 
 # dotfiles directory
-DEFAULTDOTFILESDIR="$HOME/$DOTFILESDIR"
-if [ -z "$DOTFILESDIR" ]; then
-  export DOTFILESDIR="$DEFAULTDOTFILESDIR"
+DOT_DEFAULT_DIR="$HOME/$DOT_DIR"
+if [ -z "$DOT_DIR" ]; then
+  export DOT_DIR="$DOT_DEFAULT_DIR"
 fi
-if ! [ -d "$DOTFILESDIR" ]; then
-  export DOTFIELSDIR="$DEFAULTDOTFILESDIR"
-  if ! [ -d "$DOTFILESDIR" ]; then
-    mkdir -p "$DOTFILESDIR"
+if ! [ -d "$DOT_DIR" ]; then
+  export DOT_DIR="$DOT_DEFAULT_DIR"
+  if ! [ -d "$DOT_DIR" ]; then
+    mkdir -p "$DOT_DIR"
   fi
 fi
 
 for file in {".aliases",".bashrc",".exports",".functions",".gitconfig",".profile"}; do
-  ln -s "$DOTFILESDIR/$file" ~/$file
+  ln -s "$DOT_DIR/$file" ~/$file
 done
