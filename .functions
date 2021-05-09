@@ -1,3 +1,4 @@
+# shellcheck disable=SC2148 # files that are sourced do not need shebangs
 # functions are defined in this file
 # it is sourced from .profile
 

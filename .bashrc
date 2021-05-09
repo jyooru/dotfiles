@@ -1,3 +1,5 @@
+# shellcheck disable=SC2148 # files that are sourced do not need shebangs
+# shellcheck source=.profile
 source ~/.profile
 
 # If not running interactively, don't do anything
@@ -13,7 +15,7 @@ shopt -s histappend
 shopt -s checkwinsize
 
 # prompt
-PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
 # completions
 if ! shopt -oq posix; then
