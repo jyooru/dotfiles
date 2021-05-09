@@ -13,14 +13,14 @@ if ! [ -d "$DOT_SRC_DIR" ]; then
 fi
 DOT_DST_DIR="$HOME"
 DOT_BAK_DIR="$DOT_SRC_DIR/backup"
-mkdir -p $DOT_BAK_DIR
+mkdir -p "$DOT_BAK_DIR"
 
 # install
 for file in {".aliases",".bashrc",".exports",".functions",".gitconfig",".profile"}; do
-  if [ -L $file ]; then
+  if [ -L "$file" ]; then
     unlink "$DOT_DST_DIR/$file"
     echo "removed link for $file"
-  elif [ -f $file ]; then
+  elif [ -f "$file" ]; then
     mv "$DOT_DST_DIR/$file" "$DOT_BAK_DIR/$file"
     echo "$file has been backed up in $DOT_BAK_DIR"
   fi
