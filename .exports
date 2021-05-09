@@ -1,0 +1,4 @@
+# exports are defined in this file
+# it is sourced from .profile
+
+export DOTFILESDIR="$HOME/.dotfiles"

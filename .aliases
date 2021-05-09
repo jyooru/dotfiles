@@ -1,0 +1,28 @@
+# aliases are defined in this file
+# it is sourced from .profile
+
+# ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# alert alias
+# will notify user after previous command has finished
+# usage:
+#   command; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# temperature alias
+# watches sensors command
+alias "temp=watch -n 1 sensors"
+
+# git aliases
+alias "g=git"
+alias "gb=git branch"
+alias "gch=git checkout"
+alias "gcl=git clone"
+alias "gi=git init"
+alias "gl=git log"
+alias "gp=git pull; git push"
+alias "gr=git reset --hard"
+alias "gs=git status"

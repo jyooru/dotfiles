@@ -1,0 +1,9 @@
+[user]
+	email = 63786778+joeltokyo@users.noreply.github.com
+	name = joeltokyo
+[init]
+	defaultBranch = main
+[push]
+	default = current
+[pull]
+	rebase = true

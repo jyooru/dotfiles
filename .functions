@@ -1,0 +1,23 @@
+# functions are defined in this file
+# it is sourced from .profile
+
+# git functions
+ga () {
+  # git add
+  # pass aruments to the function to pass them to git
+  # if no arguments are provided the function will add the current directory
+  if [ $# -eq 0 ]; then
+      git add .
+  else
+      git add $@
+  fi
+}
+gc () {
+  # git commit
+  # commit with all arguments provided as a message
+  if [ $# -eq 0 ]; then
+    git commit
+  else
+    git commit -m "$*"
+  fi
+} 
