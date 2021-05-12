@@ -22,3 +22,13 @@ gc () {
     git commit -m "$*"
   fi
 } 
+
+# vscode function
+c () {
+  if [ $# -eq 0 ]; then
+    code .
+    exit
+  else
+    code "$*"
+  fi
+}
