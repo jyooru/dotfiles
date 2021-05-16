@@ -17,6 +17,9 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # watches sensors command
 alias "temp=watch -n 1 sensors"
 
+# app shortcuts
+alias "py=python"
+
 # git aliases
 alias "g=git"
 alias "gb=git branch"
