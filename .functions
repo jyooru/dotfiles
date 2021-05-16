@@ -22,6 +22,10 @@ gc () {
     git commit -m "$*"
   fi
 } 
+gbu () {
+  # git branch set upstream
+  git branch "--set-upstream-to=origin/$1" "$1"
+}
 
 # vscode function
 c () {
