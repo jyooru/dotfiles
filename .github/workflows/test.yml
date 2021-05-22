@@ -16,4 +16,5 @@ jobs:
           sudo apt-get install shellcheck
       - name: lint with shellcheck
         run: |
-          shellcheck .aliases .bashrc .exports .functions .profile install.sh
+          shellcheck -s bash \
+            .aliases .bashrc .exports .functions .profile install.sh
