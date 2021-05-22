@@ -10,7 +10,7 @@ ga () {
   if [ $# -eq 0 ]; then
       git add .
   else
-      git add $@
+      git add "$@"
   fi
 }
 gc () {
