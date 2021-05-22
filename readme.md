@@ -16,3 +16,7 @@ run [install.sh](install.sh):
 cd ~/.dotfiles
 ./install.sh
 ```
+
+## license
+
+see [license](license) for details
