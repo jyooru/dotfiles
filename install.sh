@@ -1,29 +1,29 @@
 #!/usr/bin/env bash
 
 # dotfiles directories
-DOT_DEFAULT_SRC_DIR="$HOME/.dotfiles"
-if [ -z "$DOT_SRC_DIR" ]; then
-  DOT_SRC_DIR="$DOT_DEFAULT_SRC_DIR"
+dot_default_src_dir="$HOME/.dotfiles"
+if [ -z "$dot_src_dir" ]; then
+  dot_src_dir="$dot_default_src_dir"
 fi
-if ! [ -d "$DOT_SRC_DIR" ]; then
-  DOT_SRC_DIR="$DOT_DEFAULT_SRC_DIR"
-  if ! [ -d "$DOT_SRC_DIR" ]; then
-    mkdir -p "$DOT_SRC_DIR"
+if ! [ -d "$dot_src_dir" ]; then
+  dot_src_dir="$dot_default_src_dir"
+  if ! [ -d "$dot_src_dir" ]; then
+    mkdir -p "$dot_src_dir"
   fi
 fi
-DOT_DST_DIR="$HOME"
-DOT_BAK_DIR="$DOT_SRC_DIR/backup"
-mkdir -p "$DOT_BAK_DIR"
+dot_dst_dir="$HOME"
+dot_bak_dir="$dot_src_dir/backup"
+mkdir -p "$dot_bak_dir"
 
 # install
 for file in {".aliases",".bashrc",".exports",".functions",".gitconfig",".profile"}; do
   if [ -L "$file" ]; then
-    unlink "$DOT_DST_DIR/$file"
+    unlink "$dot_dst_dir/$file"
     echo "removed link for $file"
   elif [ -f "$file" ]; then
-    mv "$DOT_DST_DIR/$file" "$DOT_BAK_DIR/$file"
-    echo "$file has been backed up in $DOT_BAK_DIR"
+    mv "$dot_dst_dir/$file" "$dot_bak_dir/$file"
+    echo "$file has been backed up in $dot_bak_dir"
   fi
-  ln -s "$DOT_SRC_DIR/$file" "$DOT_DST_DIR/$file"
+  ln -s "$dot_src_dir/$file" "$dot_dst_dir/$file"
   echo "installed $file"
 done
