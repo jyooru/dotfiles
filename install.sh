@@ -1,5 +1,23 @@
 #!/usr/bin/env bash
 
+detect_env () {
+  if [ -d "/vscode/vscode-server" ]; then
+    env="devcontainer"
+  else
+    echo -n "env="
+    read env
+    for str in {"laptop","server"}; do
+      if [ $env = $str ]; then
+        return
+      fi
+    done
+    echo "not a valid environment: $env"
+    exit 1
+  fi
+}
+
+detect_env
+
 # dotfiles directories
 dot_default_src_dir="$HOME/.dotfiles"
 if [ -z "$dot_src_dir" ]; then
