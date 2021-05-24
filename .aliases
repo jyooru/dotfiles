@@ -7,6 +7,11 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+# directory aliases
+alias ~="cd ~"
+alias ..="cd .."
+alias -- -="cd -"
+
 # alert alias
 # will notify user after previous command has finished
 # usage:
