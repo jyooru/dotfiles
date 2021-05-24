@@ -3,9 +3,9 @@
 # it is sourced from .profile
 
 # ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+alias ll="ls -alF"
+alias la="ls -A"
+alias l="ls -CF"
 
 # directory aliases
 alias ~="cd ~"
