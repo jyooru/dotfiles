@@ -3,10 +3,10 @@
 # dotfiles directories
 DOT_DEFAULT_SRC_DIR="$HOME/.dotfiles"
 if [ -z "$DOT_SRC_DIR" ]; then
-  export DOT_SRC_DIR="$DOT_DEFAULT_SRC_DIR"
+  DOT_SRC_DIR="$DOT_DEFAULT_SRC_DIR"
 fi
 if ! [ -d "$DOT_SRC_DIR" ]; then
-  export DOT_SRC_DIR="$DOT_DEFAULT_SRC_DIR"
+  DOT_SRC_DIR="$DOT_DEFAULT_SRC_DIR"
   if ! [ -d "$DOT_SRC_DIR" ]; then
     mkdir -p "$DOT_SRC_DIR"
   fi
