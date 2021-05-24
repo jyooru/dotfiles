@@ -6,7 +6,7 @@ detect_env () {
     env="devcontainer"
   else
     echo -n "env="
-    read env
+    read -r env
     for str in {"laptop","server"}; do
       if [ $env = $str ]; then
         return
