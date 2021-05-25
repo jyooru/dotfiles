@@ -1,9 +1,12 @@
 [user]
 	email = 63786778+jyooru@users.noreply.github.com
 	name = jyooru
+	signingKey = 33CA5F24
 [init]
 	defaultBranch = main
 [push]
 	default = current
 [pull]
 	rebase = true
+[commit]
+	gpgsign = true
