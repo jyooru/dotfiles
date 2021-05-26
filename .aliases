@@ -46,6 +46,8 @@ alias "gpsf=git push --force"
 alias "gr=git rebase"
 alias "grs=git reset --hard"
 alias "gs=git status"
+alias "gst=git stash"
+alias "gstp=git stash pop"
 
 # pip aliases
 alias "pipf=pip freeze"
