@@ -2,6 +2,11 @@
 # functions are defined in this file
 # it is sourced from .profile
 
+# directory functions
+/ () {
+  cd /
+}
+
 # git functions
 ga () {
   # git add
