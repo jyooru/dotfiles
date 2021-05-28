@@ -50,9 +50,30 @@ install () {
 }
 
 
+needs_certificate () {
+  page="$(curl -Lk --no-progress-meter localnetwork.zone)"
+  if [[ $page == *"Incorrectly configured DNS"* ]]; then
+    return 0
+  else
+    return 1
+  fi
+}
+
+
+install_certificate () {
+  :
+}
+
+
 main () {
+  detect_env
   dot_dirs
   install
+  if [ "$env" = "devcontainer" ] ; then
+    if needs_certificate; then
+      install_certificate
+    fi
+  fi
 }
 
 
