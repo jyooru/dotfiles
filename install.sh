@@ -16,7 +16,7 @@ detect_env () {
       fi
     done
     echo "not a valid environment: $env"
-    exit 1
+    detect_env
   fi
 }
 
