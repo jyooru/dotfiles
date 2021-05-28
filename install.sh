@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
 
+source install/certificate.sh
+
+
 detect_env () {
   if [ -d "/vscode/vscode-server" ]; then
     env="devcontainer"
@@ -47,30 +50,6 @@ install () {
     ln -s "$dot_src_dir/$file" "$dot_dst_dir/$file"
     echo "installed $file"
   done
-}
-
-
-needs_certificate () {
-  page="$(curl -Lk --no-progress-meter localnetwork.zone)"
-  if [[ $page == *"Incorrectly configured DNS"* ]]; then
-    return 0
-  else
-    return 1
-  fi
-}
-
-
-install_certificate () {
-  # devcontainer (alpine)
-  download_link="https://cert.localnetwork.zone/noauth/cacert"
-  save_tmp="/tmp/crt"
-  save_loc="/usr/local/share/ca-certificates/extra/certlocalnetworkzone.crt"
-
-  mkdir -p "$(dirname $save_tmp)"
-  curl -Lk $download_link -o $save_tmp
-  sudo mkdir -p "$(dirname $save_loc)"
-  sudo mv $save_tmp $save_loc
-  sudo update-ca-certificates
 }
 
 
