@@ -61,7 +61,16 @@ needs_certificate () {
 
 
 install_certificate () {
-  :
+  # devcontainer (alpine)
+  download_link="https://cert.localnetwork.zone/noauth/cacert"
+  save_tmp="/tmp/crt"
+  save_loc="/usr/local/share/ca-certificates/extra/certlocalnetworkzone.crt"
+
+  mkdir -p "$(dirname $save_tmp)"
+  curl -Lk $download_link -o $save_tmp
+  sudo mkdir -p "$(dirname $save_loc)"
+  sudo mv $save_tmp $save_loc
+  sudo update-ca-certificates
 }
 
 
