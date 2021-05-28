@@ -2,7 +2,7 @@
 
 
 needs_certificate () {
-  page="$(curl -Lk --no-progress-meter localnetwork.zone)"
+  page="$(curl -Lks localnetwork.zone)"
   if [[ $page == *"Incorrectly configured DNS"* ]]; then
     return 0
   else
