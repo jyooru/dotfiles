@@ -17,4 +17,4 @@ jobs:
       - name: lint with shellcheck
         run: |
           shellcheck -s bash \
-            .aliases .bashrc .exports .functions .profile install.sh
+            .aliases .bashrc .exports .functions .profile install.sh install/*
