@@ -4,9 +4,9 @@
 needs_certificate () {
   page="$(curl -Lks localnetwork.zone)"
   if [[ $page == *"Incorrectly configured DNS"* ]]; then
-    return 0
-  else
     return 1
+  else
+    return 0
   fi
 }
 
