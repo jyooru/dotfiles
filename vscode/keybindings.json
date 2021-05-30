@@ -1,0 +1,19 @@
+[
+  {
+    "key": "ctrl+alt+b",
+    "command": "workbench.action.toggleActivityBarVisibility"
+  },
+
+  {
+    "key": "ctrl+alt+,",
+    "command": "workbench.action.openSettingsJson"
+  },
+  {
+    "key": "shift+alt+d",
+    "command": "workbench.view.extension.dockerView"
+  },
+  {
+    "key": "shift+alt+m",
+    "command": "editor.action.toggleMinimap"
+  }
+]

@@ -1,0 +1,78 @@
+{
+  // theme
+  "editor.cursorBlinking": "smooth",
+  "editor.cursorSmoothCaretAnimation": true,
+  "editor.fontFamily": "Fira Code",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 14,
+  "workbench.colorTheme": "GitHub Dark",
+  "workbench.iconTheme": "material-icon-theme",
+  "window.menuBarVisibility": "toggle", // alt shows menu
+
+  // functionality
+  "diffEditor.renderSideBySide": false,
+  "editor.formatOnType": true,
+  "editor.formatOnSave": true,
+  "editor.linkedEditing": true,
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.inputValidationLength": 2147483647,
+  "git.inputValidationSubjectLength": 2147483647,
+  "remote.containers.dotfiles.repository": "jyooru/dotfiles",
+  "remote.containers.dotfiles.targetPath": "~/.dotfiles",
+  "workbench.activityBar.visible": false,
+  "workbench.startupEditor": "newUntitledFile",
+
+  // extensions
+  "gitlens.hovers.currentLine.over": "line",
+  "gitlens.currentLine.enabled": false,
+  "redhat.telemetry.enabled": false,
+
+  // languages
+  // sh
+  "shellcheck.customArgs": ["-s bash", "-x"],
+  // json
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  //html
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  // md
+  "[markdown]": {
+    "editor.wordWrap": "on",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // py
+  "[python]": {
+    "editor.tabSize": "4"
+  },
+  "python.formatting.provider": "black",
+  "python.linting.flake8Enabled": true,
+  "python.linting.flake8Args": ["--max-line-length=127"],
+  "python.pythonPath": "/usr/bin/python",
+  "python.showStartPage": false,
+  "python.testing.pytestEnabled": true,
+  "workbench.editorAssociations": [
+    {
+      "filenamePattern": "*.ipynb",
+      "viewType": "jupyter.notebook.ipynb"
+    }
+  ],
+  // nginx.conf
+  "[nginx]": {
+    "editor.defaultFormatter": "raynigon.nginx-formatter"
+  },
+  // yaml
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  }
+}
