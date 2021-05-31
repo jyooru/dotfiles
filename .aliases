@@ -49,6 +49,7 @@ alias "grs=git reset --hard"
 alias "gs=git status"
 alias "gst=git stash"
 alias "gstp=git stash pop"
+alias "gu=git reset --soft HEAD^"
 
 # pip aliases
 alias "pipf=pip freeze"
