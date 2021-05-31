@@ -18,3 +18,11 @@ jobs:
         run: |
           shellcheck -s bash \
             .aliases .bashrc .exports .functions .profile install.sh install/*
+  install:
+    runs-on: ubuntu-latest
+    container: ubuntu
+    steps:
+      - uses: actions/checkout@v2
+      - name: test install
+        run: |
+          ./install.sh
