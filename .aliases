@@ -23,6 +23,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 alias "temp=watch -n 1 sensors"
 
 # app shortcuts
+alias "d=docker"
 alias "py=python"
 
 # git aliases
