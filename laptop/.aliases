@@ -25,6 +25,8 @@ alias "temp=watch -n 1 sensors"
 # app shortcuts
 alias "d=docker"
 alias "py=python"
+alias "o=xdg-open"
+alias "open=xdg-open"
 
 # git aliases
 alias "g=git"
