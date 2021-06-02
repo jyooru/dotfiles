@@ -39,15 +39,23 @@ dot_dirs () {
 
 
 install () {
-  for file in {".aliases",".bashrc",".exports",".functions",".gitconfig",".profile"}; do
-    if [ -L "$file" ]; then
-      unlink "$dot_dst_dir/$file"
-      echo "removed link for $file"
-    elif [ -f "$file" ]; then
-      mv "$dot_dst_dir/$file" "$dot_bak_dir/$file"
-      echo "$file has been backed up in $dot_bak_dir"
+  shopt -s dotglob # include hidden files
+  cd $env
+  for file in *; do
+    dst_file="~/$file"
+    if [ -f "$file" ]; then
+    echo "$file"
+      if [ -L "$file" ]; then
+        unlink "$dot_dst_dir/$file"
+        echo "removed link for $file"
+      else
+        mv "$dot_dst_dir/$file" "$dot_bak_dir/$file"
+        echo "$file has been backed up in $dot_bak_dir"
+      fi
+      ln -s "$dot_src_dir/$env/$file" "$dot_dst_dir/$file"
+    elif [ -d "$file" ]; then
+      echo "installing $file is not implemented"
     fi
-    ln -s "$dot_src_dir/$file" "$dot_dst_dir/$file"
     echo "installed $file"
   done
 }
