@@ -4,7 +4,8 @@
 configure_environment () {
   if [ -z "$1" ]; then
     if [ -d "/vscode/vscode-server" ]; then
-      env="devcontainer"
+      ask "environment: devcontainer"
+      detail "automatically detected environment"
     else
       ask "environment:" "env"
     fi
@@ -134,7 +135,11 @@ skip () {
   output_details
 }
 ask () {
-  read -rp "[?] $1 " "$2"
+  if [ -n "$2" ]; then
+    read -rp "[?] $1 " "$2"
+  else
+    echo "[?] $1 "
+  fi
   output_details
 }
 detail () {
