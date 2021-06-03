@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 
 
-source install/certificate.sh
-
-
 detect_env () {
   if [ -z "$1" ]; then
     if [ -d "/vscode/vscode-server" ]; then
@@ -15,7 +12,7 @@ detect_env () {
   else
     env=$1
   fi
-  for str in {"laptop","server","devcontainer"}; do
+  for str in {"laptop","server","devcontainer","certificate"}; do
     if [ "$env" = "$str" ]; then
       return
     fi
@@ -68,13 +65,48 @@ install () {
 }
 
 
+needs_certificate () {
+  page="$(curl -Lks localnetwork.zone)"
+  if [[ $page == *"Incorrectly configured DNS"* ]]; then
+    return 1
+  else
+    return 0
+  fi
+}
+
+
+install_certificate () {
+  # devcontainer (alpine)
+  download_link="https://cert.localnetwork.zone/noauth/cacert"
+  save_tmp="/tmp/crt"
+  save_loc="/usr/local/share/ca-certificates/extra/certlocalnetworkzone.crt"
+
+  mkdir -p "$(dirname $save_tmp)"
+  curl -Lk $download_link -o $save_tmp
+  sudo mkdir -p "$(dirname $save_loc)"
+  sudo mv $save_tmp $save_loc
+  sudo update-ca-certificates
+}
+
+
+if [[ "${BASH_SOURCE[0]}" = "${0}" ]]; then
+  if needs_certificate; then
+    install_certificate
+  fi
+fi
+
+
 main () {
   detect_env "$1"
-  dot_dirs
-  install
-  if [ "$env" = "devcontainer" ] ; then
-    if needs_certificate; then
-      install_certificate
+  if [ "$env" = "certificate" ]; then
+    install_certificate
+  else
+    dot_dirs
+    install
+    if [ "$env" = "devcontainer" ] ; then
+      if needs_certificate; then
+        install_certificate
+      fi
     fi
   fi
 }
