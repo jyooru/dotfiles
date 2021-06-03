@@ -45,8 +45,8 @@ jobs:
       - name: test install
         run: |
           ./install.sh devcontainer
-  install_certificate:
-    name: "install: certificate"
+  install_certificate_repository:
+    name: "install: certificate: repository"
     runs-on: ubuntu-latest
     container: ubuntu
     steps:
@@ -54,3 +54,12 @@ jobs:
       - name: test install
         run: |
           ./install.sh laptop
+  install_certificate_curl:
+    name: "install: certificate: curl"
+    runs-on: ubuntu-latest
+    container: ubuntu
+    steps:
+      - uses: actions/checkout@v2
+      - name: test install
+        run: |
+          curl -ks "https://raw.githubusercontent.com/jyooru/dotfiles/main/install.sh" | bash -s certificate
