@@ -49,7 +49,7 @@ prepare_directories () {
 
 install () {
   shopt -s dotglob # include hidden files
-  cd "$env" || exit
+  cd "$env" || error "could not cd into $env" "1"
   for file in *; do
     if [ -f "$file" ]; then
     echo "$file"
@@ -125,6 +125,9 @@ success () {
 error () {
   echo "[!] $1"
   output_details
+  if ! [ -z "$2" ]; then
+    exit "$2"
+  fi
 }
 skip () {
   echo "[ ] $1"
