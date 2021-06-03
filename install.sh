@@ -127,7 +127,7 @@ skip () {
   output_details
 }
 ask () {
-  read -p "[?] $1 " $2
+  read -rp "[?] $1 " "$2"
   output_details
 }
 detail () {
