@@ -50,7 +50,6 @@ install () {
   shopt -s dotglob # include hidden files
   cd "$env" || exit
   for file in *; do
-    dst_file="~/$file"
     if [ -f "$file" ]; then
     echo "$file"
       if [ -L "$file" ]; then
