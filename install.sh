@@ -48,7 +48,7 @@ dot_dirs () {
 
 install () {
   shopt -s dotglob # include hidden files
-  cd "$env"
+  cd "$env" || exit
   for file in *; do
     dst_file="~/$file"
     if [ -f "$file" ]; then
