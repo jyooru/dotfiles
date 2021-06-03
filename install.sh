@@ -6,18 +6,22 @@ detect_env () {
     if [ -d "/vscode/vscode-server" ]; then
       env="devcontainer"
     else
-      echo -n "env="
-      read -r env
+      ask "environment:" "env"
     fi
   else
     env=$1
   fi
-  for str in {"laptop","server","devcontainer","certificate"}; do
+  environments=("laptop" "server" "devcontainer" "certificate")
+  for str in ${environments[@]}; do
     if [ "$env" = "$str" ]; then
       return
     fi
   done
-  echo "not a valid environment: $env"
+  error "please choose one of the following environments:"
+  for environment in ${environments[@]}; do
+    detail "$environment"
+  done
+  output_details
   if [ -z "$1" ]; then
     detect_env
   else
@@ -172,4 +176,3 @@ EOF
 
 
 main "$@"
- 
