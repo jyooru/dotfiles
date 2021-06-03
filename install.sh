@@ -125,7 +125,7 @@ success () {
 error () {
   echo "[!] $1"
   output_details
-  if ! [ -z "$2" ]; then
+  if [ -n "$2" ]; then
     exit "$2"
   fi
 }
