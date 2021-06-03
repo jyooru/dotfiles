@@ -101,7 +101,7 @@ fi
 
 # output functions
 section () {
-  echo "$1"
+  printf "\n$1\n"
 }
 spin () {
   local pid=$!
@@ -158,7 +158,6 @@ main () {
  / _` |/ _ \| __| |_| | |/ _ \/ __|
 | (_| | (_) | |_|  _| | |  __/\__ \
  \__,_|\___/ \__|_| |_|_|\___||___/
-
 EOF
 
   section "configuration"
