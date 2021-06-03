@@ -109,7 +109,7 @@ spin () {
     animation=$end${animation%"$end"}
     printf "[%c] $1" "$animation"
     sleep $delay
-    printf "\r\033[1B"
+    clear_line
   done
   success "$1"
   tput cnorm  # show cursor
@@ -142,6 +142,9 @@ output_details () {
   fi
   details=""
 }
+clear_line () {
+  printf "\r\033[1B"
+}
 
 
 main () {
@@ -169,3 +172,4 @@ EOF
 
 
 main "$@"
+ 
