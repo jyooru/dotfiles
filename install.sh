@@ -1,32 +1,36 @@
 #!/usr/bin/env bash
 
 
-detect_env () {
+configure_environment () {
   if [ -z "$1" ]; then
     if [ -d "/vscode/vscode-server" ]; then
       env="devcontainer"
     else
-      echo -n "env="
-      read -r env
+      ask "environment:" "env"
     fi
   else
     env=$1
   fi
-  for str in {"laptop","server","devcontainer","certificate"}; do
+  environments=("laptop" "server" "devcontainer" "certificate")
+  for str in "${environments[@]}"; do
     if [ "$env" = "$str" ]; then
       return
     fi
   done
-  echo "not a valid environment: $env"
+  error "please choose one of the following environments:"
+  for environment in "${environments[@]}"; do
+    detail "$environment"
+  done
+  output_details
   if [ -z "$1" ]; then
-    detect_env
+    configure_environment
   else
     exit 1
   fi
 }
 
 
-dot_dirs () {
+prepare_directories () {
   dot_default_src_dir="$HOME/.dotfiles"
   if [ -z "$dot_src_dir" ]; then
     dot_src_dir="$dot_default_src_dir"
@@ -95,19 +99,86 @@ if [[ "${BASH_SOURCE[0]}" = "${0}" ]]; then
   fi
 fi
 
+# output functions
+section () {
+  printf "\n$1\n"
+}
+spin () {
+  local pid=$!
+  local delay=0.1
+  local animation="|/-\\"
+  while [ -d "/proc/$pid" ]; do
+    tput civis  # hide cursor
+    end=${animation#?}
+    animation=$end${animation%"$end"}
+    printf "[%c] $1" "$animation"
+    sleep $delay
+    clear_line
+  done
+  success "$1"
+  tput cnorm  # show cursor
+}
+success () {
+  echo "[+] $1"
+  output_details
+}
+error () {
+  echo "[!] $1"
+  output_details
+}
+skip () {
+  echo "[ ] $1"
+  output_details
+}
+ask () {
+  read -rp "[?] $1 " "$2"
+  output_details
+}
+detail () {
+  if ! [ "$details" == "" ]; then
+    details="$details\n"
+  fi
+  details="$details - $1"
+}
+output_details () {
+  if ! [ "$details" == "" ]; then
+    printf "%b\n" "$details"
+  fi
+  details=""
+}
+clear_line () {
+  printf "\r\033[1B"
+}
+
 
 main () {
-  detect_env "$1"
-  if [ "$env" = "certificate" ]; then
-    install_certificate
-  else
-    dot_dirs
-    install
-    if [ "$env" = "devcontainer" ] ; then
-      if needs_certificate; then
-        install_certificate
-      fi
+  cat << "EOF"
+     _       _    __ _ _           
+  __| | ___ | |_ / _(_) | ___  ___ 
+ / _` |/ _ \| __| |_| | |/ _ \/ __|
+| (_| | (_) | |_|  _| | |  __/\__ \
+ \__,_|\___/ \__|_| |_|_|\___||___/
+EOF
+
+  section "configuration"
+  configure_environment "$1"
+
+  if ! [ "$env" = "certificate" ]; then
+    section "preparation"
+    prepare_directories
+  fi
+
+  section "installation"
+  if [ "$env" == "certificate" ] || [ "$env" == "devcontainer" ]; then
+    task="install certificate"
+    if needs_certificate; then
+      install_certificate && spin "$task"
+    else  
+      skip "$task"
     fi
+  fi
+  if ! [ "$env" = "certificate" ]; then
+    install
   fi
 }
 
