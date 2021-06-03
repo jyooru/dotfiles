@@ -17,7 +17,7 @@ jobs:
       - name: lint with shellcheck
         # TODO: find a better way to get shell files
         run: |
-          shellcheck -s bash \
+          shellcheck -s bash -e SC1091 \
             laptop/.aliases laptop/.bashrc laptop/.exports laptop/.functions laptop/.profile laptop/vscode/extensions.sh \
             install.sh install/*
   install:
