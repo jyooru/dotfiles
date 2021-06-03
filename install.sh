@@ -5,18 +5,26 @@ source install/certificate.sh
 
 
 detect_env () {
-  if [ -d "/vscode/vscode-server" ]; then
-    env="devcontainer"
+  if [ -z $1 ]; then
+    if [ -d "/vscode/vscode-server" ]; then
+      env="devcontainer"
+    else
+      echo -n "env="
+      read -r env
+    fi
   else
-    echo -n "env="
-    read -r env
-    for str in {"laptop","server","devcontainer"}; do
-      if [ "$env" = "$str" ]; then
-        return
-      fi
-    done
-    echo "not a valid environment: $env"
+    env=$1
+  fi
+  for str in {"laptop","server","devcontainer"}; do
+    if [ "$env" = "$str" ]; then
+      return
+    fi
+  done
+  echo "not a valid environment: $env"
+  if [ -z $1 ]; then
     detect_env
+  else
+    exit 1
   fi
 }
 
@@ -62,7 +70,7 @@ install () {
 
 
 main () {
-  detect_env
+  detect_env $1
   dot_dirs
   install
   if [ "$env" = "devcontainer" ] ; then
@@ -73,4 +81,4 @@ main () {
 }
 
 
-main
+main $@
