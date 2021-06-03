@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 
-detect_env () {
+configure_environment () {
   if [ -z "$1" ]; then
     if [ -d "/vscode/vscode-server" ]; then
       env="devcontainer"
@@ -23,14 +23,14 @@ detect_env () {
   done
   output_details
   if [ -z "$1" ]; then
-    detect_env
+    configure_environment
   else
     exit 1
   fi
 }
 
 
-dot_dirs () {
+prepare_directories () {
   dot_default_src_dir="$HOME/.dotfiles"
   if [ -z "$dot_src_dir" ]; then
     dot_src_dir="$dot_default_src_dir"
@@ -160,17 +160,26 @@ main () {
  \__,_|\___/ \__|_| |_|_|\___||___/
 
 EOF
-  detect_env "$1"
-  if [ "$env" = "certificate" ]; then
-    install_certificate
-  else
-    dot_dirs
-    install
-    if [ "$env" = "devcontainer" ] ; then
-      if needs_certificate; then
-        install_certificate
-      fi
+
+  section "configuration"
+  configure_environment "$1"
+
+  if ! [ "$env" = "certificate" ]; then
+    section "preparation"
+    prepare_directories
+  fi
+
+  section "installation"
+  if [ "$env" == "certificate" ] || [ "$env" == "devcontainer" ]; then
+    task="install certificate"
+    if needs_certificate; then
+      install_certificate && spin "$task"
+    else  
+      skip "$task"
     fi
+  fi
+  if ! [ "$env" = "certificate" ]; then
+    install
   fi
 }
 
