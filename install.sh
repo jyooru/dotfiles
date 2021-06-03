@@ -12,13 +12,13 @@ detect_env () {
     env=$1
   fi
   environments=("laptop" "server" "devcontainer" "certificate")
-  for str in ${environments[@]}; do
+  for str in "${environments[@]}"; do
     if [ "$env" = "$str" ]; then
       return
     fi
   done
   error "please choose one of the following environments:"
-  for environment in ${environments[@]}; do
+  for environment in "${environments[@]}"; do
     detail "$environment"
   done
   output_details
