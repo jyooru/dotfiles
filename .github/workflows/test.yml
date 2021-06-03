@@ -18,7 +18,35 @@ jobs:
           shellcheck -s bash -e SC1091 \
             laptop/.aliases laptop/.bashrc laptop/.exports laptop/.functions laptop/.profile laptop/vscode/extensions.sh \
             install.sh
-  install:
+  install_laptop:
+    name: "install: laptop"
+    runs-on: ubuntu-latest
+    container: ubuntu
+    steps:
+      - uses: actions/checkout@v2
+      - name: test install
+        run: |
+          ./install.sh laptop
+  install_server:
+    name: "install: server"
+    runs-on: ubuntu-latest
+    container: ubuntu
+    steps:
+      - uses: actions/checkout@v2
+      - name: test install
+        run: |
+          ./install.sh laptop
+  install_devcontainer:
+    name: "install: devcontainer"
+    runs-on: ubuntu-latest
+    container: mcr.microsoft.com/vscode/devcontainers/python:0-3.9
+    steps:
+      - uses: actions/checkout@v2
+      - name: test install
+        run: |
+          ./install.sh devcontainer
+  install_certificate:
+    name: "install: certificate"
     runs-on: ubuntu-latest
     container: ubuntu
     steps:
