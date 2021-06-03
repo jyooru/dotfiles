@@ -95,6 +95,54 @@ if [[ "${BASH_SOURCE[0]}" = "${0}" ]]; then
   fi
 fi
 
+# output functions
+section () {
+  echo "$1"
+}
+spin () {
+  local pid=$!
+  local delay=0.1
+  local animation="|/-\\"
+  while [ -d "/proc/$pid" ]; do
+    tput civis  # hide cursor
+    end=${animation#?}
+    animation=$end${animation%"$end"}
+    printf "[%c] $1" "$animation"
+    sleep $delay
+    printf "\r\033[1B"
+  done
+  success "$1"
+  tput cnorm  # show cursor
+}
+success () {
+  echo "[+] $1"
+  output_details
+}
+error () {
+  echo "[!] $1"
+  output_details
+}
+skip () {
+  echo "[ ] $1"
+  output_details
+}
+ask () {
+  read -p "[?] $1 " $2
+  output_details
+}
+detail () {
+  if ! [ "$details" == "" ]; then
+    details="$details\n"
+  fi
+  details="$details - $1"
+}
+output_details () {
+  if ! [ "$details" == "" ]; then
+    printf "%b\n" "$details"
+  fi
+  details=""
+}
+
 
 main () {
   cat << "EOF"
