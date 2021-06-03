@@ -101,7 +101,7 @@ fi
 
 # output functions
 section () {
-  printf "\n$1\n"
+  printf "\n%sn" "$1"
 }
 spin () {
   local pid=$!
