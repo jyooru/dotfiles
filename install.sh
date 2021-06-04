@@ -5,6 +5,7 @@ configure_environment () {
   if [ -z "$1" ]; then
     if [ -d "/vscode/vscode-server" ]; then
       ask "environment: devcontainer"
+      env="devcontainer"
       detail "automatically detected environment"
     else
       ask "environment:" "env"
