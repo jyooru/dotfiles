@@ -17,7 +17,7 @@ jobs:
         run: |
           shellcheck -s bash -e SC1091 \
             laptop/.aliases laptop/.bashrc laptop/.exports laptop/.functions laptop/.profile laptop/vscode/extensions.sh \
-            install.sh
+            install.sh update.sh
   install_laptop:
     name: "install: laptop"
     runs-on: ubuntu-latest
