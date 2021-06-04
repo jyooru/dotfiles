@@ -57,6 +57,10 @@ alias "gst=git stash"
 alias "gstp=git stash pop"
 alias "gu=git reset --soft HEAD^"
 
+# jekyll aliases
+alias "jks=bundle exec jekyll serve --livereload"
+alias "jkb=bundle exec jekyll build"
+
 # pip aliases
 alias "pipf=pip freeze"
 alias "pipi=pip install"
