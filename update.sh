@@ -25,10 +25,10 @@ main () {
 EOF
   section "configuration"
   configure_environment
-  cd "$env" || error "could not cd into $env" "1"
+  cd "${env:?}" || error "could not cd into ${env:?}" "1" # 
   
   section "update"
-  if [ "$env" == "laptop" ]; then
+  if [ "${env:?}" == "laptop" ]; then
     update_vscode & spin "updating vscode extensions"
   fi
 }
