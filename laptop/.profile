@@ -1,4 +1,5 @@
-# shellcheck disable=SC2148 # files that are sourced do not need shebangs
+#!/usr/bin/env bash
+
 # add directories to path if they exist
 for path in {"$HOME/.local/bin","$HOME/code/scripts"}; do
   [ -d "$path" ] && PATH="$path:$PATH"

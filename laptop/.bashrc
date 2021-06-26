@@ -1,4 +1,5 @@
-# shellcheck disable=SC2148 # files that are sourced do not need shebangs
+#!/usr/bin/env bash
+
 # shellcheck source=.profile
 source ~/.profile
 
