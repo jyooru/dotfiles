@@ -16,10 +16,19 @@ jobs:
           sudo apt-get install shellcheck
       - name: lint with shellcheck
         run: |
-          find . -exec [ -f {} ] \; \
+          readarray -d '' files < <(find . \
+            -not -path "./.git/*" \
+            -exec [ -f {} ] \; \
             -exec [ ! -L {} ] \; \
             -exec grep -q "#\!/usr/bin/env bash" {} \; \
-            -exec shellcheck -e SC1091 {} \;
+            -print0)
+          success=true
+          for file in "${files[@]}"; do
+            shellcheck -e SC1091 "$file" || success=false
+          done
+          if [ "$success" = false ]; then
+            exit 1
+          fi
   test_laptop:
     name: "test: laptop"
     runs-on: ubuntu-latest
