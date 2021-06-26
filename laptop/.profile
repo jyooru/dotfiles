@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # add directories to path if they exist
-for path in {"$HOME/.local/bin","$HOME/code/scripts"}; do
+for path in {"$HOME/.local/bin"}; do
   [ -d "$path" ] && PATH="$path:$PATH"
 done
 unset path
