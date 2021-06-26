@@ -15,11 +15,11 @@ jobs:
         run: |
           sudo apt-get install shellcheck
       - name: lint with shellcheck
-        # TODO: find a better way to get shell files
         run: |
-          shellcheck -s bash -e SC1091 \
-            laptop/.aliases laptop/.bashrc laptop/.exports laptop/.functions laptop/.profile laptop/vscode/extensions.sh \
-            install.sh update.sh
+          find . -exec [ -f {} ] \; \
+            -exec [ ! -L {} ] \; \
+            -exec grep -q "#\!/usr/bin/env bash" {} \; \
+            -exec shellcheck -e SC1091 {} \;
   test_laptop:
     name: "test: laptop"
     runs-on: ubuntu-latest
