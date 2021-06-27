@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: install dependencies
+      - name: Install dependencies
         run: |
           sudo apt-get install shellcheck
-      - name: lint with shellcheck
+      - name: Lint with shellcheck
         run: |
           readarray -d '' files < <(find . \
             -not -path "./.git/*" \
