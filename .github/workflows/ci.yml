@@ -29,43 +29,19 @@ jobs:
           if [ "$success" = false ]; then
             exit 1
           fi
-  test_laptop:
-    name: "test: laptop"
+  test:
+    strategy:
+      matrix:
+        container: [ubuntu]
+        run:
+          - "./install.sh laptop"
+          - "./install.sh server"
+          - "./install.sh devcontainer"
+          - "./install.sh certificate"
+          - "curl -ks 'https://raw.githubusercontent.com/jyooru/dotfiles/main/install.sh' | bash -s certificate"
+    name: "test: ${{ matrix.container }}: ${{ matrix.run }}"
     runs-on: ubuntu-latest
-    container: ubuntu
+    container: ${{ matrix.container }}
     steps:
       - uses: actions/checkout@v2
-      - run: |
-          ./install.sh laptop
-  test_server:
-    name: "test: server"
-    runs-on: ubuntu-latest
-    container: ubuntu
-    steps:
-      - uses: actions/checkout@v2
-      - run: |
-          ./install.sh laptop
-  test_devcontainer:
-    name: "test: devcontainer"
-    runs-on: ubuntu-latest
-    container: mcr.microsoft.com/vscode/devcontainers/python:0-3.9
-    steps:
-      - uses: actions/checkout@v2
-      - run: |
-          ./install.sh devcontainer
-  test_certificate_repository:
-    name: "test: certificate: repository"
-    runs-on: ubuntu-latest
-    container: ubuntu
-    steps:
-      - uses: actions/checkout@v2
-      - run: |
-          ./install.sh laptop
-  test_certificate_curl:
-    name: "test: certificate: curl"
-    runs-on: ubuntu-latest
-    container: ubuntu
-    steps:
-      - uses: actions/checkout@v2
-      - run: |
-          curl -ks "https://raw.githubusercontent.com/jyooru/dotfiles/main/install.sh" | bash -s certificate
+      - run: ${{ matrix.run }}
