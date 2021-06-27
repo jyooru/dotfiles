@@ -41,7 +41,7 @@ jobs:
           - "curl -ks 'https://raw.githubusercontent.com/jyooru/dotfiles/main/install.sh' | bash -s certificate"
     name: "test: ${{ matrix.container }}: ${{ matrix.run }}"
     runs-on: ubuntu-latest
-    container: ${{ container }}
+    container: ${{ matrix.container }}
     steps:
       - uses: actions/checkout@v2
       - run: ${{ matrix.run }}
