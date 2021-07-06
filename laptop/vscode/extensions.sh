@@ -6,6 +6,7 @@ code --install-extension eamodio.gitlens
 code --install-extension enkia.tokyo-night
 code --install-extension esbenp.prettier-vscode
 code --install-extension GitHub.github-vscode-theme
+code --install-extension GitHub.remotehub
 code --install-extension GitHub.vscode-pull-request-github
 code --install-extension icrawl.discord-vscode
 code --install-extension ms-azuretools.vscode-docker
