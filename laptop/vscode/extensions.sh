@@ -19,5 +19,6 @@ code --install-extension raynigon.nginx-formatter
 code --install-extension redhat.vscode-commons
 code --install-extension redhat.vscode-xml
 code --install-extension redhat.vscode-yaml
+code --install-extension rust-lang.rust
 code --install-extension timonwong.shellcheck
 code --install-extension yzhang.markdown-all-in-one

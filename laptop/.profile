@@ -5,6 +5,8 @@ for path in {"$HOME/.local/bin",}; do
   [ -d "$path" ] && PATH="$path:$PATH"
 done
 unset path
+# add rust to path
+. "$HOME/.cargo/env"
 
 # source from files if they exist
 for file in ~/.{exports,aliases,functions}; do
