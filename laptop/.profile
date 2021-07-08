@@ -1,12 +1,10 @@
 #!/usr/bin/env bash
 
 # add directories to path if they exist
-for path in {"$HOME/.local/bin",}; do
+for path in {"$HOME/.local/bin","$HOME/.cargo/bin"}; do
   [ -d "$path" ] && PATH="$path:$PATH"
 done
 unset path
-# add rust to path
-. "$HOME/.cargo/env"
 
 # source from files if they exist
 for file in ~/.{exports,aliases,functions}; do
