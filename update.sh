@@ -25,7 +25,7 @@ main () {
 EOF
   section "configuration"
   configure_environment
-  cd "${env:?}" || error "could not cd into ${env:?}" "1" # 
+  cd "${env:?}" || error "could not cd into ${env:?}" "1" 
   
   section "update"
   if [ "${env:?}" == "laptop" ]; then

@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-# aliases are defined in this file
-# it is sourced from .profile
 
 # ls aliases
 alias ll="ls -alF"
@@ -20,7 +18,6 @@ alias -- -="cd -"
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # temperature alias
-# watches sensors command
 alias "temp=watch -n 1 sensors"
 
 # app shortcuts

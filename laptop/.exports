@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-# exports are defined in this file
-# it is sourced from .profile
 
 export DOTFILESDIR="$HOME/.dotfiles"
 export GIT_EDITOR=nano
