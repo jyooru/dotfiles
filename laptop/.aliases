@@ -81,7 +81,7 @@ alias "jks=bundle exec jekyll serve --livereload"
 alias "jkb=bundle exec jekyll build"
 
 # pip aliases
-alias "pipf=pip freeze"
+alias "pipf=pip freeze > requirements.txt"
 alias "pipi=pip install"
 alias "pipir=pip install -r requirements.txt"
 alias "pipih=pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org"
