@@ -76,6 +76,7 @@ alias "gs=git status"
 alias "gst=git stash"
 alias "gstp=git stash pop"
 alias "gu=git reset --soft HEAD^"
+alias "wifi-scan=nmcli dev wifi list --rescan yes"
 
 # jekyll aliases
 alias "jks=bundle exec jekyll serve --livereload"
