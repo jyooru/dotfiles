@@ -69,6 +69,12 @@ install () {
     echo "installed $file"
   done
   sh -c "$(curl -fsSL https://starship.rs/install.sh)" -s -y
+  if [ "$env" = "devcontainer" ] ; then
+      cat << "EOF" > "$HOME/.config/starship.toml"
+[hostname]
+ssh_only = false
+EOF
+  fi
 }
 
 
