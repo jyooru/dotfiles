@@ -37,6 +37,9 @@
   "redhat.telemetry.enabled": false,
 
   // languages
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
   // sh
   "shellcheck.customArgs": ["-s bash", "-x"],
   // json
@@ -48,7 +51,7 @@
   },
   //html
   "[html]": {
-    "editor.defaultFormatter": "vscode.html-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   // md
   "[markdown]": {
