@@ -68,6 +68,7 @@ install () {
     fi
     echo "installed $file"
   done
+  sh -c "$(curl -fsSL https://starship.rs/install.sh)"
 }
 
 
