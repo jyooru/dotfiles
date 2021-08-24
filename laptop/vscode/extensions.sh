@@ -17,6 +17,7 @@ code --install-extension ms-toolsai.jupyter
 code --install-extension ms-vscode-remote.remote-containers
 code --install-extension ms-vscode.live-server
 code --install-extension PKief.material-icon-theme
+code --install-extension pranaygp.vscode-css-peek
 code --install-extension raynigon.nginx-formatter
 code --install-extension redhat.vscode-commons
 code --install-extension redhat.vscode-xml
