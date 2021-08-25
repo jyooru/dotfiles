@@ -71,8 +71,8 @@ install () {
   sh -c "$(curl -fsSL https://starship.rs/install.sh)" -s -y
   if [ "$env" = "devcontainer" ] ; then
       # TODO: refactor
-      cat << "EOF" > "$HOME/.config/starship.toml"
       bash laptop/vscode/extensions.sh
+      cat << "EOF" > "$HOME/.config/starship.toml"
 [hostname]
 ssh_only = false
 EOF
