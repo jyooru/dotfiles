@@ -68,6 +68,7 @@ install () {
     fi
     echo "installed $file"
   done
+  sudo apt update && sudo apt install curl
   sh -c "$(curl -fsSL https://starship.rs/install.sh)" -s -y
   if [ "$env" = "devcontainer" ] ; then
       # TODO: refactor
