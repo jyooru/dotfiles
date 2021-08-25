@@ -70,6 +70,7 @@ install () {
   done
   sudo apt update && sudo apt install curl
   sh -c "$(curl -fsSL https://starship.rs/install.sh)" -s -y
+  mkdir -p "$HOME/.config/"
   if [ "$env" = "devcontainer" ] ; then
       # TODO: refactor
       bash laptop/vscode/extensions.sh
