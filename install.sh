@@ -68,13 +68,16 @@ install () {
     fi
     echo "installed $file"
   done
+  sudo apt update && sudo apt install curl
   sh -c "$(curl -fsSL https://starship.rs/install.sh)" -s -y
+  mkdir -p "$HOME/.config/"
   if [ "$env" = "devcontainer" ] ; then
       # TODO: refactor
-      cat << "EOF" > "$HOME/.config/starship.toml"
       bash laptop/vscode/extensions.sh
-[hostname]
-ssh_only = false
+      cat << "EOF" > "$HOME/.config/starship.toml"
+[username]
+show_always = true
+style_user = "bold blue"
 EOF
   fi
 }
