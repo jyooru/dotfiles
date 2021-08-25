@@ -73,8 +73,9 @@ install () {
       # TODO: refactor
       bash laptop/vscode/extensions.sh
       cat << "EOF" > "$HOME/.config/starship.toml"
-[hostname]
-ssh_only = false
+[username]
+show_always = true
+style_user = "bold blue"
 EOF
   fi
 }
