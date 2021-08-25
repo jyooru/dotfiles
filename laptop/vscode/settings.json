@@ -73,6 +73,8 @@
   "python.pythonPath": "/usr/bin/python",
   "python.showStartPage": false,
   "python.testing.pytestEnabled": true,
+  // rs
+  "rust-client.autoStartRls": false,
   // nginx.conf
   "[nginx]": {
     "editor.defaultFormatter": "raynigon.nginx-formatter"
