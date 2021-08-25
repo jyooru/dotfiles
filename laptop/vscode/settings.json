@@ -40,8 +40,10 @@
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook"
   },
-  // sh
-  "shellcheck.customArgs": ["-s bash", "-x"],
+  //html
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   // js
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -51,10 +53,6 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  //html
-  "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   // md
@@ -75,6 +73,8 @@
   "python.testing.pytestEnabled": true,
   // rs
   "rust-client.autoStartRls": false,
+  // sh
+  "shellcheck.customArgs": ["-s bash", "-x"],
   // nginx.conf
   "[nginx]": {
     "editor.defaultFormatter": "raynigon.nginx-formatter"
