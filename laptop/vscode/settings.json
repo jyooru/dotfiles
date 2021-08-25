@@ -42,6 +42,10 @@
   },
   // sh
   "shellcheck.customArgs": ["-s bash", "-x"],
+  // js
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   // json
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
