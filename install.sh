@@ -13,7 +13,7 @@ configure_environment () {
   else
     env=$1
   fi
-  environments=("laptop" "server" "devcontainer" "certificate")
+  environments=("laptop" "server" "devcontainer")
   for str in "${environments[@]}"; do
     if [ "$env" = "$str" ]; then
       return
@@ -79,36 +79,6 @@ EOF
   fi
 }
 
-
-needs_certificate () {
-  page="$(curl -Lks localnetwork.zone)"
-  if [[ $page == *"Incorrectly configured DNS"* ]]; then
-    return 1
-  else
-    return 0
-  fi
-}
-
-
-install_certificate () {
-  # devcontainer (alpine)
-  download_link="https://cert.localnetwork.zone/noauth/cacert"
-  save_tmp="/tmp/crt"
-  save_loc="/usr/local/share/ca-certificates/extra/certlocalnetworkzone.crt"
-
-  mkdir -p "$(dirname $save_tmp)"
-  curl -Lk $download_link -o $save_tmp
-  sudo mkdir -p "$(dirname $save_loc)"
-  sudo mv $save_tmp $save_loc
-  sudo update-ca-certificates
-}
-
-
-if [[ "${BASH_SOURCE[0]}" = "${0}" ]]; then
-  if needs_certificate; then
-    install_certificate
-  fi
-fi
 
 # output functions
 section () {
@@ -181,23 +151,11 @@ EOF
   section "configuration"
   configure_environment "$1"
 
-  if ! [ "$env" = "certificate" ]; then
-    section "preparation"
-    prepare_directories
-  fi
+  section "preparation"
+  prepare_directories
 
   section "installation"
-  if [ "$env" == "certificate" ] || [ "$env" == "devcontainer" ]; then
-    task="install certificate"
-    if needs_certificate; then
-      install_certificate && spin "$task"
-    else  
-      skip "$task"
-    fi
-  fi
-  if ! [ "$env" = "certificate" ]; then
-    install
-  fi
+  install
 }
 
 

@@ -17,14 +17,6 @@ cd ~/.dotfiles
 ./install.sh
 ```
 
-### certificate
-
-to install a cyberhound certificate automatically, run the following command on the needed network:
-
-```bash
-curl -ks "https://raw.githubusercontent.com/jyooru/dotfiles/main/install.sh" | bash -s certificate
-```
-
 ## license
 
 see [license](license) for details

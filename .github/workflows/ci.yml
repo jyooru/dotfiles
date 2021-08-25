@@ -37,8 +37,6 @@ jobs:
           - "./install.sh laptop"
           - "./install.sh server"
           - "./install.sh devcontainer"
-          - "./install.sh certificate"
-          - "curl -ks 'https://raw.githubusercontent.com/jyooru/dotfiles/main/install.sh' | bash -s certificate"
     name: "test: ${{ matrix.container }}: ${{ matrix.run }}"
     runs-on: ubuntu-latest
     container: ${{ matrix.container }}
