@@ -2,5 +2,5 @@
 
 
 export DOTFILESDIR="$HOME/.dotfiles"
-export EDITOR=code --wait
+export EDITOR="code --wait"
 export GIT_EDITOR=nano
