@@ -26,9 +26,8 @@
   "git.confirmSync": false,
   "git.inputValidationLength": 2147483647,
   "git.inputValidationSubjectLength": 2147483647,
-  "remote.containers.dotfiles.repository": "jyooru/dotfiles",
-  "remote.containers.dotfiles.targetPath": "~/.dotfiles",
-  "workbench.activityBar.visible": false,
+  "remote.containers.dotfiles.repository": "https://github.com/jyooru/empty.git",
+  "remote.containers.dotfiles.installCommand": "sh -c \"$(curl -fsLS git.io/chezmoi)\" -- init --apply jyooru",
   "workbench.startupEditor": "newUntitledFile",
 
   // extensions
