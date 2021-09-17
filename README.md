@@ -1,22 +1,13 @@
-# dotfiles
+# Dotfiles
 
-my linux [dotfiles](https://dotfiles.github.io/)
+My Linux [dotfiles](https://dotfiles.github.io/), managed with [chezmoi](https://github.com/twpayne/chezmoi).
 
-## installation
+## Installation
 
-clone the repo:
-
-```sh
-git clone https://github.com/jyooru/dotfiles.git ~/.dotfiles
+```bash
+sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply jyooru
 ```
 
-run [install.sh](install.sh):
+## License
 
-```sh
-cd ~/.dotfiles
-./install.sh
-```
-
-## license
-
-see [license](license) for details
+See [LICENSE](LICENSE) for details.

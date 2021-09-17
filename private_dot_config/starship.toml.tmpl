@@ -28,6 +28,13 @@ symbol = " "
 [hg_branch]
 symbol = " "
 
+{{- if env "CODESPACES" }}
+[hostname]
+format = "[devcontainer]($style) in "
+ssh_only = false
+style = "bold blue"
+{{- end }}
+
 [java]
 symbol = " "
 
