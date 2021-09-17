@@ -41,4 +41,8 @@ jobs:
     container: ${{ matrix.container }}
     steps:
       - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: |
+          apt-get update
+          apt-get install -y curl
       - run: ./install.sh
