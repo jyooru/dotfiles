@@ -28,7 +28,8 @@ symbol = " "
 [hg_branch]
 symbol = " "
 
-{{- if env "CODESPACES" }}
+{{- $devcontainer:= env "REMOTE_CONTAINERS" | not | not -}}
+{{- if $devcontainer }}
 [hostname]
 format = "[devcontainer]($style) in "
 ssh_only = false
