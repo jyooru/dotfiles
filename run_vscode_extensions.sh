@@ -1,7 +1,7 @@
 #!/bin/sh
 
 
-if command -v code &> /dev/null; then
+if command -v code >/dev/null 2>&1; then
   code --install-extension ahmadalli.vscode-nginx-conf
   code --install-extension eamodio.gitlens
   code --install-extension enkia.tokyo-night
