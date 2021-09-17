@@ -20,7 +20,7 @@ jobs:
             -not -path "./.git/*" \
             -exec [ -f {} ] \; \
             -exec [ ! -L {} ] \; \
-            -exec grep -q "#\!/usr/bin/env bash" {} \; \
+            -exec grep -q "#\!/bin/sh bash" {} \; \
             -print0)
           success=true
           for file in "${files[@]}"; do
