@@ -1,6 +1,6 @@
 # Dotfiles
 
-My Linux [dotfiles](https://dotfiles.github.io/).
+My Linux [dotfiles](https://dotfiles.github.io/), managed with [chezmoi](https://github.com/twpayne/chezmoi).
 
 ## Installation
 
