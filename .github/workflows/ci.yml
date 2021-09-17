@@ -34,12 +34,11 @@ jobs:
       matrix:
         container: [ubuntu]
         run:
-          - "./install.sh laptop"
-          - "./install.sh server"
-          - "./install.sh devcontainer"
+          - "./install.sh"
+          - 'sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply jyooru'
     name: "test: ${{ matrix.container }}: ${{ matrix.run }}"
     runs-on: ubuntu-latest
     container: ${{ matrix.container }}
     steps:
       - uses: actions/checkout@v2
-      - run: ${{ matrix.run }}
+      - run: ./install.sh
