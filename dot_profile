@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 
 for path in {"$HOME/.local/bin","$HOME/.cargo/bin"}; do
