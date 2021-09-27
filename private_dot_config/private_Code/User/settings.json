@@ -65,7 +65,7 @@
   "python.defaultInterpreterPath": "/usr/bin/python",
   "python.formatting.provider": "black",
   "python.linting.flake8Enabled": true,
-  "python.linting.flake8Args": ["--max-line-length=127"],
+  "python.linting.flake8Args": ["--max-line-length=88"],
   "python.pythonPath": "/usr/bin/python",
   "python.showStartPage": false,
   "python.testing.pytestEnabled": true,
