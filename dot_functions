@@ -32,6 +32,13 @@ gbu () {
   # git branch set upstream
   git branch "--set-upstream-to=origin/$1" "$1"
 }
+gbpd () {
+  # git branch pull and delete
+  branch=`git rev-parse --abbrev-ref HEAD`
+  git checkout main
+  git pull
+  git branch -d $branch
+}
 
 # vscode function
 c () {
