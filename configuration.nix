@@ -18,9 +18,6 @@
   boot.loader.efi.efiSysMountPoint = "/boot";
   # Define on which hard drive you want to install Grub.
   boot.loader.grub.device = "nodev"; # or "nodev" for efi only
-  #
-  boot.loader.systemd-boot.enable = true;
-
 
   networking.hostName = "nix-box"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
