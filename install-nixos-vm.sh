@@ -35,6 +35,7 @@ prepare_disks () {
 
 
 configure () {
+  mkdir -p /mnt/etc/nixos
   curl --fail 192.168.0.10:8000/configuration.nix > /mnt/etc/nixos/configuration.nix || nixos-generate-config --force --root /mnt
 }
 
