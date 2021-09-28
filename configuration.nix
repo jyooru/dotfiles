@@ -95,6 +95,7 @@
     bitwarden
     bitwarden-cli
     nixfmt
+    starship
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -104,6 +105,10 @@
     enable = true;
     enableSSHSupport = true;
   };
+
+  fonts.fonts = with pkgs; [
+    (nerdfonts.override { fonts = [ "FiraCode" ]; })
+  ];
 
   # List services that you want to enable:
 
