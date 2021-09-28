@@ -285,72 +285,74 @@
       ];
       userSettings = {
         # theme
-        editor.cursorBlinking = "smooth";
-        editor.cursorSmoothCaretAnimation = true;
-        editor.fontFamily = "FiraCode Nerd Font";
-        editor.fontLigatures = true;
-        editor.fontSize = 14;
-        editor.minimap.enabled = false;
-        workbench.activityBar.visible = false;
-        workbench.colorTheme = "Min Dark";
-        workbench.editor.showTabs = false;
-        workbench.iconTheme = "material-icon-theme";
-        window.menuBarVisibility = "toggle"; # alt shows menu
+        "editor.cursorBlinking" = "smooth";
+        "editor.cursorSmoothCaretAnimation" = true;
+        "editor.fontFamily" = "FiraCode Nerd Font";
+        "editor.fontLigatures" = true;
+        "editor.fontSize" = 14;
+        "editor.minimap.enabled" = false;
+        "workbench.activityBar.visible" = false;
+        "workbench.colorTheme" = "Min Dark";
+        "workbench.editor.showTabs" = false;
+        "workbench.iconTheme" = "material-icon-theme";
+        "window.menuBarVisibility" = "toggle"; # alt shows menu
 
         # functionality
-        diffEditor.renderSideBySide = false;
-        editor.formatOnType = true;
-        editor.formatOnSave = true;
-        editor.linkedEditing = true;
-        editor.insertSpaces = true;
-        editor.tabSize = 2;
-        explorer.confirmDelete = false;
-        explorer.confirmDragAndDrop = false;
-        editor.inlineSuggest.enabled = true;
-        git.autofetch = true;
-        git.confirmSync = false;
-        git.inputValidationLength = 2147483647;
-        git.inputValidationSubjectLength = 2147483647;
-        remote.containers.dotfiles.repository =
-          "https:#github.com/jyooru/dotfiles.git";
-        workbench.startupEditor = "newUntitledFile";
+        "diffEditor.renderSideBySide" = false;
+        "editor.formatOnType" = true;
+        "editor.formatOnSave" = true;
+        "editor.linkedEditing" = true;
+        "editor.insertSpaces" = true;
+        "editor.tabSize" = 2;
+        "explorer.confirmDelete" = false;
+        "explorer.confirmDragAndDrop" = false;
+        "editor.inlineSuggest.enabled" = true;
+        "git.autofetch" = true;
+        "git.confirmSync" = false;
+        "git.inputValidationLength" = 2147483647;
+        "git.inputValidationSubjectLength" = 2147483647;
+        "remote.containers.dotfiles.repository" =
+          "https://github.com/jyooru/dotfiles.git";
+        "workbench.startupEditor" = "newUntitledFile";
 
         # extensions
-        gitlens.hovers.currentLine.over = "line";
-        gitlens.currentLine.enabled = false;
-        redhat.telemetry.enabled = false;
+        "gitlens.hovers.currentLine.over" = "line";
+        "gitlens.currentLine.enabled" = false;
+        "redhat.telemetry.enabled" = false;
 
         # languages
-        workbench.editorAssociations = { "*.ipynb" = "jupyter-notebook"; };
+        "workbench.editorAssociations" = { "*.ipynb" = "jupyter-notebook"; };
         #html
-        html = { editor.defaultFormatter = "esbenp.prettier-vscode"; };
+        "[html]" = { "editor.defaultFormatter" = "esbenp.prettier-vscode"; };
         # js
-        javascript = { editor.defaultFormatter = "esbenp.prettier-vscode"; };
+        "[javascript]" = {
+          "editor.defaultFormatter" = "esbenp.prettier-vscode";
+        };
         # json
-        json = { editor.defaultFormatter = "esbenp.prettier-vscode"; };
-        jsonc = { editor.defaultFormatter = "esbenp.prettier-vscode"; };
+        "[json]" = { "editor.defaultFormatter" = "esbenp.prettier-vscode"; };
+        "[jsonc]" = { "editor.defaultFormatter" = "esbenp.prettier-vscode"; };
         # md
-        markdown = {
-          editor.wordWrap = "on";
-          editor.defaultFormatter = "esbenp.prettier-vscode";
+        "[markdown]" = {
+          "editor.wordWrap" = "on";
+          "editor.defaultFormatter" = "esbenp.prettier-vscode";
         };
         # py
-        python = { editor.tabSize = 4; };
-        python.defaultInterpreterPath = "/usr/bin/python";
-        python.formatting.provider = "black";
-        python.linting.flake8Enabled = true;
-        python.linting.flake8Args = [ "--max-line-length=88" ];
-        python.pythonPath = "/usr/bin/python";
-        python.showStartPage = false;
-        python.testing.pytestEnabled = true;
+        "[python]" = { "editor.tabSize" = 4; };
+        "python.defaultInterpreterPath" = "/usr/bin/python";
+        "python.formatting.provider" = "black";
+        "python.linting.flake8Enabled" = true;
+        "python.linting.flake8Args" = [ "--max-line-length=88" ];
+        "python.pythonPath" = "/usr/bin/python";
+        "python.showStartPage" = false;
+        "python.testing.pytestEnabled" = true;
         # rs
-        rust-client.autoStartRls = false;
+        "rust-client.autoStartRls" = false;
         # sh
-        shellcheck.customArgs = [ "-s bash" "-x" ];
+        "shellcheck.customArgs" = [ "-s bash" "-x" ];
         # nginx.conf
-        nginx = { editor.defaultFormatter = "raynigon.nginx-formatter"; };
+        "[nginx]" = { "editor.defaultFormatter" = "raynigon.nginx-formatter"; };
         # yaml
-        yaml = { editor.defaultFormatter = "redhat.vscode-yaml"; };
+        "[yaml]" = { "editor.defaultFormatter" = "redhat.vscode-yaml"; };
       };
     };
   };
