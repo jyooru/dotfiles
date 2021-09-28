@@ -5,10 +5,9 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -51,7 +50,7 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
-  
+
   # Configure keymap in X11
   services.xserver.layout = "au";
   # services.xserver.xkbOptions = "eurosign:e";
@@ -95,6 +94,7 @@
     onionshare
     bitwarden
     bitwarden-cli
+    nixfmt
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

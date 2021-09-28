@@ -25,20 +25,12 @@
     signing.signByDefault = true;
     userEmail = "joel@joel.tokyo";
     userName = "Joel";
-    includes = [
-      {
-        contents = {
-          init = {
-            defaultBranch = "main";
-          };
-          push = {
-            default = "current";
-          };
-          pull = {
-            rebase = true;
-          };
-        };
-      }
-    ];
+    includes = [{
+      contents = {
+        init = { defaultBranch = "main"; };
+        push = { default = "current"; };
+        pull = { rebase = true; };
+      };
+    }];
   };
 }
