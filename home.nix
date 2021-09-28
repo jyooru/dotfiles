@@ -151,6 +151,8 @@
           "pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org";
         pipl = "pip list";
         pipu = "pip uninstall";
+
+        nixs = "sudo nixos-rebuild switch && home-manager switch";
       };
     };
 
@@ -202,32 +204,32 @@
     vscode = {
       enable = true;
       extensions = [
-        ahmadalli.vscode-nginx-conf
-        eamodio.gitlens
-        enkia.tokyo-night
-        esbenp.prettier-vscode
-        GitHub.github-vscode-theme
-        GitHub.remotehub
-        GitHub.vscode-pull-request-github
-        icrawl.discord-vscode
-        miguelsolorio.min-theme
-        ms-azuretools.vscode-docker
-        ms-python.python
-        ms-python.vscode-pylance
-        ms-toolsai.jupyter
-        ms-vscode-remote.remote-containers
-        ms-vscode.live-server
-        naumovs.color-highlight
-        PeterStaev.lego-spikeprime-mindstorms-vscode
-        PKief.material-icon-theme
-        pranaygp.vscode-css-peek
-        raynigon.nginx-formatter
-        redhat.vscode-commons
-        redhat.vscode-xml
-        redhat.vscode-yaml
-        rust-lang.rust
-        timonwong.shellcheck
-        yzhang.markdown-all-in-one
+        # pkgs.vscode-extensions.ahmadalli.vscode-nginx-conf
+        pkgs.vscode-extensions.eamodio.gitlens
+        # pkgs.vscode-extensions.enkia.tokyo-night
+        pkgs.vscode-extensions.esbenp.prettier-vscode
+        # pkgs.vscode-extensions.GitHub.github-vscode-theme
+        # pkgs.vscode-extensions.GitHub.remotehub
+        # pkgs.vscode-extensions.GitHub.vscode-pull-request-github
+        # pkgs.vscode-extensions.icrawl.discord-vscode
+        # pkgs.vscode-extensions.miguelsolorio.min-theme
+        pkgs.vscode-extensions.ms-azuretools.vscode-docker
+        pkgs.vscode-extensions.ms-python.python
+        pkgs.vscode-extensions.ms-python.vscode-pylance
+        pkgs.vscode-extensions.ms-toolsai.jupyter
+        # pkgs.vscode-extensions.ms-vscode-remote.remote-containers
+        # pkgs.vscode-extensions.ms-vscode.live-server
+        pkgs.vscode-extensions.naumovs.color-highlight
+        # pkgs.vscode-extensions.PeterStaev.lego-spikeprime-mindstorms-vscode
+        # pkgs.vscode-extensions.PKief.material-icon-theme
+        # pkgs.vscode-extensions.pranaygp.vscode-css-peek
+        # pkgs.vscode-extensions.raynigon.nginx-formatter
+        # pkgs.vscode-extensions.redhat.vscode-commons
+        # pkgs.vscode-extensions.redhat.vscode-xml
+        pkgs.vscode-extensions.redhat.vscode-yaml
+        # pkgs.vscode-extensions.rust-lang.rust
+        pkgs.vscode-extensions.timonwong.shellcheck
+        pkgs.vscode-extensions.yzhang.markdown-all-in-one
       ];
       keybindings = [
         {
