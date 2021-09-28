@@ -22,6 +22,10 @@
   programs = {
     bash = {
       enable = true;
+      bashrcExtra = ''
+        export EDITOR="code --wait"
+        export GIT_EDITOR="nano"
+      '';
       shellAliases = {
         # ls aliases
         ll = "ls -alF";
