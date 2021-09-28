@@ -198,5 +198,158 @@
         };
       }];
     };
+
+    vscode = {
+      enable = true;
+      extensions = [
+        ahmadalli.vscode-nginx-conf
+        eamodio.gitlens
+        enkia.tokyo-night
+        esbenp.prettier-vscode
+        GitHub.github-vscode-theme
+        GitHub.remotehub
+        GitHub.vscode-pull-request-github
+        icrawl.discord-vscode
+        miguelsolorio.min-theme
+        ms-azuretools.vscode-docker
+        ms-python.python
+        ms-python.vscode-pylance
+        ms-toolsai.jupyter
+        ms-vscode-remote.remote-containers
+        ms-vscode.live-server
+        naumovs.color-highlight
+        PeterStaev.lego-spikeprime-mindstorms-vscode
+        PKief.material-icon-theme
+        pranaygp.vscode-css-peek
+        raynigon.nginx-formatter
+        redhat.vscode-commons
+        redhat.vscode-xml
+        redhat.vscode-yaml
+        rust-lang.rust
+        timonwong.shellcheck
+        yzhang.markdown-all-in-one
+      ];
+      keybindings = [
+        {
+          key = "ctrl+alt+b";
+          command = "workbench.action.toggleActivityBarVisibility";
+        }
+        {
+          key = "ctrl+alt+";
+          command = "workbench.action.openSettingsJson";
+        }
+        {
+          key = "shift+alt+d";
+          command = "workbench.view.extension.dockerView";
+        }
+        {
+          key = "shift+alt+m";
+          command = "editor.action.toggleMinimap";
+        }
+        {
+          key = "ctrl+shift+g l";
+          command = "workbench.view.extension.gitlens";
+        }
+        {
+          key = "ctrl+shift+g h";
+          command = "-gitlens.showQuickFileHistory";
+          when = "!gitlens:disabled && config.gitlens.keymap == 'chorded'";
+        }
+        {
+          key = "ctrl+shift+g ctrl+h";
+          command = "gitlens.showQuickFileHistory";
+          when = "!gitlens:disabled && config.gitlens.keymap == 'chorded'";
+        }
+        {
+          key = "shift+alt+r l";
+          command = "remote-containers.reopenLocally";
+        }
+        {
+          key = "shift+alt+r r";
+          command = "remote-containers.reopenInContainer";
+        }
+        {
+          key = "shift+alt+r w";
+          command = "remote-containers.openWorkspace";
+        }
+        {
+          key = "shift+alt+r n";
+          command = "remote-containers.newContainer";
+        }
+        {
+          key = "shift+alt+r shift+r";
+          command = "remote-containers.rebuildContainer";
+        }
+      ];
+      userSettings = {
+        # theme
+        editor.cursorBlinking = "smooth";
+        editor.cursorSmoothCaretAnimation = true;
+        editor.fontFamily = "FiraCode Nerd Font";
+        editor.fontLigatures = true;
+        editor.fontSize = 14;
+        editor.minimap.enabled = false;
+        workbench.activityBar.visible = false;
+        workbench.colorTheme = "Min Dark";
+        workbench.editor.showTabs = false;
+        workbench.iconTheme = "material-icon-theme";
+        window.menuBarVisibility = "toggle"; # alt shows menu
+
+        # functionality
+        diffEditor.renderSideBySide = false;
+        editor.formatOnType = true;
+        editor.formatOnSave = true;
+        editor.linkedEditing = true;
+        editor.insertSpaces = true;
+        editor.tabSize = 2;
+        explorer.confirmDelete = false;
+        explorer.confirmDragAndDrop = false;
+        editor.inlineSuggest.enabled = true;
+        git.autofetch = true;
+        git.confirmSync = false;
+        git.inputValidationLength = 2147483647;
+        git.inputValidationSubjectLength = 2147483647;
+        remote.containers.dotfiles.repository =
+          "https:#github.com/jyooru/dotfiles.git";
+        workbench.startupEditor = "newUntitledFile";
+
+        # extensions
+        gitlens.hovers.currentLine.over = "line";
+        gitlens.currentLine.enabled = false;
+        redhat.telemetry.enabled = false;
+
+        # languages
+        workbench.editorAssociations = { "*.ipynb" = "jupyter-notebook"; };
+        #html
+        html = { editor.defaultFormatter = "esbenp.prettier-vscode"; };
+        # js
+        javascript = { editor.defaultFormatter = "esbenp.prettier-vscode"; };
+        # json
+        json = { editor.defaultFormatter = "esbenp.prettier-vscode"; };
+        jsonc = { editor.defaultFormatter = "esbenp.prettier-vscode"; };
+        # md
+        markdown = {
+          editor.wordWrap = "on";
+          editor.defaultFormatter = "esbenp.prettier-vscode";
+        };
+        # py
+        python = { editor.tabSize = 4; };
+        python.defaultInterpreterPath = "/usr/bin/python";
+        python.formatting.provider = "black";
+        python.linting.flake8Enabled = true;
+        python.linting.flake8Args = [ "--max-line-length=88" ];
+        python.pythonPath = "/usr/bin/python";
+        python.showStartPage = false;
+        python.testing.pytestEnabled = true;
+        # rs
+        rust-client.autoStartRls = false;
+        # sh
+        shellcheck.customArgs = [ "-s bash" "-x" ];
+        # nginx.conf
+        nginx = { editor.defaultFormatter = "raynigon.nginx-formatter"; };
+        # yaml
+        yaml = { editor.defaultFormatter = "redhat.vscode-yaml"; };
+      };
+    };
   };
 }
