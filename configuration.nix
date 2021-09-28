@@ -39,7 +39,7 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
-  # i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = "en_AU.UTF-8";
   # console = {
   #   font = "Lat2-Terminus16";
   #   keyMap = "us";
@@ -48,14 +48,12 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
   
-
   # Configure keymap in X11
-  # services.xserver.layout = "us";
+  services.xserver.layout = "au";
   # services.xserver.xkbOptions = "eurosign:e";
 
   # Enable CUPS to print documents.
@@ -85,6 +83,16 @@
     dig
     htop
     git
+    brave
+    fira-code
+    vscode
+    gimp
+    obsidian
+    signal-desktop
+    discord
+    spotify
+    qbittorrent
+    onionshare
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -101,7 +109,7 @@
   services.openssh.enable = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 8000 ];
+  networking.firewall.allowedTCPPorts = [ 22 8000 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   networking.firewall.enable = false;
@@ -114,5 +122,6 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "21.05"; # Did you read the comment?
 
+  nixpkgs.config.allowUnfree = true;
 }
 
