@@ -93,6 +93,8 @@
     spotify
     qbittorrent
     onionshare
+    bitwarden
+    bitwarden-cli
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
