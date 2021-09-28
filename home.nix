@@ -18,4 +18,27 @@
   # the Home Manager release notes for a list of state version
   # changes in each release.
   home.stateVersion = "21.11";
+
+  programs.git = {
+    enable = true;
+    signing.key = "33CA5F24";
+    signing.signByDefault = true;
+    userEmail = "joel@joel.tokyo";
+    userName = "Joel";
+    includes = [
+      {
+        contents = {
+          init = {
+            defaultBranch = "main";
+          };
+          push = {
+            default = "current";
+          };
+          pull = {
+            rebase = true;
+          };
+        };
+      }
+    ];
+  };
 }
