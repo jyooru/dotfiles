@@ -101,24 +101,30 @@
     };
   };
 
-  xsession.windowManager.bspwm.extraConfig = ''
-    #! /bin/sh
-
-    pgrep -x sxhkd > /dev/null || sxhkd &
-
-    bspc monitor -d I II III IV V VI VII VIII IX X
-
-    bspc config border_width         2
-    bspc config window_gap          12
-
-    bspc config split_ratio          0.52
-    bspc config borderless_monocle   true
-    bspc config gapless_monocle      true
-
-    bspc rule -a Gimp desktop='^8' state=floating follow=on
-    bspc rule -a Chromium desktop='^2'
-    bspc rule -a mplayer2 state=floating
-    bspc rule -a Kupfer.py focus=on
-    bspc rule -a Screenkey manage=off'';
-
+  xsession.windowManager.bspwm = {
+    enable = true;
+    startupPrograms = [ "pgrep -x sxhkd > /dev/null || sxhkd" ];
+    monitors = {
+      eDP-1 = [ "1" "2" "3" "4" "5" "6" "7" "8" "9" "0" ];
+      HDMI-1 = [ "1" "2" "3" "4" "5" "6" "7" "8" "9" "0" ];
+    };
+    settings = {
+      border_width = 2;
+      window_gap = 12;
+      split_ratio = 0.52;
+      borderless_monocle = true;
+      gapless_monocle = true;
+    };
+    rules = {
+      "Gimp" = {
+        desktop = "^8";
+        state = "floating";
+        follow = true;
+      };
+      "Chromium" = { desktop = "^2"; };
+      "mplayer2" = { state = "floating"; };
+      "Kupfer.py" = { focus = true; };
+      "Screenkey" = { manage = false; };
+    };
+  };
 }
