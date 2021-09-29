@@ -96,6 +96,10 @@
     bitwarden-cli
     nixfmt
     starship
+    killall
+    scrot
+    neofetch
+    cmatrix
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
