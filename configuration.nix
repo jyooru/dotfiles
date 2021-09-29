@@ -44,12 +44,22 @@
   #   keyMap = "us";
   # };
 
+  services.xserver = {
+    enable = true;
+
+    desktopManager = { xterm.enable = false; };
+
+    displayManager = { defaultSession = "none+bspwm"; };
+
+    windowManager.bspwm = { enable = true; };
+  };
+
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  # services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  # services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
   services.xserver.layout = "au";
@@ -132,5 +142,6 @@
   system.stateVersion = "21.05"; # Did you read the comment?
 
   nixpkgs.config.allowUnfree = true;
+
 }
 

@@ -6,7 +6,11 @@
     rofi = { enable = true; };
   };
 
-  services = { polybar = { enable = true; }; };
+  services = {
+    polybar = {
+      enable = true;
+      script = "polybar bar &";
+    };
+  };
 
-  xsession.windowManager.bspwm = { enable = true; };
 }
