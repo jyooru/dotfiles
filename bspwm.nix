@@ -45,9 +45,24 @@
           bspc {quit,wm -r}
 
         # close and kill
-        super + {_,shift + }w
+        super + {_,shift + } q
           bspc node -{c,k}
 
+        # Switch Active Workspaces
+        alt + {Tab, shift + Tab}
+          bspc {desktop next.occupied -f, desktop prev.occupied -f}
+
+        # focus the last node/desktop
+        super + {grave,Tab}
+          bspc {node,desktop} -f last
+
+        super + f
+          bspc node -t \~fullscreen
+
+        # focus or send to the given desktop
+        super + {_,shift + }{1-9}
+          bspc {desktop -f,node -d} '{1-9}'
+          
         super + space
           rofi -combi-modi window,drun,ssh -show combi
 
@@ -104,10 +119,6 @@
   xsession.windowManager.bspwm = {
     enable = true;
     startupPrograms = [ "pgrep -x sxhkd > /dev/null || sxhkd" ];
-    monitors = {
-      eDP-1 = [ "1" "2" "3" "4" "5" "6" "7" "8" "9" "0" ];
-      HDMI-1 = [ "1" "2" "3" "4" "5" "6" "7" "8" "9" "0" ];
-    };
     settings = {
       border_width = 2;
       window_gap = 12;
@@ -126,5 +137,14 @@
       "Kupfer.py" = { focus = true; };
       "Screenkey" = { manage = false; };
     };
+    extraConfig = ''
+      monitors=(`bspc query -M --names`)
+      if [ "''${#monitors[@]}" = "2" ]; then
+        bspc monitor "''${monitors[0]}" -d 1 3 5 7 9
+        bspc monitor "''${monitors[1]}" -d 2 4 6 8 0
+      else
+        bspc monitor "''${monitors[0]}" -d 1 2 3 4 5 6 7 8 9 0
+      fi
+    '';
   };
 }
