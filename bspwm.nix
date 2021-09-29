@@ -149,22 +149,21 @@
         pgrep -x "$1" > /dev/null || "$@"
       }
 
+      _get_desktop_index () { 
+        desktops=(`bspc query -D --names`)
+        wanted_desktop="$1"
+        for i in "''${!desktops[@]}"; do
+            if [[ "''${desktops[$i]}" = "''${wanted_desktop}" ]]; then
+                wanted_desktop_index="''${i}"
+            fi
+        done
+      }
     '';
     startupPrograms = [
       "_start sxhkd"
       ''
-        if pgrep -x spotify > /dev/null; then 
-          spotify &
-          desktops=(`bspc query -D --names`)
-          wanted_desktop=9
-          for i in "''${!desktops[@]}"; do
-             if [[ "''${desktops[$i]}" = "9" ]]; then
-                 wanted_desktop_index="''${i}"
-             fi
-          done
-          sleep 0.5
-          wmctrl -r Spotify -t "''${wanted_desktop_index}"
-        fi''
+        _start spotify &
+        _get_desktop_index 9 && sleep 0.5 && wmctrl -r Spotify -t "''${wanted_desktop_index}"''
     ];
   };
 }
