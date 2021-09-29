@@ -146,7 +146,7 @@
       fi
 
       _start () {
-        if pgrep -x "$1" > /dev/null || "$@"
+        pgrep -x "$1" > /dev/null || "$@"
       }
 
     '';
