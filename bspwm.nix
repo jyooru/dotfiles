@@ -14,7 +14,7 @@
     sxhkd = {
       enable = true;
       extraConfig = ''
-        super + return
+        super + Return
           alacritty
 
         # reload sxhkd
@@ -28,6 +28,9 @@
         # close and kill
         super + {_,shift + }w
           bspc node -{c,k}
+
+        super + space
+          rofi -combi-modi window,drun,ssh -show combi
 
         XF86Audio{Prev,Next}
         	mpc -q {prev,next}
