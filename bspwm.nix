@@ -20,6 +20,12 @@
           normal = { family = "FiraCode Nerd Font"; };
           size = 11;
         };
+        colors = {
+          primary = {
+            background = "#1f1f1f";
+            foreground = "#bbbbbb";
+          };
+        };
       };
     };
     rofi = { enable = true; };
@@ -125,6 +131,12 @@
   xsession.windowManager.bspwm = {
     enable = true;
     settings = {
+      normal_border_color = "#303030";
+      active_border_color = "#303030";
+      focused_border_color = "#444444";
+      presel_feedback_color = "#444444"; # can't find what this is
+      urgent_border_color = "#cd3131";
+
       border_width = 2;
       window_gap = 12;
       split_ratio = 0.52;
