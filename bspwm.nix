@@ -166,6 +166,8 @@
         _get_desktop_index "$1" && sleep "$sleep" && wmctrl -r "$2" -t "''${wanted_desktop_index}"
       }
 
+      xsetroot -solid "#1a1a1a"
+
       _start sxhkd
       _start signal-desktop & _move_electron_app_to_desktop 0 Signal 3
       _start .discord-wrappe discord & _move_electron_app_to_desktop 0 discord 
