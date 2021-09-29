@@ -118,7 +118,20 @@
 
   xsession.windowManager.bspwm = {
     enable = true;
-    startupPrograms = [ "pgrep -x sxhkd > /dev/null || sxhkd" ];
+    startupPrograms = [
+      "pgrep -x sxhkd > /dev/null || sxhkd"
+      ''
+        spotify &
+        desktops=(`bspc query -D --names`)
+        wanted_desktop=9
+        for i in "''${!desktops[@]}"; do
+           if [[ "''${desktops[$i]}" = "9" ]]; then
+               wanted_desktop_index="''${i}"
+           fi
+        done
+        sleep 0.5
+        wmctrl -r Spotify -t "''${wanted_desktop_index}"''
+    ];
     settings = {
       border_width = 2;
       window_gap = 12;

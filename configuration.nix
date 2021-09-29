@@ -110,6 +110,7 @@
     alacritty
     polybar
     rofi
+    wmctrl
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
