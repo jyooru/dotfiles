@@ -62,6 +62,12 @@
         # focus or send to the given desktop
         super + {_,shift + }{0-9}
           bspc {desktop -f,node -d} '{0-9}'
+
+        super + control + {1-5}
+          a=`expr {1-5} \* 2`; \
+          b=`expr "$a" - 1`; \
+          if [ "$a" = "10" ]; then a=0; fi; \
+          bspc desktop -f "$b" & bspc desktop -f "$a"
           
         super + space
           rofi -combi-modi window,drun,ssh -show combi
