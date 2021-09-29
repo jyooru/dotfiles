@@ -2,7 +2,26 @@
 
 {
   programs = {
-    alacritty = { enable = true; };
+    alacritty = {
+      enable = true;
+      settings = {
+        # https://github.com/alacritty/alacritty/blob/master/alacritty.yml
+        env = {
+          WINIT_X11_SCALE_FACTOR = "1"; # fix font size not changing
+        };
+        window = {
+          padding = {
+            x = 25;
+            y = 25;
+          };
+          dynamic_padding = true;
+        };
+        font = {
+          normal = { family = "FiraCode Nerd Font"; };
+          size = 11;
+        };
+      };
+    };
     rofi = { enable = true; };
   };
 
