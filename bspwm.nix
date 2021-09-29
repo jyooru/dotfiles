@@ -125,17 +125,7 @@
       borderless_monocle = true;
       gapless_monocle = true;
     };
-    rules = {
-      "Gimp" = {
-        desktop = "^8";
-        state = "floating";
-        follow = true;
-      };
-      "Chromium" = { desktop = "^2"; };
-      "mplayer2" = { state = "floating"; };
-      "Kupfer.py" = { focus = true; };
-      "Screenkey" = { manage = false; };
-    };
+    rules = { };
     extraConfig = ''
       monitors=(`bspc query -M --names`)
       if [ "''${#monitors[@]}" = "2" ]; then
@@ -147,7 +137,11 @@
 
       _start () {
         if ! pgrep -x "$1" > /dev/null; then
-          [ -z "$2" ] && "$1" || "$2"
+          if [ -z "$2" ]; then
+            "$1" &
+          else
+            "$2" &
+          fi
         fi
       }
 
@@ -160,12 +154,16 @@
             fi
         done
       }
+
+      _move_electron_app_to_desktop () {
+        [ -z "$3" ] && sleep="0.5" || sleep="$3"
+        _get_desktop_index "$1" && sleep "$sleep" && wmctrl -r "$2" -t "''${wanted_desktop_index}"
+      }
+
+      _start sxhkd
+      _start signal-desktop & _move_electron_app_to_desktop 0 Signal 3
+      _start .discord-wrappe discord & _move_electron_app_to_desktop 0 discord 
+      _start .spotify-wrappe spotify & _move_electron_app_to_desktop 9 Spotify
     '';
-    startupPrograms = [
-      "_start sxhkd"
-      ''
-        _start .spotify-wrappe spotify &
-        _get_desktop_index 9 && sleep 0.5 && wmctrl -r Spotify -t "''${wanted_desktop_index}"''
-    ];
   };
 }

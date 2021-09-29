@@ -155,6 +155,8 @@
         pipu = "pip uninstall";
 
         nixs = "sudo nixos-rebuild switch && home-manager switch";
+
+        get-class = "xprop | grep WM_CLASS | awk '{print $4}'";
       };
     };
 
