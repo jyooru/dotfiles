@@ -60,8 +60,8 @@
           bspc node -t \~fullscreen
 
         # focus or send to the given desktop
-        super + {_,shift + }{1-9}
-          bspc {desktop -f,node -d} '{1-9}'
+        super + {_,shift + }{0-9}
+          bspc {desktop -f,node -d} '{0-9}'
           
         super + space
           rofi -combi-modi window,drun,ssh -show combi
