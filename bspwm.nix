@@ -146,7 +146,9 @@
       fi
 
       _start () {
-        pgrep -x "$1" > /dev/null || "$@"
+        if ! pgrep -x "$1" > /dev/null; then
+          [ -z "$2" ] && "$1" || "$2"
+        fi
       }
 
       _get_desktop_index () { 
@@ -162,7 +164,7 @@
     startupPrograms = [
       "_start sxhkd"
       ''
-        _start spotify &
+        _start .spotify-wrappe spotify &
         _get_desktop_index 9 && sleep 0.5 && wmctrl -r Spotify -t "''${wanted_desktop_index}"''
     ];
   };
