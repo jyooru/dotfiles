@@ -64,7 +64,7 @@
     };
   };
 
-  xsession.windowManager.bspwm.extraconfig = ''
+  xsession.windowManager.bspwm.extraConfig = ''
     #! /bin/sh
 
     pgrep -x sxhkd > /dev/null || sxhkd &
