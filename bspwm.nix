@@ -14,6 +14,21 @@
     sxhkd = {
       enable = true;
       extraConfig = ''
+        super + return
+          alacritty
+
+        # reload sxhkd
+        super + Escape
+          pkill -USR1 -x sxhkd
+
+        # quit / restart bspwm
+        super + alt + {q,r}
+          bspc {quit,wm -r}
+
+        # close and kill
+        super + {_,shift + }w
+          bspc node -{c,k}
+
         XF86Audio{Prev,Next}
         	mpc -q {prev,next}
 
