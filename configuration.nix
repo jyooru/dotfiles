@@ -79,6 +79,9 @@
   users.users.joel = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    openssh.authorizedKeys.keys = [
+      "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDZRVyIr36y2CO1j3O4FKNwa/NsMmf3tLJfMaw/DZxWr2E5pBrV6HTM4krb5a5yEKs0KXCoSYeqVFO9A4GHn/7QDH/tRCUQIacvq2itJYaRmKKiFqN1fFNUi8F1sUsrAM+Yd+hlZp/e85MI4Tr6jDzim+SNzX/yOuWGJEK69yp4EJfFFucau2g11O9ffZmfFol52ibCVvCDlSpfINv2RfG6ISgBYxzGdlpPO2zGuqfkrt2ZNMQkJYnD71wz3JkUgDCaZezf1u855WgQWy3YE7J8KsWzm2P2TJc1Ijyd+8xFQLkq2bDd6JfAGCJ0p9kraU7fbDuk9azl2lwCxO7DDzq3us3cgeDe3pL3dLh8CGhoD0uTmCG1tSPLowgiuLJxEBYd96er3Hi0Rg6dTQ94VT99PVgarBJEeUcjd6ro18bWN9EEvsHeuDYQ9FDkaxxJAjD2gVmS2iUj9nkqsEFXV9ursRE3Po1ufMQ0iSFzlk3H7NWWQVNIUubqljHD+b4BJos= root@iphone-7"
+    ];
   };
 
   # List packages installed in system profile. To search, run:
@@ -147,17 +150,22 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    passwordAuthentication = false;
+  };
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 22 8000 ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  #networking.firewall.allowedTCPPorts = [ 22 ];
+  #networking.firewall.allowedUDPPorts = [ ];
   # Or disable the firewall altogether.
-  networking.firewall.enable = false;
+  networking.firewall.enable = true;
 
   networking.networkmanager.enable = true;
   networking.networkmanager.insertNameservers = [ "1.1.1.1" "1.0.0.1" ];
   programs.nm-applet.enable = true;
+
+  services.logind.lidSwitch = "ignore";
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
