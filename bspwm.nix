@@ -54,6 +54,7 @@
   services = {
     polybar = {
       enable = true;
+      config = ./config;
       script = "polybar bar &";
     };
     sxhkd = {
@@ -199,6 +200,7 @@
       }
 
       xsetroot -solid "#1a1a1a"
+      killall polybar; polybar bar &
 
       _start sxhkd
       _start signal-desktop & _move_electron_app_to_desktop 0 Signal 3
