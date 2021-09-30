@@ -112,6 +112,20 @@
     rofi
     wmctrl
     killall
+    gnome.nautilus
+    lsd
+    ranger
+    pv
+    ncdu
+    ffmpeg
+    nmap
+    iotop
+    pandoc
+    picom
+    nextcloud-client
+    fd
+    ffsend
+    # TODO: python apps (poetry, yt-dlp, ...)
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
