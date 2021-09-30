@@ -127,6 +127,7 @@
     ffsend
     brightnessctl
     xorg.xev
+    playerctl
     # TODO: python apps (poetry, yt-dlp, ...)
   ];
 

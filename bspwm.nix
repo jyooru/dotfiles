@@ -122,13 +122,14 @@
         # ? (keyboard icon)
         # XF86Favourites
 
-        # ? (audio previous)
-        # XF86AudioPlay
-        # ? (audio next)
-        # -
+        XF86AudioPrev
+        	playerctl previous
 
-        XF86Audio{Prev,Next}
-        	mpc -q {prev,next}
+        XF86AudioPlay
+          playerctl play-pause
+
+        XF86AudioNext
+          playerctl next
 
         super + shift + equal
         	sxiv -rt "$HOME/image"
