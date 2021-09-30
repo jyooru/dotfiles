@@ -152,6 +152,10 @@
   # Or disable the firewall altogether.
   networking.firewall.enable = false;
 
+  networking.networkmanager.enable = true;
+  networking.networkmanager.insertNameservers = [ "1.1.1.1" "1.0.0.1" ];
+  programs.nm-applet.enable = true;
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
@@ -161,6 +165,4 @@
   system.stateVersion = "21.05"; # Did you read the comment?
 
   nixpkgs.config.allowUnfree = true;
-
 }
-
