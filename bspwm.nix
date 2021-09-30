@@ -99,11 +99,36 @@
         super + space
           rofi -combi-modi window,drun,ssh -show combi
 
-        XF86Audio{Prev,Next}
-        	mpc -q {prev,next}
-
         @XF86LaunchA
         	scrot -s -e 'image_viewer $f'
+
+        XF86AudioRaiseVolume
+          amixer set Master 10%+
+        XF86AudioLowerVolume
+          amixer set Master 10%-
+        XF86AudioMute
+          amixer set Master toggle
+        # XF86AudioMicMute
+
+        XF86MonBrightnessDown
+          brightnessctl set 10%-
+        XF86MonBrightnessUp
+          brightnessctl set 10%+
+
+        # XF86Display
+        # XF86WLAN
+        # XF86Tools
+        # XF86Bluetooth
+        # ? (keyboard icon)
+        # XF86Favourites
+
+        # ? (audio previous)
+        # XF86AudioPlay
+        # ? (audio next)
+        # -
+
+        XF86Audio{Prev,Next}
+        	mpc -q {prev,next}
 
         super + shift + equal
         	sxiv -rt "$HOME/image"

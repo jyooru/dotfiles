@@ -125,6 +125,8 @@
     nextcloud-client
     fd
     ffsend
+    brightnessctl
+    xorg.xev
     # TODO: python apps (poetry, yt-dlp, ...)
   ];
 
