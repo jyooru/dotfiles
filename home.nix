@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
 {
+  imports = [ ./bspwm.nix ];
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
@@ -153,6 +155,8 @@
         pipu = "pip uninstall";
 
         nixs = "sudo nixos-rebuild switch && home-manager switch";
+
+        get-class = "xprop | grep WM_CLASS | awk '{print $4}'";
       };
     };
 
@@ -307,7 +311,6 @@
         "explorer.confirmDelete" = false;
         "explorer.confirmDragAndDrop" = false;
         "editor.inlineSuggest.enabled" = true;
-        "git.autofetch" = true;
         "git.confirmSync" = false;
         "git.inputValidationLength" = 2147483647;
         "git.inputValidationSubjectLength" = 2147483647;

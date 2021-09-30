@@ -44,12 +44,22 @@
   #   keyMap = "us";
   # };
 
+  services.xserver = {
+    enable = true;
+
+    desktopManager = { xterm.enable = false; };
+
+    displayManager = { defaultSession = "none+bspwm"; };
+
+    windowManager.bspwm = { enable = true; };
+  };
+
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  # services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  # services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
   services.xserver.layout = "au";
@@ -100,6 +110,28 @@
     scrot
     neofetch
     cmatrix
+    bspwm
+    alacritty
+    polybar
+    rofi
+    wmctrl
+    gnome.nautilus
+    lsd
+    ranger
+    pv
+    ncdu
+    ffmpeg
+    nmap
+    iotop
+    pandoc
+    picom
+    nextcloud-client
+    fd
+    ffsend
+    brightnessctl
+    xorg.xev
+    playerctl
+    # TODO: python apps (poetry, yt-dlp, ...)
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -110,9 +142,7 @@
     enableSSHSupport = true;
   };
 
-  fonts.fonts = with pkgs; [
-    (nerdfonts.override { fonts = [ "FiraCode" ]; })
-  ];
+  fonts.fonts = with pkgs; [ (nerdfonts.override { fonts = [ "FiraCode" ]; }) ];
 
   # List services that you want to enable:
 
@@ -125,6 +155,10 @@
   # Or disable the firewall altogether.
   networking.firewall.enable = false;
 
+  networking.networkmanager.enable = true;
+  networking.networkmanager.insertNameservers = [ "1.1.1.1" "1.0.0.1" ];
+  programs.nm-applet.enable = true;
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
@@ -135,4 +169,3 @@
 
   nixpkgs.config.allowUnfree = true;
 }
-
