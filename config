@@ -56,7 +56,7 @@ font-0 = FiraCode Nerd Font:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
-modules-left = bspwm
+modules-left = bspwm playerctl
 modules-center = 
 modules-right = filesystem xbacklight alsa xkeyboard memory cpu wlan eth battery temperature date powermenu
 
@@ -121,7 +121,7 @@ label-focused-padding = 1
 label-occupied = %name%
 label-occupied-padding = 1
 
-label-urgent = %name%!
+label-urgent = %name%
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 1
 
@@ -182,6 +182,14 @@ icon-next = 
 
 label-song-maxlen = 25
 label-song-ellipsis = true
+
+[module/playerctl]
+type = custom/script
+exec = ~/dotfiles/playerctl-status.sh
+interval = 1
+click-left = playerctl previous &
+click-right = playerctl next &
+click-middle = playerctl play-pause &
 
 [module/xbacklight]
 type = internal/xbacklight
