@@ -60,8 +60,12 @@
     sxhkd = {
       enable = true;
       extraConfig = ''
-        super + Return
+        super + {b,e,shift + e,n}
+          {brave,code -r,code -n,obsidian}
+        super + t
           alacritty
+        super + {r,c,s}
+          alacritty -e {ranger,cmatrix,htop}
 
         # reload sxhkd
         super + Escape
@@ -99,8 +103,12 @@
         super + space
           rofi -combi-modi window,drun,ssh -show combi
 
-        @XF86LaunchA
-        	scrot -s -e 'image_viewer $f'
+        Print
+        	scrot
+        shift + Print
+          scrot --select --freeze
+        control + Print
+          scrot --focused
 
         XF86AudioRaiseVolume
           amixer set Master 10%+
@@ -110,10 +118,8 @@
           amixer set Master toggle
         # XF86AudioMicMute
 
-        XF86MonBrightnessDown
-          brightnessctl set 10%-
-        XF86MonBrightnessUp
-          brightnessctl set 10%+
+        {_,shift + ,super + }XF86MonBrightness{Down,Up}
+        	brightnessctl set {10%-,1%-,1%,10%+,1%+,100%}
 
         # XF86Display
         # XF86WLAN
@@ -124,46 +130,23 @@
 
         XF86AudioPrev
         	playerctl previous
-
         XF86AudioPlay
           playerctl play-pause
-
         XF86AudioNext
           playerctl next
-
-        super + shift + equal
-        	sxiv -rt "$HOME/image"
-
-        XF86LaunchB
-        	xdotool selectwindow | xsel -bi
 
         super + {h,j,k,l}
         	bspc node -f {west,south,north,east}
 
-        super + alt + {0-9}
-        	mpc -q seek {0-9}0%
-
-        super + {alt,ctrl,alt + ctrl} + XF86Eject
-        	sudo systemctl {suspend,reboot,poweroff}
-
         super + {_,shift + }{h,j,k,l}
         	bspc node -{f,s} {west,south,north,east}
-
-        {_,shift + ,super + }XF86MonBrightness{Down,Up}
-        	bright {-1,-10,min,+1,+10,max}
-
-        super + o ; {e,w,m}
-        	{gvim,firefox,thunderbird}
-
-        super + alt + control + {h,j,k,l} ; {0-9}
-        	bspc node @{west,south,north,east} -r 0.{0-9}
 
         super + alt + p
         	bspc config focus_follows_pointer {true,false}
 
         # Smart resize, will grow or shrink depending on location.
         # Will always grow for floating nodes.
-        super + ctrl + alt + {Left,Down,Up,Right}
+        super + ctrl + alt + {h,j,k,l}
           n=10; \
           { d1=left;   d2=right;  dx=-$n; dy=0;   \
           , d1=bottom; d2=top;    dx=0;   dy=$n;  \

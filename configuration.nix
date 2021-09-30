@@ -128,6 +128,8 @@
     brightnessctl
     xorg.xev
     playerctl
+    scrot
+    cmatrix
     # TODO: python apps (poetry, yt-dlp, ...)
   ];
 
