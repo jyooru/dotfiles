@@ -104,7 +104,7 @@
           rofi -combi-modi window,drun,ssh -show combi
 
         Print
-        	scrot
+          scrot
         shift + Print
           scrot --select --freeze
         control + Print
@@ -119,7 +119,7 @@
         # XF86AudioMicMute
 
         {_,shift + ,super + }XF86MonBrightness{Down,Up}
-        	brightnessctl set {10%-,1%-,1%,10%+,1%+,100%}
+          brightnessctl set {10%-,1%-,1%,10%+,1%+,100%}
 
         # XF86Display
         # XF86WLAN
@@ -129,20 +129,20 @@
         # XF86Favourites
 
         XF86AudioPrev
-        	playerctl previous
+          playerctl previous
         XF86AudioPlay
           playerctl play-pause
         XF86AudioNext
           playerctl next
 
         super + {h,j,k,l}
-        	bspc node -f {west,south,north,east}
+          bspc node -f {west,south,north,east}
 
         super + {_,shift + }{h,j,k,l}
-        	bspc node -{f,s} {west,south,north,east}
+          bspc node -{f,s} {west,south,north,east}
 
         super + alt + p
-        	bspc config focus_follows_pointer {true,false}
+          bspc config focus_follows_pointer {true,false}
 
         # Smart resize, will grow or shrink depending on location.
         # Will always grow for floating nodes.

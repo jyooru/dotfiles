@@ -71,7 +71,7 @@
             code "$*"
           fi
         }
-              '';
+      '';
       shellAliases = {
         # lsd aliases
         l = "lsd";
