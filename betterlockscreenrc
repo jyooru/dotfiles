@@ -1,6 +1,6 @@
 font="FiraCode Nerd Font"
 timecolor=e5e5e5ff
-time_format="%H:%M"
+time_format="%I:%M"
 locktext="    locked"
 
 ringcolor=5c5c5cff
