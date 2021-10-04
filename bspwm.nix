@@ -54,7 +54,7 @@
   services = {
     polybar = {
       enable = true;
-      config = ./config;
+      config = ./polybar.ini;
       script = "polybar bar &";
     };
     sxhkd = {
