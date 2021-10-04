@@ -65,9 +65,8 @@
         super + {r,c,s}
           alacritty -e {ranger,cmatrix,htop}
 
-        # reload sxhkd
         super + Escape
-          pkill -USR1 -x sxhkd
+          betterlockscreen --lock
 
         # quit / restart bspwm
         super + alt + {q,r}
