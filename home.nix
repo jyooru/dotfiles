@@ -359,9 +359,6 @@
         "[yaml]" = { "editor.defaultFormatter" = "redhat.vscode-yaml"; };
       };
     };
-    betterlockscreen = {
-      enable = true;
-    };
   };
 
   xdg.userDirs = {

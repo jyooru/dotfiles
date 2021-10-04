@@ -137,6 +137,7 @@
     nixpkgs-fmt
     darktable
     qimgv
+    betterlockscreen
     # TODO: python apps (poetry, yt-dlp, ...)
   ];
 
