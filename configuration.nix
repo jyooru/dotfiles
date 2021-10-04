@@ -135,6 +135,8 @@
     xorg.xev
     playerctl
     nixpkgs-fmt
+    darktable
+    qimgv
     # TODO: python apps (poetry, yt-dlp, ...)
   ];
 
