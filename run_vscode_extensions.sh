@@ -10,6 +10,7 @@ if command -v code >/dev/null 2>&1; then
   code --install-extension GitHub.remotehub
   code --install-extension GitHub.vscode-pull-request-github
   code --install-extension icrawl.discord-vscode
+  code --install-extension jnoortheen.nix-ide
   code --install-extension miguelsolorio.min-theme
   code --install-extension ms-azuretools.vscode-docker
   code --install-extension ms-python.python

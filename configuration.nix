@@ -107,7 +107,6 @@
     onionshare
     bitwarden
     bitwarden-cli
-    nixfmt
     starship
     killall
     scrot
@@ -134,6 +133,7 @@
     brightnessctl
     xorg.xev
     playerctl
+    nixpkgs-fmt
     # TODO: python apps (poetry, yt-dlp, ...)
   ];
 

@@ -216,6 +216,7 @@
         # pkgs.vscode-extensions.GitHub.remotehub
         # pkgs.vscode-extensions.GitHub.vscode-pull-request-github
         # pkgs.vscode-extensions.icrawl.discord-vscode
+        pkgs.vscode-extensions.jnoortheen.nix-ide
         # pkgs.vscode-extensions.miguelsolorio.min-theme
         pkgs.vscode-extensions.ms-azuretools.vscode-docker
         pkgs.vscode-extensions.ms-python.python
