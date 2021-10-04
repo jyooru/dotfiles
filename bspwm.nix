@@ -60,7 +60,7 @@
     sxhkd = {
       enable = true;
       extraConfig = ''
-        super + {b,t,enter,e,shift + e,n}
+        super + {b,t,Return,e,shift + e,n}
           {brave,alacritty,alacritty,code -r,code -n,obsidian}
         super + {r,c,s}
           alacritty -e {ranger,cmatrix,htop}
