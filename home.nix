@@ -73,10 +73,10 @@
         }
               '';
       shellAliases = {
-        # ls aliases
-        ll = "ls -alF";
-        la = "ls -A";
-        l = "ls -CF";
+        # lsd aliases
+        l = "lsd";
+        la = "lsd -A";
+        ll = "lsd -Al";
 
         # directory aliases
         "~" = "cd ~";
