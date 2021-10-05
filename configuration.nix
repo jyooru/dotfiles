@@ -42,7 +42,12 @@
   services = {
     auto-cpufreq.enable = true;
 
-    logind.lidSwitch = "ignore";
+    logind = {
+      lidSwitch = "ignore";
+      extraConfig = ''
+        HandlePowerKey=ignore
+      '';
+    };
 
     openssh = {
       enable = true;
