@@ -1,175 +1,88 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
 {
-  imports = [
-    # Include the results of the hardware scan.
-    ./hardware-configuration.nix
-  ];
+  imports = [ ./hardware-configuration.nix ./packages.nix ];
 
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  boot.initrd.luks.devices.cryptvg = {
-    device = "/dev/disk/by-uuid/a207fe6b-d073-459b-b381-b6bc0b3f00ba";
-    preLVM = true;
-    allowDiscards = true;
+  boot = {
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
+    loader.efi.efiSysMountPoint = "/boot/efi";
+
+    initrd.luks.devices.cryptvg = {
+      device = "/dev/disk/by-uuid/a207fe6b-d073-459b-b381-b6bc0b3f00ba";
+      preLVM = true;
+      allowDiscards = true;
+    };
   };
 
-  networking.hostName = "thinkpad-e580"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  fonts.fonts = with pkgs; [ (nerdfonts.override { fonts = [ "FiraCode" ]; }) ];
 
-  # Set your time zone.
-  time.timeZone = "Australia/Brisbane";
+  hardware.pulseaudio.enable = true;
+  sound.enable = true;
 
-  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-  # Per-interface useDHCP will be mandatory in the future, so this generated config
-  # replicates the default behaviour.
-  networking.useDHCP = false;
-  networking.interfaces.enp0s20f0u2u1.useDHCP = true;
-  networking.interfaces.enp3s0.useDHCP = true;
-  networking.interfaces.wlp5s0.useDHCP = true;
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_AU.UTF-8";
   # console = {
   #   font = "Lat2-Terminus16";
   #   keyMap = "us";
   # };
 
-  services.xserver = {
-    enable = true;
-
-    desktopManager = { xterm.enable = false; };
-
-    displayManager = { defaultSession = "none+bspwm"; };
-
-    windowManager.bspwm = { enable = true; };
+  networking = {
+    hostName = "thinkpad-e580";
+    # The global useDHCP flag is deprecated, therefore explicitly set to false here.
+    # Per-interface useDHCP will be mandatory in the future, so this generated config
+    # replicates the default behaviour.
+    useDHCP = false;
+    interfaces.enp0s20f0u2u1.useDHCP = true;
+    interfaces.enp3s0.useDHCP = true;
+    interfaces.wlp5s0.useDHCP = true;
+    firewall = {
+      enable = true;
+      # allowedTCPPorts = [ ];
+      # allowedUDPPorts = [ ];
+    };
+    networkmanager = {
+      enable = true;
+      insertNameservers = [ "1.1.1.1" "1.0.0.1" ];
+    };
   };
 
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
+  services = {
+    logind.lidSwitch = "ignore";
 
-  # Enable the GNOME Desktop Environment.
-  # services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.desktopManager.gnome.enable = true;
+    openssh = {
+      enable = true;
+      passwordAuthentication = false;
+    };
 
-  # Configure keymap in X11
-  services.xserver.layout = "au";
-  # services.xserver.xkbOptions = "eurosign:e";
+    xserver = {
+      enable = true;
 
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
+      desktopManager = { xterm.enable = false; };
+      displayManager = { defaultSession = "none+bspwm"; };
+      windowManager.bspwm = { enable = true; };
 
-  # Enable sound.
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
+      libinput.enable = true; # touchpad
+      layout = "au";
+    };
+  };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  services.xserver.libinput.enable = true;
+  time.timeZone = "Australia/Brisbane";
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.joel = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    openssh.authorizedKeys.keys = [
-      "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDZRVyIr36y2CO1j3O4FKNwa/NsMmf3tLJfMaw/DZxWr2E5pBrV6HTM4krb5a5yEKs0KXCoSYeqVFO9A4GHn/7QDH/tRCUQIacvq2itJYaRmKKiFqN1fFNUi8F1sUsrAM+Yd+hlZp/e85MI4Tr6jDzim+SNzX/yOuWGJEK69yp4EJfFFucau2g11O9ffZmfFol52ibCVvCDlSpfINv2RfG6ISgBYxzGdlpPO2zGuqfkrt2ZNMQkJYnD71wz3JkUgDCaZezf1u855WgQWy3YE7J8KsWzm2P2TJc1Ijyd+8xFQLkq2bDd6JfAGCJ0p9kraU7fbDuk9azl2lwCxO7DDzq3us3cgeDe3pL3dLh8CGhoD0uTmCG1tSPLowgiuLJxEBYd96er3Hi0Rg6dTQ94VT99PVgarBJEeUcjd6ro18bWN9EEvsHeuDYQ9FDkaxxJAjD2gVmS2iUj9nkqsEFXV9ursRE3Po1ufMQ0iSFzlk3H7NWWQVNIUubqljHD+b4BJos= root@iphone-7"
-    ];
+    extraGroups = [ "wheel" ];
+    openssh.authorizedKeys.keyFiles = [ ./iphone-7.pub ];
   };
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    # vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    firefox
-    python3
-    sshfs
-    dig
-    htop
-    git
-    brave
-    fira-code
-    vscode
-    gimp
-    obsidian
-    signal-desktop
-    discord
-    spotify
-    qbittorrent
-    onionshare
-    bitwarden
-    bitwarden-cli
-    starship
-    killall
-    scrot
-    neofetch
-    cmatrix
-    bspwm
-    alacritty
-    polybar
-    rofi
-    wmctrl
-    gnome.nautilus
-    lsd
-    ranger
-    pv
-    ncdu
-    ffmpeg
-    nmap
-    iotop
-    pandoc
-    picom
-    nextcloud-client
-    fd
-    ffsend
-    brightnessctl
-    xorg.xev
-    playerctl
-    nixpkgs-fmt
-    darktable
-    qimgv
-    betterlockscreen
-    # TODO: python apps (poetry, yt-dlp, ...)
-  ];
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
+  programs = {
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
+    nm-applet.enable = true;
   };
 
-  fonts.fonts = with pkgs; [ (nerdfonts.override { fonts = [ "FiraCode" ]; }) ];
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  services.openssh = {
-    enable = true;
-    passwordAuthentication = false;
-  };
-
-  # Open ports in the firewall.
-  #networking.firewall.allowedTCPPorts = [ 22 ];
-  #networking.firewall.allowedUDPPorts = [ ];
-  # Or disable the firewall altogether.
-  networking.firewall.enable = true;
-
-  networking.networkmanager.enable = true;
-  networking.networkmanager.insertNameservers = [ "1.1.1.1" "1.0.0.1" ];
-  programs.nm-applet.enable = true;
-
-  services.logind.lidSwitch = "ignore";
+  nixpkgs.config.allowUnfree = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -178,6 +91,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "21.05"; # Did you read the comment?
-
-  nixpkgs.config.allowUnfree = true;
 }
