@@ -68,6 +68,9 @@
         super + Escape
           betterlockscreen --lock
 
+        super + alt + Escape
+          betterlockscreen --suspend
+
         # quit / restart bspwm
         super + alt + {q,r}
           bspc {quit,wm -r}
