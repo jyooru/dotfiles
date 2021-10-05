@@ -59,99 +59,65 @@
     };
     sxhkd = {
       enable = true;
-      extraConfig = ''
-        super + {b,t,Return,e,shift + e,n}
-          {brave,alacritty,alacritty,code -r,code -n,obsidian}
-        super + {r,c,s}
-          alacritty -e {ranger,cmatrix,htop}
-
-        super + Escape
-          betterlockscreen --lock
-
-        # quit / restart bspwm
-        super + alt + {q,r}
-          bspc {quit,wm -r}
-
-        # close and kill
-        super + {_,shift + } q
-          bspc node -{c,k}
-
-        # Switch Active Workspaces
-        alt + {Tab, shift + Tab}
-          bspc {desktop next.occupied -f, desktop prev.occupied -f}
-
-        # focus the last node/desktop
-        super + {grave,Tab}
-          bspc {node,desktop} -f last
-
-        super + f
-          bspc node -t \~fullscreen
-
-        # focus or send to the given desktop
-        super + {_,shift + }{0-9}
-          bspc {desktop -f,node -d} '{0-9}'
-
-        super + control + {1-5}
-          a=`expr {1-5} \* 2`; \
+      keybindings = {
+        # desktops
+        "alt + {_,shift +} Tab" = "bspc {desktop next.occupied -f, desktop prev.occupied -f}"; # switch desktops
+        "super + {grave,Tab}" = "bspc {node,desktop} -f last"; # switch to previous node/desktop
+        "super + {_,shift + }{0-9}" = "bspc {desktop -f,node -d} '{0-9}'"; # focus / send node to desktop;
+        "super + control + {1-5}" = ''a=`expr {1-5} \* 2`; \
           b=`expr "$a" - 1`; \
           if [ "$a" = "10" ]; then a=0; fi; \
-          bspc desktop -f "$b" & bspc desktop -f "$a"
-          
-        super + space
-          rofi -combi-modi window,drun,ssh -show combi
+          bspc desktop -f "$b" & bspc desktop -f "$a"''; # focus two desktops (used with two monitors)
 
-        Print
-          scrot
-        shift + Print
-          scrot --select --freeze
-        control + Print
-          scrot --focused
-
-        XF86AudioRaiseVolume
-          amixer set Master 10%+
-        XF86AudioLowerVolume
-          amixer set Master 10%-
-        XF86AudioMute
-          amixer set Master toggle
+        # function buttons
+        "XF86AudioMute" = "amixer set Master toggle"; # volume mute toggle
+        "XF86AudioRaiseVolume" = "amixer set Master 10%+"; # volume up
+        "XF86AudioLowerVolume" = "amixer set Master 10%-"; # volume down
         # XF86AudioMicMute
-
-        {_,shift + ,super + }XF86MonBrightness{Down,Up}
-          brightnessctl set {10%-,1%-,1%,10%+,1%+,100%}
-
+        "{_,shift + ,super + }XF86MonBrightness{Down,Up}" = "brightnessctl set {10%-,1%-,1%,10%+,1%+,100%}";
         # XF86Display
         # XF86WLAN
         # XF86Tools
         # XF86Bluetooth
         # ? (keyboard icon)
         # XF86Favourites
+        "XF86AudioPrev" = "playerctl previous"; # previous song
+        "XF86AudioPlay" = "playerctl play-pause"; # pause song
+        "XF86AudioNext" = "playerctl next"; # next song
 
-        XF86AudioPrev
-          playerctl previous
-        XF86AudioPlay
-          playerctl play-pause
-        XF86AudioNext
-          playerctl next
+        # launch
+        "super + space" = "rofi -combi-modi window,drun,ssh -show combi"; # launch launcher
+        "super + {b,n}" = "{brave,obsidian}"; # launch apps
+        "super + {_,shift +} e" = "code {-r,-n}"; # launch editor
+        "super + {t,Return}" = "alacritty"; # launch terminal
+        "super + {r,c,s}" = "alacritty -e {ranger,cmatrix,htop}"; # launch terminal apps
 
-        super + {h,j,k,l}
-          bspc node -f {west,south,north,east}
-
-        super + {_,shift + }{h,j,k,l}
-          bspc node -{f,s} {west,south,north,east}
-
-        super + alt + p
-          bspc config focus_follows_pointer {true,false}
-
-        # Smart resize, will grow or shrink depending on location.
-        # Will always grow for floating nodes.
-        super + ctrl + alt + {h,j,k,l}
-          n=10; \
+        # nodes
+        "super + {_,shift +} q" = "bspc node -{c,k}"; # close and kill
+        "super + f" = "bspc node -t \~fullscreen"; # toggle node fullscreen
+        "super + {_,shift + }{h,j,k,l}" = "bspc node -{f,s} {west,south,north,east}"; # focus / move node
+        "super + ctrl + alt + {h,j,k,l}" = ''n=10; \
           { d1=left;   d2=right;  dx=-$n; dy=0;   \
           , d1=bottom; d2=top;    dx=0;   dy=$n;  \
           , d1=top;    d2=bottom; dx=0;   dy=-$n; \
           , d1=right;  d2=left;   dx=$n;  dy=0;   \
           } \
-          bspc node --resize $d1 $dx $dy || bspc node --resize $d2 $dx $dy
-      '';
+          bspc
+          node - -resize $d1 $dx $dy || bspc node - -resize $d2 $dx $dy
+        ''; # smart resize
+
+        # screenshots
+        "Print" = "scrot"; # screenshot all monitors
+        "shift + Print" = "scrot --select --freze"; # select area and screenshot
+        "control + Print" = "scrot --focused"; # screenshot current node
+
+        # system
+        "super + {_,alt + } Escape" = "betterlockscreen {--lock,--suspend}"; # lock
+        "super + alt + {q,r}" = "bspc {quit,wm -r}"; # quit / restart bspwm
+
+        # wm
+        "super + alt + p" = "bspc config focus_follows_pointer {true,false}"; # toggle focus follows pointer
+      };
     };
   };
 
