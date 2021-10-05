@@ -65,11 +65,8 @@
         super + {r,c,s}
           alacritty -e {ranger,cmatrix,htop}
 
-        super + Escape
-          betterlockscreen --lock
-
-        super + alt + Escape
-          betterlockscreen --suspend
+        super + {_, alt + } Escape
+          betterlockscreen {--lock,--suspend}
 
         # quit / restart bspwm
         super + alt + {q,r}
