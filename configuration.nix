@@ -40,6 +40,8 @@
   };
 
   services = {
+    auto-cpufreq.enable = true;
+
     logind.lidSwitch = "ignore";
 
     openssh = {
