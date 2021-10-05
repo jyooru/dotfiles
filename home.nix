@@ -39,6 +39,8 @@
     stateVersion = "21.11";
   };
 
+  services.nextcloud-client.enable = true;
+
   programs = {
     bash = {
       enable = true;

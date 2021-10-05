@@ -42,7 +42,6 @@
     iotop
     pandoc
     picom
-    nextcloud-client
     fd
     ffsend
     brightnessctl
