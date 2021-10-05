@@ -52,6 +52,13 @@
     darktable
     qimgv
     betterlockscreen
-    # TODO: python apps (poetry, yt-dlp, ...)
+    docker-compose
+    python3Packages.black
+    python3Packages.flake8
+    python3Packages.isort
+    python3Packages.mypy
+    python3Packages.poetry
+    python3Packages.pytest
+    # TODO: yt-dlp
   ];
 }
