@@ -108,7 +108,7 @@
 
         # screenshots
         "Print" = "scrot"; # screenshot all monitors
-        "shift + Print" = "scrot --select --freze"; # select area and screenshot
+        "shift + Print" = "scrot --select --freeze"; # select area and screenshot
         "control + Print" = "scrot --focused"; # screenshot current node
 
         # system
