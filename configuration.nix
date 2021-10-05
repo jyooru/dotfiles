@@ -28,13 +28,6 @@
 
   networking = {
     hostName = "thinkpad-e580";
-    # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-    # Per-interface useDHCP will be mandatory in the future, so this generated config
-    # replicates the default behaviour.
-    useDHCP = false;
-    interfaces.enp0s20f0u2u1.useDHCP = true;
-    interfaces.enp3s0.useDHCP = true;
-    interfaces.wlp5s0.useDHCP = true;
     firewall = {
       enable = true;
       # allowedTCPPorts = [ ];
