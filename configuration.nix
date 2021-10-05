@@ -73,6 +73,7 @@
       enableSSHSupport = true;
     };
     nm-applet.enable = true;
+    steam.enable = true;
   };
 
   nixpkgs.config.allowUnfree = true;
