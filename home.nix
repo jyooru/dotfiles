@@ -9,6 +9,25 @@
     username = "joel";
     homeDirectory = "/home/joel";
 
+    file.betterlockscreenrc = {
+      target = ".config/betterlockscreenrc";
+      text = ''
+        font="FiraCode Nerd Font"
+        timecolor=e5e5e5ff
+        time_format="%I:%M"
+        locktext="    locked"
+        
+        ringcolor=5c5c5cff
+        insidecolor=00000000
+        ringvercolor=5c5c5cff
+        insidevercolor=5c5c5cff
+        ringwrongcolor=5c5c5cff
+        insidewrongcolor=cd3131ff
+        keyhlcolor=e5e5e5ff
+        bshlcolor=e5e5e5ff
+      '';
+    };
+
     # This value determines the Home Manager release that your
     # configuration is compatible with. This helps avoid breakage
     # when a new Home Manager release introduces backwards
