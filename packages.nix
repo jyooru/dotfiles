@@ -58,6 +58,14 @@
     python3Packages.mypy
     python3Packages.poetry
     python3Packages.pytest
+    file
+    python3Packages.chardet
+    highlight
+    p7zip
+    unzip
+    python3Packages.pdftotext
+    mediainfo
+    odt2txt
     # TODO: yt-dlp
   ];
 }
