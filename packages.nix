@@ -66,6 +66,7 @@
     python3Packages.pdftotext
     mediainfo
     odt2txt
+    nodePackages.prettier
     # TODO: yt-dlp
   ];
 }
