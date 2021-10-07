@@ -67,6 +67,8 @@
     mediainfo
     odt2txt
     nodePackages.prettier
+    onlyoffice-bin
+    libreoffice
     # TODO: yt-dlp
   ];
 }
