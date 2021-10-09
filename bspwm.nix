@@ -116,7 +116,7 @@
         "super + alt + {q,r}" = "bspc {quit,wm -r}"; # quit / restart bspwm
 
         # wm
-        "super + alt + p" = "bspc config focus_follows_pointer {true,false}"; # toggle focus follows pointer
+        "super + alt + p" = "bspc config focus_follows_pointer {false,true}"; # toggle focus follows pointer
       };
     };
   };
@@ -135,6 +135,8 @@
       split_ratio = 0.52;
       borderless_monocle = true;
       gapless_monocle = true;
+
+      focus_follows_pointer = true;
     };
     rules = { };
     extraConfig = ''
