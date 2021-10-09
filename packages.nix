@@ -69,6 +69,7 @@
     nodePackages.prettier
     onlyoffice-bin
     libreoffice
-    # TODO: yt-dlp
+    lm_sensors
+    # TODO: (on unstable) yt-dlp, btop
   ];
 }
