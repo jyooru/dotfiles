@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./hardware-configuration.nix ./packages.nix ];
+  imports = [ ./hardware-configuration.nix ./packages.nix ./nebula.nix ];
 
   boot = {
     loader.systemd-boot.enable = true;
