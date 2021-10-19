@@ -29,5 +29,6 @@ if command -v code >/dev/null 2>&1; then
   code --install-extension rust-lang.rust
   code --install-extension timonwong.shellcheck
   code --install-extension yzhang.markdown-all-in-one
+  code --install-extension matthewpi.caddyfile-support
 fi
 

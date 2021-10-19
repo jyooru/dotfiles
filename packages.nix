@@ -70,6 +70,7 @@
     onlyoffice-bin
     libreoffice
     lm_sensors
+    caddy # caddy fmt for vscode extension
     # TODO: (on unstable) yt-dlp, btop
   ];
 }
