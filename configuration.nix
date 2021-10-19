@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./hardware-configuration.nix ./packages.nix ./nebula.nix ];
+  imports = [ ./hardware-configuration.nix ./packages.nix ./nebula.nix ./iphone.nix ];
 
   boot = {
     loader.systemd-boot.enable = true;
@@ -25,6 +25,9 @@
   #   font = "Lat2-Terminus16";
   #   keyMap = "us";
   # };
+
+  iphone.enable = true;
+  iphone.user = "joel";
 
   networking = {
     hostName = "thinkpad-e580";
@@ -95,3 +98,4 @@
 
   virtualisation.docker.enable = true;
 }
+
