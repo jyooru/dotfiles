@@ -3,7 +3,6 @@
 {
   environment.systemPackages = with pkgs; [
     # vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
     firefox
     python3
     sshfs
@@ -19,9 +18,7 @@
     discord
     spotify
     qbittorrent
-    onionshare
     bitwarden
-    bitwarden-cli
     starship
     killall
     scrot
@@ -71,6 +68,12 @@
     libreoffice
     lm_sensors
     caddy # caddy fmt for vscode extension
+    gh
+    whois
+    jq
+    tree
+    youtube-dl # until i get yt-dlp working
+    httpie
     # TODO: (on unstable) yt-dlp, btop
   ];
 }
