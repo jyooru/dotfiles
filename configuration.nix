@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./packages.nix ./iphone.nix ];
+  imports = [ ./packages.nix ./modules/iphone.nix ];
   # imports = [ ./nebula.nix ];
 
   fonts.fonts = with pkgs; [ (nerdfonts.override { fonts = [ "FiraCode" ]; }) ];
@@ -15,8 +15,7 @@
   #   keyMap = "us";
   # };
 
-  iphone.enable = true;
-  iphone.user = "joel";
+
 
   networking = {
     firewall = {

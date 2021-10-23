@@ -16,5 +16,12 @@
   };
 
   networking.hostName = "thinkpad-e580";
+
+  modules = {
+    iphone = {
+      enable = true;
+      user = "joel";
+    };
+  };
 }
 
