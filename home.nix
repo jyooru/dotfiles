@@ -332,6 +332,7 @@
         "explorer.confirmDelete" = false;
         "explorer.confirmDragAndDrop" = false;
         "editor.inlineSuggest.enabled" = true;
+        "files.exclude" = { "**/.stfolder" = true; };
         "git.confirmSync" = false;
         "git.inputValidationLength" = 2147483647;
         "git.inputValidationSubjectLength" = 2147483647;
