@@ -11,7 +11,7 @@
       thinkpad-e580 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./configuration.nix
+          ./hosts/thinkpad-e580
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
