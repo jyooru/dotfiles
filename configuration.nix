@@ -1,7 +1,8 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./hardware-configuration.nix ./packages.nix ./nebula.nix ./iphone.nix ];
+  imports = [ ./hardware-configuration.nix ./packages.nix ./iphone.nix ];
+  # imports = [ ./nebula.nix ];
 
   boot = {
     loader.systemd-boot.enable = true;
