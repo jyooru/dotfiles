@@ -1,9 +1,10 @@
-{ config, pkgs, lib ... }:
+{ config, pkgs, lib, ... }:
+with lib;
 let
   cfg = config.modules.services.nebula;
 in
 {
-  options.modules.iphone = {
+  options.modules.services.nebula = {
     enable = lib.mkOption { default = false; type = types.bool; };
   };
   config = lib.mkIf cfg.enable {
