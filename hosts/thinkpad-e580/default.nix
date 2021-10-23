@@ -22,6 +22,9 @@
       enable = true;
       user = "joel";
     };
+    services = {
+      nebula.enable = true;
+    };
   };
 }
 

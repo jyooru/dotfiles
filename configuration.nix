@@ -1,8 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./packages.nix ./modules/iphone.nix ];
-  # imports = [ ./nebula.nix ];
+  imports = [ ./packages.nix ./modules/iphone.nix ./modules/services/nebula.nix ];
 
   fonts.fonts = with pkgs; [ (nerdfonts.override { fonts = [ "FiraCode" ]; }) ];
 
