@@ -39,7 +39,7 @@
     stateVersion = "21.11";
   };
 
-  services.nextcloud-client.enable = true;
+  services.syncthing.enable = true;
 
   programs = {
     bash = {
@@ -353,8 +353,8 @@
           "editor.defaultFormatter" = "esbenp.prettier-vscode";
         };
         # json
-        "[json]" = { "editor.defaultFormatter" = "esbenp.prettier-vscode"; };
-        "[jsonc]" = { "editor.defaultFormatter" = "esbenp.prettier-vscode"; };
+        "[json]" = { "editor.defaultFormatter" = "vscode.json-language-features"; };
+        "[jsonc]" = { "editor.defaultFormatter" = "vscode.json-language-features"; };
         # md
         "[markdown]" = {
           "editor.wordWrap" = "on";
