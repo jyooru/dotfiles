@@ -344,6 +344,16 @@
         "gitlens.hovers.currentLine.over" = "line";
         "gitlens.currentLine.enabled" = false;
         "redhat.telemetry.enabled" = false;
+        "material-icon-theme.folders.associations" = {
+          "clones" = "download";
+          "repos" = "src";
+          "gh" = "github";
+          "gl" = "gitlab";
+          "local" = "vm";
+          "starred" = "import";
+          "workspaces" = "resources";
+          "view" = "review";
+        };
 
         # languages
         "workbench.editorAssociations" = { "*.ipynb" = "jupyter-notebook"; };
