@@ -1,4 +1,5 @@
 [
+  ./packages.nix
   ./hardware/iphone.nix
   ./services/networking/nebula.nix
   ./services/x11/window-managers/bspwm.nix
