@@ -1,4 +1,5 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
+
 let
   cfg = config.modules.programs.bash;
 in

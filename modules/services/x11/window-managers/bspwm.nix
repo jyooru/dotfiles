@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 let
   cfg = config.modules.services.x11.window-manager.bspwm;
 in
