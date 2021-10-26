@@ -7,7 +7,6 @@ in
     enable = lib.mkEnableOption "Lock screen";
   };
   config = lib.mkIf cfg.enable {
-    {
     home.file.betterlockscreenrc = {
       target = ".config/betterlockscreenrc";
       text = ''
