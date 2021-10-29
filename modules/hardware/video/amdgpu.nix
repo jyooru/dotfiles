@@ -11,8 +11,6 @@ in
 
     # driver
     boot.initrd.kernelModules = [ "amdgpu" ];
-    services.xserver.enable = true;
-    services.xserver.videoDrivers = [ "amdgpu" ];
 
     # opencl
     hardware.opengl.extraPackages = with pkgs; [
