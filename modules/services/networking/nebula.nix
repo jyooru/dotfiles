@@ -4,7 +4,7 @@ let
   cfg = config.modules.services.nebula;
 in
 {
-  options.modules.services.nebula = {
+  options.modules.services.networking.nebula = {
     enable = lib.mkOption { default = false; type = types.bool; };
   };
   config = lib.mkIf cfg.enable {

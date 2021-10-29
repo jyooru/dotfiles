@@ -4,7 +4,7 @@ let
   cfg = config.modules.programs.git;
 in
 {
-  options.modules.programs.betterlockscreen = {
+  options.modules.programs.git = {
     enable = lib.mkEnableOption "Version control system";
   };
   config = lib.mkIf cfg.enable {
