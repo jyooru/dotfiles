@@ -3,7 +3,6 @@
   ./hardware/iphone.nix
   ./services/networking/nebula.nix
   ./services/x11/window-managers/bspwm.nix
-  ./module-list.nix
   ./programs/bash.nix
   ./programs/starship.nix
   ./programs/alacritty.nix
