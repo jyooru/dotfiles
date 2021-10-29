@@ -127,15 +127,19 @@ in
         "gitlens.currentLine.enabled" = false;
         "redhat.telemetry.enabled" = false;
         "material-icon-theme.folders.associations" = {
+          # https://github.com/PKief/vscode-material-icon-theme#file-icons
           "clones" = "download";
           "repos" = "src";
           "gh" = "github";
           "gl" = "gitlab";
-          "local" = "vm";
+          "local" = "client";
           "starred" = "import";
           "workspaces" = "resources";
           "view" = "review";
           "media" = "video";
+          "hosts" = "client";
+          "hardware" = "core";
+          "programs" = "app";
         };
 
         # languages
