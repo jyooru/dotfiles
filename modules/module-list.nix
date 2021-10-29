@@ -11,4 +11,5 @@
   ./programs/vscode.nix
   ./services/networking/nebula.nix
   ./services/x11/window-managers/bspwm.nix
+  ./system/boot/loader/systemd-boot.nix
 ]
