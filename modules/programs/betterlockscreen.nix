@@ -7,7 +7,7 @@ in
     enable = lib.mkEnableOption "Lock screen";
   };
   config = lib.mkIf cfg.enable {
-    home-manager.users.joel.file.betterlockscreenrc = {
+    home-manager.users.joel.home.file.betterlockscreenrc = {
       target = ".config/betterlockscreenrc";
       text = ''
         font="FiraCode Nerd Font"
