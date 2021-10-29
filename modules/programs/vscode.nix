@@ -135,6 +135,7 @@ in
           "starred" = "import";
           "workspaces" = "resources";
           "view" = "review";
+          "media" = "video";
         };
 
         # languages
