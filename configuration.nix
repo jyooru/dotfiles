@@ -61,7 +61,6 @@
   users.users.joel = {
     isNormalUser = true;
     extraGroups = [ "docker" "wheel" ];
-    openssh.authorizedKeys.keyFiles = [ ./iphone-7.pub ];
   };
 
   programs = {
