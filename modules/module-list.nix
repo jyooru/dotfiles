@@ -1,5 +1,6 @@
 [
   ./hardware/iphone.nix
+  ./hardware/video/amdgpu.nix
   ./packages.nix
   ./programs/alacritty.nix
   ./programs/bash.nix

@@ -19,6 +19,9 @@
 
   modules = {
     hardware = {
+      video = {
+        amdgpu.enable = true;
+      };
       iphone = {
         enable = true;
         user = "joel";
