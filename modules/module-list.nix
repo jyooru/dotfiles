@@ -1,12 +1,12 @@
 [
   ./hardware/iphone.nix
-  ./services/networking/nebula.nix
-  ./services/x11/window-managers/bspwm.nix
   ./module-list.nix
-  ./programs/bash.nix
-  ./programs/starship.nix
   ./programs/alacritty.nix
+  ./programs/bash.nix
   ./programs/betterlockscreen.nix
   ./programs/git.nix
+  ./programs/starship.nix
   ./programs/vscode.nix
+  ./services/networking/nebula.nix
+  ./services/x11/window-managers/bspwm.nix
 ]
