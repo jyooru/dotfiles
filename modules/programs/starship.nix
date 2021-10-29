@@ -7,7 +7,7 @@ in
     enable = lib.mkEnableOption "Shell prompt";
   };
   config = lib.mkIf cfg.enable {
-    programs.starship = {
+    home-manager.users.joel.programs.starship = {
       enable = true;
       settings = {
         aws = { symbol = "  "; };

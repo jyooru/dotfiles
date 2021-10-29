@@ -8,7 +8,7 @@ in
     enable = lib.mkEnableOption "Shell";
   };
   config = lib.mkIf cfg.enable {
-    programs.bash = {
+    home-manager.users.joel.programs.bash = {
       enable = true;
       bashrcExtra = ''
         export EDITOR="code --wait"

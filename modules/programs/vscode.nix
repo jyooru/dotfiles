@@ -7,7 +7,7 @@ in
     enable = lib.mkEnableOption "Code editor";
   };
   config = lib.mkIf cfg.enable {
-    programs.vscode = {
+    home-manager.users.joel.programs.vscode = {
       enable = true;
       extensions = [
         # pkgs.vscode-extensions.ahmadalli.vscode-nginx-conf
