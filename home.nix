@@ -1,8 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./services/x11/window-managers/bspwm.nix ];
-
   programs.home-manager.enable = true;
 
   home = {

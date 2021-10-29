@@ -1,10 +1,11 @@
 [
   ./hardware/iphone.nix
-  ./module-list.nix
+  ./packages.nix
   ./programs/alacritty.nix
   ./programs/bash.nix
   ./programs/betterlockscreen.nix
   ./programs/git.nix
+  ./programs/rofi.nix
   ./programs/starship.nix
   ./programs/vscode.nix
   ./services/networking/nebula.nix

@@ -18,12 +18,24 @@
   networking.hostName = "thinkpad-e580";
 
   modules = {
-    iphone = {
-      enable = true;
-      user = "joel";
+    hardware = {
+      iphone = {
+        enable = true;
+        user = "joel";
+      };
+    };
+    programs = {
+      alacritty.enable = true;
+      bash.enable = true;
+      betterlockscreen.enable = true;
+      git.enable = true;
+      rofi.enable = true;
+      starship.enable = true;
+      vscode.enable = true;
     };
     services = {
-      nebula.enable = true;
+      networking.nebula.enable = true;
+      x11.window-manager.bspwm.enable = true;
     };
   };
 }
