@@ -7,6 +7,7 @@
   ./programs/starship.nix
   ./programs/alacritty.nix
   ./programs/betterlockscreen.nix
+  ./programs/rofi.nix
   ./programs/git.nix
   ./programs/vscode.nix
 ]
