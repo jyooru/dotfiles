@@ -1,12 +1,16 @@
-{ config, pkgs, lib, ... }:
+{ config, lib, ... }:
+
+with lib;
+
 let
   cfg = config.modules.services.x11.window-manager.bspwm;
 in
+
 {
   options.modules.services.x11.window-manager.bspwm = {
-    enable = lib.mkEnableOption "Tiling window manager";
+    enable = mkEnableOption "Tiling window manager";
   };
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     home-manager.users.joel = {
       services = {
         polybar = {

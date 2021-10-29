@@ -1,12 +1,16 @@
-{ config, pkgs, lib, ... }:
+{ config, lib, ... }:
+
+with lib;
+
 let
   cfg = config.modules.programs.alacritty;
 in
+
 {
   options.modules.programs.alacritty = {
-    enable = lib.mkEnableOption "Terminal emulator";
+    enable = mkEnableOption "Terminal emulator";
   };
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     home-manager.users.joel.programs.alacritty = {
       enable = true;
       settings = {

@@ -1,12 +1,16 @@
-{ config, pkgs, lib, ... }:
+{ config, lib, ... }:
+
+with lib;
+
 let
   cfg = config.modules.programs.betterlockscreen;
 in
+
 {
   options.modules.programs.betterlockscreen = {
-    enable = lib.mkEnableOption "Lock screen";
+    enable = mkEnableOption "Lock screen";
   };
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     home-manager.users.joel.home.file.betterlockscreenrc = {
       target = ".config/betterlockscreenrc";
       text = ''

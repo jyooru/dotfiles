@@ -1,12 +1,16 @@
-{ config, pkgs, lib, ... }:
+{ config, lib, ... }:
+
+with lib;
+
 let
   cfg = config.modules.programs.starship;
 in
+
 {
   options.modules.programs.starship = {
-    enable = lib.mkEnableOption "Shell prompt";
+    enable = mkEnableOption "Shell prompt";
   };
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     home-manager.users.joel.programs.starship = {
       enable = true;
       settings = {

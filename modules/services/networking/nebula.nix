@@ -1,13 +1,16 @@
-{ config, pkgs, lib, ... }:
+{ config, lib, ... }:
+
 with lib;
+
 let
   cfg = config.modules.services.networking.nebula;
 in
+
 {
   options.modules.services.networking.nebula = {
-    enable = lib.mkOption { default = false; type = types.bool; };
+    enable = mkOption { default = false; type = types.bool; };
   };
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     services.nebula.networks."joel" = {
       enable = true;
       ca = "/etc/nebula/ca.crt";

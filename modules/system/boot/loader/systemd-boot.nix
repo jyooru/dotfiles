@@ -1,14 +1,17 @@
-{ config, pkgs, lib, ... }:
+{ config, lib, pkgs, ... }:
+
 with lib;
+
 let
   cfg = config.modules.system.boot.loader.systemd-boot;
 in
+
 {
   options.modules.system.boot.loader.systemd-boot = {
-    enable = lib.mkEnableOption "Boot loader";
-    device = lib.mkOption { type = types.str; };
+    enable = mkEnableOption "Boot loader";
+    device = mkOption { type = types.str; };
   };
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     boot = {
       loader.systemd-boot.enable = true;
       loader.efi.canTouchEfiVariables = true;

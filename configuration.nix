@@ -1,7 +1,6 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
-
   imports = import ./modules/module-list.nix;
 
   fonts.fonts = with pkgs; [ (nerdfonts.override { fonts = [ "FiraCode" ]; }) ];
@@ -10,10 +9,6 @@
   sound.enable = true;
 
   i18n.defaultLocale = "en_AU.UTF-8";
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  # };
 
   networking = {
     firewall = {
@@ -80,14 +75,7 @@
 
   system = {
     autoUpgrade.enable = true;
-
-    # This value determines the NixOS release from which the default
-    # settings for stateful data, like file locations and database versions
-    # on your system were taken. It‘s perfectly fine and recommended to leave
-    # this value at the release version of the first install of this system.
-    # Before changing this value read the documentation for this option
-    # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-    stateVersion = "21.05"; # Did you read the comment?
+    stateVersion = "21.05";
   };
 
   virtualisation.docker.enable = true;
@@ -104,14 +92,6 @@
         username = "joel";
         homeDirectory = "/home/joel";
 
-        # This value determines the Home Manager release that your
-        # configuration is compatible with. This helps avoid breakage
-        # when a new Home Manager release introduces backwards
-        # incompatible changes.
-        #
-        # You can update Home Manager without changing this value. See
-        # the Home Manager release notes for a list of state version
-        # changes in each release.
         stateVersion = "21.11";
       };
 

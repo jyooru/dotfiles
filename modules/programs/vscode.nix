@@ -1,12 +1,16 @@
-{ config, pkgs, lib, ... }:
+{ config, lib, pkgs, ... }:
+
+with lib;
+
 let
   cfg = config.modules.programs.vscode;
 in
+
 {
   options.modules.programs.vscode = {
-    enable = lib.mkEnableOption "Code editor";
+    enable = mkEnableOption "Code editor";
   };
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     home-manager.users.joel.programs.vscode = {
       enable = true;
       extensions = [

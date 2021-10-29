@@ -1,12 +1,16 @@
-{ config, pkgs, lib, ... }:
+{ config, lib, pkgs, ... }:
+
+with lib;
+
 let
   cfg = config.modules.hardware.video.amdgpu;
 in
+
 {
   options.modules.hardware.video.amdgpu = {
-    enable = lib.mkEnableOption "AMD GPU Support";
+    enable = mkEnableOption "AMD GPU Support";
   };
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     # https://nixos.wiki/wiki/AMD_GPU
 
     # driver

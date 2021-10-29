@@ -1,15 +1,19 @@
 # https://gist.github.com/danbst/1aed84dd0f5fe465dfca9319c6e63df5
-{ config, pkgs, lib, ... }:
+{ config, lib, pkgs, ... }:
+
+with lib;
+
 let
   cfg = config.modules.hardware.iphone;
 in
+
 {
   options.modules.hardware.iphone = {
-    enable = lib.mkEnableOption "USB Tethering and Filesystem support for iPhone";
-    directory = lib.mkOption { default = "/run/media/iPhone"; };
-    user = lib.mkOption { };
+    enable = mkEnableOption "USB Tethering and Filesystem support for iPhone";
+    directory = mkOption { default = "/run/media/iPhone"; };
+    user = mkOption { };
   };
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     environment.systemPackages = [
       pkgs.libimobiledevice
       pkgs.usbmuxd

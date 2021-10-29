@@ -1,13 +1,16 @@
-{ config, pkgs, lib, ... }:
+{ config, lib, ... }:
+
+with lib;
 
 let
   cfg = config.modules.programs.bash;
 in
+
 {
   options.modules.programs.bash = {
-    enable = lib.mkEnableOption "Shell";
+    enable = mkEnableOption "Shell";
   };
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     home-manager.users.joel.programs.bash = {
       enable = true;
       bashrcExtra = ''
