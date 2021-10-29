@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 with lib;
 let
-  cfg = config.modules.services.nebula;
+  cfg = config.modules.services.networking.nebula;
 in
 {
   options.modules.services.networking.nebula = {
