@@ -53,6 +53,5 @@ in
         };
       };
     };
-    rofi = { enable = true; };
   };
 }
