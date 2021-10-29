@@ -29,6 +29,7 @@
       bash.enable = true;
       betterlockscreen.enable = true;
       git.enable = true;
+      rofi.enable = true;
       starship.enable = true;
       vscode.enable = true;
     };
