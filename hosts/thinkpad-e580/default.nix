@@ -4,6 +4,7 @@
   networking.hostName = "thinkpad-e580";
 
   users.users.joel.openssh.authorizedKeys.keyFiles = [ ../iphone-7/id_rsa.pub ];
+  boot.binfmt.emulatedSystems = [ "armv6l-linux" ];
 
   modules = {
     hardware = {
