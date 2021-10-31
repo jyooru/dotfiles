@@ -7,6 +7,8 @@
       speedFactor = 1;
       supportedFeatures = [ ];
       mandatoryFeatures = [ ];
+      sshUser = "joel";
+      sshKey = "/home/joel/.ssh/id_rsa";
     }
     {
       hostName = "portege-r700-b.dev.joel.tokyo";
@@ -15,6 +17,8 @@
       speedFactor = 1;
       supportedFeatures = [ ];
       mandatoryFeatures = [ ];
+      sshUser = "joel";
+      sshKey = "/home/joel/.ssh/id_rsa";
     }
     {
       hostName = "portege-z930.dev.joel.tokyo";
@@ -23,6 +27,8 @@
       speedFactor = 3;
       supportedFeatures = [ ];
       mandatoryFeatures = [ ];
+      sshUser = "joel";
+      sshKey = "/home/joel/.ssh/id_rsa";
     }
     {
       hostName = "ga-z77-d3h.dev.joel.tokyo";
@@ -31,6 +37,8 @@
       speedFactor = 4;
       supportedFeatures = [ ];
       mandatoryFeatures = [ ];
+      sshUser = "joel";
+      sshKey = "/home/joel/.ssh/id_rsa";
     }
   ];
 
