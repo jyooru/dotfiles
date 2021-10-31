@@ -1,7 +1,7 @@
 {
   nix.buildMachines = [
     {
-      hostName = "portege-r700-a";
+      hostName = "portege-r700-a.dev.joel.tokyo";
       systems = [ "x86_64-linux" "armv6l-linux" ];
       maxJobs = 2;
       speedFactor = 1;
@@ -9,7 +9,7 @@
       mandatoryFeatures = [ ];
     }
     {
-      hostName = "portege-r700-b";
+      hostName = "portege-r700-b.dev.joel.tokyo";
       systems = [ "x86_64-linux" "armv6l-linux" ];
       maxJobs = 2;
       speedFactor = 1;
@@ -17,7 +17,7 @@
       mandatoryFeatures = [ ];
     }
     {
-      hostName = "portege-z930";
+      hostName = "portege-z930.dev.joel.tokyo";
       systems = [ "x86_64-linux" "armv6l-linux" ];
       maxJobs = 3;
       speedFactor = 3;
@@ -25,7 +25,7 @@
       mandatoryFeatures = [ ];
     }
     {
-      hostName = "ga-z77-d3h";
+      hostName = "ga-z77-d3h.dev.joel.tokyo";
       systems = [ "x86_64-linux" "armv6l-linux" ];
       maxJobs = 4;
       speedFactor = 4;
