@@ -3,7 +3,7 @@
     {
       hostName = "portege-r700-a.dev.joel.tokyo";
       systems = [ "x86_64-linux" "armv6l-linux" ];
-      maxJobs = 2;
+      maxJobs = 4;
       speedFactor = 1;
       supportedFeatures = [ ];
       mandatoryFeatures = [ ];
@@ -13,7 +13,7 @@
     {
       hostName = "portege-r700-b.dev.joel.tokyo";
       systems = [ "x86_64-linux" "armv6l-linux" ];
-      maxJobs = 2;
+      maxJobs = 4;
       speedFactor = 1;
       supportedFeatures = [ ];
       mandatoryFeatures = [ ];
@@ -23,7 +23,7 @@
     {
       hostName = "portege-z930.dev.joel.tokyo";
       systems = [ "x86_64-linux" "armv6l-linux" ];
-      maxJobs = 3;
+      maxJobs = 4;
       speedFactor = 3;
       supportedFeatures = [ ];
       mandatoryFeatures = [ ];
@@ -33,7 +33,7 @@
     {
       hostName = "ga-z77-d3h.dev.joel.tokyo";
       systems = [ "x86_64-linux" "armv6l-linux" ];
-      maxJobs = 4;
+      maxJobs = 8;
       speedFactor = 4;
       supportedFeatures = [ ];
       mandatoryFeatures = [ ];
