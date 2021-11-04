@@ -53,10 +53,11 @@
 
   users.users.joel = {
     isNormalUser = true;
-    extraGroups = [ "docker" "wheel" ];
+    extraGroups = [ "adbusers" "docker" "wheel" ];
   };
 
   programs = {
+    adb.enable = true;
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;

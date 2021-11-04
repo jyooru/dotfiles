@@ -53,6 +53,7 @@
     odt2txt # for preview in ranger
 
     # tools
+    scrcpy # android screen mirroring tool
     brightnessctl # brightness control
     dig # dns lookup
     pandoc # document converter
@@ -75,6 +76,7 @@
     sshfs # mount filesystems over ssh
     pv # pipe progress monitor
     nmap # port scanner
+    heimdall # samsung device custom recovery installer
     scrot # screenshot
     lm_sensors # sensor viewer
     neofetch # system info
