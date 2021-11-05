@@ -10,10 +10,7 @@
       video = {
         amdgpu.enable = true;
       };
-      iphone = {
-        enable = true;
-        user = "joel";
-      };
+      iphone = { enable = true; user = "joel"; };
     };
     programs = {
       alacritty.enable = true;
