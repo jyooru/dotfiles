@@ -43,15 +43,6 @@
     starship # terminal prompt
     bspwm # window manager
 
-    # optional dependencies
-    file # for preview in ranger
-    python3Packages.chardet # for preview in ranger
-    highlight # for preview in ranger
-    unzip # for preview in ranger
-    python3Packages.pdftotext # for preview in ranger
-    mediainfo # for preview in ranger
-    odt2txt # for preview in ranger
-
     # tools
     brightnessctl # brightness control
     dig # dns lookup

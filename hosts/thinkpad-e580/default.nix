@@ -18,6 +18,7 @@
       bash.enable = true;
       betterlockscreen.enable = true;
       git.enable = true;
+      ranger.enable = true;
       rofi.enable = true;
       starship.enable = true;
       vscode.enable = true;
