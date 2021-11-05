@@ -21,19 +21,19 @@ in
     };
   };
   config = mkIf cfg.enable {
-    environment.systemPackages = [
-      pkgs.libimobiledevice
-      pkgs.usbmuxd
-      (pkgs.writeScriptBin "iphone" ''
+    environment.systemPackages = with pkgs; [
+      libimobiledevice
+      usbmuxd
+      (writeScriptBin "iphone" ''
         sudo systemctl restart iphone \
          && ${pkgs.gnome2.libgnome}/bin/gnome-open ${cfg.mountPath}
       '')
     ];
-    services.usbmuxd.enable = true;
-    services.usbmuxd.user = cfg.user;
+
+    services.usbmuxd = { enable = true; user = cfg.user; };
 
     systemd.services.iphone = {
-      preStart = "mkdir -p ${cfg.mountPath}; chown ${cfg.user} ${cfg.mountPath}";
+      preStart = "mkdir -p ${cfg.mountPath} && chown ${cfg.user} ${cfg.mountPath}";
       script = ''
         ${pkgs.libimobiledevice}/bin/idevicepair pair \
         && exec ${pkgs.ifuse}/bin/ifuse ${cfg.mountPath}
