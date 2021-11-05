@@ -120,8 +120,11 @@ in
         "editor.inlineSuggest.enabled" = true;
         "files.exclude" = { "**/.stfolder" = true; "**/__pycache__" = true; };
         "git.confirmSync" = false;
+        "git.autofetch" = true;
+        "git.fetchOnPull" = true;
         "git.inputValidationLength" = 2147483647;
         "git.inputValidationSubjectLength" = 2147483647;
+        "git.pruneOnFetch" = true;
         "remote.containers.dotfiles.repository" =
           "https://github.com/jyooru/dotfiles.git";
         "workbench.startupEditor" = "newUntitledFile";
