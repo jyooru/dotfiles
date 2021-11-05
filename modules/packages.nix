@@ -53,7 +53,6 @@
     odt2txt # for preview in ranger
 
     # tools
-    scrcpy # android screen mirroring tool
     brightnessctl # brightness control
     dig # dns lookup
     pandoc # document converter

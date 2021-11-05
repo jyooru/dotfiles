@@ -1,4 +1,5 @@
 [
+  ./hardware/android.nix
   ./hardware/iphone.nix
   ./hardware/video/amdgpu.nix
   ./packages.nix
