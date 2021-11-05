@@ -7,6 +7,7 @@
 
   modules = {
     hardware = {
+      android = { enable = true; supportSamsung = true; };
       video = {
         amdgpu.enable = true;
       };
