@@ -19,6 +19,7 @@
     gimp # photo editor
     qimgv # photo viewer
     qbittorrent # torrent app
+    openshot-qt # video editor
 
     # code
     nodePackages.prettier # * formatter
