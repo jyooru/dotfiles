@@ -72,7 +72,7 @@
       experimental-features = nix-command flakes
     '';
   };
-  nixpkgs.config = import ./nixpkgs-config.nix;
+  nixpkgs.config = import ./config/nixpkgs.nix;
 
   system = {
     autoUpgrade.enable = true;
@@ -89,8 +89,8 @@
 
       programs.home-manager.enable = true;
 
-      nixpkgs.config = import ./nixpkgs-config.nix;
-      xdg.configFile."nixpkgs/config.nix".source = ./nixpkgs-config.nix;
+      nixpkgs.config = import ./config/nixpkgs.nix;
+      xdg.configFile."nixpkgs/config.nix".source = ./config/nixpkgs.nix;
 
       home = {
         username = "joel";
