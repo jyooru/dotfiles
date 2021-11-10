@@ -6,6 +6,9 @@
   users.users.joel.openssh.authorizedKeys.keyFiles = [ ../iphone-7/id_rsa.pub ];
 
   modules = {
+    config = {
+      distributedBuild = true;
+    };
     hardware = {
       android = { enable = true; supportSamsung = true; };
       video = {
