@@ -31,6 +31,7 @@
     python3Packages.poetry # python package manager
     python3Packages.pytest # python test framework
     nixpkgs-fmt # nix formatter
+    nix-linter # nix linter
     nixpkgs-review # nixpkgs pull request reviewing tool
 
     # desktop environment
