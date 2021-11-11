@@ -65,6 +65,7 @@
     gh # github cli
     httpie # http cli
     iotop # I/O monitor
+    ipinfo # ipinfo cli
     jq # json cli
     killall # kill processes by name
     lsd # "ls" rust alternative
