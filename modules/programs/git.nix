@@ -17,6 +17,7 @@ in
       signing.signByDefault = true;
       userEmail = "joel@joel.tokyo";
       userName = "Joel";
+      ignores = [ "tmp" ];
       includes = [{
         contents = {
           init = { defaultBranch = "main"; };
