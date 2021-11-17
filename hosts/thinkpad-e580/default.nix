@@ -7,7 +7,7 @@
 
   modules = {
     config = {
-      distributedBuild = true;
+      distributedBuild.enable = true;
     };
     hardware = {
       android = { enable = true; supportSamsung = true; };
