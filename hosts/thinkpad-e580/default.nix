@@ -1,11 +1,14 @@
 {
-  imports = [ ./hardware-configuration.nix ../../configuration.nix ../../distributed-build.nix ];
+  imports = [ ./hardware-configuration.nix ../../configuration.nix ];
 
   networking.hostName = "thinkpad-e580";
 
   users.users.joel.openssh.authorizedKeys.keyFiles = [ ../iphone-7/id_rsa.pub ];
 
   modules = {
+    config = {
+      distributedBuild.enable = true;
+    };
     hardware = {
       android = { enable = true; supportSamsung = true; };
       video = {
