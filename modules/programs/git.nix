@@ -11,6 +11,8 @@ in
     enable = mkEnableOption "Version control system";
   };
   config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [ git ];
+
     home-manager.users.joel.programs.git = {
       enable = true;
       signing.key = "33CA5F24";

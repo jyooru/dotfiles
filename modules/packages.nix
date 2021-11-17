@@ -5,11 +5,9 @@
     # apps
     brave # browser
     firefox # browser
-    vscode # code editor
     signal-desktop # chat (family, friends)
     discord # chat (friends, public)
     gnome.nautilus # file manager (gui)
-    ranger # file manager (tui)
     spotify # music streaming service
     obsidian # notes
     onlyoffice-bin # office suite
@@ -34,14 +32,8 @@
     nixpkgs-review # nixpkgs pull request reviewing tool
 
     # desktop environment
-    polybar # bar
     picom # compositor
     fira-code # font
-    rofi # launcher
-    betterlockscreen # lock screen
-    alacritty # terminal emulator
-    starship # terminal prompt
-    bspwm # window manager
 
     # tools
     brightnessctl # brightness control
@@ -72,7 +64,6 @@
     htop # system usage monitor # TODO: btop
     wmctrl # window manager control
     xorg.xev # x event viewer
-    git # version control system
     whois # whois viewer
   ];
 }

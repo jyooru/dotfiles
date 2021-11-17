@@ -11,6 +11,8 @@ in
     enable = mkEnableOption "Lock screen";
   };
   config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [ betterlockscreen ];
+
     home-manager.users.joel.home.file.betterlockscreenrc = {
       target = ".config/betterlockscreenrc";
       text = ''
