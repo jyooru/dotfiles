@@ -1,5 +1,5 @@
 {
-  imports = [ ./hardware-configuration.nix ../../configuration.nix ../../distributed-build.nix ];
+  imports = [ ./hardware-configuration.nix ../../configuration.nix ];
 
   networking.hostName = "thinkpad-e580";
 
