@@ -40,11 +40,11 @@ swapon /dev/disk/by-label/swap
 # Generate configuration
 nixos-generate-config --root /mnt
 # Install configuration
+nix-shell -p git nixFlakes
 cd /mnt/etc
 mv nixos nixos_
 git clone https://github.com/jyooru/dotfiles.git nixos
 cd nixos
-# might need to do something like "nix-shell -p nixFlakes", not sure
 nixos-install --flake .#ga-z77-d3h --impure # TODO: figure out why --impure is needed
 
 # Installation complete!
