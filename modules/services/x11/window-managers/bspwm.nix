@@ -15,7 +15,7 @@ in
       services = {
         polybar = {
           enable = true;
-          config = ../../../../polybar.ini;
+          settings = import ../../../../polybar.nix;
           script = "polybar bar &";
         };
         sxhkd = {
