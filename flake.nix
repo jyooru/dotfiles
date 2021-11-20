@@ -10,7 +10,7 @@
     nixosConfigurations = {
       thinkpad-e580 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [ ./hosts/thinkpad-e580 home-manager.nixosModules.home-manager ];
+        modules = [ ./hosts/thinkpad-e580 home-manager.nixosModules.home-manager ./default.nix ];
       };
     };
   };
