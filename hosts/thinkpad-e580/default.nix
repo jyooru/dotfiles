@@ -42,4 +42,52 @@
       tools = true;
     };
   };
+
+  fonts.fonts = with pkgs; [ (nerdfonts.override { fonts = [ "FiraCode" ]; }) ];
+
+  hardware.pulseaudio.enable = true;
+  sound.enable = true;
+
+  i18n.defaultLocale = "en_AU.UTF-8";
+
+  services = {
+    auto-cpufreq.enable = true;
+
+    xserver = {
+      enable = true;
+
+      desktopManager = { xterm.enable = false; };
+      displayManager = { defaultSession = "none+bspwm"; };
+      windowManager.bspwm = { enable = true; };
+
+      libinput.enable = true; # touchpad
+      layout = "au";
+    };
+  };
+
+  programs = {
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
+    nm-applet.enable = true;
+    steam.enable = true;
+  };
+
+  home-manager.users.joel = {
+    services.syncthing.enable = true;
+
+    xdg.userDirs = {
+      enable = true;
+      createDirectories = true;
+      desktop = "\$HOME/desktop";
+      documents = "\$HOME/documents";
+      download = "\$HOME/downloads";
+      music = "\$HOME/media/music";
+      pictures = "\$HOME/media/screenshots";
+      publicShare = "\$HOME/share";
+      templates = "\$HOME/templates";
+      videos = "\$HOME/media/videos";
+    };
+  };
 }
