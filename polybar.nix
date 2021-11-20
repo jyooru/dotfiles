@@ -77,7 +77,7 @@
   };
   "module/playerctl" = {
     type = "custom/script";
-    exec = "~/code/repos/gh/jyooru/dotfiles/playerctl-status.sh";
+    exec = "playerctl-status";
     interval = 1;
     click = {
       left = "playerctl previous &";
