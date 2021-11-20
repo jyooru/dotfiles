@@ -8,6 +8,7 @@
 # Create partitions on sda
 parted /dev/sda -- mklabel gpt
 parted /dev/sda -- mkpart ESP fat32 1MiB 512MiB
+parted /dev/sda -- set 1 esp on
 # parted /dev/sda -- mkpart linux-swap 512MiB 4608MiB
 parted /dev/sda -- mkpart primary 512MiB 100%
 
