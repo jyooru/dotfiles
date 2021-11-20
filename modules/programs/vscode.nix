@@ -11,6 +11,8 @@ in
     enable = mkEnableOption "Code editor";
   };
   config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [ vscode ];
+
     home-manager.users.joel.programs.vscode = {
       enable = true;
       extensions = [

@@ -21,6 +21,7 @@
       bash.enable = true;
       betterlockscreen.enable = true;
       git.enable = true;
+      ranger.enable = true;
       rofi.enable = true;
       starship.enable = true;
       vscode.enable = true;
@@ -32,6 +33,12 @@
     system.boot.loader.systemd-boot = {
       enable = true;
       device = "/dev/disk/by-uuid/a207fe6b-d073-459b-b381-b6bc0b3f00ba";
+    };
+    packages = {
+      apps = true;
+      code = true;
+      desktopEnvironment = true;
+      tools = true;
     };
   };
 }

@@ -8,6 +8,7 @@
   ./programs/bash.nix
   ./programs/betterlockscreen.nix
   ./programs/git.nix
+  ./programs/ranger.nix
   ./programs/rofi.nix
   ./programs/starship.nix
   ./programs/vscode.nix
