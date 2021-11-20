@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  imports = import ./modules/module-list.nix;
+  imports = import ./modules/module-list.nix ++ [ ./bin ];
 
   fonts.fonts = with pkgs; [ (nerdfonts.override { fonts = [ "FiraCode" ]; }) ];
 
