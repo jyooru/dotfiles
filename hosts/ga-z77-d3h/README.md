@@ -2,14 +2,11 @@
 
 ## Installation
 
-### Storage
-
 ```sh
 # Create partitions on sda
 parted /dev/sda -- mklabel gpt
 parted /dev/sda -- mkpart ESP fat32 1MiB 512MiB
 parted /dev/sda -- set 1 esp on
-# parted /dev/sda -- mkpart linux-swap 512MiB 4608MiB
 parted /dev/sda -- mkpart primary 512MiB 100%
 
 # Format sda2 and sdb for encryption
@@ -39,4 +36,17 @@ mount /dev/disk/by-label/root /mnt
 mkdir -p /mnt/boot/efi
 mount /dev/disk/by-label/boot /mnt/boot/efi
 swapon /dev/disk/by-label/swap
+
+# Generate configuration
+nixos-generate-config --root /mnt
+# Install configuration
+cd /mnt/etc
+mv nixos nixos_
+git clone https://github.com/jyooru/dotfiles.git nixos
+cd nixos
+# might need to do something like "nix-shell -p nixFlakes", not sure
+nixos-install --flake .#ga-z77-d3h --impure # TODO: figure out why --impure is needed
+
+# Installation complete!
+reboot
 ```
