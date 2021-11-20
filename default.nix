@@ -11,6 +11,7 @@
   i18n.defaultLocale = "en_AU.UTF-8";
 
   networking = {
+    domain = "dev.joel.tokyo";
     firewall = {
       enable = true;
       # allowedTCPPorts = [ ];
