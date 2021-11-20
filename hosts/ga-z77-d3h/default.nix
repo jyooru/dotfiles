@@ -33,7 +33,7 @@
     };
     system.boot.loader.systemd-boot = {
       enable = true;
-      device = "/dev/disk/by-uuid/todo";
+      device = "/dev/disk/by-uuid/646fc0f1-2d8a-4901-ae89-559154bfe288";
     };
     packages = {
       apps = false;
