@@ -27,6 +27,7 @@
       vscode.enable = true;
     };
     services = {
+      polybar.enable = true;
       networking.nebula.enable = true;
       x11.window-manager.bspwm.enable = true;
     };
@@ -42,4 +43,3 @@
     };
   };
 }
-

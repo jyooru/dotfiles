@@ -13,11 +13,6 @@ in
   config = mkIf cfg.enable {
     home-manager.users.joel = {
       services = {
-        polybar = {
-          enable = true;
-          settings = import ../../../../polybar.nix;
-          script = "polybar bar &";
-        };
         sxhkd = {
           enable = true;
           keybindings = {
