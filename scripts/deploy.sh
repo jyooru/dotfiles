@@ -1,1 +1,1 @@
-nix run github:serokell/deploy-rs
+sudo nix run github:serokell/deploy-rs
