@@ -24,7 +24,7 @@
     };
     services = {
       polybar.enable = false;
-      networking.nebula.enable = false; # TODO
+      networking.nebula.enable = true;
       x11.window-manager.bspwm.enable = false;
     };
     # system.boot.loader.systemd-boot = {
