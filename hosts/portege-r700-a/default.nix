@@ -11,4 +11,4 @@
       device = "/dev/disk/by-uuid/1e0a9818-455d-412a-aad3-36ed4f85c741";
     };
   };
-};
+}

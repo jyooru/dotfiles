@@ -11,4 +11,4 @@
       device = "/dev/disk/by-uuid/todo";
     };
   };
-};
+}
