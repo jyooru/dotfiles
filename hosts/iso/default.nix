@@ -8,6 +8,6 @@
   # Enable SSH in the boot process.
   systemd.services.sshd.wantedBy = pkgs.lib.mkForce [ "multi-user.target" ];
   users.users.root.openssh.authorizedKeys.keyFiles = [
-    ../thinkpad-e580/id_rsa.pub
+    ../thinkpad-e580/id_rsa.joel.pub
   ];
 }
