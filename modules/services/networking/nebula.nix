@@ -35,7 +35,7 @@ in
       };
       settings = {
         lighhouse.interval = 60;
-        listen = { host = "[::]"; port = 0; };
+        listen = { host = "[::]"; };
         punchy.punch = true;
         cipher = "chachapoly";
         local_range = "192.168.0.0/24";
