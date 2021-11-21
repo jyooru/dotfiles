@@ -6,11 +6,14 @@
   users.users.joel.openssh.authorizedKeys.keyFiles = [ ../thinkpad-e580/id_rsa.pub ];
 
   boot = {
-    loader.systemd-boot.enable = true;
-    loader.efi.canTouchEfiVariables = true;
-    loader.efi.efiSysMountPoint = "/boot/efi";
+    loader.grub = {
+      enable = true;
+      enableCryptodisk = true;
+      device = "/dev/disk/by-id/wwn-0x5000cca5f6c52022";
+      version = 2;
+    };
     initrd.luks.devices.crypt1 = {
-      device = "/dev/disk/by-uuid/1e0a9818-455d-412a-aad3-36ed4f85c741";
+      device = "/dev/disk/by-uuid/37e514fd-92d1-4f34-9a8f-ee32f083386c";
       preLVM = true;
       allowDiscards = true;
     };

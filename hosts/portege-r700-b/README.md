@@ -5,12 +5,13 @@
 ```sh
 # Create partitions on sda
 parted /dev/sda -- mklabel gpt
-parted /dev/sda -- mkpart ESP fat32 1MiB 512MiB
-parted /dev/sda -- set 1 esp on
-parted /dev/sda -- mkpart primary 512MiB 100%
+parted /dev/sda -- mkpart primary 0% 2MiB
+parted /dev/sda -- set 1 bios_grub on
+parted /dev/sda -- mkpart primary 2MiB 100%
+parted /dev/sda -- set 2 lvm on
 
 # Format sda2 for encryption
-cryptsetup luksFormat /dev/sda2
+cryptsetup luksFormat --type=luks1 /dev/sda2
 
 # Mount sda2 and create physical volume
 cryptsetup luksOpen /dev/sda2 crypt1
@@ -23,15 +24,12 @@ vgcreate vg1 /dev/mapper/crypt1
 lvcreate -n lv1 -L 4G vg1
 lvcreate -n lv2 -l +100%FREE vg1
 
-# Format logical volumes and partitions
-mkfs.fat -n boot -F 32 /dev/sda1
+# Format logical volumes
 mkswap -L swap /dev/mapper/vg1-lv1
 mkfs.ext4 -L root /dev/mapper/vg1-lv2
 
-# Activate or mount logical volumes and partitions
+# Activate or mount logical volumes
 mount /dev/disk/by-label/root /mnt
-mkdir -p /mnt/boot/efi
-mount /dev/disk/by-label/boot /mnt/boot/efi
 swapon /dev/disk/by-label/swap
 
 # Generate configuration

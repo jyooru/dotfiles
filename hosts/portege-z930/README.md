@@ -47,3 +47,10 @@ nixos-install --flake .#portege-z930 --impure # TODO: figure out why --impure is
 # Installation complete!
 reboot
 ```
+
+## Setup
+
+1. Login as root.
+2. `passwd joel`
+3. `logout`
+4. Login as joel.
