@@ -55,7 +55,7 @@ cd /mnt/etc
 mv nixos nixos_
 git clone https://github.com/jyooru/dotfiles.git nixos
 cd nixos
-nixos-install --flake .#portege-z930 --impure # TODO: figure out why --impure is needed
+nixos-install --flake .#portege-z930 --impure
 
 # Installation complete!
 reboot
