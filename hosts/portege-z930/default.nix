@@ -8,7 +8,7 @@
   modules = {
     system.boot.loader.systemd-boot = {
       enable = true;
-      device = "/dev/disk/by-uuid/todo";
+      device = "/dev/disk/by-uuid/6669374d-350c-4512-96dd-66da3e8cffea";
     };
   };
 }
