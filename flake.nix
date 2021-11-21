@@ -30,22 +30,28 @@
         modules = [ ./hosts/ga-z77-d3h home-manager.nixosModules.home-manager ./default.nix ];
       };
     };
-    deploy.nodes = {
-      portege-r700-a = {
-        hostname = "portege-r700-a.dev.joel.tokyo";
-        profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.portege-r700-a;
-      };
-      portege-r700-b = {
-        hostname = "portege-r700-b.dev.joel.tokyo";
-        profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.portege-r700-b;
-      };
-      portege-z930 = {
-        hostname = "portege-z930.dev.joel.tokyo";
-        profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.portege-z930;
-      };
-      ga-z77-d3h = {
-        hostname = "ga-z77-d3h.dev.joel.tokyo";
-        profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.ga-z77-d3h;
+
+    deploy = {
+      sshUser = "joel";
+      user = "root";
+
+      nodes = {
+        portege-r700-a = {
+          hostname = "portege-r700-a.dev.joel.tokyo";
+          profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.portege-r700-a;
+        };
+        portege-r700-b = {
+          hostname = "portege-r700-b.dev.joel.tokyo";
+          profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.portege-r700-b;
+        };
+        portege-z930 = {
+          hostname = "portege-z930.dev.joel.tokyo";
+          profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.portege-z930;
+        };
+        ga-z77-d3h = {
+          hostname = "ga-z77-d3h.dev.joel.tokyo";
+          profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.ga-z77-d3h;
+        };
       };
     };
   };
