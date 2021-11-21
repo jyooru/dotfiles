@@ -1,5 +1,12 @@
 {
   users.users.joel.openssh.authorizedKeys.keyFiles = [ ./thinkpad-e580/id_rsa.joel.pub ];
+  users.users.root.openssh.authorizedKeys.keyFiles = [
+    ./thinkpad-e580/id_rsa.root.pub
+    ./portege-r700-a/id_rsa.root.pub
+    ./portege-r700-b/id_rsa.root.pub
+    ./portege-z930/id_rsa.root.pub
+    ./ga-z77-d3h/id_rsa.root.pub
+  ];
 
   modules = {
     config = {
