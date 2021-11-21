@@ -1,5 +1,7 @@
 # portege-r700-b
 
+<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi1.wp.com%2Fbiareview.com%2Fwp-content%2Fuploads%2F2017%2F05%2FToshiba-Portege-R700.png%3Ffit%3D629%252C372%26ssl%3D1&f=1&nofb=1" align="right" height="250px">
+
 - **OS:** NixOS 21.05 (Okapi) x86_64
 - **Host:** PORTEGE R700 PT311A-00J00Q
 - **Kernel:** 5.10.79
