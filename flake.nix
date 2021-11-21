@@ -22,7 +22,7 @@
       };
       portege-z930 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [ ./hosts/ga-z77-d3h home-manager.nixosModules.home-manager ./default.nix ];
+        modules = [ ./hosts/portege-z930 home-manager.nixosModules.home-manager ./default.nix ];
       };
       ga-z77-d3h = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
