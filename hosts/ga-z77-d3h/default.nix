@@ -29,6 +29,7 @@
   };
 
   services.nebula.networks."joel" = {
+    listen.port = 4244;
     staticHostMap = {
       "10.42.0.11" = [ "home.run.joel.tokyo:4241" "192.168.0.11:4241" ];
       "10.42.0.12" = [ "home.run.joel.tokyo:4242" "192.168.0.12:4242" ];
