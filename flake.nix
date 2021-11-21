@@ -32,7 +32,7 @@
     };
 
     deploy = {
-      sshUser = "joel";
+      sshUser = "root";
       user = "root";
 
       nodes = {
