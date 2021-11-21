@@ -1,5 +1,16 @@
 # portege-z930
 
+- **OS:** NixOS 21.05 (Okapi) x86_64
+- **Host:** PORTEGE Z930 PT234A-07T058
+- **Kernel:** 5.10.79
+- **Uptime:** 7 hours, 25 mins
+- **Packages:** 565 (nix-system), 99 (nix-user)
+- **Shell:** bash 4.4.23
+- **Resolution:** 1366x768
+- **CPU:** Intel i5-3337U (4) @ 2.700GHz
+- **GPU:** Intel 3rd Gen Core processor Graphics Controller
+- **Memory:** 400MiB / 5842MiB
+
 ## Installation
 
 ```sh

@@ -1,5 +1,16 @@
 # portege-r700-b
 
+- **OS:** NixOS 21.05 (Okapi) x86_64
+- **Host:** PORTEGE R700 PT311A-00J00Q
+- **Kernel:** 5.10.79
+- **Uptime:** 4 hours, 56 mins
+- **Packages:** 566 (nix-system), 99 (nix-user)
+- **Shell:** bash 4.4.23
+- **Resolution:** 1366x768
+- **CPU:** Intel i5 M 520 (4) @ 2.400GHz
+- **GPU:** Intel Core Processor
+- **Memory:** 388MiB / 3671MiB
+
 ## Installation
 
 ```sh

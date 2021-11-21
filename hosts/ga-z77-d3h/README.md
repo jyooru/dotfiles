@@ -1,5 +1,15 @@
 # ga-z77-d3h
 
+- **OS:** NixOS 21.05 (Okapi) x86_64
+- **Kernel:** 5.10.79
+- **Uptime:** 19 hours, 42 mins
+- **Packages:** 565 (nix-system), 99 (nix-user)
+- **Shell:** bash 4.4.23
+- **Resolution:** 1920x1080
+- **CPU:** Intel i7-3770 (8) @ 3.900GHz
+- **GPU:** Intel HD Graphics
+- **Memory:** 769MiB / 32008MiB
+
 ## Installation
 
 ```sh
