@@ -3,8 +3,6 @@
 
   networking.hostName = "ga-z77-d3h";
 
-  users.users.joel.openssh.authorizedKeys.keyFiles = [ ../thinkpad-e580/id_rsa.pub ];
-
   modules = {
     system.boot.loader.systemd-boot = {
       enable = false; # TODO: multiple devices. setup below
