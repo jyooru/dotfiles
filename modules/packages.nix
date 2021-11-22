@@ -92,7 +92,7 @@ in
       cmatrix # matrix display
       playerctl # media player control
       ffmpeg # media converter
-      youtube-dl # media downloader # TODO: yt-dlp
+      yt-dlp # media downloader
       sshfs # mount filesystems over ssh
       pv # pipe progress monitor
       nmap # port scanner
