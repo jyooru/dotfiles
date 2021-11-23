@@ -40,6 +40,7 @@ in
       discord # chat (friends, public)
       gnome.nautilus # file manager (gui)
       ranger # file manager (tui)
+      minecraft # game
       spotify # music streaming service
       obsidian # notes
       onlyoffice-bin # office suite
