@@ -41,4 +41,25 @@
       # "10.42.0.14"
     ];
   };
+
+
+  networking.firewall.allowedTCPPorts = [ 25565 ];
+  virtualisation.oci-containers.containers = {
+    "minecraft-server" = {
+      image = "itzg/minecraft-server";
+      ports = [ "25565:25565" ];
+      environment = {
+        EULA = "true";
+        TYPE = "purpur";
+        OVERRIDE_SERVER_PROPERTIES = "true";
+        MOTD = "§b                   §lplay.joel.tokyo§r\n§c                          [1.17.1]";
+        MEMORY = "4G";
+        ENABLE_ROLLING_LOGS = "true";
+      };
+      extraOptions = [ "--tty" ];
+      volumes = [
+        "/home/joel/minecraft-server:/data"
+      ];
+    };
+  };
 }
