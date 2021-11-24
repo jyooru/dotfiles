@@ -54,6 +54,8 @@
 
   virtualisation.docker.enable = true;
 
+  services.syncthing.openDefaultPorts = true;
+
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
