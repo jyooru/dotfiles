@@ -55,6 +55,8 @@
   virtualisation.docker.enable = true;
 
   services.syncthing = {
+    user = "joel";
+    group = "users";
     openDefaultPorts = true;
     systemService = true;
     declarative = { overrideDevices = false; overrideFolders = false; };
