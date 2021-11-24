@@ -57,18 +57,26 @@
     useGlobalPkgs = true;
     useUserPackages = true;
 
-    users.joel = {
-
-      programs.home-manager.enable = true;
-
-      nixpkgs.config = import ./config/nixpkgs.nix;
-      xdg.configFile."nixpkgs/config.nix".source = ./config/nixpkgs.nix;
-
-      home = {
-        username = "joel";
-        homeDirectory = "/home/joel";
-
-        stateVersion = "21.11";
+    users = {
+      root = {
+        programs.home-manager.enable = true;
+        nixpkgs.config = import ./config/nixpkgs.nix;
+        xdg.configFile."nixpkgs/config.nix".source = ./config/nixpkgs.nix;
+        home = {
+          username = "root";
+          homeDirectory = "/root";
+          stateVersion = "21.11";
+        };
+      };
+      joel = {
+        programs.home-manager.enable = true;
+        nixpkgs.config = import ./config/nixpkgs.nix;
+        xdg.configFile."nixpkgs/config.nix".source = ./config/nixpkgs.nix;
+        home = {
+          username = "joel";
+          homeDirectory = "/home/joel";
+          stateVersion = "21.11";
+        };
       };
     };
   };
