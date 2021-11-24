@@ -32,4 +32,10 @@
       "10.42.0.14"
     ];
   };
+
+  networking.firewall.allowedTCPPorts = [ 8384 ];
+  services.syncthing = {
+    guiAddress = "10.42.0.12:8384"; # TODO: only allow `thinkpad-e580`
+
+  };
 }

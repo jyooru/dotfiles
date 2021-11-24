@@ -43,7 +43,8 @@
   };
 
 
-  networking.firewall.allowedTCPPorts = [ 25565 ];
+  networking.firewall.allowedTCPPorts = [ 25565 8384 ];
+
   virtualisation.oci-containers.containers = {
     "minecraft-server" = {
       image = "itzg/minecraft-server";
@@ -61,5 +62,9 @@
         "/home/joel/minecraft-server:/data"
       ];
     };
+  };
+  services.syncthing = {
+    guiAddress = "10.42.0.14:8384"; # TODO: only allow `thinkpad-e580`
+
   };
 }

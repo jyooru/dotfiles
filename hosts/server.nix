@@ -52,4 +52,8 @@
       tools = true;
     };
   };
+
+  services.syncthing = {
+    enable = true;
+  };
 }
