@@ -143,7 +143,7 @@ in
         pipl = "pip list";
         pipu = "pip uninstall";
 
-        nixs = "sudo nixos-rebuild switch && home-manager switch";
+        nix-hash-sha256 = "nix-hash --type sha256 --to-base32";
 
         get-class = "xprop | grep WM_CLASS | awk '{print $4}'";
       };
