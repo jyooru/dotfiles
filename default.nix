@@ -43,6 +43,7 @@
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
+    trustedUsers = [ "root" "joel" ];
   };
   nixpkgs.config = import ./config/nixpkgs.nix;
 
