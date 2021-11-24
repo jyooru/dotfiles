@@ -57,6 +57,8 @@
   services.syncthing = {
     user = "joel";
     group = "users";
+    configDir = "/home/joel/.config/syncthing";
+    dataDir = "/home/joel";
     openDefaultPorts = true;
     systemService = true;
     declarative = { overrideDevices = false; overrideFolders = false; };
