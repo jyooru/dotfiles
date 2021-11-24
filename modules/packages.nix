@@ -41,6 +41,7 @@ in
       gnome.nautilus # file manager (gui)
       ranger # file manager (tui)
       minecraft # game
+      arduino # ide for arduino
       spotify # music streaming service
       obsidian # notes
       onlyoffice-bin # office suite
