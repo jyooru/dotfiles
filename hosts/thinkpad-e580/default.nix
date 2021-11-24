@@ -128,5 +128,19 @@
         id = "QMOXUMI-JSL766T-CUTKFMC-TUUG3MC-FYWAGI7-4DRVYYC-KU6TDPS-QPBGEAV";
       };
     };
+    declarative.folders = {
+      "cluster" = {
+        label = "cluster";
+        id = "jyxof-ssssq";
+        path = "/home/joel/cluster";
+        devices = [
+          # "thinkpad-e580"
+          "portege-r700-a"
+          "portege-r700-b"
+          "portege-z930"
+          "ga-z77-d3h"
+        ];
+      };
+    };
   };
 }
