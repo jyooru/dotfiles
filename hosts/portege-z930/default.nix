@@ -33,7 +33,7 @@
   networking.firewall.allowedTCPPorts = [ 8384 ];
   services.syncthing = {
     guiAddress = "10.42.0.13:8384"; # TODO: only allow `thinkpad-e580` 
-    declarative.devices = {
+    devices = {
       "thinkpad-e580" = {
         addresses = [ "tcp://thinkpad-e580.dev.joel.tokyo:22000" ];
         id = "XBWJHAC-FE2X3L2-MSS5ID4-JVE3VOV-HKWEAD3-4V6QRGC-JUKFOKR-5JDOVAE";
@@ -55,7 +55,7 @@
         id = "QMOXUMI-JSL766T-CUTKFMC-TUUG3MC-FYWAGI7-4DRVYYC-KU6TDPS-QPBGEAV";
       };
     };
-    declarative.folders = {
+    folders = {
       "cluster" = {
         label = "cluster";
         id = "jyxof-ssssq";

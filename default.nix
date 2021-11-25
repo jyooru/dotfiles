@@ -61,7 +61,7 @@
     dataDir = "/home/joel";
     openDefaultPorts = true;
     systemService = true;
-    declarative = { overrideDevices = false; overrideFolders = false; };
+  overrideDevices = false; overrideFolders = false; 
   };
 
   home-manager = {
