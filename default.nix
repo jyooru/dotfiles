@@ -61,7 +61,12 @@
     dataDir = "/home/joel";
     openDefaultPorts = true;
     systemService = true;
-  overrideDevices = false; overrideFolders = false; 
+    overrideDevices = false;
+    overrideFolders = false;
+  };
+
+  boot.kernel.sysctl = {
+    "fs.inotify.max_user_watches" = "204800";
   };
 
   home-manager = {
