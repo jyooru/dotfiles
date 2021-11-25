@@ -1,3 +1,4 @@
+{ config, ... }:
 {
   users.users.joel.openssh.authorizedKeys.keyFiles = [
     ./thinkpad-e580/id_rsa.joel.pub
@@ -101,12 +102,37 @@
       enable = true;
     };
   };
+  home-manager.users.joel.home.file.nodeCaddyfile = {
+    target = "node/config/Caddyfile";
+    text = ''
+      ${config.networking.hostName}.dev.joel.tokyo {
+        import joel.tokyo
+        respond "Hello world"
+      }
+
+      nix.${config.networking.hostName}.dev.joel.tokyo {
+        import joel.tokyo
+        respond "Hello world"
+      }
+
+      syncthing.srv.${config.networking.hostName}.dev.joel.tokyo {
+        import joel.tokyo
+        respond "Hello world"
+      }
+
+      ipfs.srv.${config.networking.hostName}.dev.joel.tokyo {
+        import joel.tokyo
+        respond "Hello world"
+      }
+    '';
+  };
   virtualisation.oci-containers.containers = {
     "caddy" = {
       image = "jyooru/caddy";
       ports = [ "80:80" "443:443" ];
       volumes = [
-        "/home/joel/cluster/config/Caddyfile:/etc/caddy/Caddyfile:ro"
+        "/home/joel/cluster/config/Caddyfile:/etc/caddy/Caddyfile:ro" # import /etc/caddy/nodeCaddyfile
+        "/home/joel/node/config/Caddyfile:/etc/caddy/nodeCaddyfile:ro"
         "/home/joel/node/data/caddy:/data"
         "/home/joel/node/log/caddy:/var/log/caddy"
         "/home/joel/cluster/www:/srv:ro"
