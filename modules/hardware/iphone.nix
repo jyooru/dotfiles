@@ -10,26 +10,33 @@ in
 {
   options.modules.hardware.iphone = {
     enable = mkEnableOption "USB Tethering and Filesystem support for iPhone";
-    directory = mkOption { default = "/run/media/iPhone"; };
-    user = mkOption { };
+    mountPath = mkOption {
+      type = types.str;
+      default = "/run/media/iphone";
+      description = "Path to mount the connected iPhone.";
+    };
+    user = mkOption {
+      type = types.str;
+      description = "User to own the mount path.";
+    };
   };
   config = mkIf cfg.enable {
-    environment.systemPackages = [
-      pkgs.libimobiledevice
-      pkgs.usbmuxd
-      (pkgs.writeScriptBin "iphone" ''
+    environment.systemPackages = with pkgs; [
+      libimobiledevice
+      usbmuxd
+      (writeScriptBin "iphone" ''
         sudo systemctl restart iphone \
-         && ${pkgs.gnome2.libgnome}/bin/gnome-open ${cfg.directory}
+         && ${pkgs.gnome2.libgnome}/bin/gnome-open ${cfg.mountPath}
       '')
     ];
-    services.usbmuxd.enable = true;
-    services.usbmuxd.user = cfg.user;
+
+    services.usbmuxd = { enable = true; user = cfg.user; };
 
     systemd.services.iphone = {
-      preStart = "mkdir -p ${cfg.directory}; chown ${cfg.user} ${cfg.directory}";
+      preStart = "mkdir -p ${cfg.mountPath} && chown ${cfg.user} ${cfg.mountPath}";
       script = ''
         ${pkgs.libimobiledevice}/bin/idevicepair pair \
-        && exec ${pkgs.ifuse}/bin/ifuse ${cfg.directory}
+        && exec ${pkgs.ifuse}/bin/ifuse ${cfg.mountPath}
       '';
       serviceConfig = {
         PermissionsStartOnly = true;

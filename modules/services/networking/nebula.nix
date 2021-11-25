@@ -16,25 +16,26 @@ in
       ca = "/etc/nebula/ca.crt";
       cert = "/etc/nebula/host.crt";
       key = "/etc/nebula/host.key";
-      staticHostMap = {
-        "10.42.0.11" = [ "home.run.joel.tokyo:4241" "192.168.0.11:4241" ];
-        "10.42.0.12" = [ "home.run.joel.tokyo:4242" "192.168.0.12:4242" ];
-        "10.42.0.13" = [ "home.run.joel.tokyo:4243" "192.168.0.13:4243" ];
-        "10.42.0.14" = [ "home.run.joel.tokyo:4244" "192.168.0.14:4244" ];
-      };
-      lighthouses = [
-        "10.42.0.11"
-        "10.42.0.12"
-        "10.42.0.13"
-        "10.42.0.14"
-      ];
+      # set in each host, needs refactoring
+      # staticHostMap = {
+      #   "10.42.0.11" = [ "home.run.joel.tokyo:4241" "192.168.0.11:4241" ];
+      #   "10.42.0.12" = [ "home.run.joel.tokyo:4242" "192.168.0.12:4242" ];
+      #   "10.42.0.13" = [ "home.run.joel.tokyo:4243" "192.168.0.13:4243" ];
+      #   "10.42.0.14" = [ "home.run.joel.tokyo:4244" "192.168.0.14:4244" ];
+      # };
+      # lighthouses = [
+      #   "10.42.0.11"
+      #   "10.42.0.12"
+      #   "10.42.0.13"
+      #   "10.42.0.14"
+      # ];
       firewall = {
         outbound = [{ port = "any"; proto = "any"; host = "any"; }];
         inbound = [{ port = "any"; proto = "any"; host = "any"; }];
       };
       settings = {
         lighhouse.interval = 60;
-        listen = { host = "[::]"; port = 0; };
+        listen = { host = "[::]"; };
         punchy.punch = true;
         cipher = "chachapoly";
         local_range = "192.168.0.0/24";
