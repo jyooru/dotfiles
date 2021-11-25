@@ -53,6 +53,7 @@
     };
   };
 
+  networking.firewall.allowedTCPPorts = [ 80 8000 443 44300 ];
   services = {
     nginx = {
       enable = true;
