@@ -91,4 +91,16 @@
       enable = true;
     };
   };
+  virtualisation.oci-containers.containers = {
+    "caddy" = {
+      image = "jyooru/caddy";
+      ports = [ "80:80" "443:443" ];
+      volumes = [
+        "/home/joel/cluster/config/Caddyfile:/etc/caddy/Caddyfile:ro"
+        "/home/joel/node/data/caddy:/data"
+        "/home/joel/node/log/caddy:/var/log/caddy"
+        "/home/joel/cluster/www:/srv:ro"
+      ];
+    };
+  };
 }
