@@ -54,6 +54,8 @@
 
   virtualisation.docker.enable = true;
 
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" "armv6l-linux" ];
+
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
