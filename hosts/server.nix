@@ -53,7 +53,41 @@
     };
   };
 
-  services.syncthing = {
-    enable = true;
+  services = {
+    nginx = {
+      enable = true;
+      streamConfig = ''
+        upstream http_servers {
+            server 10.42.0.11:80;
+            server 10.42.0.12:80;
+            server 10.42.0.13:80;
+            server 10.42.0.14:80;
+        }
+
+        server {
+            listen 8000;
+            listen [::]:8000;
+            proxy_protocol on;
+            proxy_pass http_servers;
+        }
+
+        upstream https_servers {
+            server 10.42.0.11:443;
+            server 10.42.0.12:443;
+            server 10.42.0.13:443;
+            server 10.42.0.14:443;
+        }
+
+        server {
+            listen 44300;
+            listen [::]:44300;
+            proxy_protocol on;
+            proxy_pass https_servers;
+        }
+      '';
+    };
+    syncthing = {
+      enable = true;
+    };
   };
 }
