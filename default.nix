@@ -44,6 +44,21 @@
       experimental-features = nix-command flakes
     '';
     trustedUsers = [ "root" "joel" ];
+    binaryCaches = [
+      "https://nix.ga-z77-d3h.dev.joel.tokyo"
+      "https://nix.portege-r700-a.dev.joel.tokyo"
+      "https://nix.portege-r700-b.dev.joel.tokyo"
+      "https://nix.portege-z930.dev.joel.tokyo"
+      "https://cache.nixos.org"
+      "https://nix.thinkpad-e580.dev.joel.tokyo"
+    ];
+    binaryCachePublicKeys = with builtins; [
+      (readFile ./hosts/ga-z77-d3h/binary-cache.pub)
+      (readFile ./hosts/portege-r700-a/binary-cache.pub)
+      (readFile ./hosts/portege-r700-b/binary-cache.pub)
+      (readFile ./hosts/portege-z930/binary-cache.pub)
+      (readFile ./hosts/thinkpad-e580/binary-cache.pub)
+    ];
   };
   nixpkgs.config = import ./config/nixpkgs.nix;
 
@@ -96,5 +111,11 @@
       };
     };
   };
+
+  nixpkgs.overlays = [
+    (_: super: {
+      nix-serve = super.nix-serve.override { nix = super.nix_2_3; }; # https://github.com/edolstra/nix-serve/issues/28
+    })
+  ];
 }
 
