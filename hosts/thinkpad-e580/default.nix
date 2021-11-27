@@ -104,6 +104,10 @@
       "10.42.0.14"
     ];
   };
+  services.nix-serve = {
+    enable = true;
+    secretKeyFile = "/var/binary-cache.pem";
+  };
   services.syncthing = {
     enable = true;
     devices = {

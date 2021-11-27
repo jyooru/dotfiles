@@ -116,6 +116,10 @@
         }
       '';
     };
+    nix-serve = {
+      enable = true;
+      secretKeyFile = "/var/binary-cache.pem";
+    };
     syncthing = {
       enable = true;
     };
@@ -132,7 +136,7 @@
 
       nix.${config.networking.hostName}.dev.joel.tokyo {
         import joel.tokyo
-        respond "Hello world"
+        reverse_proxy localhost:5000
       }
 
       syncthing.srv.${config.networking.hostName}.dev.joel.tokyo {
