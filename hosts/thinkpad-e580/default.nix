@@ -91,7 +91,7 @@
   };
 
   networking.firewall.allowedTCPPorts = [ 80 443 ];
-  networking.firewall.interfaces."docker0".allowedTCPPorts = [ 5000 ];
+  networking.firewall.interfaces."docker0".allowedTCPPorts = [ 5000 8384 ];
   services.nebula.networks."joel" = {
     staticHostMap = {
       "10.42.0.11" = [ "home.run.joel.tokyo:4241" "192.168.0.11:4241" ];
@@ -112,6 +112,7 @@
   };
   services.syncthing = {
     enable = true;
+    guiAddress = "0.0.0.0:8384";
     devices = {
       # "thinkpad-e580" = {
       #   addresses = [ "tcp://thinkpad-e580.dev.joel.tokyo:22000" ];
@@ -256,7 +257,7 @@
 
       syncthing.srv.${config.networking.hostName}.dev.joel.tokyo {
         import joel.tokyo
-        respond "Hello world"
+        reverse_proxy 172.17.0.1:8384
       }
 
       ipfs.srv.${config.networking.hostName}.dev.joel.tokyo {
