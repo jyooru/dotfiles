@@ -136,8 +136,7 @@
       }
 
       syncthing.srv.${config.networking.hostName}.dev.joel.tokyo {
-        import joel.tokyo
-        respond "Hello world"
+        reverse_proxy 172.17.0.1:8384
       }
 
       ipfs.srv.${config.networking.hostName}.dev.joel.tokyo {
