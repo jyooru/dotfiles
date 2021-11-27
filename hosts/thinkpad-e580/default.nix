@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   imports = [ ./hardware-configuration.nix ];
 
@@ -90,6 +90,8 @@
     };
   };
 
+  networking.firewall.allowedTCPPorts = [ 80 443 ];
+  networking.firewall.interfaces."docker0".allowedTCPPorts = [ 5000 ];
   services.nebula.networks."joel" = {
     staticHostMap = {
       "10.42.0.11" = [ "home.run.joel.tokyo:4241" "192.168.0.11:4241" ];
@@ -103,6 +105,10 @@
       "10.42.0.13"
       "10.42.0.14"
     ];
+  };
+  services.nix-serve = {
+    enable = true;
+    secretKeyFile = "/var/binary-cache.pem";
   };
   services.syncthing = {
     enable = true;
@@ -223,6 +229,52 @@
           "ga-z77-d3h"
         ];
       };
+    };
+  };
+  home-manager.users.joel.home.file."nodeCaddyfile" = {
+    target = "node/config/Caddyfile";
+    text = ''
+      {
+        log {
+          output file /var/log/caddy/log.json {
+            roll_keep_for 14d
+          }
+        }
+      }
+
+      import secretsCaddyfile # cloudflare key for tls
+
+      ${config.networking.hostName}.dev.joel.tokyo {
+        import joel.tokyo
+        respond "Hello world"
+      }
+
+      nix.${config.networking.hostName}.dev.joel.tokyo {
+        import joel.tokyo
+        reverse_proxy 172.17.0.1:5000
+      }
+
+      syncthing.srv.${config.networking.hostName}.dev.joel.tokyo {
+        import joel.tokyo
+        respond "Hello world"
+      }
+
+      ipfs.srv.${config.networking.hostName}.dev.joel.tokyo {
+        import joel.tokyo
+        respond "Hello world"
+      }
+    '';
+  };
+  virtualisation.oci-containers.containers = {
+    "caddy" = {
+      image = "jyooru/caddy";
+      ports = [ "80:80" "443:443" ];
+      volumes = [
+        "/home/joel/node/config/Caddyfile:/etc/caddy/Caddyfile:ro"
+        "/home/joel/node/config/secretsCaddyfile:/etc/caddy/secretsCaddyfile:ro"
+        "/home/joel/node/data/caddy:/data"
+        "/home/joel/node/log/caddy:/var/log/caddy"
+      ];
     };
   };
 }

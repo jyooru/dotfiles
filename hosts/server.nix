@@ -55,7 +55,7 @@
   };
 
   networking.firewall.allowedTCPPorts = [ 80 8000 443 44300 ];
-  networking.firewall.interfaces."docker0".allowedTCPPorts = [ 8384 ];
+  networking.firewall.interfaces."docker0".allowedTCPPorts = [ 5000 8384 ];
   services = {
     nginx = {
       # :80 -> localhost:8001 (http)
@@ -117,6 +117,10 @@
         }
       '';
     };
+    nix-serve = {
+      enable = true;
+      secretKeyFile = "/var/binary-cache.pem";
+    };
     syncthing = {
       enable = true;
       guiAddress = "0.0.0.0:8384";
@@ -134,7 +138,7 @@
 
       nix.${config.networking.hostName}.dev.joel.tokyo {
         import joel.tokyo
-        respond "Hello world"
+        reverse_proxy 172.17.0.1:5000
       }
 
       syncthing.srv.${config.networking.hostName}.dev.joel.tokyo {
