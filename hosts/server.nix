@@ -102,9 +102,11 @@
       enable = true;
     };
   };
-  home-manager.users.joel.home.file.nodeCaddyfile = {
+  home-manager.users.joel.home.file."nodeCaddyfile" = {
     target = "node/config/Caddyfile";
     text = ''
+      import clusterCaddyfile
+
       ${config.networking.hostName}.dev.joel.tokyo {
         import joel.tokyo
         respond "Hello world"
@@ -131,8 +133,8 @@
       image = "jyooru/caddy";
       ports = [ "80:80" "443:443" ];
       volumes = [
-        "/home/joel/cluster/config/Caddyfile:/etc/caddy/Caddyfile:ro" # import /etc/caddy/nodeCaddyfile
-        "/home/joel/node/config/Caddyfile:/etc/caddy/nodeCaddyfile:ro"
+        "/home/joel/node/config/Caddyfile:/etc/caddy/Caddyfile:ro" # ^
+        "/home/joel/cluster/config/Caddyfile:/etc/caddy/clusterCaddyfile:ro" # not public
         "/home/joel/node/data/caddy:/data"
         "/home/joel/node/log/caddy:/var/log/caddy"
         "/home/joel/cluster/www:/srv:ro"
