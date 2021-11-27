@@ -57,6 +57,10 @@
   networking.firewall.allowedTCPPorts = [ 80 8000 443 44300 ];
   services = {
     nginx = {
+      # :80 -> localhost:8001 (http)
+      # :8000 -> cluster:8001 (http)
+      # :443 -> localhost:8001 (https)
+      # :44300 -> cluster:44301 (https)
       enable = true;
       config = ''
         worker_processes 4;
@@ -68,6 +72,13 @@
         }
 
         stream {
+          server {
+            listen 80;
+            listen [::]:80;
+            proxy_protocol on;
+            proxy_pass localhost:8001;
+          }
+
           upstream http_servers {
             server 10.42.0.11:8001;
             server 10.42.0.12:8001;
@@ -80,6 +91,13 @@
             listen [::]:8000;
             proxy_protocol on;
             proxy_pass http_servers;
+          }
+
+          server {
+            listen 443;
+            listen [::]:443;
+            proxy_protocol on;
+            proxy_pass localhost:44301;
           }
 
           upstream https_servers {
