@@ -69,10 +69,10 @@
 
         stream {
           upstream http_servers {
-            server 10.42.0.11:80;
-            server 10.42.0.12:80;
-            server 10.42.0.13:80;
-            server 10.42.0.14:80;
+            server 10.42.0.11:8001;
+            server 10.42.0.12:8001;
+            server 10.42.0.13:8001;
+            server 10.42.0.14:8001;
           }
 
           server {
@@ -83,10 +83,10 @@
           }
 
           upstream https_servers {
-            server 10.42.0.11:443;
-            server 10.42.0.12:443;
-            server 10.42.0.13:443;
-            server 10.42.0.14:443;
+            server 10.42.0.11:44301;
+            server 10.42.0.12:44301;
+            server 10.42.0.13:44301;
+            server 10.42.0.14:44301;
           }
 
           server {
@@ -131,7 +131,7 @@
   virtualisation.oci-containers.containers = {
     "caddy" = {
       image = "jyooru/caddy";
-      ports = [ "80:80" "443:443" ];
+      ports = [ "8001:80" "44301:443" ];
       volumes = [
         "/home/joel/node/config/Caddyfile:/etc/caddy/Caddyfile:ro" # ^
         "/home/joel/cluster/config/Caddyfile:/etc/caddy/clusterCaddyfile:ro" # not public
