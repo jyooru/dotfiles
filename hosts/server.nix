@@ -55,6 +55,7 @@
   };
 
   networking.firewall.allowedTCPPorts = [ 80 8000 443 44300 ];
+  networking.firewall.interfaces."docker0".allowedTCPPorts = [ 8384 ];
   services = {
     nginx = {
       # :80 -> localhost:8001 (http)
@@ -118,6 +119,7 @@
     };
     syncthing = {
       enable = true;
+      guiAddress = "0.0.0.0:8384";
     };
   };
   home-manager.users.joel.home.file."nodeCaddyfile" = {
@@ -159,3 +161,4 @@
     };
   };
 }
+
