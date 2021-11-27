@@ -156,8 +156,8 @@
         path = "/home/joel/files/notes";
         devices = [
           "thinkpad-e580"
-          # "portege-r700-a"
-          "ga-z77-d3h"
+          "portege-r700-a"
+          # "ga-z77-d3h"
         ];
       };
       "school" = {
