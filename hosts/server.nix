@@ -55,7 +55,7 @@
   };
 
   networking.firewall.allowedTCPPorts = [ 80 8000 443 44300 ];
-  networking.firewall.interfaces."docker0".allowedTCPPorts = [ 5000 ];
+  networking.firewall.interfaces."docker0".allowedTCPPorts = [ 5000 8384 ];
   services = {
     nginx = {
       # :80 -> localhost:8001 (http)
@@ -123,6 +123,7 @@
     };
     syncthing = {
       enable = true;
+      guiAddress = "0.0.0.0:8384";
     };
   };
   home-manager.users.joel.home.file."nodeCaddyfile" = {
@@ -141,8 +142,7 @@
       }
 
       syncthing.srv.${config.networking.hostName}.dev.joel.tokyo {
-        import joel.tokyo
-        respond "Hello world"
+        reverse_proxy 172.17.0.1:8384
       }
 
       ipfs.srv.${config.networking.hostName}.dev.joel.tokyo {
@@ -165,3 +165,4 @@
     };
   };
 }
+

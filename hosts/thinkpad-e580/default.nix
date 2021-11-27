@@ -91,7 +91,7 @@
   };
 
   networking.firewall.allowedTCPPorts = [ 80 443 ];
-  networking.firewall.interfaces."docker0".allowedTCPPorts = [ 5000 ];
+  networking.firewall.interfaces."docker0".allowedTCPPorts = [ 5000 8384 ];
   services.nebula.networks."joel" = {
     staticHostMap = {
       "10.42.0.11" = [ "home.run.joel.tokyo:4241" "192.168.0.11:4241" ];
@@ -112,6 +112,7 @@
   };
   services.syncthing = {
     enable = true;
+    guiAddress = "0.0.0.0:8384";
     devices = {
       # "thinkpad-e580" = {
       #   addresses = [ "tcp://thinkpad-e580.dev.joel.tokyo:22000" ];
@@ -135,10 +136,92 @@
       };
     };
     folders = {
+      "archive" = {
+        id = "u4tsv-7hxb7";
+        path = "/home/joel/archive";
+        # path = "/home/joel/files/archive";
+        devices = [
+          # "thinkpad-e580"
+          "portege-r700-a"
+          "ga-z77-d3h"
+        ];
+      };
       "cluster" = {
-        label = "cluster";
         id = "jyxof-ssssq";
         path = "/home/joel/cluster";
+        devices = [
+          # "thinkpad-e580"
+          "portege-r700-a"
+          "portege-r700-b"
+          "portege-z930"
+          "ga-z77-d3h"
+        ];
+      };
+      "code" = {
+        id = "wcqyy-zrab5";
+        path = "/home/joel/code";
+        # path = "/home/joel/files/code";
+        devices = [
+          # "thinkpad-e580"
+          "portege-r700-a"
+          "portege-r700-b"
+          "portege-z930"
+          "ga-z77-d3h"
+        ];
+      };
+      "documents" = {
+        id = "pgpew-tged2";
+        path = "/home/joel/documents";
+        # path = "/home/joel/files/documents";
+        devices = [
+          # "thinkpad-e580"
+          "portege-r700-a"
+          "ga-z77-d3h"
+        ];
+      };
+      "games" = {
+        id = "xt4t4-d2jad";
+        path = "/home/joel/games";
+        # path = "/home/joel/files/games";
+        devices = [
+          # "thinkpad-e580"
+          "portege-r700-a"
+          "ga-z77-d3h"
+        ];
+      };
+      "media" = {
+        id = "kasul-jsgfj";
+        path = "/home/joel/media";
+        # path = "/home/joel/files/media";
+        devices = [
+          # "thinkpad-e580"
+          "portege-r700-a"
+          "ga-z77-d3h"
+        ];
+      };
+      "notes" = {
+        id = "bc6qz-tad4c";
+        path = "/home/joel/school";
+        # path = "/home/joel/files/notes";
+        devices = [
+          # "thinkpad-e580"
+          "portege-r700-a"
+          "ga-z77-d3h"
+        ];
+      };
+      "school" = {
+        id = "s6jde-csrow";
+        path = "/home/joel/school";
+        # path = "/home/joel/files/school";
+        devices = [
+          # "thinkpad-e580"
+          "portege-r700-a"
+          "ga-z77-d3h"
+        ];
+      };
+      "tmp" = {
+        id = "5f6yn-csxu7";
+        path = "/home/joel/tmp";
         devices = [
           # "thinkpad-e580"
           "portege-r700-a"
@@ -174,7 +257,7 @@
 
       syncthing.srv.${config.networking.hostName}.dev.joel.tokyo {
         import joel.tokyo
-        respond "Hello world"
+        reverse_proxy 172.17.0.1:8384
       }
 
       ipfs.srv.${config.networking.hostName}.dev.joel.tokyo {
