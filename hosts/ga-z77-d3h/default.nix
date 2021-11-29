@@ -53,7 +53,7 @@
         EULA = "true";
         TYPE = "purpur";
         OVERRIDE_SERVER_PROPERTIES = "true";
-        MOTD = "§b                   §lplay.joel.tokyo§r\n§c                          [1.17.1]";
+        MOTD = "\\u00A7b                    \\u00A7lplay.joel.tokyo\\u00A7r\\n\\u00A7c                          [1.17.1]";
         MEMORY = "4G";
         ENABLE_ROLLING_LOGS = "true";
       };
