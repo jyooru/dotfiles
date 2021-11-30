@@ -57,6 +57,8 @@ in
     ++ optionals cfg.code [
       nodePackages.prettier # * formatter
       caddy # caddyfile formatter and web server
+      go # go
+      rustup # rust
       python3 # python
       python3Packages.black # python formatter
       python3Packages.flake8 # python linter
