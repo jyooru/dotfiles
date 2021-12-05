@@ -120,6 +120,7 @@ in
         "explorer.confirmDelete" = false;
         "explorer.confirmDragAndDrop" = false;
         "editor.inlineSuggest.enabled" = true;
+        "files.associations" = { "*.liquid" = "html"; };
         "files.exclude" = { "**/.stfolder" = true; "**/__pycache__" = true; };
         "git.confirmSync" = false;
         "git.autofetch" = true;
