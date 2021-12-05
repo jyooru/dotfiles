@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 {
   users.users.joel.openssh.authorizedKeys.keyFiles = [
     ./thinkpad-e580/id_rsa.joel.pub
@@ -163,6 +163,12 @@
         "/home/joel/cluster/www:/srv:ro"
       ];
     };
+  };
+
+  environment.systemPackages = with pkgs; [ ipfs-cluster ];
+  services.ipfs = {
+    enable = true;
+    localDiscovery = true;
   };
 }
 

@@ -54,6 +54,11 @@
   services = {
     auto-cpufreq.enable = true;
 
+    ipfs = {
+      enable = true;
+      localDiscovery = true;
+    };
+
     xserver = {
       enable = true;
 
@@ -90,7 +95,7 @@
     };
   };
 
-  networking.firewall.allowedTCPPorts = [ 80 443 ];
+  networking.firewall.allowedTCPPorts = [ 80 443 4001 ];
   networking.firewall.interfaces."docker0".allowedTCPPorts = [ 5000 8384 ];
   services.nebula.networks."joel" = {
     staticHostMap = {
