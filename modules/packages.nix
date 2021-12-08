@@ -103,7 +103,8 @@ in
       scrot # screenshot
       lm_sensors # sensor viewer
       neofetch # system info
-      htop # system usage monitor # TODO: btop
+      btop # system monitor
+      htop # system monitor
       wmctrl # window manager control
       xorg.xev # x event viewer
       git # version control system

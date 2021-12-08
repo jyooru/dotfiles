@@ -105,6 +105,7 @@
         programs.ssh = { enable = true; matchBlocks = import ./config/ssh.nix; };
         nixpkgs.config = import ./config/nixpkgs.nix;
         xdg.configFile."nixpkgs/config.nix".source = ./config/nixpkgs.nix;
+        xdg.configFile."btop/btop.conf".text = "theme_background = False";
         home = {
           username = "joel";
           homeDirectory = "/home/joel";
