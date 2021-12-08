@@ -15,5 +15,6 @@
   ./services/networking/nebula.nix
   ./services/polybar.nix
   ./services/x11/window-managers/bspwm.nix
+  ./syncthing.nix
   ./system/boot/loader/systemd-boot.nix
 ]
