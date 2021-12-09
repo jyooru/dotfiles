@@ -5,9 +5,11 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     deploy-rs.url = "github:serokell/deploy-rs";
+    flake-utils.url = "github:numtide/flake-utils";
+    flake-utils.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, deploy-rs, ... }: {
+  outputs = { self, nixpkgs, home-manager, deploy-rs, flake-utils, ... }: {
     nixosConfigurations = (builtins.mapAttrs
       (host: system: nixpkgs.lib.nixosSystem {
         inherit system;
@@ -41,5 +43,13 @@
         [ "portege-r700-a" "portege-r700-b" "portege-z930" "ga-z77-d3h" ]
       ));
     };
-  };
+  } // (flake-utils.lib.eachDefaultSystem (system:
+    let pkgs = import nixpkgs { inherit system; }; in
+    {
+      devShell = pkgs.mkShell {
+        packages = (with pkgs;
+          [ nixpkgs-fmt nix-linter ]);
+      };
+    }
+  ));
 }
