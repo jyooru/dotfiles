@@ -8,9 +8,9 @@ in
   services.syncthing = {
     devices = (removeAttrs
       (builtins.mapAttrs
-        (name: value: {
+        (name: id: {
           addresses = [ "tcp://${name}.${config.networking.domain}:22000" ];
-          id = value;
+          inherit id;
         })
         {
           "thinkpad-e580" = "XBWJHAC-FE2X3L2-MSS5ID4-JVE3VOV-HKWEAD3-4V6QRGC-JUKFOKR-5JDOVAE";
