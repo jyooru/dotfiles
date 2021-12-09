@@ -9,10 +9,10 @@
 
   outputs = { self, nixpkgs, home-manager, deploy-rs, ... }: {
     nixosConfigurations = (builtins.mapAttrs
-      (name: value: nixpkgs.lib.nixosSystem {
-        system = value;
+      (host: system: nixpkgs.lib.nixosSystem {
+        inherit system;
         modules = [
-          (./hosts/. + "/${name}")
+          (./hosts/. + "/${host}")
           home-manager.nixosModules.home-manager
           ./default.nix
         ];
@@ -31,11 +31,11 @@
       user = "root";
 
       nodes = (builtins.listToAttrs (builtins.map
-        (host: {
-          name = host;
+        (name: {
+          inherit name;
           value = {
-            hostname = "${host}.dev.joel.tokyo";
-            profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.${host};
+            hostname = "${name}.dev.joel.tokyo";
+            profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.${name};
           };
         })
         [ "portege-r700-a" "portege-r700-b" "portege-z930" "ga-z77-d3h" ]
