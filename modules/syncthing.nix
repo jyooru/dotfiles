@@ -20,10 +20,10 @@ in
           "ga-z77-d3h" = "QMOXUMI-JSL766T-CUTKFMC-TUUG3MC-FYWAGI7-4DRVYYC-KU6TDPS-QPBGEAV";
         }) [ config.networking.hostName ]);
     folders = builtins.mapAttrs
-      (name: value: value // {
+      (_: value: value // {
         devices = lib.remove config.networking.hostName value.devices;
       })
-      (lib.filterAttrs (name: value: builtins.any (x: x == config.networking.hostName) value.devices) {
+      (lib.filterAttrs (_: value: builtins.any (x: x == config.networking.hostName) value.devices) {
         "archive" = {
           id = "u4tsv-7hxb7";
           path = "/home/joel/${serverPath}archive";
