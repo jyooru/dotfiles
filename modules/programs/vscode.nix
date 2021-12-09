@@ -150,6 +150,9 @@ in
           "hosts" = "client";
           "hardware" = "core";
           "programs" = "app";
+          "result" = "dist";
+          "dotfiles" = "config";
+          "nixpkgs" = "packages";
         };
 
         # languages
