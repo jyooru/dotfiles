@@ -142,11 +142,6 @@
         reverse_proxy 172.17.0.1:5000
       }
 
-      qbittorrent.srv.${config.networking.hostName}.dev.joel.tokyo {
-        import joel.tokyo
-        reverse_proxy 172.17.0.1:8002
-      }
-
       syncthing.srv.${config.networking.hostName}.dev.joel.tokyo {
         reverse_proxy 172.17.0.1:8384
       }
@@ -167,20 +162,6 @@
         "/home/joel/node/data/caddy:/data"
         "/home/joel/node/log/caddy:/var/log/caddy"
         "/home/joel/cluster/www:/srv:ro"
-      ];
-    };
-    "qbittorrent" = {
-      image = "linuxserver/qbittorrent";
-      ports = [ "6881:6881" "6881:6881/udp" "8002:8002" ];
-      environment = {
-        PUID = "1000";
-        PGID = "100";
-        TZ = "Australia/Brisbane";
-        WEBUI_PORT = "8002";
-      };
-      volumes = [
-        "/home/joel/config/qbittorrent:/config"
-        "/home/joel/data/qbittorrent:/downloads"
       ];
     };
   };
