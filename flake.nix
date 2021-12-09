@@ -8,28 +8,23 @@
   };
 
   outputs = { self, nixpkgs, home-manager, deploy-rs, ... }: {
-    nixosConfigurations = {
-      thinkpad-e580 = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [ ./hosts/thinkpad-e580 home-manager.nixosModules.home-manager ./default.nix ];
-      };
-      portege-r700-a = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [ ./hosts/portege-r700-a home-manager.nixosModules.home-manager ./default.nix ];
-      };
-      portege-r700-b = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [ ./hosts/portege-r700-b home-manager.nixosModules.home-manager ./default.nix ];
-      };
-      portege-z930 = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [ ./hosts/portege-z930 home-manager.nixosModules.home-manager ./default.nix ];
-      };
-      ga-z77-d3h = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [ ./hosts/ga-z77-d3h home-manager.nixosModules.home-manager ./default.nix ];
-      };
-    };
+    nixosConfigurations = (builtins.mapAttrs
+      (name: value: nixpkgs.lib.nixosSystem {
+        system = value;
+        modules = [
+          (./hosts/. + "/${name}")
+          home-manager.nixosModules.home-manager
+          ./default.nix
+        ];
+      })
+      {
+        "thinkpad-e580" = "x86_64-linux";
+        "portege-r700-a" = "x86_64-linux";
+        "portege-r700-b" = "x86_64-linux";
+        "portege-z930" = "x86_64-linux";
+        "ga-z77-d3h" = "x86_64-linux";
+      }
+    );
 
     deploy = {
       sshUser = "root";
