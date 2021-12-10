@@ -46,22 +46,22 @@
   networking.firewall.allowedTCPPorts = [ 25565 ];
 
   virtualisation.oci-containers.containers = {
-    "minecraft-server" = {
-      image = "itzg/minecraft-server:java16";
-      ports = [ "25565:25565" ];
-      environment = {
-        EULA = "true";
-        TYPE = "purpur";
-        OVERRIDE_SERVER_PROPERTIES = "true";
-        MOTD = "\\u00A7b                    \\u00A7lplay.joel.tokyo\\u00A7r\\n\\u00A7c                          [1.17.1]";
-        MEMORY = "4G";
-        ENABLE_ROLLING_LOGS = "true";
-        VERSION = "1.17.1";
-      };
-      extraOptions = [ "--tty" ];
-      volumes = [
-        "/home/joel/minecraft-server:/data"
-      ];
-    };
+    # "minecraft-server" = {
+    #   image = "itzg/minecraft-server:java16";
+    #   ports = [ "25565:25565" ];
+    #   environment = {
+    #     EULA = "true";
+    #     TYPE = "purpur";
+    #     OVERRIDE_SERVER_PROPERTIES = "true";
+    #     MOTD = "\\u00A7b                    \\u00A7lplay.joel.tokyo\\u00A7r\\n\\u00A7c                          [1.17.1]";
+    #     MEMORY = "4G";
+    #     ENABLE_ROLLING_LOGS = "true";
+    #     VERSION = "1.17.1";
+    #   };
+    #   extraOptions = [ "--tty" ];
+    #   volumes = [
+    #     "/home/joel/minecraft-server:/data"
+    #   ];
+    # };
   };
 }
