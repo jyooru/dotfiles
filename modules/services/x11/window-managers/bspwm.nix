@@ -69,6 +69,7 @@ in
 
             # system
             "super + {_,alt + } Escape" = "betterlockscreen {--lock,--suspend}"; # lock
+            "super + control + Escape" = "sleep 0.2 && xset s activate"; # turn off screen
             "super + alt + {q,r}" = "bspc {quit,wm -r}"; # quit / restart bspwm
 
             # wm
