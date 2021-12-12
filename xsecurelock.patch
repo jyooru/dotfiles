@@ -1,0 +1,38 @@
+From e5867e8d12ff2f72e45394dafa42200bf90cc465 Mon Sep 17 00:00:00 2001
+From: Joel <joel@joel.tokyo>
+Date: Sun, 12 Dec 2021 13:44:29 +1000
+Subject: [PATCH] feat: hide keyboard layout
+
+---
+ helpers/auth_x11.c | 8 ++------
+ 1 file changed, 2 insertions(+), 6 deletions(-)
+
+diff --git a/helpers/auth_x11.c b/helpers/auth_x11.c
+index af47cee..14cefa3 100644
+--- a/helpers/auth_x11.c
++++ b/helpers/auth_x11.c
+@@ -342,9 +342,7 @@ void PlaySound(enum Sound snd) {
+  */
+ void SwitchKeyboardLayout(void) {
+ #ifdef HAVE_XKB_EXT
+-  if (!have_xkb_ext) {
+-    return;
+-  }
++  return;
+ 
+   XkbDescPtr xkb;
+   xkb = XkbGetMap(display, 0, XkbUseCoreKbd);
+@@ -386,9 +384,7 @@ const char *GetIndicators(int *warning, int *have_multiple_layouts) {
+   static char buf[128];
+   char *p;
+ 
+-  if (!have_xkb_ext) {
+-    return "";
+-  }
++  return "";
+ 
+   XkbDescPtr xkb;
+   xkb = XkbGetMap(display, 0, XkbUseCoreKbd);
+-- 
+2.31.1
+
