@@ -119,7 +119,7 @@
     (_: super: {
       nix-serve = super.nix-serve.override { nix = super.nix_2_3; }; # https://github.com/edolstra/nix-serve/issues/28
     })
-    (self: super:
+    (_: super:
       {
         xsecurelock = super.xsecurelock.overrideAttrs (old: {
           patches = (old.patches or [ ]) ++ [
