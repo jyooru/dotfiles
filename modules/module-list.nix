@@ -6,7 +6,6 @@
   ./packages.nix
   ./programs/alacritty.nix
   ./programs/bash.nix
-  ./programs/betterlockscreen.nix
   ./programs/git.nix
   ./programs/ranger.nix
   ./programs/rofi.nix

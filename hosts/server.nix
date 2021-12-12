@@ -30,7 +30,6 @@
     programs = {
       alacritty.enable = false;
       bash.enable = true;
-      betterlockscreen.enable = false;
       git.enable = true;
       ranger.enable = true;
       rofi.enable = false;
