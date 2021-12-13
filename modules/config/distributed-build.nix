@@ -11,54 +11,23 @@ in
     enable = mkEnableOption "Distributed build";
   };
   config = mkIf cfg.enable {
-    nix.buildMachines = [
-      {
-        hostName = "portege-r700-a.dev.joel.tokyo";
-        systems = [ "x86_64-linux" "aarch64-linux" "armv6l-linux" ];
-        maxJobs = 4;
-        speedFactor = 1;
-        supportedFeatures = [ ];
-        mandatoryFeatures = [ ];
-        sshUser = "joel";
-        sshKey = "/home/joel/.ssh/id_rsa";
-      }
-      {
-        hostName = "portege-r700-b.dev.joel.tokyo";
-        systems = [ "x86_64-linux" "aarch64-linux" "armv6l-linux" ];
-        maxJobs = 4;
-        speedFactor = 1;
-        supportedFeatures = [ ];
-        mandatoryFeatures = [ ];
-        sshUser = "joel";
-        sshKey = "/home/joel/.ssh/id_rsa";
-      }
-      {
-        hostName = "portege-z930.dev.joel.tokyo";
-        systems = [ "x86_64-linux" "aarch64-linux" "armv6l-linux" ];
-        maxJobs = 4;
-        speedFactor = 3;
-        supportedFeatures = [ ];
-        mandatoryFeatures = [ ];
-        sshUser = "joel";
-        sshKey = "/home/joel/.ssh/id_rsa";
-      }
-      {
-        hostName = "ga-z77-d3h.dev.joel.tokyo";
-        systems = [ "x86_64-linux" "aarch64-linux" "armv6l-linux" ];
-        maxJobs = 8;
-        speedFactor = 4;
-        supportedFeatures = [ ];
-        mandatoryFeatures = [ ];
-        sshUser = "joel";
-        sshKey = "/home/joel/.ssh/id_rsa";
-      }
-    ];
-
-    nix.distributedBuilds = true;
-
-    # optional, useful when the builder has a faster internet connection than yours
-    nix.extraOptions = ''
-      builders-use-substitutes = true
-    '';
+    nix = {
+      buildMachines = (map
+        (values: {
+          systems = [ "x86_64-linux" "aarch64-linux" "armv6l-linux" ];
+          sshUser = "joel";
+          sshKey = "/home/joel/.ssh/id_rsa";
+        } // values // { hostName = "${values.hostName}.${config.networking.domain}"; })
+        [
+          { maxJobs = 4; speedFactor = 1; hostName = "portege-r700-a"; }
+          { maxJobs = 4; speedFactor = 1; hostName = "portege-r700-b"; }
+          { maxJobs = 4; speedFactor = 3; hostName = "portege-z930"; }
+          { maxJobs = 8; speedFactor = 4; hostName = "ga-z77-d3h"; }
+        ]);
+      distributedBuilds = true;
+      extraOptions = ''
+        builders-use-substitutes = true
+      ''; # build machines download dependencies themselves instead of this host uploading them
+    };
   };
 }

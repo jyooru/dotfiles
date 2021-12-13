@@ -5,7 +5,7 @@
     ./config/distributed-build.nix
     ./editor.nix
     ./file-manager.nix
-    ./file-synchronisation.nix
+    ./file-sync.nix
     ./hardware/amdgpu.nix
     ./hardware/android.nix
     ./hardware/iphone.nix
