@@ -24,7 +24,7 @@ in
     services.nebula.networks."joel" = rec {
       # https://github.com/slackhq/nebula/blob/master/examples/config.yml
       enable = true;
-      isLighthouse = lighthouseHostnameMap ? config.networking.hostName;
+      isLighthouse = elem config.networking.hostName (attrNames lighthouseHostnameMap);
       ca = "/etc/nebula/ca.crt";
       cert = "/etc/nebula/host.crt";
       key = "/etc/nebula/host.key";
