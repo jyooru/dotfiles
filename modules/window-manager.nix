@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 with lib;
 
@@ -130,7 +130,7 @@ in
             _get_desktop_index "$1" && sleep "$sleep" && wmctrl -r "$2" -t "''${wanted_desktop_index}"
           }
 
-          xsetroot -solid "#1a1a1a"
+          ${pkgs.hsetroot}/bin/hsetroot -solid "#1a1a1a"
           killall polybar; polybar bar &
 
           _start sxhkd

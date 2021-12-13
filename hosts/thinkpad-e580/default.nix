@@ -21,6 +21,7 @@
       enable = true;
       device = "/dev/disk/by-uuid/a207fe6b-d073-459b-b381-b6bc0b3f00ba";
     };
+    compositor.enable = true;
     editor.enable = true;
     fileManager.enable = true;
     launcher.enable = true;
