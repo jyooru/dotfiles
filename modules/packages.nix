@@ -72,7 +72,6 @@ in
     ]
 
     ++ optionals cfg.desktopEnvironment [
-      picom # compositor
       fira-code # font
       xsecurelock # locker
     ]
