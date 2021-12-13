@@ -68,7 +68,7 @@ in
             "control + Print" = "scrot --focused"; # screenshot current node
 
             # system
-            "super + {_,alt + } Escape" = ''XSECURELOCK_BLANK_TIMEOUT=0 XSECURELOCK_PASSWORD_PROMPT=asterisks XSECURELOCK_FONT="FiraCode Nerd Font:style=Regular" xsecurelock {_, & sleep 0.1 && systemctl suspend}''; # lock / and suspend
+            "super + {_,alt + } Escape" = ''XSECURELOCK_COMPOSITE_OBSCURER=0 XSECURELOCK_BLANK_TIMEOUT=0 XSECURELOCK_PASSWORD_PROMPT=asterisks XSECURELOCK_FONT="FiraCode Nerd Font:style=Regular" xsecurelock {_, & sleep 0.1 && systemctl suspend}''; # lock / and suspend
             "super + control + Escape" = "sleep 0.2 && xset s activate"; # turn off screen
             "super + alt + {q,r}" = "bspc {quit,wm -r}"; # quit / restart bspwm
 
