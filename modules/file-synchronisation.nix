@@ -20,57 +20,21 @@ in
           "ga-z77-d3h" = "QMOXUMI-JSL766T-CUTKFMC-TUUG3MC-FYWAGI7-4DRVYYC-KU6TDPS-QPBGEAV";
         }) [ config.networking.hostName ]);
     folders = builtins.mapAttrs
-      (_: value: value // {
-        devices = lib.remove config.networking.hostName value.devices;
-      })
+      (name: value: removeAttrs
+        (value // {
+          devices = lib.remove config.networking.hostName value.devices;
+          path = "/home/joel/${if value.serverAltPath or false then serverPath else ''''}${name}";
+        }) [ "serverAltPath" ])
       (lib.filterAttrs (_: value: builtins.any (x: x == config.networking.hostName) value.devices) {
-        "archive" = {
-          id = "u4tsv-7hxb7";
-          path = "/home/joel/${serverPath}archive";
-          devices = backupDevices;
-        };
-        "cluster" = {
-          id = "jyxof-ssssq";
-          path = "/home/joel/cluster";
-          devices = clusterDevices;
-        };
-        "code" = {
-          id = "wcqyy-zrab5";
-          path = "/home/joel/${serverPath}code";
-          devices = clusterDevices;
-        };
-        "documents" = {
-          id = "pgpew-tged2";
-          path = "/home/joel/${serverPath}documents";
-          devices = backupDevices;
-        };
-        "games" = {
-          id = "xt4t4-d2jad";
-          path = "/home/joel/${serverPath}games";
-          devices = backupDevices;
-        };
-        "media" = {
-          id = "kasul-jsgfj";
-          path = "/home/joel/${serverPath}media";
-          devices = backupDevices;
-        };
-        "notes" = {
-          id = "bc6qz-tad4c";
-          path = "/home/joel/${serverPath}school";
-          devices = backupDevices;
-        };
-        "school" = {
-          id = "s6jde-csrow";
-          path = "/home/joel/${serverPath}school";
-          devices = backupDevices;
-        };
-        "tmp" = {
-          id = "5f6yn-csxu7";
-          path = "/home/joel/tmp";
-          devices = clusterDevices;
-        };
+        "archive" = { id = "u4tsv-7hxb7"; devices = backupDevices; serverAltPath = true; };
+        "cluster" = { id = "jyxof-ssssq"; devices = clusterDevices; };
+        "code" = { id = "wcqyy-zrab5"; devices = clusterDevices; serverAltPath = true; };
+        "documents" = { id = "pgpew-tged2"; devices = backupDevices; serverAltPath = true; };
+        "games" = { id = "xt4t4-d2jad"; devices = backupDevices; serverAltPath = true; };
+        "media" = { id = "kasul-jsgfj"; devices = backupDevices; serverAltPath = true; };
+        "notes" = { id = "bc6qz-tad4c"; devices = backupDevices; serverAltPath = true; };
+        "school" = { id = "s6jde-csrow"; devices = backupDevices; serverAltPath = true; };
+        "tmp" = { id = "5f6yn-csxu7"; devices = clusterDevices; };
       });
   };
 }
-
-
