@@ -2,6 +2,7 @@
   imports = [
     ./bar.nix
     ./bootloader.nix
+    ./browser.nix
     ./compositor.nix
     ./config/distributed-build.nix
     ./editor.nix
