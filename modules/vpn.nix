@@ -3,11 +3,11 @@
 with lib;
 
 let
-  cfg = config.modules.services.networking.nebula;
+  cfg = config.modules.vpn;
 in
 
 {
-  options.modules.services.networking.nebula = {
+  options.modules.vpn = {
     enable = mkOption { default = false; type = types.bool; };
   };
   config = mkIf cfg.enable {

@@ -1,0 +1,20 @@
+{
+  imports = [
+    ./bar.nix
+    ./bootloader.nix
+    ./config/distributed-build.nix
+    ./editor.nix
+    ./file-manager.nix
+    ./file-synchronisation.nix
+    ./hardware/amdgpu.nix
+    ./hardware/android.nix
+    ./hardware/iphone.nix
+    ./launcher.nix
+    ./packages.nix
+    ./programs/git.nix
+    ./shell.nix
+    ./terminal-emulator.nix
+    ./vpn.nix
+    ./window-manager.nix
+  ];
+}

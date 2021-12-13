@@ -3,11 +3,11 @@
 with lib;
 
 let
-  cfg = config.modules.programs.ranger;
+  cfg = config.modules.fileManager;
 in
 
 {
-  options.modules.programs.ranger = {
+  options.modules.fileManager = {
     enable = mkEnableOption "Terminal file manager";
     optionalDependencies = mkOption {
       type = types.bool;

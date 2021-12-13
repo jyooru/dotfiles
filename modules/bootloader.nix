@@ -3,12 +3,12 @@
 with lib;
 
 let
-  cfg = config.modules.system.boot.loader.systemd-boot;
+  cfg = config.modules.bootloader;
 in
 
 {
-  options.modules.system.boot.loader.systemd-boot = {
-    enable = mkEnableOption "Boot loader";
+  options.modules.bootloader = {
+    enable = mkEnableOption "Bootloader";
     device = mkOption { type = types.str; };
   };
   config = mkIf cfg.enable {

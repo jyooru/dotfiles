@@ -3,11 +3,11 @@
 with lib;
 
 let
-  cfg = config.modules.programs.vscode;
+  cfg = config.modules.editor;
 in
 
 {
-  options.modules.programs.vscode = {
+  options.modules.editor = {
     enable = mkEnableOption "Code editor";
   };
   config = mkIf cfg.enable {

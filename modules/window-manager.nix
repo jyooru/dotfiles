@@ -3,11 +3,11 @@
 with lib;
 
 let
-  cfg = config.modules.services.x11.window-manager.bspwm;
+  cfg = config.modules.windowManager;
 in
 
 {
-  options.modules.services.x11.window-manager.bspwm = {
+  options.modules.windowManager = {
     enable = mkEnableOption "Tiling window manager";
   };
   config = mkIf cfg.enable {
