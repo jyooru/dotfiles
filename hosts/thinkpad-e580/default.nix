@@ -11,36 +11,30 @@
       distributedBuild.enable = true;
     };
     hardware = {
+      amdgpu.enable = true;
       android = { enable = true; supportSamsung = true; };
-      video = {
-        amdgpu.enable = true;
-      };
       iphone = { enable = true; user = "joel"; };
     };
-    programs = {
-      alacritty.enable = true;
-      bash.enable = true;
-      git.enable = true;
-      ranger.enable = true;
-      rofi.enable = true;
-      starship.enable = true;
-      vscode.enable = true;
-    };
-    services = {
-      polybar.enable = true;
-      networking.nebula.enable = true;
-      x11.window-manager.bspwm.enable = true;
-    };
-    system.boot.loader.systemd-boot = {
+    programs.git.enable = true;
+    bar.enable = true;
+    bootloader = {
       enable = true;
       device = "/dev/disk/by-uuid/a207fe6b-d073-459b-b381-b6bc0b3f00ba";
     };
+    editor.enable = true;
+    fileManager.enable = true;
+    launcher.enable = true;
     packages = {
       apps = true;
       code = true;
       desktopEnvironment = true;
       tools = true;
     };
+    shell.enable = true;
+    shell.enablePrompt = true;
+    terminalEmulator.enable = true;
+    vpn.enable = true;
+    windowManager.enable = true;
   };
 
   fonts.fonts = with pkgs; [ (nerdfonts.override { fonts = [ "FiraCode" ]; }) ];

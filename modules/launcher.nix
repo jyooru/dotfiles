@@ -3,11 +3,11 @@
 with lib;
 
 let
-  cfg = config.modules.programs.rofi;
+  cfg = config.modules.launcher;
 in
 
 {
-  options.modules.programs.rofi = {
+  options.modules.launcher = {
     enable = mkEnableOption "Launcher";
   };
   config = mkIf cfg.enable {

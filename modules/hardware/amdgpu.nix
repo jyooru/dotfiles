@@ -3,11 +3,11 @@
 with lib;
 
 let
-  cfg = config.modules.hardware.video.amdgpu;
+  cfg = config.modules.hardware.amdgpu;
 in
 
 {
-  options.modules.hardware.video.amdgpu = {
+  options.modules.hardware.amdgpu = {
     enable = mkEnableOption "AMD GPU Support";
   };
   config = mkIf cfg.enable {

@@ -3,11 +3,11 @@
 with lib;
 
 let
-  cfg = config.modules.services.polybar;
+  cfg = config.modules.bar;
 in
 
 {
-  options.modules.services.polybar = {
+  options.modules.bar = {
     enable = mkEnableOption "Bar";
   };
   config = mkIf cfg.enable {

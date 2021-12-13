@@ -3,11 +3,11 @@
 with lib;
 
 let
-  cfg = config.modules.programs.alacritty;
+  cfg = config.modules.terminalEmulator;
 in
 
 {
-  options.modules.programs.alacritty = {
+  options.modules.terminalEmulator = {
     enable = mkEnableOption "Terminal emulator";
   };
   config = mkIf cfg.enable {

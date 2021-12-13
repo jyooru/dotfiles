@@ -17,40 +17,18 @@
   ];
 
   modules = {
-    config = {
-      distributedBuild.enable = false; # TODO
-    };
-    hardware = {
-      android = { enable = false; supportSamsung = false; };
-      video = {
-        amdgpu.enable = false;
-      };
-      iphone = { enable = false; user = "joel"; };
-    };
     programs = {
-      alacritty.enable = false;
-      bash.enable = true;
       git.enable = true;
-      ranger.enable = true;
-      rofi.enable = false;
-      starship.enable = true;
-      vscode.enable = false;
     };
-    services = {
-      polybar.enable = false;
-      networking.nebula.enable = true;
-      x11.window-manager.bspwm.enable = false;
-    };
-    # system.boot.loader.systemd-boot = {
+    # bootloader = {
     #   enable = false; # TODO: multiple devices. setup below
     #   # device = "/dev/disk/by-uuid/646fc0f1-2d8a-4901-ae89-559154bfe288";
     # };
-    packages = {
-      apps = false;
-      code = false;
-      desktopEnvironment = false;
-      tools = true;
-    };
+    fileManager.enable = true;
+    packages.tools = true;
+    shell.enable = true;
+    shell.enablePrompt = true;
+    vpn.enable = true;
   };
 
   networking.firewall.allowedTCPPorts = [ 80 8000 443 44300 6881 ];

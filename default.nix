@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  imports = import ./modules/module-list.nix ++ [ ./bin ];
+  imports = [ ./modules ./bin ];
 
 
   networking = {
