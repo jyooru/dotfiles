@@ -156,6 +156,7 @@ in
           "nixpkgs" = "packages";
           "pkgs" = "packages";
           "overlays" = "queue";
+          "workflows" = "ci";
         };
 
         # languages
