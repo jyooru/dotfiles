@@ -115,36 +115,5 @@
     };
   };
 
-  nixpkgs.overlays = [
-    (_: pkgs: import ./pkgs { inherit pkgs; })
-    (_: super: {
-      nix-serve = super.nix-serve.override { nix = super.nix_2_3; }; # https://github.com/edolstra/nix-serve/issues/28
-    })
-    (_: super:
-      {
-        xsecurelock = super.xsecurelock.overrideAttrs (old: {
-          patches = (old.patches or [ ]) ++ [
-            ./xsecurelock.patch
-          ];
-        });
-      })
-    (_: super: {
-      steam = super.steam.override { extraProfile = "export DRI_PRIME=1"; };
-    })
-    (_: super: {
-      minecraft = super.minecraft.overrideAttrs (_: {
-        desktopItems = [
-          (pkgs.makeDesktopItem {
-            name = "minecraft-launcher";
-            exec = "env DRI_PRIME=1 minecraft-launcher";
-            icon = "minecraft-launcher";
-            comment = "Official launcher for Minecraft, a sandbox-building game";
-            desktopName = "Minecraft Launcher";
-            categories = "Game;";
-          })
-        ];
-      });
-    })
-  ];
+  nixpkgs.overlays = builtins.attrValues (import ./overlays);
 }
-

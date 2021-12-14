@@ -1,0 +1,26 @@
+diff --git a/helpers/auth_x11.c b/helpers/auth_x11.c
+index af47cee..14cefa3 100644
+--- a/helpers/auth_x11.c
++++ b/helpers/auth_x11.c
+@@ -342,9 +342,7 @@ void PlaySound(enum Sound snd) {
+  */
+ void SwitchKeyboardLayout(void) {
+ #ifdef HAVE_XKB_EXT
+-  if (!have_xkb_ext) {
+-    return;
+-  }
++  return;
+ 
+   XkbDescPtr xkb;
+   xkb = XkbGetMap(display, 0, XkbUseCoreKbd);
+@@ -386,9 +384,7 @@ const char *GetIndicators(int *warning, int *have_multiple_layouts) {
+   static char buf[128];
+   char *p;
+ 
+-  if (!have_xkb_ext) {
+-    return "";
+-  }
++  return "";
+ 
+   XkbDescPtr xkb;
+   xkb = XkbGetMap(display, 0, XkbUseCoreKbd);
