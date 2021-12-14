@@ -20,7 +20,6 @@ jobs:
       - name: Check for common mistakes with nix-linter
         run: nix-shell -p nix-linter --run "nix-linter -r ."
   evaluate:
-    needs: [lint]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2.4.0
