@@ -43,7 +43,7 @@ in
 
             # launch
             "super + space" = "rofi -combi-modi window,drun,ssh -show combi"; # launch launcher
-            "super + {b,n}" = "{brave,obsidian}"; # launch apps
+            "super + {b,n}" = "{firefox,obsidian}"; # launch apps
             "super + {_,shift +} e" = "code {-r,-n}"; # launch editor
             "super + {t,Return}" = "alacritty"; # launch terminal
             "super + {r,c,s}" = "alacritty -e {ranger,cmatrix,htop}"; # launch terminal apps

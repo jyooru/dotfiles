@@ -7,16 +7,18 @@
     deploy-rs.url = "github:serokell/deploy-rs";
     flake-utils.url = "github:numtide/flake-utils";
     flake-utils.inputs.nixpkgs.follows = "nixpkgs";
+    nur.url = "github:nix-community/NUR";
   };
 
-  outputs = { self, nixpkgs, home-manager, deploy-rs, flake-utils, ... }: {
+  outputs = { self, nixpkgs, home-manager, deploy-rs, flake-utils, nur, ... }: {
     nixosConfigurations = (builtins.mapAttrs
       (host: system: nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
           (./hosts/. + "/${host}")
-          home-manager.nixosModules.home-manager
           ./default.nix
+          home-manager.nixosModules.home-manager
+          { nixpkgs.overlays = [ nur.overlay ]; }
         ];
       })
       {

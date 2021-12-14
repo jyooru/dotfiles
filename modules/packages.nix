@@ -35,7 +35,6 @@ in
 
     ++ optionals cfg.apps [
       brave # browser
-      firefox # browser
       signal-desktop # chat (family, friends)
       discord # chat (friends, public)
       gnome.nautilus # file manager (gui)

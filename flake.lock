@@ -115,12 +115,28 @@
         "type": "github"
       }
     },
+    "nur": {
+      "locked": {
+        "lastModified": 1639454882,
+        "narHash": "sha256-LIXUxZaM6p8pFpL1mAfFLU7eEPSIGd8tUwQy2q0Rw/c=",
+        "owner": "nix-community",
+        "repo": "NUR",
+        "rev": "de6969467c8f1acecba591031f92b53065c1a980",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "NUR",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "deploy-rs": "deploy-rs",
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": "nixpkgs_3",
+        "nur": "nur"
       }
     },
     "utils": {

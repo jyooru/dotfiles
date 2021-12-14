@@ -1,0 +1,47 @@
+diff --git a/Simplify Darkish/Simplify Gray/userChrome.css b/Simplify Darkish/Simplify Gray/userChrome.css
+index aa3390b..1d686de 100644
+--- a/Simplify Darkish/Simplify Gray/userChrome.css	
++++ b/Simplify Darkish/Simplify Gray/userChrome.css	
+@@ -5,11 +5,11 @@ ENJOY!
+ 
+ /*================ GLOBAL COLORS ================*/
+ :root {
+-	--accent-color: 54, 54, 54;
+-	--secondary-accent-color: 140, 140, 140;
+-	--third-accent-color: 190, 190, 190;
+-	--light-color: 255, 255, 255;
+-	--dark-color: 36, 36, 36;
++	--accent-color: 48, 48, 48;
++	--secondary-accent-color: 187,187,187;
++	--third-accent-color: 187,187,187;
++	--light-color: 245, 245, 245;
++	--dark-color: 31, 31, 31;
+ 	--caption-min-color: 82, 82, 82;
+ 	--caption-max-color: 100, 100, 100;
+ 	--caption-close-color: 126, 126, 126;
+diff --git a/Simplify Darkish/Simplify Gray/userContent.css b/Simplify Darkish/Simplify Gray/userContent.css
+index a87e2b9..68b8959 100644
+--- a/Simplify Darkish/Simplify Gray/userContent.css	
++++ b/Simplify Darkish/Simplify Gray/userContent.css	
+@@ -1,13 +1,13 @@
+ /*================ GLOBAL COLORS ================*/
+ :root {
+-	--accent-color: 54, 54, 54;
+-	--secondary-accent-color: 140, 140, 140;
+-	--third-accent-color: 190, 190, 190;
+-	--light-color: 255, 255, 255;
+-	--dark-color: 36, 36, 36;
+-	--caption-min-color: 82, 82, 82;
+-	--caption-max-color: 100, 100, 100;
+-	--caption-close-color: 126, 126, 126;
++  --accent-color: 54, 54, 54;
++  --secondary-accent-color: 140, 140, 140;
++  --third-accent-color: 190, 190, 190;
++  --light-color: 255, 255, 255;
++  --dark-color: 31, 31, 31;
++  --caption-min-color: 82, 82, 82;
++  --caption-max-color: 100, 100, 100;
++  --caption-close-color: 126, 126, 126;
+ }
+ 
+ /*================ DARK MODE ================*/
