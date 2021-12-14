@@ -18,6 +18,7 @@ in
 
       profiles."profile" = {
         settings = {
+          "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
           "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
           "layers.acceleration.force-enabled" = true;
           "gfx.webrender.all" = true;
