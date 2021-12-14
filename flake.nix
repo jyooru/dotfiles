@@ -56,6 +56,11 @@
             deploy-rs.outputs.packages.${system}.deploy-rs
           ]);
       };
+    } // {
+      legacyPackages = import nixpkgs {
+        inherit system;
+        overlays = [ import ./overlays/pkgs ];
+      };
     }
   ));
 }
