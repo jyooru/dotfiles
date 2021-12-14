@@ -1,0 +1,25 @@
+diff --git a/helpers/auth_x11.c b/helpers/auth_x11.c
+index 14cefa3..f1c412c 100644
+--- a/helpers/auth_x11.c
++++ b/helpers/auth_x11.c
+@@ -1100,19 +1100,7 @@ int Prompt(const char *msg, char **response, int echo) {
+       switch (password_prompt) {
+         case PASSWORD_PROMPT_ASTERISKS: {
+           mblen(NULL, 0);
+-          priv.pos = priv.displaylen = 0;
+-          while (priv.pos < priv.pwlen) {
+-            ++priv.displaylen;
+-            // Note: this won't read past priv.pwlen.
+-            priv.len = mblen(priv.pwbuf + priv.pos, priv.pwlen - priv.pos);
+-            if (priv.len <= 0) {
+-              // This guarantees to "eat" one byte each step. Therefore,
+-              // priv.displaylen <= priv.pwlen is ensured.
+-              break;
+-            }
+-            priv.pos += priv.len;
+-          }
+-          memset(priv.displaybuf, '*', priv.displaylen);
++          priv.displaylen = 0;
+           // Note that priv.pwlen <= sizeof(priv.pwbuf) and thus
+           // priv.pwlen + 2 <= sizeof(priv.displaybuf).
+           priv.displaybuf[priv.displaylen] = blink_state ? ' ' : *cursor;
