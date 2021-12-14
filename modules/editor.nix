@@ -154,6 +154,8 @@ in
           "result" = "dist";
           "dotfiles" = "config";
           "nixpkgs" = "packages";
+          "pkgs" = "packages";
+          "overlays" = "queue";
         };
 
         # languages
