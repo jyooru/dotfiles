@@ -1,0 +1,21 @@
+diff --git a/Simplify Darkish/Simplify Gray/userChrome.css b/Simplify Darkish/Simplify Gray/userChrome.css
+index aa3390b..1705da5 100644
+--- a/Simplify Darkish/Simplify Gray/userChrome.css	
++++ b/Simplify Darkish/Simplify Gray/userChrome.css	
+@@ -1,6 +1,13 @@
+-/*================== Simplify Darkish Gray for Firefox ==================
+-Author: dpcdpc11.gumroad.com
+-ENJOY!
++/*================== Min Theme for Firefox ==================
++
++A combination of Min Theme's colours with Simplify Theme's UI.
++
++Min Theme Author: https://github.com/misolori
++Min Theme Source: https://github.com/misolori/min-theme
++
++Simplify Theme Author: dpcdpc11.gumroad.com
++Simplify Theme Source: https://github.com/CristianDragos/FirefoxThemes/tree/master/Simplify%20Darkish/Simplify%20Gray
++
+ */
+ 
+ /*================ GLOBAL COLORS ================*/
