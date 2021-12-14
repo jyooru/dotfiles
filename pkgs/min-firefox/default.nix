@@ -1,4 +1,4 @@
-{ lib, stdenv, fetchFromGitHub, firefox-themes, git }:
+{ lib, stdenv, firefox-themes, git }:
 stdenv.mkDerivation rec {
   pname = "min-firefox";
   version = "1.0.0";
