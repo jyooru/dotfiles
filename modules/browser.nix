@@ -5,7 +5,7 @@ with lib;
 let
   cfg = config.modules.browser;
 
-  theme = "${pkgs.firefox-themes}/Simplify Darkish/Simplify Gray/";
+  theme = "${pkgs.min-firefox}";
 in
 
 {

@@ -15,8 +15,6 @@ stdenv.mkDerivation rec {
     cp -r . $out
   '';
 
-  patches = [ ./colors.patch ];
-
   meta = with lib;{
     homepage = "https://github.com/CristianDragos/FirefoxThemes";
     license = licenses.gpl3Only;
