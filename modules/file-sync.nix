@@ -5,7 +5,19 @@ let
   clusterDevices = [ "thinkpad-e580" "portege-r700-a" "portege-r700-b" "portege-z930" "ga-z77-d3h" ];
 in
 {
+  boot.kernel.sysctl = {
+    "fs.inotify.max_user_watches" = "204800";
+  };
+
   services.syncthing = {
+    user = "joel";
+    group = "users";
+    configDir = "/home/joel/.config/syncthing";
+    dataDir = "/home/joel";
+    openDefaultPorts = true;
+    systemService = true;
+    overrideDevices = false;
+    overrideFolders = false;
     devices = (removeAttrs
       (builtins.mapAttrs
         (name: id: {

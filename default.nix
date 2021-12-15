@@ -69,21 +69,6 @@
 
   virtualisation.docker.enable = true;
 
-  services.syncthing = {
-    user = "joel";
-    group = "users";
-    configDir = "/home/joel/.config/syncthing";
-    dataDir = "/home/joel";
-    openDefaultPorts = true;
-    systemService = true;
-    overrideDevices = false;
-    overrideFolders = false;
-  };
-
-  boot.kernel.sysctl = {
-    "fs.inotify.max_user_watches" = "204800";
-  };
-
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
