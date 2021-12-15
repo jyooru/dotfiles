@@ -12,15 +12,6 @@
   boot.consoleLogLevel = lib.mkDefault 7;
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  nix.binaryCaches = lib.mkForce [
-    "https://app.cachix.org/cache/thefloweringash-armv7"
-    "http://nixos-arm.dezgeg.me/channel"
-  ];
-  nix.binaryCachePublicKeys = [
-    "thefloweringash-armv7.cachix.org-1:v+5yzBD2odFKeXbmC+OPWVqx4WVoIVO6UXgnSAWFtso="
-    "nixos-arm.dezgeg.me-1:xBaUKS3n17BZPKeyxL4JfbTqECsT+ysbDJz29kLFRW0="
-  ];
-
   sdImage = {
     populateFirmwareCommands =
       let
