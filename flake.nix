@@ -47,7 +47,7 @@
     };
   } // (flake-utils.lib.eachDefaultSystem (system:
     let pkgs = import nixpkgs { inherit system; }; in
-    {
+    rec {
       devShell = pkgs.mkShell {
         packages = (with pkgs;
           [
@@ -56,11 +56,14 @@
             deploy-rs.outputs.packages.${system}.deploy-rs
           ]);
       };
-    } // {
+
       legacyPackages = import nixpkgs {
         inherit system;
-        overlays = [ (import ./overlays/pkgs) ];
+        overlays = [ overlay ];
       };
+
+      overlays = import ./overlays;
+      overlay = overlays.pkgs;
     }
   ));
 }
