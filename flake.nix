@@ -60,7 +60,6 @@
           packages = (with pkgs;
             [
               nixpkgs-fmt
-              nix-linter
               deploy-rs.outputs.packages.${system}.deploy-rs
             ]);
         };
