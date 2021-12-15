@@ -1,8 +1,8 @@
-self: super:
+final: prev:
 {
-  minecraft = super.minecraft.overrideAttrs (_: {
+  minecraft = prev.minecraft.overrideAttrs (_: {
     desktopItems = [
-      (self.makeDesktopItem {
+      (final.makeDesktopItem {
         name = "minecraft-launcher";
         exec = "env DRI_PRIME=1 minecraft-launcher";
         icon = "minecraft-launcher";
@@ -13,5 +13,5 @@ self: super:
     ];
   });
 
-  steam = super.steam.override { extraProfile = "export DRI_PRIME=1"; };
+  steam = prev.steam.override { extraProfile = "export DRI_PRIME=1"; };
 }
