@@ -59,7 +59,7 @@
     } // {
       legacyPackages = import nixpkgs {
         inherit system;
-        overlays = [ import ./overlays/pkgs ];
+        overlays = [ (import ./overlays/pkgs) ];
       };
     }
   ));
