@@ -1,1 +1,1 @@
-pkgs: _: import ../../pkgs { inherit pkgs; }
+final: prev: import ../../pkgs { pkgs = final; }
