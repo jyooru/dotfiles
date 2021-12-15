@@ -131,7 +131,7 @@ in
         "git.pruneOnFetch" = true;
         "remote.containers.dotfiles.repository" =
           "https://github.com/jyooru/dotfiles.git";
-        "workbench.startupEditor" = "newUntitledFile";
+        "workbench.startupEditor" = "none";
 
         # extensions
         "gitlens.hovers.currentLine.over" = "line";
