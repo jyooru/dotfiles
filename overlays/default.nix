@@ -2,6 +2,7 @@ let
   overlays = [
     "dedicated-gpu"
     "fix-nix-serve"
+    "node-packages"
     "pkgs"
     "xsecurelock"
   ];
