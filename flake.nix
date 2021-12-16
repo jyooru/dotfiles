@@ -61,6 +61,7 @@
             [
               nixpkgs-fmt
               deploy-rs.outputs.packages.${system}.deploy-rs
+              nodePackages.node2nix
             ]);
         };
 
