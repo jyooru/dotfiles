@@ -31,7 +31,7 @@
   networking.firewall.allowedTCPPorts = [ 25565 ];
 
   virtualisation.oci-containers.containers = {
-    "minecraft-server" = {
+    "minecraft" = {
       image = "itzg/minecraft-server";
       ports = [ "25565:25565" ];
       environment = {
@@ -45,7 +45,7 @@
       };
       extraOptions = [ "--tty" ];
       volumes = [
-        "/home/joel/minecraft-server:/data"
+        "/home/joel/node/data/minecraft:/data"
       ];
     };
   };
