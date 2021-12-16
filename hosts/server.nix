@@ -31,6 +31,8 @@
     vpn.enable = true;
   };
 
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" "armv6l-linux" ];
+
   networking.firewall.allowedTCPPorts = [ 80 8000 443 44300 6881 ];
   networking.firewall.allowedUDPPorts = [ 6881 ];
   networking.firewall.interfaces."docker0".allowedTCPPorts = [ 5000 8002 8384 ];
