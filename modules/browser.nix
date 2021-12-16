@@ -33,6 +33,8 @@ in
           "layers.acceleration.force-enabled" = true;
           "gfx.webrender.all" = true;
           "svg.context-properties.content.enabled" = true;
+
+          "signon.rememberSignons" = false;
         };
         userChrome = builtins.readFile (theme + "/userChrome.css");
         userContent = builtins.readFile (theme + "/userContent.css");

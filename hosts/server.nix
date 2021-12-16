@@ -35,7 +35,7 @@
 
   networking.firewall.allowedTCPPorts = [ 80 8000 443 44300 6881 ];
   networking.firewall.allowedUDPPorts = [ 6881 ];
-  networking.firewall.interfaces."docker0".allowedTCPPorts = [ 5000 8002 8384 ];
+  networking.firewall.interfaces."docker0".allowedTCPPorts = [ 5000 8384 ];
   services = {
     nginx = {
       # :80 -> localhost:8001 (http)
@@ -122,6 +122,7 @@
       }
 
       syncthing.srv.${config.networking.hostName}.dev.joel.tokyo {
+        import joel.tokyo
         reverse_proxy 172.17.0.1:8384
       }
 
@@ -129,7 +130,12 @@
         import joel.tokyo
         respond "Hello world"
       }
-    '';
+    '' + (if config.networking.hostName == "portege-z930" then ''
+      vaultwarden.srv.joel.tokyo {
+        import joel.tokyo
+        reverse_proxy 172.17.0.1:8002
+      }
+    '' else "");
   };
   virtualisation.oci-containers.containers = {
     "caddy" = {
@@ -145,4 +151,5 @@
     };
   };
 }
+
 
