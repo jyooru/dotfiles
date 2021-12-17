@@ -1,10 +1,10 @@
 let
-  overlays = [
-    "dedicated-gpu"
-    "fix-nix-serve"
-    "node-packages"
-    "pkgs"
-    "xsecurelock"
-  ];
+  overlays = {
+    dedicatedGPU = "dedicated-gpu";
+    fixNixServe = "fix-nix-serve";
+    nodePackages = "node-packages";
+    pkgs = "pkgs";
+    xsecurelock = "xsecurelock";
+  };
 in
-builtins.listToAttrs (map (name: { inherit name; value = import (./. + "/${name}"); }) overlays)
+builtins.mapAttrs (_: path: import (./. + "/${path}")) overlays
