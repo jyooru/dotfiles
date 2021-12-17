@@ -68,6 +68,7 @@
           inherit system;
           overlays = [ overlay ];
         };
+        packages = import ./pkgs { pkgs = import nixpkgs { inherit system; }; };
       }
     ));
 }
