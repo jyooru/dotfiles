@@ -3190,13 +3190,13 @@ let
         sha1 = "c41f2f6c39fc16d1cd17ad4b5d896114ae470d55";
       };
     };
-    "slugify-1.6.3" = {
+    "slugify-1.6.4" = {
       name = "slugify";
       packageName = "slugify";
-      version = "1.6.3";
+      version = "1.6.4";
       src = fetchurl {
-        url = "https://registry.npmjs.org/slugify/-/slugify-1.6.3.tgz";
-        sha512 = "1MPyqnIhgiq+/0iDJyqSJHENdnH5MMIlgJIBxmkRMzTNKlS/QsN5dXsB+MdDq4E6w0g9jFA4XOTRkVDjDae/2w==";
+        url = "https://registry.npmjs.org/slugify/-/slugify-1.6.4.tgz";
+        sha512 = "Pcz296CK0uGnTf4iNQId79Uv6/5G16t0g0x3OsxWS8qVSOW+JXNnNHKVcuDiMgEGTWyK6zjlWXo2dvzV/FLf9Q==";
       };
     };
     "smart-buffer-4.2.0" = {
@@ -4170,7 +4170,7 @@ in
       sources."setprototypeof-1.2.0"
       sources."sigmund-1.0.1"
       sources."slash-1.0.0"
-      sources."slugify-1.6.3"
+      sources."slugify-1.6.4"
       (sources."socket.io-2.4.0" // {
         dependencies = [
           sources."component-emitter-1.2.1"
