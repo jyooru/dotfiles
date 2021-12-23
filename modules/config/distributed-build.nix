@@ -16,7 +16,6 @@ in
         (values: {
           systems = [ "x86_64-linux" "aarch64-linux" "armv6l-linux" ];
           sshUser = "joel";
-          sshKey = "/home/joel/.ssh/id_rsa";
         } // values // { hostName = "${values.hostName}.${config.networking.domain}"; })
         [
           { maxJobs = 4; speedFactor = 1; hostName = "portege-r700-a"; }
