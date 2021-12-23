@@ -71,5 +71,7 @@
       };
   };
 
+  programs.ssh.knownHosts = builtins.listToAttrs (map (name: { inherit name; value = { publicKeyFile = ./hosts + "/${name}/host.pub"; }; }) (import ./hosts));
+
   nixpkgs.overlays = builtins.attrValues (import ./overlays);
 }
