@@ -26,7 +26,7 @@ in
         "bar/bar" = {
           monitor = ''''${env:MONITOR:eDP-1}'';
           width = "100%:-24";
-          height = 27;
+          height = 28;
           offset = { x = 12; y = 12; };
           radius = 0;
           fixed-center = true;
@@ -45,8 +45,8 @@ in
           font = [ "FiraCode Nerd Font:pixelsize=10;1" "unifont:fontformat=truetype:size=8:antialias=false;0" ];
 
           modules = {
-            left = "bspwm playerctl";
-            center = "hostname";
+            left = "bspwm";
+            center = "playerctl";
             right = "alsa battery date powermenu";
           };
 
@@ -99,11 +99,6 @@ in
             right = "playerctl next &";
             middle = "playerctl play-pause &";
           };
-        };
-        "module/hostname" = {
-          type = "custom/script";
-          exec = "echo `whoami`@`hostname`";
-          interval = 60;
         };
         "module/date" = {
           type = "internal/date";
@@ -168,43 +163,6 @@ in
               framerate = 750;
             };
           };
-        };
-        "module/powermenu" = {
-          type = "custom/menu";
-
-          expand-right = true;
-
-          format-spacing = 1;
-
-          label = {
-            open = {
-              text = "";
-              foreground = ''''${colors.primary}'';
-            };
-            close = {
-              text = "cancel";
-              foreground = ''''${colors.primary}'';
-            };
-            separator = {
-              text = " ";
-              foreground = ''''${colors.foreground-alt}'';
-            };
-          };
-
-          menu = [
-            [
-              { text = "reboot"; exec = "menu-open-1"; }
-              { text = "power off"; exec = "menu-open-2"; }
-            ]
-            [
-              { text = "cancel"; exec = "menu-open-0"; }
-              { text = "reboot"; exec = "sudo reboot"; }
-            ]
-            [
-              { text = "power off"; exec = "sudo poweroff"; }
-              { text = "cancel"; exec = "menu-open-0"; }
-            ]
-          ];
         };
 
         settings.screenchange-reload = true;
