@@ -4,7 +4,7 @@
     user = "pi";
   };
   "l laptop thinkpad-e580" = {
-    hostname = "thinkpad-580.dev.joel.tokyo";
+    hostname = "thinkpad-e580.dev.joel.tokyo";
   };
   "7 iphone-7" = {
     hostname = "192.168.0.246";
