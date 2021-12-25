@@ -20,6 +20,8 @@ in
           export EDITOR="code --wait"
           export GIT_EDITOR="nano"
 
+          set -g fish_greeting
+
           function gbc
             # git branch and checkout
             git branch "$1"
