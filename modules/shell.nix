@@ -13,80 +13,52 @@ in
   };
   config = mkIf cfg.enable {
     users.extraUsers.joel.shell = pkgs.fish;
+
     home-manager.users.joel.programs = {
       fish = {
         enable = true;
+
         shellInit = ''
-          export EDITOR="code --wait"
-          export GIT_EDITOR="nano"
+          set -g EDITOR code --wait
+          set -g GIT_EDITOR nano
 
           set -g fish_greeting
-
-          function gbc
-            # git branch and checkout
-            git branch "$1"
-            git checkout "$1"
-          end
-
-          function gbpd
-            # git branch pull and delete
-            branch=`git rev-parse --abbrev-ref HEAD`
-            git checkout main
-            git pull
-            git branch -d $branch
-          end
         '';
+
+        shellAliases = {
+          "ls" = "lsd";
+        };
+
         shellAbbrs = {
           c = "code";
+          d = "docker";
+          py = "python";
+          pym = "python -m";
+          o = "xdg-open";
+          open = "xdg-open";
 
-          ga = "git add";
-          gaa = "git add .";
-          gc = "git commit";
-          gbu = "git branch --set-upstream-to=origin/";
+          a = "ip -br -c a";
+          get-class = "xprop | grep WM_CLASS | awk '{print $4}'";
+          nix-hash-sha256 = "nix-hash --type sha256 --to-base32";
+          temp = "watch -n 1 sensors";
+          wifi-scan = "nmcli dev wifi list --rescan yes";
 
-          # lsd aliases
           l = "lsd";
           la = "lsd -A";
           ll = "lsd -Al";
 
-          # directory aliases
-          ".." = "cd ..";
           "-" = "cd -";
 
-          temp = "watch -n 1 sensors";
-
-          # program shortcuts
-          d = "docker";
-          db = "docker build .";
-          dbt = "docker build . --tag";
-          de = "docker exec";
-          di = "docker insepct";
-          dl = "docker logs";
-          dlf = "docker logs -f";
-          dr = "docker run";
-          drm = "docker rm";
-          drs = "docker restart";
-          ds = "docker start";
-          dt = "docker tag";
-          dp = "docker push";
-          dpl = "docker pull";
-          dps = "docker ps";
-          dst = "docker stop";
-          dstf = "docker stop --time 0";
-          dstt = "docker stop --time";
-          dsu = "docker service update --force";
-          py = "python";
-          pyd = "pyenv && pipir && pipf && deactivate && rm -rf env";
-          pyenv =
-            "pip install virtualenv && py -m virtualenv env && source env/bin/activate";
-          pym = "python -m";
-          o = "xdg-open";
-          open = "xdg-open";
           g = "git";
+          ga = "git add";
+          gaa = "git add ."; # git add all
+          gbu = "git branch --set-upstream-to=origin/";
           gb = "git branch";
           gbd = "git branch -d";
           gbD = "git branch -D";
           gbm = "git branch -m";
+          gbpd = "git checkout main || git checkout master && git pull && git branch -d"; # git branch pull delete
+          gc = "git commit";
           gca = "git commit --amend";
           gch = "git checkout";
           gcl = "git clone";
@@ -97,7 +69,7 @@ in
           glf = "git log --pretty=fuller";
           glo = "git log --pretty=oneline";
           gm = "git merge --no-ff";
-          gp = "git pull; git push";
+          gp = "git push";
           gpl = "git pull";
           gps = "git push";
           gpsf = "git push --force";
@@ -109,24 +81,10 @@ in
           gs = "git status";
           gst = "git stash";
           gstp = "git stash pop";
-          gu = "git reset --soft HEAD^";
-          wifi-scan = "nmcli dev wifi list --rescan yes";
-          jks = "bundle exec jekyll serve --livereload";
-          jkb = "bundle exec jekyll build";
-          pipf = "pip freeze > requirements.txt";
-          pipi = "pip install";
-          pipir = "pip install -r requirements.txt";
-          pipih =
-            "pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org";
-          pipl = "pip list";
-          pipu = "pip uninstall";
-
-          a = "ip -br -c a";
-          nix-hash-sha256 = "nix-hash --type sha256 --to-base32";
-
-          get-class = "xprop | grep WM_CLASS | awk '{print $4}'";
+          gu = "git reset --soft HEAD^"; # git undo
         };
       };
+
       starship = mkIf cfg.enablePrompt {
         enable = true;
         settings = {
