@@ -13,7 +13,6 @@
     hardware = {
       amdgpu.enable = true;
       android = { enable = true; supportSamsung = true; };
-      iphone = { enable = true; user = "joel"; };
     };
     programs.git.enable = true;
     bar.enable = true;

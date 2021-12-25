@@ -6,10 +6,6 @@
   "l laptop thinkpad-e580" = {
     hostname = "thinkpad-e580.dev.joel.tokyo";
   };
-  "7 iphone-7" = {
-    hostname = "192.168.0.246";
-    user = "root";
-  };
   "1 portege-r700-a" = {
     hostname = "portege-r700-a.dev.joel.tokyo";
   };
