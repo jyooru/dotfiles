@@ -20,34 +20,10 @@ in
           export EDITOR="code --wait"
           export GIT_EDITOR="nano"
 
-          # git functions
-          function ga
-            # git add
-            if [ (count $argv) -eq 0 ]
-                git add .
-            else
-                git add "$argv"
-            end
-          end
-
-          function gc
-            # git commit
-            if [ (count $argv) -eq 0 ]
-              git commit
-            else
-              git commit -m "$argv"
-            end
-          end
-
           function gbc
             # git branch and checkout
             git branch "$1"
             git checkout "$1"
-          end
-
-          function gbu
-            # git branch set upstream
-            git branch "--set-upstream-to=origin/$1" "$1"
           end
 
           function gbpd
@@ -57,18 +33,15 @@ in
             git pull
             git branch -d $branch
           end
-
-          # vscode function
-          function c
-            if [ (count $argv) -eq 0 ]
-              code .
-              exit
-            else
-              code "$argv"
-            end
-          end
         '';
-        shellAliases = {
+        shellAbbrs = {
+          c = "code";
+
+          ga = "git add";
+          gaa = "git add .";
+          gc = "git commit";
+          gbu = "git branch --set-upstream-to=origin/";
+
           # lsd aliases
           l = "lsd";
           la = "lsd -A";
@@ -78,9 +51,6 @@ in
           ".." = "cd ..";
           "--" = "cd -";
 
-          # alert = ''
-          #   notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '''s/^s*[0-9]+s*//;s/[;&|]s*alert$//''')\""
-          # '';
           temp = "watch -n 1 sensors";
 
           # program shortcuts
