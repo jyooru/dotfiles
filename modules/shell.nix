@@ -39,7 +39,6 @@ in
 
           a = "ip -br -c a";
           get-class = "xprop | grep WM_CLASS | awk '{print $4}'";
-          nix-hash-sha256 = "nix-hash --type sha256 --to-base32";
           temp = "watch -n 1 sensors";
           wifi-scan = "nmcli dev wifi list --rescan yes";
 
@@ -82,6 +81,32 @@ in
           gst = "git stash";
           gstp = "git stash pop";
           gu = "git reset --soft HEAD^"; # git undo
+
+          n = "nix";
+          nb = "nix build";
+          nbb = "nix build .";
+          nbn = "nix build nixpkgs#";
+          nd = "nix develop";
+          nf = "nix flake";
+          nfc = "nix flake check";
+          nfl = "nix flake lock";
+          nfu = "nix flake update";
+          nh = "nix-hash";
+          nhb = "nix-hash --type sha256 --to-base32";
+          np = "nix-prefetch-url";
+          nr = "nix run";
+          nrr = "nix run .";
+          ns = "nix shell nixpkgs#";
+
+          no = "nixos-rebuild";
+          nos = "sudo nixos-rebuild switch";
+          nosd = "sudo nixos-rebuild switch && sudo deploy";
+          nob = "nixos-rebuild build";
+
+          nff = "nixpkgs-fmt";
+          nfff = "nixpkgs-fmt .";
+          npr = "nixpkgs-review pr";
+          nprp = "nixpkgs-review post-result";
         };
       };
 
