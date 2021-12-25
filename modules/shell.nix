@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 with lib;
 
@@ -12,56 +12,61 @@ in
     enablePrompt = mkEnableOption "Shell prompt";
   };
   config = mkIf cfg.enable {
+    users.extraUsers.joel.shell = pkgs.fish;
     home-manager.users.joel.programs = {
-      bash = {
+      fish = {
         enable = true;
-        bashrcExtra = ''
+        shellInit = ''
           export EDITOR="code --wait"
           export GIT_EDITOR="nano"
 
           # git functions
-          ga () {
+          function ga
             # git add
-            if [ $# -eq 0 ]; then
+            if [ (count $argv) -eq 0 ]
                 git add .
             else
-                git add "$@"
-            fi
-          }
-          gc () {
+                git add "$argv"
+            end
+          end
+
+          function gc
             # git commit
-            if [ $# -eq 0 ]; then
+            if [ (count $argv) -eq 0 ]
               git commit
             else
-              git commit -m "$*"
-            fi
-          } 
-          gbc () {
+              git commit -m "$argv"
+            end
+          end
+
+          function gbc
             # git branch and checkout
             git branch "$1"
             git checkout "$1"
-          }
-          gbu () {
+          end
+
+          function gbu
             # git branch set upstream
             git branch "--set-upstream-to=origin/$1" "$1"
-          }
-          gbpd () {
+          end
+
+          function gbpd
             # git branch pull and delete
             branch=`git rev-parse --abbrev-ref HEAD`
             git checkout main
             git pull
             git branch -d $branch
-          }
+          end
 
           # vscode function
-          c () {
-            if [ $# -eq 0 ]; then
+          function c
+            if [ (count $argv) -eq 0 ]
               code .
               exit
             else
-              code "$*"
-            fi
-          }
+              code "$argv"
+            end
+          end
         '';
         shellAliases = {
           # lsd aliases
@@ -70,13 +75,12 @@ in
           ll = "lsd -Al";
 
           # directory aliases
-          "~" = "cd ~";
           ".." = "cd ..";
-          "-- -" = "cd -";
+          "--" = "cd -";
 
-          alert = ''
-            notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '''s/^s*[0-9]+s*//;s/[;&|]s*alert$//''')\""
-          '';
+          # alert = ''
+          #   notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '''s/^s*[0-9]+s*//;s/[;&|]s*alert$//''')\""
+          # '';
           temp = "watch -n 1 sensors";
 
           # program shortcuts
