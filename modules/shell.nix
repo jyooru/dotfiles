@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 with lib;
 
@@ -12,105 +12,55 @@ in
     enablePrompt = mkEnableOption "Shell prompt";
   };
   config = mkIf cfg.enable {
+    users.extraUsers.joel.shell = pkgs.fish;
+
     home-manager.users.joel.programs = {
-      bash = {
+      fish = {
         enable = true;
-        bashrcExtra = ''
-          export EDITOR="code --wait"
-          export GIT_EDITOR="nano"
 
-          # git functions
-          ga () {
-            # git add
-            if [ $# -eq 0 ]; then
-                git add .
-            else
-                git add "$@"
-            fi
-          }
-          gc () {
-            # git commit
-            if [ $# -eq 0 ]; then
-              git commit
-            else
-              git commit -m "$*"
-            fi
-          } 
-          gbc () {
-            # git branch and checkout
-            git branch "$1"
-            git checkout "$1"
-          }
-          gbu () {
-            # git branch set upstream
-            git branch "--set-upstream-to=origin/$1" "$1"
-          }
-          gbpd () {
-            # git branch pull and delete
-            branch=`git rev-parse --abbrev-ref HEAD`
-            git checkout main
-            git pull
-            git branch -d $branch
-          }
+        shellInit = ''
+          set -gx EDITOR code --wait
+          set -gx GIT_EDITOR nano
 
-          # vscode function
-          c () {
-            if [ $# -eq 0 ]; then
-              code .
-              exit
-            else
-              code "$*"
-            fi
-          }
+          set -g fish_greeting
+          set -g fish_color_command normal --italics
+          set -g fish_color_param normal
+          set -g fish_color_valid_path brcyan --underline
         '';
+
         shellAliases = {
-          # lsd aliases
+          "ls" = "lsd";
+        };
+
+        shellAbbrs = {
+          c = "code";
+          d = "docker";
+          py = "python";
+          pym = "python -m";
+          o = "xdg-open";
+          open = "xdg-open";
+
+          a = "ip -br -c a";
+          get-class = "xprop | grep WM_CLASS | awk '{print $4}'";
+          temp = "watch -n 1 sensors";
+          wifi-scan = "nmcli dev wifi list --rescan yes";
+
           l = "lsd";
           la = "lsd -A";
           ll = "lsd -Al";
 
-          # directory aliases
-          "~" = "cd ~";
-          ".." = "cd ..";
-          "-- -" = "cd -";
+          "-" = "cd -";
 
-          alert = ''
-            notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '''s/^s*[0-9]+s*//;s/[;&|]s*alert$//''')\""
-          '';
-          temp = "watch -n 1 sensors";
-
-          # program shortcuts
-          d = "docker";
-          db = "docker build .";
-          dbt = "docker build . --tag";
-          de = "docker exec";
-          di = "docker insepct";
-          dl = "docker logs";
-          dlf = "docker logs -f";
-          dr = "docker run";
-          drm = "docker rm";
-          drs = "docker restart";
-          ds = "docker start";
-          dt = "docker tag";
-          dp = "docker push";
-          dpl = "docker pull";
-          dps = "docker ps";
-          dst = "docker stop";
-          dstf = "docker stop --time 0";
-          dstt = "docker stop --time";
-          dsu = "docker service update --force";
-          py = "python";
-          pyd = "pyenv && pipir && pipf && deactivate && rm -rf env";
-          pyenv =
-            "pip install virtualenv && py -m virtualenv env && source env/bin/activate";
-          pym = "python -m";
-          o = "xdg-open";
-          open = "xdg-open";
           g = "git";
+          ga = "git add";
+          gaa = "git add ."; # git add all
+          gbu = "git branch --set-upstream-to=origin/";
           gb = "git branch";
           gbd = "git branch -d";
           gbD = "git branch -D";
           gbm = "git branch -m";
+          gbpd = "git checkout main || git checkout master && git pull && git branch -d"; # git branch pull delete
+          gc = "git commit";
           gca = "git commit --amend";
           gch = "git checkout";
           gcl = "git clone";
@@ -121,7 +71,7 @@ in
           glf = "git log --pretty=fuller";
           glo = "git log --pretty=oneline";
           gm = "git merge --no-ff";
-          gp = "git pull; git push";
+          gp = "git push";
           gpl = "git pull";
           gps = "git push";
           gpsf = "git push --force";
@@ -133,24 +83,36 @@ in
           gs = "git status";
           gst = "git stash";
           gstp = "git stash pop";
-          gu = "git reset --soft HEAD^";
-          wifi-scan = "nmcli dev wifi list --rescan yes";
-          jks = "bundle exec jekyll serve --livereload";
-          jkb = "bundle exec jekyll build";
-          pipf = "pip freeze > requirements.txt";
-          pipi = "pip install";
-          pipir = "pip install -r requirements.txt";
-          pipih =
-            "pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org";
-          pipl = "pip list";
-          pipu = "pip uninstall";
+          gu = "git reset --soft HEAD^"; # git undo
 
-          a = "ip -br -c a";
-          nix-hash-sha256 = "nix-hash --type sha256 --to-base32";
+          n = "nix";
+          nb = "nix build";
+          nbb = "nix build .";
+          nbn = "nix build nixpkgs#";
+          nd = "nix develop";
+          nf = "nix flake";
+          nfc = "nix flake check";
+          nfl = "nix flake lock";
+          nfu = "nix flake update";
+          nh = "nix-hash";
+          nhb = "nix-hash --type sha256 --to-base32";
+          np = "nix-prefetch-url";
+          nr = "nix run";
+          nrr = "nix run .";
+          ns = "nix shell nixpkgs#";
 
-          get-class = "xprop | grep WM_CLASS | awk '{print $4}'";
+          no = "nixos-rebuild";
+          nos = "sudo nixos-rebuild switch";
+          nosd = "sudo nixos-rebuild switch && sudo deploy";
+          nob = "nixos-rebuild build";
+
+          nff = "nixpkgs-fmt";
+          nfff = "nixpkgs-fmt .";
+          npr = "nixpkgs-review pr";
+          nprp = "nixpkgs-review post-result";
         };
       };
+
       starship = mkIf cfg.enablePrompt {
         enable = true;
         settings = {
@@ -180,6 +142,8 @@ in
           swift = { symbol = "ﯣ "; };
         };
       };
+
+      zoxide.enable = true;
     };
   };
 }

@@ -95,6 +95,12 @@ in
           key = "shift+alt+r shift+r";
           command = "remote-containers.rebuildContainer";
         }
+        {
+          # remove `ctrl+f` keybind in terminal
+          key = "ctrl+f";
+          command = "-workbench.action.terminal.focusFind";
+          when = "terminalFindFocused && terminalHasBeenCreated || terminalFindFocused && terminalProcessSupported || terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported";
+        }
       ];
       userSettings = {
         # theme
