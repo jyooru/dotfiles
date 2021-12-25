@@ -19,8 +19,8 @@ in
         enable = true;
 
         shellInit = ''
-          set -g EDITOR code --wait
-          set -g GIT_EDITOR nano
+          set -gx EDITOR code --wait
+          set -gx GIT_EDITOR nano
 
           set -g fish_greeting
         '';
