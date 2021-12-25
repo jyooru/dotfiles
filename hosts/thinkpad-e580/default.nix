@@ -4,7 +4,7 @@
 
   networking.hostName = "thinkpad-e580";
 
-  users.users.joel.openssh.authorizedKeys.keyFiles = [ ../iphone-7/id_rsa.root.pub ];
+  users.users.joel.openssh.authorizedKeys.keyFiles = [ ../galaxy-a22/id_rsa.pub ];
 
   modules = {
     config = {
