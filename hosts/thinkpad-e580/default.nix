@@ -4,7 +4,7 @@
 
   networking.hostName = "thinkpad-e580";
 
-  users.users.joel.openssh.authorizedKeys.keyFiles = [ ../iphone-7/id_rsa.root.pub ];
+  users.users.joel.openssh.authorizedKeys.keyFiles = [ ../galaxy-a22/id_rsa.pub ];
 
   modules = {
     config = {
@@ -13,7 +13,6 @@
     hardware = {
       amdgpu.enable = true;
       android = { enable = true; supportSamsung = true; };
-      iphone = { enable = true; user = "joel"; };
     };
     programs.git.enable = true;
     bar.enable = true;
