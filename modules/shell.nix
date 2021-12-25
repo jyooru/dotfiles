@@ -49,7 +49,7 @@ in
 
           # directory aliases
           ".." = "cd ..";
-          "--" = "cd -";
+          "-" = "cd -";
 
           temp = "watch -n 1 sensors";
 
