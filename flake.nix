@@ -54,21 +54,17 @@
 
     } // (flake-utils.lib.eachDefaultSystem (system:
       let pkgs = import nixpkgs { inherit system; }; in
+      with pkgs;
       rec {
-        devShell = pkgs.mkShell {
-          packages = (with pkgs;
-            [
-              nixpkgs-fmt
-              deploy-rs.outputs.packages.${system}.deploy-rs
-              nodePackages.node2nix
-            ]);
+        devShell = mkShell {
+          packages = [ nixpkgs-fmt deploy-rs.outputs.packages.${system}.deploy-rs ];
         };
 
         legacyPackages = import nixpkgs {
           inherit system;
           overlays = [ overlay ];
         };
-        packages = import ./pkgs { pkgs = import nixpkgs { inherit system; }; };
+        packages = import ./pkgs { inherit pkgs; };
       }
     ));
 }
