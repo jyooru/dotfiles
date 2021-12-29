@@ -39,14 +39,15 @@ in
           path = "/home/joel/${if value.serverAltPath or false then serverPath else ''''}${name}";
         }) [ "serverAltPath" ])
       (lib.filterAttrs (_: value: builtins.any (x: x == config.networking.hostName) value.devices) {
-        "archive" = { id = "u4tsv-7hxb7"; devices = backupDevices ++ [ "galaxy-a22" ]; serverAltPath = true; };
+        "archive" = { id = "u4tsv-7hxb7"; devices = backupDevices; serverAltPath = true; };
         "cluster" = { id = "jyxof-ssssq"; devices = clusterDevices; };
-        "code" = { id = "wcqyy-zrab5"; devices = allDevices; serverAltPath = true; };
-        "documents" = { id = "pgpew-tged2"; devices = backupDevices ++ [ "galaxy-a22" ]; serverAltPath = true; };
+        "code" = { id = "wcqyy-zrab5"; devices = clusterDevices; serverAltPath = true; };
+        "documents" = { id = "pgpew-tged2"; devices = backupDevices; serverAltPath = true; };
         "games" = { id = "xt4t4-d2jad"; devices = backupDevices; serverAltPath = true; };
         "media" = { id = "kasul-jsgfj"; devices = backupDevices; serverAltPath = true; };
-        "notes" = { id = "bc6qz-tad4c"; devices = backupDevices ++ [ "galaxy-a22" ]; serverAltPath = true; };
-        "school" = { id = "s6jde-csrow"; devices = backupDevices ++ [ "galaxy-a22" ]; serverAltPath = true; };
+        "media/phone" = { id = "xkgdh-rrx6u"; devices = backupDevices ++ [ "galaxy-a22" ]; serverAltPath = true; };
+        "notes" = { id = "bc6qz-tad4c"; devices = backupDevices; serverAltPath = true; };
+        "school" = { id = "s6jde-csrow"; devices = backupDevices; serverAltPath = true; };
         "tmp" = { id = "5f6yn-csxu7"; devices = allDevices; };
       });
   };
