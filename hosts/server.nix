@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, ... }:
 {
   users.users.joel.openssh.authorizedKeys.keyFiles = [
     ./thinkpad-e580/id_rsa.joel.pub
@@ -148,6 +148,12 @@
         "/home/joel/node/log/caddy:/var/log/caddy"
         "/home/joel/cluster/www:/srv:ro"
       ];
+    };
+    "streamr" = lib.mkIf (config.networking.hostName != "portege-z930") {
+      image = "streamr/broker-node:testnet";
+      # ports in host config
+      extraOptions = [ "--tty" ];
+      volumes = [ "/home/joel/node/config/streamr:/root/.streamr" ];
     };
   };
 }
