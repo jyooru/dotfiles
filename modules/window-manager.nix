@@ -97,6 +97,8 @@ in
         };
         rules = { };
         extraConfig = ''
+          XSECURELOCK_COMPOSITE_OBSCURER=0 XSECURELOCK_BLANK_TIMEOUT=0 XSECURELOCK_PASSWORD_PROMPT=asterisks XSECURELOCK_FONT="FiraCode Nerd Font:style=Regular" xsecurelock &
+
           monitors=(`bspc query -M --names`)
           if [ "''${#monitors[@]}" = "2" ]; then
             bspc monitor "''${monitors[0]}" -d 1 3 5 7 9
