@@ -63,9 +63,9 @@ in
         ''; # smart resize
 
             # screenshots
-            "Print" = "scrot"; # screenshot all monitors
-            "shift + Print" = "scrot --select --freeze"; # select area and screenshot
-            "control + Print" = "scrot --focused"; # screenshot current node
+            "Print" = "cd ~/media/screenshots; scrot"; # screenshot all monitors
+            "shift + Print" = "cd ~/media/screenshots; scrot --select --freeze"; # select area and screenshot
+            "control + Print" = "cd ~/media/screenshots; scrot --focused"; # screenshot current node
 
             # system
             "super + {_,alt + } Escape" = ''XSECURELOCK_COMPOSITE_OBSCURER=0 XSECURELOCK_BLANK_TIMEOUT=0 XSECURELOCK_PASSWORD_PROMPT=asterisks XSECURELOCK_FONT="FiraCode Nerd Font:style=Regular" xsecurelock {_, & sleep 0.1 && systemctl suspend}''; # lock / and suspend
