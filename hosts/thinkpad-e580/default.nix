@@ -52,7 +52,11 @@
       enable = true;
 
       desktopManager = { xterm.enable = false; };
-      displayManager = { defaultSession = "none+bspwm"; };
+      displayManager = {
+        defaultSession = "none+bspwm";
+        autoLogin = { enable = true; user = "joel"; };
+      };
+
       windowManager.bspwm = { enable = true; };
 
       libinput.enable = true; # touchpad

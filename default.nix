@@ -30,7 +30,7 @@
 
   users.users.joel = {
     isNormalUser = true;
-    extraGroups = [ "adbusers" "docker" "wheel" ];
+    extraGroups = [ "adbusers" "autologin" "docker" "wheel" ];
   };
 
   nix = {
