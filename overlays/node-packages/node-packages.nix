@@ -13,31 +13,31 @@ let
         sha512 = "2FWYlkphQ/83MG7b9qqBJfJJ0K9zupNz/6n4EdDuNLw6hQHGp4Sp4UMDRyBvA/xCTYDBaPSuSjHuu45tSujegg==";
       };
     };
-    "@babel/helper-validator-identifier-7.15.7" = {
+    "@babel/helper-validator-identifier-7.16.7" = {
       name = "_at_babel_slash_helper-validator-identifier";
       packageName = "@babel/helper-validator-identifier";
-      version = "7.15.7";
+      version = "7.16.7";
       src = fetchurl {
-        url = "https://registry.npmjs.org/@babel/helper-validator-identifier/-/helper-validator-identifier-7.15.7.tgz";
-        sha512 = "K4JvCtQqad9OY2+yTU8w+E82ywk/fe+ELNlt1G8z3bVGlZfn/hOcQQsUhGhW/N+tb3fxK800wLtKOE/aM0m72w==";
+        url = "https://registry.npmjs.org/@babel/helper-validator-identifier/-/helper-validator-identifier-7.16.7.tgz";
+        sha512 = "hsEnFemeiW4D08A5gUAZxLBTXpZ39P+a+DGDsHw1yxqyQ/jzFEnxf5uTEGp+3bzAbNOxU1paTgYS4ECU/IgfDw==";
       };
     };
-    "@babel/parser-7.16.6" = {
+    "@babel/parser-7.16.7" = {
       name = "_at_babel_slash_parser";
       packageName = "@babel/parser";
-      version = "7.16.6";
+      version = "7.16.7";
       src = fetchurl {
-        url = "https://registry.npmjs.org/@babel/parser/-/parser-7.16.6.tgz";
-        sha512 = "Gr86ujcNuPDnNOY8mi383Hvi8IYrJVJYuf3XcuBM/Dgd+bINn/7tHqsj+tKkoreMbmGsFLsltI/JJd8fOFWGDQ==";
+        url = "https://registry.npmjs.org/@babel/parser/-/parser-7.16.7.tgz";
+        sha512 = "sR4eaSrnM7BV7QPzGfEX5paG/6wrZM3I0HDzfIAK06ESvo9oy3xBuVBxE3MbQaKNhvg8g/ixjMWo2CGpzpHsDA==";
       };
     };
-    "@babel/types-7.16.0" = {
+    "@babel/types-7.16.7" = {
       name = "_at_babel_slash_types";
       packageName = "@babel/types";
-      version = "7.16.0";
+      version = "7.16.7";
       src = fetchurl {
-        url = "https://registry.npmjs.org/@babel/types/-/types-7.16.0.tgz";
-        sha512 = "PJgg/k3SdLsGb3hhisFvtLOw5ts113klrpLuIPtCJIU+BB24fqq6lf8RWqKJEjzqXR9AEH1rIb5XTqwBHB+kQg==";
+        url = "https://registry.npmjs.org/@babel/types/-/types-7.16.7.tgz";
+        sha512 = "E8HuV7FO9qLpx6OtoGfUQ2cjIYnbFwvZWYBS+87EwtdMvmUPJSwykpovFB+8insbpF0uJcpr8KMUi64XZntZcg==";
       };
     };
     "@gar/promisify-1.1.2" = {
@@ -184,13 +184,13 @@ let
         sha512 = "RZNwNclF7+MS/8bDg70amg32dyeZGZxiDuQmZxKLAlQjr3jGyLx+4Kkk58UO7D2QdgFIQCovuSuZESne6RG6XQ==";
       };
     };
-    "agentkeepalive-4.1.4" = {
+    "agentkeepalive-4.2.0" = {
       name = "agentkeepalive";
       packageName = "agentkeepalive";
-      version = "4.1.4";
+      version = "4.2.0";
       src = fetchurl {
-        url = "https://registry.npmjs.org/agentkeepalive/-/agentkeepalive-4.1.4.tgz";
-        sha512 = "+V/rGa3EuU74H6wR04plBb7Ks10FbtUQgRj/FQOG7uUIEuaINI+AiqJR1k6t3SVNs7o7ZjIdus6706qqzVq8jQ==";
+        url = "https://registry.npmjs.org/agentkeepalive/-/agentkeepalive-4.2.0.tgz";
+        sha512 = "0PhAp58jZNw13UJv7NVdTGb0ZcghHUb3DrZ046JiiJY/BOaTTpbwdHq2VObPCBV8M2GPh7sgrJ3AQ8Ey468LJw==";
       };
     };
     "aggregate-error-3.1.0" = {
@@ -3815,9 +3815,9 @@ in
     };
     dependencies = [
       sources."@11ty/dependency-tree-1.0.0"
-      sources."@babel/helper-validator-identifier-7.15.7"
-      sources."@babel/parser-7.16.6"
-      sources."@babel/types-7.16.0"
+      sources."@babel/helper-validator-identifier-7.16.7"
+      sources."@babel/parser-7.16.7"
+      sources."@babel/types-7.16.7"
       sources."@nodelib/fs.scandir-2.1.5"
       sources."@nodelib/fs.stat-2.0.5"
       sources."@nodelib/fs.walk-1.2.8"
@@ -4401,7 +4401,7 @@ in
       sources."@tootallnate/once-1.1.2"
       sources."abbrev-1.1.1"
       sources."agent-base-6.0.2"
-      sources."agentkeepalive-4.1.4"
+      sources."agentkeepalive-4.2.0"
       sources."aggregate-error-3.1.0"
       sources."ansi-regex-5.0.1"
       sources."aproba-2.0.0"
