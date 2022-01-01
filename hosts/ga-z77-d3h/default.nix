@@ -49,4 +49,33 @@
     };
   };
   virtualisation.oci-containers.containers."streamr".ports = [ "7170:7170" "7171:7171" "1883:1883" ];
+
+  networking.firewall.interfaces."nebula0".allowedTCPPorts = [ 2201 ];
+  containers."sftp" = {
+    autoStart = true;
+
+    bindMounts."files" = {
+      hostPath = "/home/joel/files";
+      mountPoint = "/srv";
+      isReadOnly = false;
+    };
+
+    config = {
+      services.openssh = {
+        enable = true;
+        listenAddresses = [{ addr = "0.0.0.0"; port = 2201; }];
+        passwordAuthentication = false;
+      };
+
+      users.users.joel = {
+        isNormalUser = true;
+        openssh.authorizedKeys.keyFiles = [
+          ../galaxy-a22/com.termux/id_rsa.pub
+          ../galaxy-a22/me.zhanghai.android.files/id_rsa.pub
+        ];
+      };
+    };
+
+    ephemeral = true;
+  };
 }
