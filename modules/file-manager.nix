@@ -9,14 +9,10 @@ in
 {
   options.modules.fileManager = {
     enable = mkEnableOption "Terminal file manager";
-    optionalDependencies = mkOption {
-      type = types.bool;
-      default = true;
-      description = "Install optional dependencies for ranger";
-    };
   };
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ ranger ] ++ lib.optionals cfg.optionalDependencies [
+    environment.systemPackages = with pkgs; [
+      ranger
       file
       python3Packages.chardet
       highlight
