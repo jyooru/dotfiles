@@ -37,6 +37,7 @@ in
           d = "docker";
           py = "python";
           pym = "python -m";
+          r = "ranger";
           o = "xdg-open";
           open = "xdg-open";
 
