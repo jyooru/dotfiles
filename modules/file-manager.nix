@@ -20,6 +20,11 @@ in
       python3Packages.pdftotext
       mediainfo
       odt2txt
+      ueberzug
     ];
+
+    home-manager.users.joel.xdg.configFile."ranger/rc.conf".text = ''
+      set preview_images_method ueberzug
+    '';
   };
 }
