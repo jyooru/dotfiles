@@ -50,6 +50,7 @@
   };
   virtualisation.oci-containers.containers."streamr".ports = [ "7170:7170" "7171:7171" "1883:1883" ];
 
+  networking.firewall.interfaces."nebula0".allowedTCPPorts = [ 2201 ];
   containers."sftp" = {
     autoStart = true;
 
