@@ -41,6 +41,7 @@ in
       ranger # file manager (tui)
       minecraft # game
       arduino # ide for arduino
+      vlc # media player
       spotify # music streaming service
       obsidian # notes
       onlyoffice-bin # office suite
