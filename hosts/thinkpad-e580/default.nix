@@ -93,7 +93,7 @@
 
   networking.firewall.allowedTCPPorts = [ 80 443 ];
   networking.firewall.interfaces."docker0".allowedTCPPorts = [ 5000 8384 ];
-  networking.firewall.interfaces."nebula0".allowedTCPPorts = [ 8080 ]; # for debugging
+  networking.firewall.interfaces."nebula0".allowedTCPPorts = [ 8080 ]; # tmp.joel.tokyo
   services.nix-serve = {
     enable = true;
     secretKeyFile = "/var/binary-cache.pem";
