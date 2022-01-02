@@ -1,0 +1,8 @@
+[
+  "@11ty/eleventy",
+  "@11ty/eleventy-cache-assets",
+  "normalize.css",
+  "simple-git",
+  "terminal.css",
+  "ttf2woff2"
+]

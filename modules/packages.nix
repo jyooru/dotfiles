@@ -35,13 +35,13 @@ in
 
     ++ optionals cfg.apps [
       brave # browser
-      firefox # browser
       signal-desktop # chat (family, friends)
       discord # chat (friends, public)
       gnome.nautilus # file manager (gui)
       ranger # file manager (tui)
       minecraft # game
       arduino # ide for arduino
+      vlc # media player
       spotify # music streaming service
       obsidian # notes
       onlyoffice-bin # office suite
@@ -72,8 +72,8 @@ in
     ]
 
     ++ optionals cfg.desktopEnvironment [
-      picom # compositor
       fira-code # font
+      xsecurelock # locker
     ]
 
     ++ optionals cfg.tools [
@@ -103,7 +103,8 @@ in
       scrot # screenshot
       lm_sensors # sensor viewer
       neofetch # system info
-      htop # system usage monitor # TODO: btop
+      btop # system monitor
+      htop # system monitor
       wmctrl # window manager control
       xorg.xev # x event viewer
       git # version control system
