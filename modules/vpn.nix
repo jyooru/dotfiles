@@ -61,11 +61,6 @@ in
         };
       };
     };
-
-    systemd.services."nebula@joel" = {
-      wants = [ "network-online.target" ];
-      after = [ "network-online.target" ];
-    };
   };
 }
 
