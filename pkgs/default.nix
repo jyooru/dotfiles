@@ -1,6 +1,8 @@
 { pkgs }:
 with pkgs;
 rec {
+  caddy-modded = callPackage ./caddy-modded { };
+
   firefox-themes = callPackage ./firefox-themes { };
 
   min-firefox = callPackage ./min-firefox { inherit firefox-themes; };
