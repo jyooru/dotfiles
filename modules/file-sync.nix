@@ -46,7 +46,7 @@ in
         "games" = { id = "xt4t4-d2jad"; devices = backupDevices; serverAltPath = true; };
         "media" = { id = "kasul-jsgfj"; devices = backupDevices; serverAltPath = true; };
         "media/phone" = { id = "xkgdh-rrx6u"; devices = backupDevices ++ [ "galaxy-a22" ]; serverAltPath = true; };
-        "notes" = { id = "bc6qz-tad4c"; devices = backupDevices; serverAltPath = true; };
+        "notes" = { id = "bc6qz-tad4c"; devices = backupDevices ++ [ "galaxy-a22" ]; serverAltPath = true; };
         "school" = { id = "s6jde-csrow"; devices = backupDevices; serverAltPath = true; };
         "tmp" = { id = "5f6yn-csxu7"; devices = allDevices; };
       });
