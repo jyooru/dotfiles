@@ -111,6 +111,11 @@
     text = ''
       import clusterCaddyfile
 
+      tmp.joel.tokyo {
+        import joel.tokyo
+        reverse_proxy 10.42.0.1:8080
+      }
+
       ${config.networking.hostName}.dev.joel.tokyo {
         import joel.tokyo
         respond "Hello world"
