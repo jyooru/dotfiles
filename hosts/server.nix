@@ -56,7 +56,6 @@
           server {
             listen 80;
             listen [::]:80;
-            proxy_protocol on;
             proxy_pass localhost:8001;
           }
 
