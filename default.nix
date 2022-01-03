@@ -28,11 +28,6 @@
 
   time.timeZone = "Australia/Brisbane";
 
-  users.users.joel = {
-    isNormalUser = true;
-    extraGroups = [ "adbusers" "autologin" "docker" "wheel" ];
-  };
-
   nix = {
     package = pkgs.nixUnstable;
     extraOptions = ''
@@ -66,8 +61,8 @@
         };
       in
       {
-        root = defaults // { home = { username = "root"; homeDirectory = "/root"; }; };
-        joel = defaults // { home = { username = "joel"; homeDirectory = "/home/joel"; }; };
+        root = defaults;
+        joel = defaults;
       };
   };
 

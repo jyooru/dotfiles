@@ -12,7 +12,6 @@
     ./hardware/android.nix
     ./launcher.nix
     ./packages.nix
-    ./programs/git.nix
     ./shell.nix
     ./terminal-emulator.nix
     ./vpn.nix

@@ -26,7 +26,29 @@
         nixos = {
           hostDefaults = { system = "x86_64-linux"; channelName = "nixpkgs"; modules = [ ./default.nix home-manager.nixosModules.home-manager ]; };
           imports = [ (digga.lib.importHosts ./hosts) ];
+          importables = rec {
+            profiles = digga.lib.rakeLeaves ./profiles // {
+              users = digga.lib.rakeLeaves ./users;
+            };
+            suites = with profiles; rec {
+              base = [ users.joel users.root ];
+            };
+          };
         };
+
+        home = {
+          importables = rec {
+            profiles = digga.lib.rakeLeaves ./users/profiles;
+            suites = with profiles; rec {
+              base = [ git ];
+            };
+          };
+          users = {
+            joel = { suites, ... }: { imports = suites.base; };
+          };
+        };
+
+        homeConfigurations = digga.lib.mkHomeConfigurations self.nixosConfigurations;
 
         deploy.nodes = digga.lib.mkDeployNodes self.nixosConfigurations { };
 

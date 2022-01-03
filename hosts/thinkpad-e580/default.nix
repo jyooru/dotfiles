@@ -1,6 +1,6 @@
-{ config, pkgs, ... }:
+{ config, pkgs, suites, ... }:
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [ ./hardware-configuration.nix ] ++ suites.base;
 
   networking.hostName = "thinkpad-e580";
 
@@ -20,7 +20,6 @@
       amdgpu.enable = true;
       android = { enable = true; supportSamsung = true; };
     };
-    programs.git.enable = true;
     bar.enable = true;
     bootloader = {
       enable = true;

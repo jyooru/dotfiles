@@ -17,9 +17,6 @@
   ];
 
   modules = {
-    programs = {
-      git.enable = true;
-    };
     # bootloader = {
     #   enable = false; # TODO: multiple devices. setup below
     #   # device = "/dev/disk/by-uuid/646fc0f1-2d8a-4901-ae89-559154bfe288";

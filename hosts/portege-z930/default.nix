@@ -1,5 +1,6 @@
+{ suites, ... }:
 {
-  imports = [ ./hardware-configuration.nix ../../tmp-hosts-server.nix ];
+  imports = [ ./hardware-configuration.nix ../../tmp-hosts-server.nix ] ++ suites.base;
 
   networking.hostName = "portege-z930";
 
