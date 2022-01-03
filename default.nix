@@ -12,6 +12,8 @@
     };
   };
 
+  users.mutableUsers = true;
+
   services = {
     logind = {
       lidSwitch = "ignore";
