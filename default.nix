@@ -39,8 +39,8 @@
       experimental-features = nix-command flakes
     '';
     trustedUsers = [ "root" "joel" ];
-    binaryCaches = map (x: "https://nix.${x}.${config.networking.domain}") (import ./hosts);
-    binaryCachePublicKeys = map (x: builtins.readFile (./. + "/hosts/${x}/binary-cache.pub")) (import ./hosts);
+    binaryCaches = map (x: "https://nix.${x}.${config.networking.domain}") (import ./tmp-hosts.nix);
+    binaryCachePublicKeys = map (x: builtins.readFile (./. + "/hosts/${x}/binary-cache.pub")) (import ./tmp-hosts.nix);
   };
   nixpkgs.config = import ./config/nixpkgs.nix;
 
@@ -71,7 +71,7 @@
       };
   };
 
-  programs.ssh.knownHosts = builtins.listToAttrs (map (name: { inherit name; value = { publicKeyFile = ./hosts + "/${name}/host.pub"; }; }) (import ./hosts));
+  programs.ssh.knownHosts = builtins.listToAttrs (map (name: { inherit name; value = { publicKeyFile = ./hosts + "/${name}/host.pub"; }; }) (import ./tmp-hosts.nix));
 
   nixpkgs.overlays = builtins.attrValues (import ./overlays);
 }

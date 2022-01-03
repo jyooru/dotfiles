@@ -1,19 +1,19 @@
 { config, lib, ... }:
 {
   users.users.joel.openssh.authorizedKeys.keyFiles = [
-    ./thinkpad-e580/id_rsa.joel.pub
-    ./thinkpad-e580/id_rsa.root.pub
-    ./portege-r700-a/id_rsa.root.pub
-    ./portege-r700-b/id_rsa.root.pub
-    ./portege-z930/id_rsa.root.pub
-    ./ga-z77-d3h/id_rsa.root.pub
+    ./hosts/thinkpad-e580/id_rsa.joel.pub
+    ./hosts/thinkpad-e580/id_rsa.root.pub
+    ./hosts/portege-r700-a/id_rsa.root.pub
+    ./hosts/portege-r700-b/id_rsa.root.pub
+    ./hosts/portege-z930/id_rsa.root.pub
+    ./hosts/ga-z77-d3h/id_rsa.root.pub
   ];
   users.users.root.openssh.authorizedKeys.keyFiles = [
-    ./thinkpad-e580/id_rsa.root.pub
-    ./portege-r700-a/id_rsa.root.pub
-    ./portege-r700-b/id_rsa.root.pub
-    ./portege-z930/id_rsa.root.pub
-    ./ga-z77-d3h/id_rsa.root.pub
+    ./hosts/thinkpad-e580/id_rsa.root.pub
+    ./hosts/portege-r700-a/id_rsa.root.pub
+    ./hosts/portege-r700-b/id_rsa.root.pub
+    ./hosts/portege-z930/id_rsa.root.pub
+    ./hosts/ga-z77-d3h/id_rsa.root.pub
   ];
 
   modules = {

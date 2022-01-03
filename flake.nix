@@ -10,36 +10,29 @@
     nur.url = "github:nix-community/NUR";
   };
 
-  outputs = { self, digga, nixpkgs, home-manager, deploy-rs, flake-utils, nur, ... }:
+  outputs = { self, digga, nixpkgs, home-manager, deploy-rs, flake-utils, nur, ... } @ inputs:
     let
       overlays = import ./overlays;
       overlay = overlays.pkgs;
     in
-    {
-      nixosConfigurations = (builtins.mapAttrs
-        (host: system: nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
-            (./hosts/. + "/${host}")
-            ./default.nix
-            home-manager.nixosModules.home-manager
-            { nixpkgs.overlays = [ nur.overlay ]; }
-          ];
-        })
-        {
-          "thinkpad-e580" = "x86_64-linux";
-          "portege-r700-a" = "x86_64-linux";
-          "portege-r700-b" = "x86_64-linux";
-          "portege-z930" = "x86_64-linux";
-          "ga-z77-d3h" = "x86_64-linux";
-        }
-      );
+    digga.lib.mkFlake
+      {
+        inherit self inputs;
 
-      deploy.nodes = digga.lib.mkDeployNodes self.nixosConfigurations { };
+        channelsConfig = { allowUnfree = true; };
+        channels = { nixpkgs = { overlays = [ nur.overlay ]; }; };
 
-      inherit overlay overlays;
 
-    } // (flake-utils.lib.eachDefaultSystem (system:
+        nixos = {
+          hostDefaults = { system = "x86_64-linux"; channelName = "nixpkgs"; modules = [ ./default.nix home-manager.nixosModules.home-manager ]; };
+          imports = [ (digga.lib.importHosts ./hosts) ];
+        };
+
+        deploy.nodes = digga.lib.mkDeployNodes self.nixosConfigurations { };
+
+        inherit overlay overlays;
+
+      } // (flake-utils.lib.eachDefaultSystem (system:
       let pkgs = import nixpkgs { inherit system; }; in
       with pkgs;
       rec {

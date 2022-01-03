@@ -1,5 +1,5 @@
 {
-  imports = [ ./hardware-configuration.nix ../server.nix ];
+  imports = [ ./hardware-configuration.nix ../../tmp-hosts-server.nix ];
 
   networking.hostName = "portege-r700-b";
 
