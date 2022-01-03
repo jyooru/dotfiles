@@ -35,21 +35,7 @@
         }
       );
 
-      deploy = {
-        sshUser = "root";
-        user = "root";
-
-        nodes = (builtins.listToAttrs (builtins.map
-          (name: {
-            inherit name;
-            value = {
-              hostname = "${name}.dev.joel.tokyo";
-              profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.${name};
-            };
-          })
-          [ "portege-r700-a" "portege-r700-b" "portege-z930" "ga-z77-d3h" ]
-        ));
-      };
+      deploy.nodes = digga.lib.mkDeployNodes self.nixosConfigurations { };
 
       inherit overlay overlays;
 
