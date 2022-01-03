@@ -4,10 +4,13 @@
 
   networking.hostName = "thinkpad-e580";
 
-  users.users.joel.openssh.authorizedKeys.keyFiles = [
-    ../galaxy-a22/com.termux/id_rsa.pub
-    ../galaxy-a22/me.zhanghai.android.files/id_rsa.pub
-  ];
+  users.users = {
+    root.openssh.authorizedKeys.keyFiles = [ ./id_rsa.root.pub ]; # deploy
+    joel.openssh.authorizedKeys.keyFiles = [
+      ../galaxy-a22/com.termux/id_rsa.pub
+      ../galaxy-a22/me.zhanghai.android.files/id_rsa.pub
+    ];
+  };
 
   modules = {
     config = {
