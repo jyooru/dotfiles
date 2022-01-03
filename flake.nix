@@ -3,13 +3,14 @@
 
   inputs = {
     deploy-rs.url = "github:serokell/deploy-rs";
+    digga = { url = "github:divnix/digga"; inputs = { deploy.follows = "deploy-rs"; nixpkgs.follows = "nixpkgs"; nixlib.follows = "nixpkgs"; home-manager.follows = "home-manager"; }; };
     flake-utils.url = "github:numtide/flake-utils";
     home-manager = { url = "github:nix-community/home-manager"; inputs.nixpkgs.follows = "nixpkgs"; };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small"; # change back to nixos-unstable on next update
     nur.url = "github:nix-community/NUR";
   };
 
-  outputs = { self, nixpkgs, home-manager, deploy-rs, flake-utils, nur, ... }:
+  outputs = { self, digga, nixpkgs, home-manager, deploy-rs, flake-utils, nur, ... }:
     let
       overlays = import ./overlays;
       overlay = overlays.pkgs;
