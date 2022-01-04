@@ -45,6 +45,7 @@
           };
           users = {
             joel = { suites, ... }: { imports = suites.base; };
+            root = { suites, ... }: { imports = suites.base; };
           };
         };
 
