@@ -37,7 +37,6 @@
     };
     terminalEmulator.enable = true;
     vpn.enable = true;
-    windowManager.enable = true;
   };
 
   fonts.fonts = with pkgs; [ (nerdfonts.override { fonts = [ "FiraCode" ]; }) ];

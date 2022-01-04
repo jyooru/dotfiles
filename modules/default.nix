@@ -13,6 +13,5 @@
     ./packages.nix
     ./terminal-emulator.nix
     ./vpn.nix
-    ./window-manager.nix
   ];
 }
