@@ -86,4 +86,6 @@
     rules = { };
     extraConfig = builtins.readFile ./extra-config.sh;
   };
+
+  home.packages = with pkgs; [hsetroot];
 }
