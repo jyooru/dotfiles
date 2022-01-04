@@ -27,7 +27,6 @@
     };
     compositor.enable = true;
     editor.enable = true;
-    fileManager.enable = true;
     launcher.enable = true;
     packages = {
       apps = true;
