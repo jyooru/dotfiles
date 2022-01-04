@@ -41,10 +41,11 @@
             profiles = digga.lib.rakeLeaves ./users/profiles;
             suites = with profiles; rec {
               base = [ git shell ];
+              gui = base ++ [ browser ];
             };
           };
           users = {
-            joel = { suites, ... }: { imports = suites.base; };
+            joel = { suites, ... }: { imports = suites.gui; };
             root = { suites, ... }: { imports = suites.base; };
           };
         };
