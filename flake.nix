@@ -41,7 +41,7 @@
             profiles = digga.lib.rakeLeaves ./users/profiles;
             suites = with profiles; rec {
               base = [ git shell ];
-              gui = base ++ [ bar browser editor file-manager window-manager ];
+              gui = base ++ [ bar browser compositor editor file-manager window-manager ];
             };
           };
           users = {

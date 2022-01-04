@@ -1,7 +1,6 @@
 {
   imports = [
     ./bootloader.nix
-    ./compositor.nix
     ./config/distributed-build.nix
     ./file-sync.nix
     ./hardware/amdgpu.nix
