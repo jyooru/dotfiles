@@ -5,7 +5,6 @@
     ./file-sync.nix
     ./hardware/amdgpu.nix
     ./hardware/android.nix
-    ./launcher.nix
     ./packages.nix
     ./vpn.nix
   ];
