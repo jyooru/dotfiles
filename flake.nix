@@ -31,7 +31,7 @@
               users = digga.lib.rakeLeaves ./users;
             };
             suites = with profiles; rec {
-              base = [ locale networking ] ++ users;
+              base = [ locale networking ssh ] ++ users;
               users = with profiles.users; [ joel root ];
             };
           };

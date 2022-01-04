@@ -12,11 +12,6 @@
         HandlePowerKey=ignore
       '';
     };
-
-    openssh = {
-      enable = true;
-      passwordAuthentication = false;
-    };
   };
 
   nix = {
@@ -56,8 +51,6 @@
         joel = defaults;
       };
   };
-
-  programs.ssh.knownHosts = builtins.listToAttrs (map (name: { inherit name; value = { publicKeyFile = ./hosts + "/${name}/host.pub"; }; }) (import ./tmp-hosts.nix));
 
   nixpkgs.overlays = builtins.attrValues (import ./overlays);
 }
