@@ -40,7 +40,7 @@
           importables = rec {
             profiles = digga.lib.rakeLeaves ./users/profiles;
             suites = with profiles; rec {
-              base = [ git ];
+              base = [ git shell ];
             };
           };
           users = {

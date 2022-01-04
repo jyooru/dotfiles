@@ -23,8 +23,6 @@
     # };
     fileManager.enable = true;
     packages.tools = true;
-    shell.enable = true;
-    shell.enablePrompt = true;
     vpn.enable = true;
   };
 

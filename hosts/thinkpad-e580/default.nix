@@ -36,8 +36,6 @@
       desktopEnvironment = true;
       tools = true;
     };
-    shell.enable = true;
-    shell.enablePrompt = true;
     terminalEmulator.enable = true;
     vpn.enable = true;
     windowManager.enable = true;

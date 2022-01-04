@@ -12,7 +12,6 @@
     ./hardware/android.nix
     ./launcher.nix
     ./packages.nix
-    ./shell.nix
     ./terminal-emulator.nix
     ./vpn.nix
     ./window-manager.nix
