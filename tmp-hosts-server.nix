@@ -22,7 +22,6 @@
     #   # device = "/dev/disk/by-uuid/646fc0f1-2d8a-4901-ae89-559154bfe288";
     # };
     packages.tools = true;
-    vpn.enable = true;
   };
 
   boot.binfmt.emulatedSystems = [ "aarch64-linux" "armv6l-linux" ];

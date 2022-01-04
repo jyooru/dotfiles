@@ -6,6 +6,5 @@
     ./hardware/amdgpu.nix
     ./hardware/android.nix
     ./packages.nix
-    ./vpn.nix
   ];
 }

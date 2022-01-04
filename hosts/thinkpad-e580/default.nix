@@ -30,7 +30,6 @@
       desktopEnvironment = true;
       tools = true;
     };
-    vpn.enable = true;
   };
 
   fonts.fonts = with pkgs; [ (nerdfonts.override { fonts = [ "FiraCode" ]; }) ];
