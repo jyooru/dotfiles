@@ -38,8 +38,6 @@
   hardware.pulseaudio.enable = true;
   sound.enable = true;
 
-  i18n.defaultLocale = "en_AU.UTF-8";
-
   services = {
     auto-cpufreq.enable = true;
 
@@ -55,7 +53,6 @@
       windowManager.bspwm = { enable = true; };
 
       libinput.enable = true; # touchpad
-      layout = "au";
     };
   };
 

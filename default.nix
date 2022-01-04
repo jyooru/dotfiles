@@ -28,8 +28,6 @@
     };
   };
 
-  time.timeZone = "Australia/Brisbane";
-
   nix = {
     package = pkgs.nixUnstable;
     extraOptions = ''
