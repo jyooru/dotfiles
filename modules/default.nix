@@ -1,6 +1,5 @@
 {
   imports = [
-    ./bar.nix
     ./bootloader.nix
     ./compositor.nix
     ./config/distributed-build.nix

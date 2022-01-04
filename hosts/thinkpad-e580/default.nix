@@ -20,7 +20,6 @@
       amdgpu.enable = true;
       android = { enable = true; supportSamsung = true; };
     };
-    bar.enable = true;
     bootloader = {
       enable = true;
       device = "/dev/disk/by-uuid/a207fe6b-d073-459b-b381-b6bc0b3f00ba";
