@@ -41,7 +41,7 @@
           importables = rec {
             profiles = digga.lib.rakeLeaves ./users/profiles;
             suites = with profiles; rec {
-              base = [ git shell ];
+              base = [ git shell ssh ];
               gui = base ++ [ bar browser compositor editor file-manager launcher terminal-emulator window-manager ];
             };
           };
