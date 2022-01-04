@@ -3,7 +3,6 @@
     ./bootloader.nix
     ./compositor.nix
     ./config/distributed-build.nix
-    ./editor.nix
     ./file-sync.nix
     ./hardware/amdgpu.nix
     ./hardware/android.nix
