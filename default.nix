@@ -1,5 +1,7 @@
-{ config, pkgs, ... }:
-
+{ config, pkgs, self, ... }:
+let
+  hosts = builtins.attrNames self.nixosConfigurations;
+in
 {
   imports = [ ./modules ];
 
@@ -20,8 +22,8 @@
       experimental-features = nix-command flakes
     '';
     trustedUsers = [ "root" "joel" ];
-    binaryCaches = map (x: "https://nix.${x}.${config.networking.domain}") (import ./tmp-hosts.nix);
-    binaryCachePublicKeys = map (x: builtins.readFile (./. + "/hosts/${x}/binary-cache.pub")) (import ./tmp-hosts.nix);
+    binaryCaches = map (x: "https://nix.${x}.${config.networking.domain}") hosts;
+    binaryCachePublicKeys = map (x: builtins.readFile (./. + "/hosts/${x}/binary-cache.pub")) hosts;
   };
   nixpkgs.config = import ./config/nixpkgs.nix;
 
