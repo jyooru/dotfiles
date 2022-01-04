@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./modules ./bin ];
+  imports = [ ./modules ];
 
   users.mutableUsers = true;
 

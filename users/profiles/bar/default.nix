@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   services.polybar = {
     enable = true;
@@ -80,7 +81,7 @@
       };
       "module/playerctl" = {
         type = "custom/script";
-        exec = "playerctl-status";
+        exec = pkgs.copyPathToStore ./playerctl-status.sh;
         interval = 1;
         click = {
           left = "playerctl previous &";

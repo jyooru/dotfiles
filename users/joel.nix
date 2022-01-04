@@ -1,6 +1,6 @@
 { hmUsers, pkgs, ... }:
 {
-  imports = [{ home-manager.users = { inherit (hmUsers) joel; }; };]; # lets me add more home-manager.users.joel config below
+  imports = [{ home-manager.users = { inherit (hmUsers) joel; }; }]; # lets me add more home-manager.users.joel config below
 
   home-manager.users.joel.programs.git = {
     enable = true;
