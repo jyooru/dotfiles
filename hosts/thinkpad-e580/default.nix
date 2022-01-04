@@ -31,7 +31,6 @@
       desktopEnvironment = true;
       tools = true;
     };
-    terminalEmulator.enable = true;
     vpn.enable = true;
   };
 

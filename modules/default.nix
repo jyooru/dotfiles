@@ -7,7 +7,6 @@
     ./hardware/android.nix
     ./launcher.nix
     ./packages.nix
-    ./terminal-emulator.nix
     ./vpn.nix
   ];
 }
