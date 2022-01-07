@@ -13,7 +13,7 @@
   outputs = { self, digga, nixpkgs, home-manager, deploy-rs, flake-utils, nur, ... } @ inputs:
     let
       overlays = import ./overlays;
-      overlay = overlays.pkgs;
+      overlay = overlays.packages;
     in
     digga.lib.mkFlake
       {
@@ -69,7 +69,7 @@
           inherit system;
           overlays = [ overlay ];
         };
-        packages = import ./pkgs { inherit pkgs; };
+        packages = import ./packages { inherit pkgs; };
       }
     ));
 }
