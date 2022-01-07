@@ -27,10 +27,6 @@
     config = {
       distributedBuild.enable = true;
     };
-    hardware = {
-      amdgpu.enable = true;
-      android = { enable = true; supportSamsung = true; };
-    };
   };
 
   fonts.fonts = with pkgs; [ (nerdfonts.override { fonts = [ "FiraCode" ]; }) ];

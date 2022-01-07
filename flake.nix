@@ -35,6 +35,10 @@
               users = with profiles.users; [ joel root ];
             };
           };
+
+          hosts = {
+            thinkpad-e580.modules = { profiles, ... }: { imports = with profiles.hardware; [ amdgpu android ]; };
+          };
         };
 
         home = {
