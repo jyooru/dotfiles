@@ -3,8 +3,6 @@ let
   hosts = builtins.attrNames self.nixosConfigurations;
 in
 {
-  imports = [ ./modules ];
-
   users.mutableUsers = true;
 
   services = {

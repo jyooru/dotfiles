@@ -16,14 +16,6 @@
     ./hosts/ga-z77-d3h/id_rsa.root.pub
   ];
 
-  modules = {
-    # bootloader = {
-    #   enable = false; # TODO: multiple devices. setup below
-    #   # device = "/dev/disk/by-uuid/646fc0f1-2d8a-4901-ae89-559154bfe288";
-    # };
-    packages.tools = true;
-  };
-
   boot.binfmt.emulatedSystems = [ "aarch64-linux" "armv6l-linux" ];
 
   networking.firewall.allowedTCPPorts = [ 80 8000 443 44300 6881 ];

@@ -37,7 +37,7 @@
           };
 
           hosts = {
-            thinkpad-e580.modules = { profiles, ... }: { imports = with profiles.hardware; [ amdgpu android ]; };
+            thinkpad-e580.modules = { profiles, ... }: { imports = with profiles; [ distributed-build ] ++ (with hardware; [ amdgpu android ]); };
           };
         };
 

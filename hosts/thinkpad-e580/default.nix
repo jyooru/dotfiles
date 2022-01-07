@@ -23,12 +23,6 @@
     ];
   };
 
-  modules = {
-    config = {
-      distributedBuild.enable = true;
-    };
-  };
-
   fonts.fonts = with pkgs; [ (nerdfonts.override { fonts = [ "FiraCode" ]; }) ];
 
   hardware.pulseaudio.enable = true;
