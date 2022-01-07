@@ -87,5 +87,5 @@
     extraConfig = builtins.readFile ./extra-config.sh;
   };
 
-  home.packages = with pkgs; [hsetroot];
+  home.packages = with pkgs; [ hsetroot ];
 }

@@ -31,12 +31,6 @@
       amdgpu.enable = true;
       android = { enable = true; supportSamsung = true; };
     };
-    packages = {
-      apps = true;
-      code = true;
-      desktopEnvironment = true;
-      tools = true;
-    };
   };
 
   fonts.fonts = with pkgs; [ (nerdfonts.override { fonts = [ "FiraCode" ]; }) ];
