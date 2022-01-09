@@ -6,11 +6,12 @@
     digga = { url = "github:divnix/digga"; inputs = { deploy.follows = "deploy-rs"; nixpkgs.follows = "nixpkgs"; nixlib.follows = "nixpkgs"; home-manager.follows = "home-manager"; }; };
     flake-utils.url = "github:numtide/flake-utils";
     home-manager = { url = "github:nix-community/home-manager"; inputs.nixpkgs.follows = "nixpkgs"; };
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/NUR";
   };
 
-  outputs = { self, digga, nixpkgs, home-manager, deploy-rs, flake-utils, nur, ... } @ inputs:
+  outputs = { self, digga, nixpkgs, home-manager, deploy-rs, flake-utils, nur, nixos-hardware, ... } @ inputs:
     let
       inherit (digga.lib) importHosts rakeLeaves mkDeployNodes mkHomeConfigurations mkFlake;
       inherit (flake-utils.lib) eachDefaultSystem;
