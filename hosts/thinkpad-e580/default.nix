@@ -34,6 +34,9 @@
     xserver = {
       enable = true;
 
+      # something automatically generates this. adding nixos-hardware.nixosModules.common-gpu-amd overrides this for some reason. this fixes this
+      videoDrivers = [ "amdgpu" "radeon" "nouveau" "modesetting" "fbdev" ];
+
       desktopManager = { xterm.enable = false; };
       displayManager = {
         defaultSession = "none+bspwm";

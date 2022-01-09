@@ -40,8 +40,8 @@
             };
           };
 
-          hosts = {
-            thinkpad-e580.modules = { profiles, ... }: { imports = with profiles; [ distributed-build ] ++ (with hardware; [ amdgpu android ]); };
+          hosts = with nixos-hardware.nixosModules; {
+            thinkpad-e580.modules = { profiles, ... }: { imports = [ common-gpu-amd ] ++ (with profiles; [ distributed-build hardware.android ]); };
           };
         };
 
