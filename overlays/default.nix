@@ -4,7 +4,7 @@ let
     fixNebula = "fix-nebula";
     fixNixServe = "fix-nix-serve";
     nodePackages = "node-packages";
-    pkgs = "pkgs";
+    packages = "packages";
     xsecurelock = "xsecurelock";
   };
 in

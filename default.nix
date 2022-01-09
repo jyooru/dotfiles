@@ -1,16 +1,9 @@
-{ config, pkgs, ... }:
-
+{ config, pkgs, self, ... }:
+let
+  hosts = builtins.attrNames self.nixosConfigurations;
+in
 {
-  imports = [ ./modules ./bin ];
-
-  networking = {
-    domain = "dev.joel.tokyo";
-    firewall.enable = true;
-    networkmanager = {
-      enable = true;
-      insertNameservers = [ "1.1.1.1" "1.0.0.1" ];
-    };
-  };
+  users.mutableUsers = true;
 
   services = {
     logind = {
@@ -19,18 +12,6 @@
         HandlePowerKey=ignore
       '';
     };
-
-    openssh = {
-      enable = true;
-      passwordAuthentication = false;
-    };
-  };
-
-  time.timeZone = "Australia/Brisbane";
-
-  users.users.joel = {
-    isNormalUser = true;
-    extraGroups = [ "adbusers" "autologin" "docker" "wheel" ];
   };
 
   nix = {
@@ -39,8 +20,8 @@
       experimental-features = nix-command flakes
     '';
     trustedUsers = [ "root" "joel" ];
-    binaryCaches = map (x: "https://nix.${x}.${config.networking.domain}") (import ./hosts);
-    binaryCachePublicKeys = map (x: builtins.readFile (./. + "/hosts/${x}/binary-cache.pub")) (import ./hosts);
+    binaryCaches = map (x: "https://nix.${x}.${config.networking.domain}") hosts;
+    binaryCachePublicKeys = map (x: builtins.readFile (./. + "/hosts/${x}/binary-cache.pub")) hosts;
   };
   nixpkgs.config = import ./config/nixpkgs.nix;
 
@@ -58,7 +39,6 @@
       let
         defaults = {
           programs.home-manager.enable = true;
-          programs.ssh = { enable = true; matchBlocks = import ./config/ssh.nix; };
           nixpkgs.config = import ./config/nixpkgs.nix;
           xdg.configFile."nixpkgs/config.nix".source = ./config/nixpkgs.nix;
           xdg.configFile."btop/btop.conf".text = "theme_background = False";
@@ -66,12 +46,10 @@
         };
       in
       {
-        root = defaults // { home = { username = "root"; homeDirectory = "/root"; }; };
-        joel = defaults // { home = { username = "joel"; homeDirectory = "/home/joel"; }; };
+        root = defaults;
+        joel = defaults;
       };
   };
-
-  programs.ssh.knownHosts = builtins.listToAttrs (map (name: { inherit name; value = { publicKeyFile = ./hosts + "/${name}/host.pub"; }; }) (import ./hosts));
 
   nixpkgs.overlays = builtins.attrValues (import ./overlays);
 }

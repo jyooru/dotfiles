@@ -1,14 +1,8 @@
+{ suites, ... }:
 {
-  imports = [ ./hardware-configuration.nix ../server.nix ];
+  imports = [ ./hardware-configuration.nix ../../tmp-hosts-server.nix ] ++ suites.base;
 
   networking.hostName = "ga-z77-d3h";
-
-  modules = {
-    bootloader = {
-      enable = false; # TODO: multiple devices. setup below
-      # device = "/dev/disk/by-uuid/646fc0f1-2d8a-4901-ae89-559154bfe288";
-    };
-  };
 
   boot = {
     loader.systemd-boot.enable = true;
