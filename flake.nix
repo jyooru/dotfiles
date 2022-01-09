@@ -12,10 +12,13 @@
 
   outputs = { self, digga, nixpkgs, home-manager, deploy-rs, flake-utils, nur, ... } @ inputs:
     let
+      inherit (digga.lib) importHosts rakeLeaves mkDeployNodes mkHomeConfigurations mkFlake;
+      inherit (flake-utils.lib) eachDefaultSystem;
+
       overlays = import ./overlays;
       overlay = overlays.packages;
     in
-    digga.lib.mkFlake
+    mkFlake
       {
         inherit self inputs;
 
@@ -25,10 +28,10 @@
 
         nixos = {
           hostDefaults = { system = "x86_64-linux"; channelName = "nixpkgs"; modules = [ ./default.nix home-manager.nixosModules.home-manager ]; };
-          imports = [ (digga.lib.importHosts ./hosts) ];
+          imports = [ (importHosts ./hosts) ];
           importables = rec {
-            profiles = digga.lib.rakeLeaves ./profiles // {
-              users = digga.lib.rakeLeaves ./users;
+            profiles = rakeLeaves ./profiles // {
+              users = rakeLeaves ./users;
             };
             suites = with profiles; rec {
               base = [ file-sync locale networking ssh vpn ] ++ users;
@@ -43,7 +46,7 @@
 
         home = {
           importables = rec {
-            profiles = digga.lib.rakeLeaves ./users/profiles;
+            profiles = rakeLeaves ./users/profiles;
             suites = with profiles; rec {
               base = [ git shell packages.tools ssh ];
               gui = base ++ [ bar browser compositor editor file-manager launcher terminal-emulator packages.apps packages.code window-manager ];
@@ -55,13 +58,13 @@
           };
         };
 
-        homeConfigurations = digga.lib.mkHomeConfigurations self.nixosConfigurations;
+        homeConfigurations = mkHomeConfigurations self.nixosConfigurations;
 
-        deploy.nodes = digga.lib.mkDeployNodes self.nixosConfigurations { };
+        deploy.nodes = mkDeployNodes self.nixosConfigurations { };
 
         inherit overlay overlays;
 
-      } // (flake-utils.lib.eachDefaultSystem (system:
+      } // (eachDefaultSystem (system:
       let pkgs = import nixpkgs { inherit system; }; in
       with pkgs;
       rec {
