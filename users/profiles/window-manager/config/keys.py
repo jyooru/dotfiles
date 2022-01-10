@@ -6,7 +6,13 @@ from .groups import groups
 
 
 mod = "mod4"
-terminal = guess_terminal()
+terminal = "alacritty"
+lock = 'XSECURELOCK_COMPOSITE_OBSCURER=0 XSECURELOCK_BLANK_TIMEOUT=0 XSECURELOCK_PASSWORD_PROMPT=asterisks XSECURELOCK_FONT="FiraCode Nerd Font:style=Regular" xsecurelock'
+
+
+def terminal_command(command: str) -> str:
+    return f"alacritty -e {command}"
+
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -49,19 +55,116 @@ keys = [
         lazy.layout.toggle_split(),
         desc="Toggle between split and unsplit sides of stack",
     ),
-    Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
-    Key(
-        [mod],
-        "space",
-        lazy.spawn("rofi -combi-modi window,drun,ssh -show combi"),
-        desc="Launch launcher",
-    ),
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "mod1"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "mod1"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
+    # media
+    Key(
+        [],
+        "XF86AudioMute",
+        lazy.spawn("amixer set Master toggle"),
+        desc="Volume mute toggle",
+    ),
+    Key(
+        [],
+        "XF86AudioRaiseVolume",
+        lazy.spawn("amixer set Master 10%+"),
+        desc="Volume up",
+    ),
+    Key(
+        [],
+        "XF86AudioLowerVolume",
+        lazy.spawn("amixer set Master 10%-"),
+        desc="Volume down",
+    ),
+    Key(
+        [],
+        "XF86MonBrightnessUp",
+        lazy.spawn("brightnessctl set 10%+"),
+        desc="Brightness up",
+    ),
+    Key(
+        [],
+        "XF86MonBrightnessDown",
+        lazy.spawn("brightnessctl set 10%-"),
+        desc="Brightness down",
+    ),
+    # XF86AudioMicMute
+    # XF86Display
+    # XF86WLAN
+    # XF86Tools
+    # XF86Bluetooth
+    # ? (keyboard icon)
+    # XF86Favourites
+    Key(
+        [],
+        "XF86AudioPrev",
+        lazy.spawn("playerctl previous"),
+        desc="Previous song",
+    ),
+    Key(
+        [],
+        "XF86AudioPlay",
+        lazy.spawn("playerctl play-pause"),
+        desc="Pause song",
+    ),
+    Key(
+        [],
+        "XF86AudioNext",
+        lazy.spawn("playerctl next"),
+        desc="Next song",
+    ),
+    # screenshots
+    Key(
+        [],
+        "Print",
+        lazy.spawn("cd ~/media/screenshots && scrot"),
+        desc="Take screenshot",
+    ),
+    Key(
+        ["shift"],
+        "Print",
+        lazy.spawn("cd ~/media/screenshots && scrot --select --freeze"),
+        desc="Take screenshot of a selected area",
+    ),
+    Key(
+        ["control"],
+        "Print",
+        lazy.spawn("cd ~/media/screenshots && scrot --focused"),
+        desc="Take screenshot of focused window",
+    ),
+    # afk
+    Key(
+        [mod],
+        "Escape",
+        lazy.spawn(lock),
+        desc="Lock screen",
+    ),
+    Key(
+        [mod, "mod1"],
+        "Escape",
+        lazy.spawn(f"{lock} && sleep 0.5 && systemctl suspend"),
+        desc="Lock screen",
+    ),
+    Key(
+        [mod, "control"],
+        "Escape",
+        lazy.spawn("sleep 0.2 && xset s activate"),
+        desc="Turn screen off",
+    ),
+] + [
+    Key([mod], key, lazy.spawn(program), desc=f"Launch {program}")
+    for key, program in {
+        "Return": terminal,
+        "space": "rofi -combi-modi window,drun,ssh -show combi",
+        "b": "firefox",
+        "e":"code --new-window",
+        "r": terminal_command("ranger"),
+        "n": "obsidian",
+    }.items()
 ]
 
 for i in groups:
