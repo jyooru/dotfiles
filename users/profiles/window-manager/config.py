@@ -85,8 +85,8 @@ keys = [
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
-    Key([mod, "alt"], "r", lazy.reload_config(), desc="Reload the config"),
-    Key([mod, "alt"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
+    Key([mod, "mod1"], "r", lazy.reload_config(), desc="Reload the config"),
+    Key([mod, "mod1"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
 ]
 
@@ -117,7 +117,13 @@ for i in groups:
     )
 
 layouts = [
-    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
+    layout.Columns(
+        border_focus="#444444",
+        border_normal="#303030",
+        border_on_single=True,
+        border_width=2,
+        margin=6,
+    ),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
@@ -133,16 +139,23 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font="sans",
-    fontsize=12,
-    padding=3,
+    font="FiraCode Nerd Font",
+    fontsize=14,
+    padding=4,
 )
 extension_defaults = widget_defaults.copy()
 
+GAP = bar.Gap(6)
+
 screens = [
     Screen(
-        bottom=bar.Bar(
-            [
+        top=bar.Bar(
+            background="#1f1f1f",
+            border_color="#303030",
+            border_width=2,
+            margin=[12, 12, 6, 12],
+            size=28,
+            widgets=[
                 widget.CurrentLayout(),
                 widget.GroupBox(),
                 widget.Prompt(),
@@ -157,12 +170,23 @@ screens = [
                 widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
                 widget.Systray(),
                 widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
+                widget.Volume(),
                 widget.QuickExit(),
             ],
-            24,
-            # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
-            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
+        wallpaper="~/media/wallpapers/1a1a1a.png",
+        wallpaper_mode="stretch",
+        bottom=GAP,
+        left=GAP,
+        right=GAP,
+    ),
+    Screen(
+        wallpaper="~/media/wallpapers/1a1a1a.png",
+        wallpaper_mode="stretch",
+        bottom=GAP,
+        left=GAP,
+        right=GAP,
+        top=GAP,
     ),
 ]
 
