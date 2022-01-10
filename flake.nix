@@ -70,7 +70,8 @@
       with pkgs;
       rec {
         devShell = mkShell {
-          packages = [ nixpkgs-fmt deploy-rs.outputs.packages.${system}.deploy-rs ];
+          packages = [ nixpkgs-fmt deploy-rs.outputs.packages.${system}.deploy-rs qtile ]
+          ++ (import ./users/profiles/packages/code.nix { inherit pkgs; }).home.packages;
         };
 
         legacyPackages = import nixpkgs {
