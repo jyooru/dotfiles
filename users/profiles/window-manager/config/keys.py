@@ -4,6 +4,7 @@ from libqtile.utils import guess_terminal
 
 from .groups import groups
 
+
 mod = "mod4"
 terminal = guess_terminal()
 

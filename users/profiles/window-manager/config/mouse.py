@@ -3,6 +3,7 @@ from libqtile.lazy import lazy
 
 from .keys import mod
 
+
 # Drag floating layouts.
 mouse = [
     Drag(

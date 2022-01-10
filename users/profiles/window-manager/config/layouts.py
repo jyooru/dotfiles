@@ -1,6 +1,7 @@
 from libqtile import layout
 from libqtile.config import Match
 
+
 floating_layout = layout.Floating(
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.

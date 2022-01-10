@@ -1,5 +1,6 @@
 from libqtile import widget
 
+
 widget_defaults = dict(
     font="FiraCode Nerd Font",
     fontsize=14,

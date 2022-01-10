@@ -4,6 +4,7 @@ from libqtile.config import Screen
 from .bar import bar
 from .widgets import widget_defaults
 
+
 gap = Gap(6)
 
 screen_defaults = dict(
