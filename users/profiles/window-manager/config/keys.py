@@ -1,6 +1,8 @@
-from libqtile.config import Group, Key
+from libqtile.config import Key
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
+
+from .groups import groups
 
 mod = "mod4"
 terminal = guess_terminal()
@@ -60,8 +62,6 @@ keys = [
     Key([mod, "mod1"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
 ]
-
-groups = [Group(i) for i in "123456789"]
 
 for i in groups:
     keys.extend(

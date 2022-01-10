@@ -1,5 +1,6 @@
 from config import (  # noqa: F401
     floating_layout,
+    groups,
     keys,
     layouts,
     mouse,
