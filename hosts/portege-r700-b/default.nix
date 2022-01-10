@@ -1,6 +1,6 @@
 { suites, ... }:
 {
-  imports = [ ./hardware-configuration.nix ../../tmp-hosts-server.nix ] ++ suites.base;
+  imports = [ ./hardware-configuration.nix ];
 
   networking.hostName = "portege-r700-b";
 

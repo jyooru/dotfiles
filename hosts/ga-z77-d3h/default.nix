@@ -1,6 +1,5 @@
-{ suites, ... }:
 {
-  imports = [ ./hardware-configuration.nix ../../tmp-hosts-server.nix ] ++ suites.base;
+  imports = [ ./hardware-configuration.nix ];
 
   networking.hostName = "ga-z77-d3h";
 

@@ -1,19 +1,21 @@
 { config, lib, ... }:
 {
+  # TODO: refactor
+
   users.users.joel.openssh.authorizedKeys.keyFiles = [
-    ./hosts/thinkpad-e580/id_rsa.joel.pub
-    ./hosts/thinkpad-e580/id_rsa.root.pub
-    ./hosts/portege-r700-a/id_rsa.root.pub
-    ./hosts/portege-r700-b/id_rsa.root.pub
-    ./hosts/portege-z930/id_rsa.root.pub
-    ./hosts/ga-z77-d3h/id_rsa.root.pub
+    ../hosts/thinkpad-e580/id_rsa.joel.pub
+    ../hosts/thinkpad-e580/id_rsa.root.pub
+    ../hosts/portege-r700-a/id_rsa.root.pub
+    ../hosts/portege-r700-b/id_rsa.root.pub
+    ../hosts/portege-z930/id_rsa.root.pub
+    ../hosts/ga-z77-d3h/id_rsa.root.pub
   ];
   users.users.root.openssh.authorizedKeys.keyFiles = [
-    ./hosts/thinkpad-e580/id_rsa.root.pub
-    ./hosts/portege-r700-a/id_rsa.root.pub
-    ./hosts/portege-r700-b/id_rsa.root.pub
-    ./hosts/portege-z930/id_rsa.root.pub
-    ./hosts/ga-z77-d3h/id_rsa.root.pub
+    ../hosts/thinkpad-e580/id_rsa.root.pub
+    ../hosts/portege-r700-a/id_rsa.root.pub
+    ../hosts/portege-r700-b/id_rsa.root.pub
+    ../hosts/portege-z930/id_rsa.root.pub
+    ../hosts/ga-z77-d3h/id_rsa.root.pub
   ];
 
   boot.binfmt.emulatedSystems = [ "aarch64-linux" "armv6l-linux" ];
