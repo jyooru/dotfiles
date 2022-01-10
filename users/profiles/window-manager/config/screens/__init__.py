@@ -2,6 +2,7 @@ from libqtile.bar import Gap
 from libqtile.config import Screen
 
 from .bar import bar
+from .widgets import widget_defaults
 
 gap = Gap(6)
 
@@ -17,3 +18,5 @@ screens = [
     Screen(top=bar, **screen_defaults),
     Screen(top=gap, **screen_defaults),
 ]
+
+__all__ = [screens, widget_defaults]
