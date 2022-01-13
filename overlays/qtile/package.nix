@@ -11,6 +11,8 @@ let
       sha256 = "BLHGVPMQd8O4h5TVx/F/klzSra+FZYogp22V6Yq04T0=";
     };
 
+    patches = [ ./fix-restart.patch ];
+
     postPatch = ''
       substituteInPlace libqtile/pangocffi.py \
         --replace libgobject-2.0.so.0 ${glib.out}/lib/libgobject-2.0.so.0 \
