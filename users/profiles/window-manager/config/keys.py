@@ -19,19 +19,39 @@ def sh(command: str):
     return lazy.spawn(f"sh -c {quote(command)}")
 
 
+# https://docs.qtile.org/en/latest/manual/config/lazy.html
 keys = [
-    # A list of available commands that can be bound to keys can be found
-    # at https://docs.qtile.org/en/latest/manual/config/lazy.html
-    # Switch between windows
-    Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
-    Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
-    Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
-    Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
-    Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
-    # Move windows between left/right columns or move up/down in current stack.
-    # Moving out of range in Columns layout will create new column.
+    # Move focus
     Key(
-        [mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"
+        [mod],
+        "h",
+        lazy.layout.left(),
+        desc="Move focus to left",
+    ),
+    Key(
+        [mod],
+        "l",
+        lazy.layout.right(),
+        desc="Move focus to right",
+    ),
+    Key(
+        [mod],
+        "j",
+        lazy.layout.down(),
+        desc="Move focus down",
+    ),
+    Key(
+        [mod],
+        "k",
+        lazy.layout.up(),
+        desc="Move focus up",
+    ),
+    # Move windows
+    Key(
+        [mod, "shift"],
+        "h",
+        lazy.layout.shuffle_left(),
+        desc="Move window to the left",
     ),
     Key(
         [mod, "shift"],
@@ -39,34 +59,95 @@ keys = [
         lazy.layout.shuffle_right(),
         desc="Move window to the right",
     ),
-    Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
-    Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
-    # Grow windows. If current window is on the edge of screen and direction
-    # will be to screen edge - window would shrink.
-    Key([mod, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
-    Key(
-        [mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"
-    ),
-    Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
-    Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
-    Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
-    # Toggle between split and unsplit sides of stack.
-    # Split = all windows displayed
-    # Unsplit = 1 window displayed, like Max layout, but still with
-    # multiple stack panes
     Key(
         [mod, "shift"],
-        "Return",
+        "j",
+        lazy.layout.shuffle_down(),
+        desc="Move window down",
+    ),
+    Key(
+        [mod, "shift"],
+        "k",
+        lazy.layout.shuffle_up(),
+        desc="Move window up",
+    ),
+    # Grow windows
+    Key(
+        [mod, "control"],
+        "h",
+        lazy.layout.grow_left(),
+        desc="Grow window to the left",
+    ),
+    Key(
+        [mod, "control"],
+        "l",
+        lazy.layout.grow_right(),
+        desc="Grow window to the right",
+    ),
+    Key(
+        [mod, "control"],
+        "j",
+        lazy.layout.grow_down(),
+        desc="Grow window down",
+    ),
+    Key(
+        [mod, "control"],
+        "k",
+        lazy.layout.grow_up(),
+        desc="Grow window up",
+    ),
+    # Layout functions
+    Key(
+        [mod],
+        "z",
+        lazy.layout.normalize(),
+        desc="Reset all window sizes",
+    ),
+    Key(
+        [mod],
+        "x",
         lazy.layout.toggle_split(),
         desc="Toggle between split and unsplit sides of stack",
     ),
-    # Toggle between different layouts as defined below
-    Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
-    Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
-    Key([mod, "mod1"], "r", lazy.reload_config(), desc="Reload the config"),
-    Key([mod, "mod1"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
-    # media
+        Key(
+        [mod],
+        "Tab",
+        lazy.next_layout(),
+        desc="Toggle between layouts",
+    ),
+    # Window functions
+    Key(
+        [mod],
+        "f",
+        lazy.window.toggle_fullscreen(),
+        desc="Toggle fullscreen",
+    ),
+    Key(
+        [mod],
+        "g",
+        lazy.window.toggle_floating(),
+        desc="Toggle floating",
+    ),
+    Key(
+        [mod],
+        "q",
+        lazy.window.kill(),
+        desc="Kill focused window",
+    ),
+    # Window manager functions
+    Key(
+        [mod, "mod1"],
+        "r",
+        lazy.restart(),
+        desc="Restart Qtile",
+    ),
+    Key(
+        [mod, "mod1"],
+        "q",
+        lazy.shutdown(),
+        desc="Shutdown Qtile",
+    ),
+    # F* keys
     Key(
         [],
         "XF86AudioMute",
@@ -122,7 +203,7 @@ keys = [
         sh("playerctl next"),
         desc="Next song",
     ),
-    # screenshots
+    # Take screenshots
     Key(
         [],
         "Print",
@@ -141,7 +222,7 @@ keys = [
         sh("cd ~/media/screenshots && scrot --focused"),
         desc="Take screenshot of focused window",
     ),
-    # afk
+    # AFK
     Key(
         [mod],
         "Escape",
@@ -152,7 +233,7 @@ keys = [
         [mod, "mod1"],
         "Escape",
         sh(f"{lock} && sleep 0.5 && systemctl suspend"),
-        desc="Lock screen",
+        desc="Lock screen and suspend",
     ),
     Key(
         [mod, "control"],
@@ -161,6 +242,7 @@ keys = [
         desc="Turn screen off",
     ),
 ] + [
+    # Launch programs
     Key([mod], key, sh(program), desc=f"Launch {program}")
     for key, program in {
         "Return": terminal,
@@ -179,7 +261,7 @@ for i in groups:
             Key(
                 [mod],
                 i.name,
-                lazy.group[i.name].toscreen(),
+                lazy.group[i.name].toscreen(toggle=True),
                 desc="Switch to group {}".format(i.name),
             ),
             # mod1 + shift + letter of group = switch to & move focused window to group
