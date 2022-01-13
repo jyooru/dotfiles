@@ -4,7 +4,6 @@ from libqtile.lazy import lazy
 from .keys import mod
 
 
-# Drag floating layouts.
 mouse = [
     Drag(
         [mod],
@@ -13,7 +12,14 @@ mouse = [
         start=lazy.window.get_position(),
     ),
     Drag(
-        [mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()
+        [mod],
+        "Button3",
+        lazy.window.set_size_floating(),
+        start=lazy.window.get_size(),
     ),
-    Click([mod], "Button2", lazy.window.bring_to_front()),
+    Click(
+        [mod],
+        "Button1",
+        lazy.window.bring_to_front(),
+    ),
 ]
