@@ -1,27 +1,73 @@
 from libqtile import widget
 
 
+background = "#1f1f1f"
+background_alt = "#1a1a1a"
+border = "#303030"
+border_alt = "#444444"
+foreground = "#bbbbbb"
+foreground_alt = "#888888"
+color = "#1a95e0"
+
+u2006 = " "  # six-per-em space
+
 widget_defaults = dict(
+    foreground=foreground,
     font="FiraCode Nerd Font",
-    fontsize=14,
-    padding=4,
+    fontsize=13,
+    padding=12,
 )
 
-widgets = [
-    widget.CurrentLayout(),
-    widget.GroupBox(),
-    widget.Prompt(),
-    widget.WindowName(),
-    widget.Chord(
-        chords_colors={
-            "launch": ("#ff0000", "#ffffff"),
-        },
-        name_transform=lambda name: name.upper(),
-    ),
-    widget.TextBox("default config", name="default"),
-    widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
-    widget.Systray(),
-    widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
-    widget.Volume(),
-    widget.QuickExit(),
-]
+
+def bracket_wrap(*widgets, padding: int = 8, **kwargs) -> list:
+    kwargs["padding"] = kwargs.get("padding", padding)
+    return (
+        [widget.TextBox("[", **kwargs)]
+        + list(widgets)
+        + [widget.TextBox("]", **kwargs)]
+    )
+
+
+widgets = (
+    bracket_wrap(
+        widget.GroupBox(
+            active=foreground,
+            borderwidth=2,
+            disable_drag=True,
+            highlight_color=[background, background],
+            highlight_method="line",
+            inactive=foreground_alt,
+            margin_x=0,
+            margin_y=4,
+            rounded=False,
+            other_current_screen_border=foreground_alt,
+            other_screen_border=foreground_alt,
+            padding_x=0,
+            padding_y=0,
+            this_current_screen_border=foreground_alt,
+            this_screen_border=foreground_alt,
+            spacing=6,
+        )
+    )
+    + [
+        widget.Spacer(),
+        widget.TextBox(
+            "/* TODO: music */"
+        ),  # widget.Mpris2(display_metadata=['xesam:title', 'xesam:artist']),
+        widget.Spacer(),
+        # widget.CPU(format=" " + u2006 + "{load_percent}% @ {freq_current}GHz"),
+        # widget.Net(format=" " + u2006 + " {down}  {up}"),
+        widget.Volume(fmt=" " + u2006 + "{}"),
+        widget.Battery(
+            charge_char="",
+            discharge_char="",
+            empty_char="",
+            full_char="",
+            unknown_char="",
+            format="{char} " + "{percent:2.0%}: {hour:d}:{min:02d}", # no u+2006 on purpose
+            show_short_text=False,
+        ),
+        widget.Clock(format=" " + u2006 + "%I:%M %P"),
+    ]
+    + bracket_wrap(widget.Systray(padding=0))
+)

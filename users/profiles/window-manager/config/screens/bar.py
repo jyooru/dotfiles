@@ -1,11 +1,11 @@
 from libqtile.bar import Bar
 
-from .widgets import widgets
+from .widgets import background, border, widgets
 
 
 bar = Bar(
-    background="#1f1f1f",
-    border_color="#303030",
+    background=background,
+    border_color=border,
     border_width=2,
     margin=[12, 12, 6, 12],
     size=28,

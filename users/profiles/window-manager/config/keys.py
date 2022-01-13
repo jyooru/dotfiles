@@ -161,7 +161,7 @@ keys = [
         "Return": terminal,
         "space": "rofi -combi-modi window,drun,ssh -show combi",
         "b": "firefox",
-        "e":"code --new-window",
+        "e": "code --new-window",
         "r": terminal_command("ranger"),
         "n": "obsidian",
     }.items()
