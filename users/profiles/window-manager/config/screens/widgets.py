@@ -50,6 +50,7 @@ widgets = (
         )
     )
     + [
+        widget.CurrentLayout(),
         widget.Spacer(),
         widget.TextBox(
             "/* TODO: music */"
@@ -64,7 +65,7 @@ widgets = (
             empty_char="",
             full_char="",
             unknown_char="",
-            format="{char} " + "{percent:2.0%}: {hour:d}:{min:02d}", # no u+2006 on purpose
+            format="{char} {percent:2.0%}: {hour:d}:{min:02d}",  # no u+2006 on purpose
             show_short_text=False,
         ),
         widget.Clock(format=" " + u2006 + "%I:%M %P"),
