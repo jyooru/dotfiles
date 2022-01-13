@@ -1,6 +1,7 @@
+from shlex import quote
+
 from libqtile.config import Key
 from libqtile.lazy import lazy
-from libqtile.utils import guess_terminal
 
 from .groups import groups
 
@@ -12,6 +13,10 @@ lock = 'XSECURELOCK_COMPOSITE_OBSCURER=0 XSECURELOCK_BLANK_TIMEOUT=0 XSECURELOCK
 
 def terminal_command(command: str) -> str:
     return f"alacritty -e {command}"
+
+
+def sh(command: str):
+    return lazy.spawn(f"sh -c {quote(command)}")
 
 
 keys = [
@@ -65,31 +70,31 @@ keys = [
     Key(
         [],
         "XF86AudioMute",
-        lazy.spawn("amixer set Master toggle"),
+        sh("amixer set Master toggle"),
         desc="Volume mute toggle",
     ),
     Key(
         [],
         "XF86AudioRaiseVolume",
-        lazy.spawn("amixer set Master 10%+"),
+        sh("amixer set Master 10%+"),
         desc="Volume up",
     ),
     Key(
         [],
         "XF86AudioLowerVolume",
-        lazy.spawn("amixer set Master 10%-"),
+        sh("amixer set Master 10%-"),
         desc="Volume down",
     ),
     Key(
         [],
         "XF86MonBrightnessUp",
-        lazy.spawn("brightnessctl set 10%+"),
+        sh("brightnessctl set 10%+"),
         desc="Brightness up",
     ),
     Key(
         [],
         "XF86MonBrightnessDown",
-        lazy.spawn("brightnessctl set 10%-"),
+        sh("brightnessctl set 10%-"),
         desc="Brightness down",
     ),
     # XF86AudioMicMute
@@ -102,61 +107,61 @@ keys = [
     Key(
         [],
         "XF86AudioPrev",
-        lazy.spawn("playerctl previous"),
+        sh("playerctl previous"),
         desc="Previous song",
     ),
     Key(
         [],
         "XF86AudioPlay",
-        lazy.spawn("playerctl play-pause"),
+        sh("playerctl play-pause"),
         desc="Pause song",
     ),
     Key(
         [],
         "XF86AudioNext",
-        lazy.spawn("playerctl next"),
+        sh("playerctl next"),
         desc="Next song",
     ),
     # screenshots
     Key(
         [],
         "Print",
-        lazy.spawn("cd ~/media/screenshots && scrot"),
+        sh("cd ~/media/screenshots && scrot"),
         desc="Take screenshot",
     ),
     Key(
         ["shift"],
         "Print",
-        lazy.spawn("cd ~/media/screenshots && scrot --select --freeze"),
+        sh("cd ~/media/screenshots && scrot --select --freeze"),
         desc="Take screenshot of a selected area",
     ),
     Key(
         ["control"],
         "Print",
-        lazy.spawn("cd ~/media/screenshots && scrot --focused"),
+        sh("cd ~/media/screenshots && scrot --focused"),
         desc="Take screenshot of focused window",
     ),
     # afk
     Key(
         [mod],
         "Escape",
-        lazy.spawn(lock),
+        sh(lock),
         desc="Lock screen",
     ),
     Key(
         [mod, "mod1"],
         "Escape",
-        lazy.spawn(f"{lock} && sleep 0.5 && systemctl suspend"),
+        sh(f"{lock} && sleep 0.5 && systemctl suspend"),
         desc="Lock screen",
     ),
     Key(
         [mod, "control"],
         "Escape",
-        lazy.spawn("sleep 0.2 && xset s activate"),
+        sh("sleep 0.2 && xset s activate"),
         desc="Turn screen off",
     ),
 ] + [
-    Key([mod], key, lazy.spawn(program), desc=f"Launch {program}")
+    Key([mod], key, sh(program), desc=f"Launch {program}")
     for key, program in {
         "Return": terminal,
         "space": "rofi -combi-modi window,drun,ssh -show combi",
