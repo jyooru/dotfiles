@@ -1,6 +1,7 @@
 from libqtile import layout
 from libqtile.config import Match
 
+
 layout_defaults = dict(
     border_focus="#444444",
     border_normal="#303030",

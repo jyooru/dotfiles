@@ -54,7 +54,7 @@ widgets = (
         widget.Spacer(),
         widget.Mpris2(
             display_metadata=["xesam:title", "xesam:artist"],
-            mouse_callbacks = {
+            mouse_callbacks={
                 "Button1": lambda: qtile.cmd_spawn("playerctl previous"),
                 "Button2": lambda: qtile.cmd_spawn("playerctl play-pause"),
                 "Button3": lambda: qtile.cmd_spawn("playerctl next"),
@@ -63,7 +63,8 @@ widgets = (
             objname="org.mpris.MediaPlayer2.spotify",
             scroll_chars=80,
             scroll_interval=1 / 4,
-            scroll_wait_intervals=60 * 60 * 4, # wait 1 hour before hiding a song that is playing, for some reason
+            # wait 1 hour before hiding a song that is playing, for some reason
+            scroll_wait_intervals=60 * 60 * 4,
             stop_pause_text="",
         ),
         widget.Spacer(),

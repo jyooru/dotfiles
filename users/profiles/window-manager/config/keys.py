@@ -109,7 +109,7 @@ keys = [
         lazy.layout.toggle_split(),
         desc="Toggle between split and unsplit sides of stack",
     ),
-        Key(
+    Key(
         [mod],
         "Tab",
         lazy.next_layout(),
