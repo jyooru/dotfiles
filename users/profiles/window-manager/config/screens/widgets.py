@@ -1,4 +1,4 @@
-from libqtile import widget
+from libqtile import qtile, widget
 
 
 background = "#1f1f1f"
@@ -52,9 +52,20 @@ widgets = (
     + [
         widget.CurrentLayout(),
         widget.Spacer(),
-        widget.TextBox(
-            "/* TODO: music */"
-        ),  # widget.Mpris2(display_metadata=['xesam:title', 'xesam:artist']),
+        widget.Mpris2(
+            display_metadata=["xesam:title", "xesam:artist"],
+            mouse_callbacks = {
+                "Button1": lambda: qtile.cmd_spawn("playerctl previous"),
+                "Button2": lambda: qtile.cmd_spawn("playerctl play-pause"),
+                "Button3": lambda: qtile.cmd_spawn("playerctl next"),
+            },
+            name="spotify",
+            objname="org.mpris.MediaPlayer2.spotify",
+            scroll_chars=80,
+            scroll_interval=1 / 4,
+            scroll_wait_intervals=60 * 60 * 4, # wait 1 hour before hiding a song that is playing, for some reason
+            stop_pause_text="",
+        ),
         widget.Spacer(),
         # widget.CPU(format=" " + u2006 + "{load_percent}% @ {freq_current}GHz"),
         # widget.Net(format=" " + u2006 + " {down}  {up}"),
