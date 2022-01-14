@@ -1,8 +1,11 @@
 { config, lib, ... }:
 let
-  inherit (lib) any elem mapAttrs filterAttrs remove;
+  inherit (lib) elem mapAttrs filterAttrs remove;
   inherit (config.networking) domain hostName;
 
+  all = cluster ++ [ "galaxy-a22" ];
+  backup = [ "thinkpad-e580" "portege-r700-a" "ga-z77-d3h" ]; # nodes in cluster with big hard drive plus laptop
+  cluster = [ "thinkpad-e580" "portege-r700-a" "portege-r700-b" "portege-z930" "ga-z77-d3h" ]; # all nodes in cluster plus laptop
   devices = mapAttrs
     (name: id: { addresses = [ "tcp://${name}.${domain}:22000" ]; inherit id; })
     {
@@ -13,28 +16,22 @@ let
       "portege-z930" = "JOYBHZH-W4IQAET-WVLQT2J-FUYKMAR-XFJCXKA-D3KQFWC-XE3DNDU-3VJ33QZ";
       "ga-z77-d3h" = "QMOXUMI-JSL766T-CUTKFMC-TUUG3MC-FYWAGI7-4DRVYYC-KU6TDPS-QPBGEAV";
     };
+  specialDevices = remove "thinkpad-e580" cluster;
 
-  folders =
-    let
-      all = cluster ++ [ "galaxy-a22" ];
-      backup = [ "thinkpad-e580" "portege-r700-a" "ga-z77-d3h" ]; # nodes in cluster with big hard drive plus laptop
-      cluster = [ "thinkpad-e580" "portege-r700-a" "portege-r700-b" "portege-z930" "ga-z77-d3h" ]; # all nodes in cluster plus laptop
-    in
-    mapAttrs
-      (name: values: values // { path = ''/home/joel${if elem name specialFolders then "/files" else ""}/'' + name; })
-      {
-        "archive" = { devices = backup; id = "u4tsv-7hxb7"; };
-        "cluster" = { devices = cluster; id = "jyxof-ssssq"; };
-        "code" = { devices = cluster; id = "wcqyy-zrab5"; };
-        "documents" = { devices = backup; id = "pgpew-tged2"; };
-        "games" = { devices = backup; id = "xt4t4-d2jad"; };
-        "media" = { devices = backup; id = "kasul-jsgfj"; };
-        "media/phone" = { devices = backup ++ [ "galaxy-a22" ]; id = "xkgdh-rrx6u"; };
-        "notes" = { devices = backup ++ [ "galaxy-a22" ]; id = "bc6qz-tad4c"; };
-        "school" = { devices = backup; id = "s6jde-csrow"; };
-        "tmp" = { devices = all; id = "5f6yn-csxu7"; };
-      };
-
+  folders = mapAttrs
+    (name: values: values // { path = ''/home/joel${if (elem hostName specialDevices) && (!(elem name specialFolders)) then "/files" else ""}/'' + name; })
+    {
+      "archive" = { devices = backup; id = "u4tsv-7hxb7"; };
+      "cluster" = { devices = cluster; id = "jyxof-ssssq"; };
+      "code" = { devices = cluster; id = "wcqyy-zrab5"; };
+      "documents" = { devices = backup; id = "pgpew-tged2"; };
+      "games" = { devices = backup; id = "xt4t4-d2jad"; };
+      "media" = { devices = backup; id = "kasul-jsgfj"; };
+      "media/phone" = { devices = backup ++ [ "galaxy-a22" ]; id = "xkgdh-rrx6u"; };
+      "notes" = { devices = backup ++ [ "galaxy-a22" ]; id = "bc6qz-tad4c"; };
+      "school" = { devices = backup; id = "s6jde-csrow"; };
+      "tmp" = { devices = all; id = "5f6yn-csxu7"; };
+    };
   specialFolders = [ "cluster" "tmp" ]; # folders not in this list are put in ~/files on cluster nodes
 in
 {
@@ -51,6 +48,6 @@ in
     systemService = true;
     devices = removeAttrs devices [ hostName ];
     folders = mapAttrs (name: values: values // { devices = remove hostName values.devices; })
-      (filterAttrs (_: v: any (x: x == hostName) v.devices) folders);
+      (filterAttrs (_: v: elem hostName v.devices) folders);
   };
 }
