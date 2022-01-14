@@ -1,11 +1,11 @@
 #!/usr/bin/env nix-shell
 #!nix-shell -i python3 -p python3
 import argparse
-from os import path, walk, mkdir
-from typing import List
 from functools import partial
 from multiprocessing.dummy import Pool
+from os import mkdir, path, walk
 from subprocess import call
+from typing import List
 
 
 def find_ttfs(directory: str) -> List[str]:

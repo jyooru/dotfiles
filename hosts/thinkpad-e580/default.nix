@@ -37,13 +37,13 @@
       # something automatically generates this. adding nixos-hardware.nixosModules.common-gpu-amd overrides this for some reason. this fixes this
       videoDrivers = [ "amdgpu" "radeon" "nouveau" "modesetting" "fbdev" ];
 
-      desktopManager = { xterm.enable = false; };
+      desktopManager.xterm.enable = false;
       displayManager = {
-        defaultSession = "none+bspwm";
+        defaultSession = "none+qtile";
         autoLogin = { enable = true; user = "joel"; };
       };
 
-      windowManager.bspwm = { enable = true; };
+      windowManager.qtile.enable = true;
 
       libinput.enable = true; # touchpad
     };

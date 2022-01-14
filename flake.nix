@@ -55,7 +55,7 @@
             profiles = rakeLeaves ./users/profiles;
             suites = with profiles; rec {
               base = [ git shell packages.tools ssh ];
-              gui = base ++ [ bar browser compositor editor file-manager launcher terminal-emulator packages.apps packages.code window-manager ];
+              gui = base ++ [ browser compositor editor file-manager launcher terminal-emulator packages.apps packages.code window-manager ];
             };
           };
           users = {
@@ -75,7 +75,8 @@
       with pkgs;
       rec {
         devShell = mkShell {
-          packages = [ nixpkgs-fmt deploy-rs.outputs.packages.${system}.deploy-rs ];
+          packages = [ nixpkgs-fmt deploy-rs.outputs.packages.${system}.deploy-rs qtile ]
+          ++ (import ./users/profiles/packages/code.nix { inherit pkgs; }).home.packages;
         };
 
         legacyPackages = import nixpkgs {
