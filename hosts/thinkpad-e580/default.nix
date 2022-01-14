@@ -73,6 +73,9 @@
     };
   };
 
+  # this host isn't a lighthouse, but all hosts should have a unique port for NAT traversal to avoid overlaps
+  services.nebula.networks."joel".listen.port = 4240;
+
   networking.firewall.allowedTCPPorts = [ 80 443 ];
   networking.firewall.interfaces."docker0".allowedTCPPorts = [ 5000 8384 ];
   networking.firewall.interfaces."nebula0".allowedTCPPorts = [ 8080 ]; # tmp.joel.tokyo
