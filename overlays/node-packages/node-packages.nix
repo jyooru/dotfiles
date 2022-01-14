@@ -22,22 +22,22 @@ let
         sha512 = "hsEnFemeiW4D08A5gUAZxLBTXpZ39P+a+DGDsHw1yxqyQ/jzFEnxf5uTEGp+3bzAbNOxU1paTgYS4ECU/IgfDw==";
       };
     };
-    "@babel/parser-7.16.7" = {
+    "@babel/parser-7.16.8" = {
       name = "_at_babel_slash_parser";
       packageName = "@babel/parser";
-      version = "7.16.7";
+      version = "7.16.8";
       src = fetchurl {
-        url = "https://registry.npmjs.org/@babel/parser/-/parser-7.16.7.tgz";
-        sha512 = "sR4eaSrnM7BV7QPzGfEX5paG/6wrZM3I0HDzfIAK06ESvo9oy3xBuVBxE3MbQaKNhvg8g/ixjMWo2CGpzpHsDA==";
+        url = "https://registry.npmjs.org/@babel/parser/-/parser-7.16.8.tgz";
+        sha512 = "i7jDUfrVBWc+7OKcBzEe5n7fbv3i2fWtxKzzCvOjnzSxMfWMigAhtfJ7qzZNGFNMsCCd67+uz553dYKWXPvCKw==";
       };
     };
-    "@babel/types-7.16.7" = {
+    "@babel/types-7.16.8" = {
       name = "_at_babel_slash_types";
       packageName = "@babel/types";
-      version = "7.16.7";
+      version = "7.16.8";
       src = fetchurl {
-        url = "https://registry.npmjs.org/@babel/types/-/types-7.16.7.tgz";
-        sha512 = "E8HuV7FO9qLpx6OtoGfUQ2cjIYnbFwvZWYBS+87EwtdMvmUPJSwykpovFB+8insbpF0uJcpr8KMUi64XZntZcg==";
+        url = "https://registry.npmjs.org/@babel/types/-/types-7.16.8.tgz";
+        sha512 = "smN2DQc5s4M7fntyjGtyIPbRJv6wW4rU/94fmYJ7PKQuZkC0qGMHXJbg6sNGt12JmVr4k5YaptI/XtiLJBnmIg==";
       };
     };
     "@gar/promisify-1.1.2" = {
@@ -1228,13 +1228,13 @@ let
         sha1 = "51af7d614ad9a9f610ea1bafbb989d6b1c56890f";
       };
     };
-    "fast-glob-3.2.9" = {
+    "fast-glob-3.2.10" = {
       name = "fast-glob";
       packageName = "fast-glob";
-      version = "3.2.9";
+      version = "3.2.10";
       src = fetchurl {
-        url = "https://registry.npmjs.org/fast-glob/-/fast-glob-3.2.9.tgz";
-        sha512 = "MBwILhhD92sziIrMQwpqcuGERF+BH99ei2a3XsGJuqEKcSycAL+w0HWokFenZXona+kjFr82Lf71eTxNRC06XQ==";
+        url = "https://registry.npmjs.org/fast-glob/-/fast-glob-3.2.10.tgz";
+        sha512 = "s9nFhFnvR63wls6/kM88kQqDhMu0AfdjqouE2l5GVQPbqLgyFjjU5ry/r2yKsJxpb9Py1EYNqieFrmMaX4v++A==";
       };
     };
     "fastq-1.13.0" = {
@@ -1309,13 +1309,13 @@ let
         sha512 = "8/sOawo8tJ4QOBX8YlQBMxL8+RLZfxMQOif9o0KUKTNTjMYElWPE0r/m5VNFxTRd0NSw8qSy8dajrwX4RYI1Hw==";
       };
     };
-    "follow-redirects-1.14.6" = {
+    "follow-redirects-1.14.7" = {
       name = "follow-redirects";
       packageName = "follow-redirects";
-      version = "1.14.6";
+      version = "1.14.7";
       src = fetchurl {
-        url = "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.14.6.tgz";
-        sha512 = "fhUl5EwSJbbl8AR+uYL2KQDxLkdSjZGR36xy46AO7cOMTrCMON6Sa28FmAnC2tRTDbd/Uuzz3aJBv7EBN7JH8A==";
+        url = "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.14.7.tgz";
+        sha512 = "+hbxoLbFMbRKDwohX8GkTataGqO6Jb7jGwpAlwgy2bIz25XtRm7KEzJM76R1WiNT5SwZkX4Y75SwBolkpmE7iQ==";
       };
     };
     "fresh-0.5.2" = {
@@ -2002,13 +2002,13 @@ let
         sha512 = "ynTsyrFSdE5oZ/O9GEf00kPngmOfVwazR5GKDq6EYfhlpFug3J2zybX56a2PRRpc9P+FuSoGNAwjlbDs9jJBPQ==";
       };
     };
-    "liquidjs-9.32.0" = {
+    "liquidjs-9.32.1" = {
       name = "liquidjs";
       packageName = "liquidjs";
-      version = "9.32.0";
+      version = "9.32.1";
       src = fetchurl {
-        url = "https://registry.npmjs.org/liquidjs/-/liquidjs-9.32.0.tgz";
-        sha512 = "Sy3WfHMZgI3VKQdkwjVOE9JIqe0AujnSbb6OFbH5FnpKruHC/byI7r4SiaVvKV+3CaidU1XudyM/gEEUBXVklg==";
+        url = "https://registry.npmjs.org/liquidjs/-/liquidjs-9.32.1.tgz";
+        sha512 = "U/ymmm4M3sNJszHlF0Gzneky17qk+vWmu3nFkWKdniQhqaZNk6eZQdbcKkFGFPN4I9ijrBRjDsLBLysu292j8w==";
       };
     };
     "localtunnel-2.0.2" = {
@@ -3762,8 +3762,8 @@ in
     dependencies = [
       sources."@11ty/dependency-tree-2.0.0"
       sources."@babel/helper-validator-identifier-7.16.7"
-      sources."@babel/parser-7.16.7"
-      sources."@babel/types-7.16.7"
+      sources."@babel/parser-7.16.8"
+      sources."@babel/types-7.16.8"
       sources."@iarna/toml-2.2.5"
       sources."@nodelib/fs.scandir-2.1.5"
       sources."@nodelib/fs.stat-2.0.5"
@@ -3891,7 +3891,7 @@ in
       sources."etag-1.8.1"
       sources."eventemitter3-4.0.7"
       sources."extend-shallow-2.0.1"
-      sources."fast-glob-3.2.9"
+      sources."fast-glob-3.2.10"
       sources."fastq-1.13.0"
       sources."filelist-1.0.2"
       sources."fill-range-7.0.1"
@@ -3901,7 +3901,7 @@ in
         ];
       })
       sources."find-up-4.1.0"
-      sources."follow-redirects-1.14.6"
+      sources."follow-redirects-1.14.7"
       sources."fresh-0.5.2"
       sources."fs-extra-3.0.1"
       sources."fs.realpath-1.0.0"
@@ -3979,7 +3979,7 @@ in
       sources."kleur-4.1.4"
       sources."limiter-1.1.5"
       sources."linkify-it-3.0.3"
-      sources."liquidjs-9.32.0"
+      sources."liquidjs-9.32.1"
       (sources."localtunnel-2.0.2" // {
         dependencies = [
           sources."debug-4.3.2"
