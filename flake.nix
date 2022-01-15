@@ -5,6 +5,7 @@
     deploy-rs.url = "github:serokell/deploy-rs";
     digga = { url = "github:divnix/digga"; inputs = { deploy.follows = "deploy-rs"; nixpkgs.follows = "nixpkgs"; nixlib.follows = "nixpkgs"; home-manager.follows = "home-manager"; }; };
     flake-compat = { url = "github:edolstra/flake-compat"; flake = false; };
+    flake-compat-ci.url = "github:hercules-ci/flake-compat-ci";
     flake-utils.url = "github:numtide/flake-utils";
     home-manager = { url = "github:nix-community/home-manager"; inputs.nixpkgs.follows = "nixpkgs"; };
     nixos-hardware.url = "github:NixOS/nixos-hardware";
@@ -12,7 +13,7 @@
     nur.url = "github:nix-community/NUR";
   };
 
-  outputs = { self, digga, nixpkgs, home-manager, deploy-rs, flake-utils, nur, nixos-hardware, ... } @ inputs:
+  outputs = { self, digga, nixpkgs, home-manager, deploy-rs, flake-utils, flake-compat-ci, nur, nixos-hardware, ... } @ inputs:
     let
       inherit (digga.lib) importHosts rakeLeaves mkDeployNodes mkHomeConfigurations mkFlake;
       supportedSystems = [ "x86_64-linux" ];
@@ -26,6 +27,10 @@
 
         channelsConfig = { allowUnfree = true; };
         channels = { nixpkgs = { overlays = [ (builtins.attrValues overlays) nur.overlay ]; }; };
+
+        ciNix = removeAttrs
+          (flake-compat-ci.lib.recurseIntoFlakeWith { flake = self; systems = [ "x86_64-linux" ]; })
+          [ "legacyPackages" ];
 
         nixos = {
           hostDefaults = { system = "x86_64-linux"; channelName = "nixpkgs"; modules = [ home-manager.nixosModules.home-manager ]; };

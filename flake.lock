@@ -101,6 +101,21 @@
         "type": "github"
       }
     },
+    "flake-compat-ci": {
+      "locked": {
+        "lastModified": 1641672839,
+        "narHash": "sha256-Bdwv+DKeEMlRNPDpZxSz0sSrqQBvdKO5fZ8LmvrgCOU=",
+        "owner": "hercules-ci",
+        "repo": "flake-compat-ci",
+        "rev": "e832114bc18376c0f3fa13c19bf5ff253cc6570a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-compat-ci",
+        "type": "github"
+      }
+    },
     "flake-compat_2": {
       "flake": false,
       "locked": {
@@ -333,6 +348,7 @@
         "deploy-rs": "deploy-rs",
         "digga": "digga",
         "flake-compat": "flake-compat_2",
+        "flake-compat-ci": "flake-compat-ci",
         "flake-utils": "flake-utils_3",
         "home-manager": "home-manager",
         "nixos-hardware": "nixos-hardware",
