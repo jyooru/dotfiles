@@ -1,4 +1,8 @@
 let
+  inherit (builtins) currentSystem;
+  inherit (pkgs) lib;
+  inherit (lib) recurseIntoAttrs;
+
   flake = (import
     (
       let lock = builtins.fromJSON (builtins.readFile ./flake.lock); in
@@ -11,10 +15,6 @@ let
   ).defaultNix;
 
   pkgs = flake.legacyPackages.${currentSystem};
-
-  inherit (builtins) currentSystem;
-  inherit (pkgs) lib;
-  inherit (lib) recurseIntoAttrs;
 in
 {
   devShell = flake.devShell.${currentSystem};

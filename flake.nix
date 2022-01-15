@@ -15,6 +15,7 @@
   outputs = { self, digga, nixpkgs, home-manager, deploy-rs, flake-utils, nur, nixos-hardware, ... } @ inputs:
     let
       inherit (digga.lib) importHosts rakeLeaves mkDeployNodes mkHomeConfigurations mkFlake;
+
       supportedSystems = [ "x86_64-linux" ];
 
       overlays = import ./overlays;
