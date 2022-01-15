@@ -15,14 +15,14 @@
   outputs = { self, digga, nixpkgs, home-manager, deploy-rs, flake-utils, nur, nixos-hardware, ... } @ inputs:
     let
       inherit (digga.lib) importHosts rakeLeaves mkDeployNodes mkHomeConfigurations mkFlake;
-      inherit (flake-utils.lib) eachDefaultSystem;
+      supportedSystems = [ "x86_64-linux" ];
 
       overlays = import ./overlays;
       overlay = overlays.packages;
     in
     mkFlake
       {
-        inherit self inputs;
+        inherit self inputs supportedSystems;
 
         channelsConfig = { allowUnfree = true; };
         channels = { nixpkgs = { overlays = [ nur.overlay ]; }; };
@@ -70,7 +70,7 @@
 
         inherit overlay overlays;
 
-      } // (eachDefaultSystem (system:
+      } // (flake-utils.lib.eachSystem supportedSystems (system:
       let pkgs = import nixpkgs { inherit system; }; in
       with pkgs;
       rec {
