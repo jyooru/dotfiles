@@ -21,9 +21,9 @@ in
     '';
     trustedUsers = [ "root" "joel" ];
     binaryCaches = map (x: "https://nix.${x}.${config.networking.domain}") hosts;
-    binaryCachePublicKeys = map (x: builtins.readFile (./. + "/hosts/${x}/binary-cache.pub")) hosts;
+    binaryCachePublicKeys = map (x: builtins.readFile (../. + "/hosts/${x}/binary-cache.pub")) hosts;
   };
-  nixpkgs.config = import ./config/nixpkgs.nix;
+  nixpkgs.config = import ../config/nixpkgs.nix;
 
   system = {
     autoUpgrade.enable = true;
@@ -39,8 +39,8 @@ in
       let
         defaults = {
           programs.home-manager.enable = true;
-          nixpkgs.config = import ./config/nixpkgs.nix;
-          xdg.configFile."nixpkgs/config.nix".source = ./config/nixpkgs.nix;
+          nixpkgs.config = import ../config/nixpkgs.nix;
+          xdg.configFile."nixpkgs/config.nix".source = ../config/nixpkgs.nix;
           xdg.configFile."btop/btop.conf".text = "theme_background = False";
           home.stateVersion = "21.11";
         };
@@ -51,5 +51,5 @@ in
       };
   };
 
-  nixpkgs.overlays = builtins.attrValues (import ./overlays);
+  nixpkgs.overlays = builtins.attrValues (import ../overlays);
 }

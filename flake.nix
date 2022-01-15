@@ -26,16 +26,15 @@
         channelsConfig = { allowUnfree = true; };
         channels = { nixpkgs = { overlays = [ nur.overlay ]; }; };
 
-
         nixos = {
-          hostDefaults = { system = "x86_64-linux"; channelName = "nixpkgs"; modules = [ ./default.nix home-manager.nixosModules.home-manager ]; };
+          hostDefaults = { system = "x86_64-linux"; channelName = "nixpkgs"; modules = [ home-manager.nixosModules.home-manager ]; };
           imports = [ (importHosts ./hosts) ];
           importables = rec {
             profiles = rakeLeaves ./profiles // {
               users = rakeLeaves ./users;
             };
             suites = with profiles; rec {
-              base = [ file-sync locale networking ssh vpn ] ++ users;
+              base = [ common file-sync locale networking ssh vpn ] ++ users;
               users = with profiles.users; [ joel root ];
               server = base ++ [ profiles.server ];
             };
