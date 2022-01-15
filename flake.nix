@@ -4,6 +4,7 @@
   inputs = {
     deploy-rs.url = "github:serokell/deploy-rs";
     digga = { url = "github:divnix/digga"; inputs = { deploy.follows = "deploy-rs"; nixpkgs.follows = "nixpkgs"; nixlib.follows = "nixpkgs"; home-manager.follows = "home-manager"; }; };
+    flake-compat = { url = "github:edolstra/flake-compat"; flake = false; };
     flake-utils.url = "github:numtide/flake-utils";
     home-manager = { url = "github:nix-community/home-manager"; inputs.nixpkgs.follows = "nixpkgs"; };
     nixos-hardware.url = "github:NixOS/nixos-hardware";
@@ -14,17 +15,17 @@
   outputs = { self, digga, nixpkgs, home-manager, deploy-rs, flake-utils, nur, nixos-hardware, ... } @ inputs:
     let
       inherit (digga.lib) importHosts rakeLeaves mkDeployNodes mkHomeConfigurations mkFlake;
-      inherit (flake-utils.lib) eachDefaultSystem;
+      supportedSystems = [ "x86_64-linux" ];
 
       overlays = import ./overlays;
       overlay = overlays.packages;
     in
     mkFlake
       {
-        inherit self inputs;
+        inherit self inputs supportedSystems;
 
         channelsConfig = { allowUnfree = true; };
-        channels = { nixpkgs = { overlays = [ nur.overlay ]; }; };
+        channels = { nixpkgs = { overlays = [ (builtins.attrValues overlays) nur.overlay ]; }; };
 
         nixos = {
           hostDefaults = { system = "x86_64-linux"; channelName = "nixpkgs"; modules = [ home-manager.nixosModules.home-manager ]; };
@@ -69,12 +70,12 @@
 
         inherit overlay overlays;
 
-      } // (eachDefaultSystem (system:
+      } // (flake-utils.lib.eachSystem supportedSystems (system:
       let pkgs = import nixpkgs { inherit system; }; in
       with pkgs;
       rec {
         devShell = mkShell {
-          packages = [ nixpkgs-fmt deploy-rs.outputs.packages.${system}.deploy-rs qtile ]
+          packages = [ nixpkgs-fmt deploy-rs.outputs.packages.${system}.deploy-rs qtile nodePackages.node2nix ]
           ++ (import ./users/profiles/packages/code.nix { inherit pkgs; }).home.packages;
         };
 

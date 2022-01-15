@@ -2,6 +2,8 @@
 {
   # TODO: refactor
 
+  imports = [ ./ci.nix ];
+
   users.users.joel.openssh.authorizedKeys.keyFiles = [
     ../hosts/thinkpad-e580/id_rsa.joel.pub
     ../hosts/thinkpad-e580/id_rsa.root.pub
