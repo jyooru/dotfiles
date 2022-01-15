@@ -7,6 +7,7 @@ let
   pkgs = flake.legacyPackages.${currentSystem};
 in
 {
+  checks = recurseIntoAttrs flake.checks.${currentSystem};
   devShell = flake.devShell.${currentSystem};
   packages = recurseIntoAttrs flake.packages.${currentSystem};
 }
