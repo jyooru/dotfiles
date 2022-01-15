@@ -25,7 +25,7 @@
         inherit self inputs supportedSystems;
 
         channelsConfig = { allowUnfree = true; };
-        channels = { nixpkgs = { overlays = [ nur.overlay ]; }; };
+        channels = { nixpkgs = { overlays = [ (builtins.attrValues overlays) nur.overlay ]; }; };
 
         nixos = {
           hostDefaults = { system = "x86_64-linux"; channelName = "nixpkgs"; modules = [ home-manager.nixosModules.home-manager ]; };

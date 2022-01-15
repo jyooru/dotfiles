@@ -50,6 +50,4 @@ in
         joel = defaults;
       };
   };
-
-  nixpkgs.overlays = builtins.attrValues (import ../../overlays);
 }
