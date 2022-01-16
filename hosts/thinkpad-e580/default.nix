@@ -83,6 +83,7 @@
     enable = true;
     secretKeyFile = "/var/binary-cache.pem";
   };
+  systemd.services.nix-serve.environment.HOME = "/dev/null";
   services.syncthing = {
     enable = true;
     guiAddress = "0.0.0.0:8384";
