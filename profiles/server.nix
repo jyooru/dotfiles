@@ -94,6 +94,7 @@
       guiAddress = "0.0.0.0:8384";
     };
   };
+  systemd.services.nix-serve.environment.HOME = "/dev/null";
   home-manager.users.joel.home.file."nodeCaddyfile" = {
     target = "node/config/Caddyfile";
     text = ''
