@@ -3,6 +3,7 @@ let
     dedicatedGPU = "dedicated-gpu";
     fixNebula = "fix-nebula";
     fixNixServe = "fix-nix-serve";
+    nodePackages = "node-packages";
     packages = "packages";
     xsecurelock = "xsecurelock";
 
