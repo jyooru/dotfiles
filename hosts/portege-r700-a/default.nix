@@ -1,5 +1,5 @@
 {
-  imports = [ ./hardware-configuration.nix ../server.nix ];
+  imports = [ ./hardware-configuration.nix ];
 
   networking.hostName = "portege-r700-a";
 
@@ -17,19 +17,7 @@
     };
   };
 
-  services.nebula.networks."joel" = {
-    listen.port = 4241;
-    staticHostMap = {
-      # "10.42.0.11" = [ "home.run.joel.tokyo:4241" "192.168.0.11:4241" ];
-      "10.42.0.12" = [ "home.run.joel.tokyo:4242" "192.168.0.12:4242" ];
-      "10.42.0.13" = [ "home.run.joel.tokyo:4243" "192.168.0.13:4243" ];
-      "10.42.0.14" = [ "home.run.joel.tokyo:4244" "192.168.0.14:4244" ];
-    };
-    lighthouses = [
-      # "10.42.0.11"
-      "10.42.0.12"
-      "10.42.0.13"
-      "10.42.0.14"
-    ];
-  };
+  services.nebula.networks."joel".listen.port = 4241;
+  networking.firewall.allowedTCPPorts = [ 7172 7173 1884 ];
+  virtualisation.oci-containers.containers."streamr".ports = [ "7172:7172" "7173:7173" "1884:1884" ];
 }

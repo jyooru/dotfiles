@@ -2,57 +2,88 @@
   description = "NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/release-21.05";
-    home-manager.url = "github:nix-community/home-manager";
     deploy-rs.url = "github:serokell/deploy-rs";
+    digga = { url = "github:divnix/digga"; inputs = { deploy.follows = "deploy-rs"; nixpkgs.follows = "nixpkgs"; nixlib.follows = "nixpkgs"; home-manager.follows = "home-manager"; }; };
+    flake-utils.url = "github:numtide/flake-utils";
+    home-manager = { url = "github:nix-community/home-manager"; inputs.nixpkgs.follows = "nixpkgs"; };
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nur.url = "github:nix-community/NUR";
   };
 
-  outputs = { self, nixpkgs, home-manager, deploy-rs, ... }: {
-    nixosConfigurations = {
-      thinkpad-e580 = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [ ./hosts/thinkpad-e580 home-manager.nixosModules.home-manager ./default.nix ];
-      };
-      portege-r700-a = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [ ./hosts/portege-r700-a home-manager.nixosModules.home-manager ./default.nix ];
-      };
-      portege-r700-b = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [ ./hosts/portege-r700-b home-manager.nixosModules.home-manager ./default.nix ];
-      };
-      portege-z930 = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [ ./hosts/portege-z930 home-manager.nixosModules.home-manager ./default.nix ];
-      };
-      ga-z77-d3h = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [ ./hosts/ga-z77-d3h home-manager.nixosModules.home-manager ./default.nix ];
-      };
-    };
+  outputs = { self, digga, nixpkgs, home-manager, deploy-rs, flake-utils, nur, nixos-hardware, ... } @ inputs:
+    let
+      inherit (digga.lib) importHosts rakeLeaves mkDeployNodes mkHomeConfigurations mkFlake;
 
-    deploy = {
-      sshUser = "root";
-      user = "root";
+      supportedSystems = [ "x86_64-linux" ];
 
-      nodes = {
-        portege-r700-a = {
-          hostname = "portege-r700-a.dev.joel.tokyo";
-          profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.portege-r700-a;
+      overlays = import ./overlays;
+      overlay = overlays.packages;
+    in
+    mkFlake
+      {
+        inherit self inputs supportedSystems;
+
+        channelsConfig = { allowUnfree = true; };
+        channels = { nixpkgs = { overlays = [ (builtins.attrValues overlays) nur.overlay ]; }; };
+
+        nixos = {
+          hostDefaults = { system = "x86_64-linux"; channelName = "nixpkgs"; modules = [ home-manager.nixosModules.home-manager ]; };
+          imports = [ (importHosts ./hosts) ];
+          importables = rec {
+            profiles = rakeLeaves ./profiles // {
+              users = rakeLeaves ./users;
+            };
+            suites = with profiles; rec {
+              base = [ common file-sync locale networking ssh vpn ] ++ users;
+              users = with profiles.users; [ joel root ];
+              server = base ++ [ profiles.server ];
+            };
+          };
+
+          hosts = with nixos-hardware.nixosModules; {
+            ga-z77-d3h.modules = { suites, ... }: { imports = suites.server; };
+            portege-r700-a.modules = { suites, ... }: { imports = suites.server; };
+            portege-r700-b.modules = { suites, ... }: { imports = suites.server; };
+            portege-z930.modules = { suites, ... }: { imports = suites.server; };
+            thinkpad-e580.modules = { profiles, ... }: { imports = [ common-cpu-intel common-gpu-amd common-pc-laptop common-pc-laptop-ssd ] ++ (with profiles; [ distributed-build hardware.android ]); };
+          };
         };
-        portege-r700-b = {
-          hostname = "portege-r700-b.dev.joel.tokyo";
-          profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.portege-r700-b;
+
+        home = {
+          importables = rec {
+            profiles = rakeLeaves ./users/profiles;
+            suites = with profiles; rec {
+              base = [ git shell packages.tools ssh ];
+              gui = base ++ [ browser compositor editor file-manager launcher terminal-emulator packages.apps packages.code window-manager ];
+            };
+          };
+          users = {
+            joel = { suites, ... }: { imports = suites.gui; };
+            root = { suites, ... }: { imports = suites.base; };
+          };
         };
-        portege-z930 = {
-          hostname = "portege-z930.dev.joel.tokyo";
-          profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.portege-z930;
+
+        homeConfigurations = mkHomeConfigurations self.nixosConfigurations;
+
+        deploy.nodes = mkDeployNodes self.nixosConfigurations { };
+
+        inherit overlay overlays;
+
+      } // (flake-utils.lib.eachSystem supportedSystems (system:
+      let pkgs = import nixpkgs { inherit system; }; in
+      with pkgs;
+      rec {
+        devShell = mkShell {
+          packages = [ nixpkgs-fmt deploy-rs.outputs.packages.${system}.deploy-rs qtile nodePackages.node2nix ]
+          ++ (import ./users/profiles/packages/code.nix { inherit pkgs; }).home.packages;
         };
-        ga-z77-d3h = {
-          hostname = "ga-z77-d3h.dev.joel.tokyo";
-          profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.ga-z77-d3h;
+
+        legacyPackages = import nixpkgs {
+          inherit system;
+          overlays = [ overlay ];
         };
-      };
-    };
-  };
+        packages = import ./packages { inherit pkgs; };
+      }
+    ));
 }

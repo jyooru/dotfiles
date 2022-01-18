@@ -1,14 +1,7 @@
 {
-  imports = [ ./hardware-configuration.nix ../server.nix ];
+  imports = [ ./hardware-configuration.nix ];
 
   networking.hostName = "ga-z77-d3h";
-
-  modules = {
-    system.boot.loader.systemd-boot = {
-      enable = false; # TODO: multiple devices. setup below
-      # device = "/dev/disk/by-uuid/646fc0f1-2d8a-4901-ae89-559154bfe288";
-    };
-  };
 
   boot = {
     loader.systemd-boot.enable = true;
@@ -26,40 +19,56 @@
     };
   };
 
-  services.nebula.networks."joel" = {
-    listen.port = 4244;
-    staticHostMap = {
-      "10.42.0.11" = [ "home.run.joel.tokyo:4241" "192.168.0.11:4241" ];
-      "10.42.0.12" = [ "home.run.joel.tokyo:4242" "192.168.0.12:4242" ];
-      "10.42.0.13" = [ "home.run.joel.tokyo:4243" "192.168.0.13:4243" ];
-      # "10.42.0.14" = [ "home.run.joel.tokyo:4244" "192.168.0.14:4244" ];
-    };
-    lighthouses = [
-      "10.42.0.11"
-      "10.42.0.12"
-      "10.42.0.13"
-      # "10.42.0.14"
-    ];
-  };
+  services.nebula.networks."joel".listen.port = 4244;
 
-
-  networking.firewall.allowedTCPPorts = [ 25565 ];
+  networking.firewall.allowedTCPPorts = [ 7170 7171 1883 25565 ];
   virtualisation.oci-containers.containers = {
-    "minecraft-server" = {
+    "minecraft" = {
       image = "itzg/minecraft-server";
       ports = [ "25565:25565" ];
       environment = {
         EULA = "true";
         TYPE = "purpur";
         OVERRIDE_SERVER_PROPERTIES = "true";
-        MOTD = "§b                   §lplay.joel.tokyo§r\n§c                          [1.17.1]";
+        MOTD = "\\u00A7b                    \\u00A7lplay.joel.tokyo\\u00A7r\\n\\u00A7c                          [1.18.1]";
         MEMORY = "4G";
         ENABLE_ROLLING_LOGS = "true";
+        DIFFICULTY = "hard";
       };
       extraOptions = [ "--tty" ];
       volumes = [
-        "/home/joel/minecraft-server:/data"
+        "/home/joel/node/data/minecraft:/data"
       ];
     };
+  };
+  virtualisation.oci-containers.containers."streamr".ports = [ "7170:7170" "7171:7171" "1883:1883" ];
+
+  networking.firewall.interfaces."nebula0".allowedTCPPorts = [ 2201 ];
+  containers."sftp" = {
+    autoStart = true;
+
+    bindMounts."files" = {
+      hostPath = "/home/joel/files";
+      mountPoint = "/srv";
+      isReadOnly = false;
+    };
+
+    config = {
+      services.openssh = {
+        enable = true;
+        listenAddresses = [{ addr = "0.0.0.0"; port = 2201; }];
+        passwordAuthentication = false;
+      };
+
+      users.users.joel = {
+        isNormalUser = true;
+        openssh.authorizedKeys.keyFiles = [
+          ../galaxy-a22/com.termux/id_rsa.pub
+          ../galaxy-a22/me.zhanghai.android.files/id_rsa.pub
+        ];
+      };
+    };
+
+    ephemeral = true;
   };
 }

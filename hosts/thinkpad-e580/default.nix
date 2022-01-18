@@ -1,47 +1,26 @@
-{ pkgs, ... }:
+{ config, pkgs, suites, ... }:
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [ ./hardware-configuration.nix ] ++ suites.base;
 
   networking.hostName = "thinkpad-e580";
 
-  users.users.joel.openssh.authorizedKeys.keyFiles = [ ../iphone-7/id_rsa.root.pub ];
-
-  modules = {
-    config = {
-      distributedBuild.enable = true;
-    };
-    hardware = {
-      android = { enable = true; supportSamsung = true; };
-      video = {
-        amdgpu.enable = true;
-      };
-      iphone = { enable = true; user = "joel"; };
-    };
-    programs = {
-      alacritty.enable = true;
-      bash.enable = true;
-      betterlockscreen.enable = true;
-      git.enable = true;
-      ranger.enable = true;
-      rofi.enable = true;
-      starship.enable = true;
-      vscode.enable = true;
-    };
-    services = {
-      polybar.enable = true;
-      networking.nebula.enable = true;
-      x11.window-manager.bspwm.enable = true;
-    };
-    system.boot.loader.systemd-boot = {
-      enable = true;
+  boot = {
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
+    loader.efi.efiSysMountPoint = "/boot/efi";
+    initrd.luks.devices.cryptvg = {
       device = "/dev/disk/by-uuid/a207fe6b-d073-459b-b381-b6bc0b3f00ba";
+      preLVM = true;
+      allowDiscards = true;
     };
-    packages = {
-      apps = true;
-      code = true;
-      desktopEnvironment = true;
-      tools = true;
-    };
+  };
+
+  users.users = {
+    root.openssh.authorizedKeys.keyFiles = [ ./id_rsa.root.pub ]; # deploy
+    joel.openssh.authorizedKeys.keyFiles = [
+      ../galaxy-a22/com.termux/id_rsa.pub
+      ../galaxy-a22/me.zhanghai.android.files/id_rsa.pub
+    ];
   };
 
   fonts.fonts = with pkgs; [ (nerdfonts.override { fonts = [ "FiraCode" ]; }) ];
@@ -49,20 +28,24 @@
   hardware.pulseaudio.enable = true;
   sound.enable = true;
 
-  i18n.defaultLocale = "en_AU.UTF-8";
-
   services = {
     auto-cpufreq.enable = true;
 
     xserver = {
       enable = true;
 
-      desktopManager = { xterm.enable = false; };
-      displayManager = { defaultSession = "none+bspwm"; };
-      windowManager.bspwm = { enable = true; };
+      # something automatically generates this. adding nixos-hardware.nixosModules.common-gpu-amd overrides this for some reason. this fixes this
+      videoDrivers = [ "amdgpu" "radeon" "nouveau" "modesetting" "fbdev" ];
+
+      desktopManager.xterm.enable = false;
+      displayManager = {
+        defaultSession = "none+qtile";
+        autoLogin = { enable = true; user = "joel"; };
+      };
+
+      windowManager.qtile.enable = true;
 
       libinput.enable = true; # touchpad
-      layout = "au";
     };
   };
 
@@ -76,8 +59,6 @@
   };
 
   home-manager.users.joel = {
-    services.syncthing.enable = true;
-
     xdg.userDirs = {
       enable = true;
       createDirectories = true;
@@ -92,18 +73,65 @@
     };
   };
 
-  services.nebula.networks."joel" = {
-    staticHostMap = {
-      "10.42.0.11" = [ "home.run.joel.tokyo:4241" "192.168.0.11:4241" ];
-      "10.42.0.12" = [ "home.run.joel.tokyo:4242" "192.168.0.12:4242" ];
-      "10.42.0.13" = [ "home.run.joel.tokyo:4243" "192.168.0.13:4243" ];
-      "10.42.0.14" = [ "home.run.joel.tokyo:4244" "192.168.0.14:4244" ];
+  # this host isn't a lighthouse, but all hosts should have a unique port for NAT traversal to avoid overlaps
+  services.nebula.networks."joel".listen.port = 4240;
+
+  networking.firewall.allowedTCPPorts = [ 80 443 ];
+  networking.firewall.interfaces."docker0".allowedTCPPorts = [ 5000 8384 ];
+  networking.firewall.interfaces."nebula0".allowedTCPPorts = [ 8080 ]; # tmp.joel.tokyo
+  services.nix-serve = {
+    enable = true;
+    secretKeyFile = "/var/binary-cache.pem";
+  };
+  systemd.services.nix-serve.environment.HOME = "/dev/null";
+  services.syncthing = {
+    enable = true;
+    guiAddress = "0.0.0.0:8384";
+  };
+  home-manager.users.joel.home.file."nodeCaddyfile" = {
+    target = "node/config/Caddyfile";
+    text = ''
+      {
+        log {
+          output file /var/log/caddy/log.json {
+            roll_keep_for 14d
+          }
+        }
+      }
+
+      import secretsCaddyfile # cloudflare key for tls
+
+      ${config.networking.hostName}.dev.joel.tokyo {
+        import joel.tokyo
+        respond "Hello world"
+      }
+
+      nix.${config.networking.hostName}.dev.joel.tokyo {
+        import joel.tokyo
+        reverse_proxy 172.17.0.1:5000
+      }
+
+      syncthing.srv.${config.networking.hostName}.dev.joel.tokyo {
+        import joel.tokyo
+        reverse_proxy 172.17.0.1:8384
+      }
+
+      ipfs.srv.${config.networking.hostName}.dev.joel.tokyo {
+        import joel.tokyo
+        respond "Hello world"
+      }
+    '';
+  };
+  virtualisation.oci-containers.containers = {
+    "caddy" = {
+      image = "jyooru/caddy";
+      ports = [ "80:80" "443:443" ];
+      volumes = [
+        "/home/joel/node/config/Caddyfile:/etc/caddy/Caddyfile:ro"
+        "/home/joel/node/config/secretsCaddyfile:/etc/caddy/secretsCaddyfile:ro"
+        "/home/joel/node/data/caddy:/data"
+        "/home/joel/node/log/caddy:/var/log/caddy"
+      ];
     };
-    lighthouses = [
-      "10.42.0.11"
-      "10.42.0.12"
-      "10.42.0.13"
-      "10.42.0.14"
-    ];
   };
 }
