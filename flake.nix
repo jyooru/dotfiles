@@ -15,7 +15,7 @@
     let
       inherit (digga.lib) importHosts rakeLeaves mkDeployNodes mkHomeConfigurations mkFlake;
 
-      supportedSystems = [ "x86_64-linux" ];
+      supportedSystems = [ "x86_64-linux" "armv6l-linux" ];
 
       overlays = import ./overlays;
       overlay = overlays.packages;
@@ -36,6 +36,7 @@
             };
             suites = with profiles; rec {
               base = [ common file-sync locale networking ssh vpn ] ++ users;
+              minimal = [ common locale networking ] ++ users;
               users = with profiles.users; [ joel root ];
               server = base ++ [ profiles.server ];
             };
@@ -43,6 +44,7 @@
 
           hosts = with nixos-hardware.nixosModules; {
             ga-z77-d3h.modules = { suites, ... }: { imports = suites.server; };
+            pi = { modules = { suites, ... }: { imports = suites.minimal; }; system = "armv6l-linux"; };
             portege-r700-a.modules = { suites, ... }: { imports = suites.server; };
             portege-r700-b.modules = { suites, ... }: { imports = suites.server; };
             portege-z930.modules = { suites, ... }: { imports = suites.server; };
