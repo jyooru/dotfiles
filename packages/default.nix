@@ -14,4 +14,6 @@ rec {
   };
 
   ttf2woff2 = callPackage ./ttf2woff2 { };
+
+  vscode-extensions = recurseIntoAttrs (callPackage ./vscode-extensions { });
 }

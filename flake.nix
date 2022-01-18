@@ -38,14 +38,15 @@
               base = [ common file-sync locale networking ssh vpn ] ++ users;
               users = with profiles.users; [ joel root ];
               server = base ++ [ profiles.server ];
+              server' = server ++ [ ci ];
             };
           };
 
           hosts = with nixos-hardware.nixosModules; {
-            ga-z77-d3h.modules = { suites, ... }: { imports = suites.server; };
+            ga-z77-d3h.modules = { suites, ... }: { imports = suites.server'; };
             portege-r700-a.modules = { suites, ... }: { imports = suites.server; };
             portege-r700-b.modules = { suites, ... }: { imports = suites.server; };
-            portege-z930.modules = { suites, ... }: { imports = suites.server; };
+            portege-z930.modules = { suites, ... }: { imports = suites.server'; };
             thinkpad-e580.modules = { profiles, ... }: { imports = [ common-cpu-intel common-gpu-amd common-pc-laptop common-pc-laptop-ssd ] ++ (with profiles; [ distributed-build hardware.android ]); };
           };
         };
