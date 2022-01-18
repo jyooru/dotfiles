@@ -8,7 +8,6 @@ More detailed specs are available on each seperate hosts' README.
   - [portege-r700-b](portege-r700-b#readme), laptop (i5 M 520 CPU, 4GB RAM, 320GB HDD)
   - [portege-z930](portege-z930#readme), laptop (i5-3337U CPU, 6GB RAM, 128GB HDD)
   - [ga-z77-d3h](ga-z77-d3h#readme), desktop (i7-3770 CPU, 32GB RAM, 750GB HDD + 500GB HDD)
-- [my customised iso](iso#readme), useful for installation and recovery
 
 ## Setup
 
