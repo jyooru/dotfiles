@@ -6,7 +6,6 @@ Here you'll find the configuration and documentation (aka [dotfiles](https://dot
 
 - [my laptop](hosts/thinkpad-e580#readme)
 - [my cluster](hosts#readme)
-- [my customised ISO](hosts/iso#readme)
 
 ## License
 

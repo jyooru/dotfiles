@@ -22,13 +22,13 @@ let
         sha512 = "hsEnFemeiW4D08A5gUAZxLBTXpZ39P+a+DGDsHw1yxqyQ/jzFEnxf5uTEGp+3bzAbNOxU1paTgYS4ECU/IgfDw==";
       };
     };
-    "@babel/parser-7.16.8" = {
+    "@babel/parser-7.16.12" = {
       name = "_at_babel_slash_parser";
       packageName = "@babel/parser";
-      version = "7.16.8";
+      version = "7.16.12";
       src = fetchurl {
-        url = "https://registry.npmjs.org/@babel/parser/-/parser-7.16.8.tgz";
-        sha512 = "i7jDUfrVBWc+7OKcBzEe5n7fbv3i2fWtxKzzCvOjnzSxMfWMigAhtfJ7qzZNGFNMsCCd67+uz553dYKWXPvCKw==";
+        url = "https://registry.npmjs.org/@babel/parser/-/parser-7.16.12.tgz";
+        sha512 = "VfaV15po8RiZssrkPweyvbGVSe4x2y+aciFCgn0n0/SJMR22cwofRV1mtnJQYcSB1wUTaA/X1LnA3es66MCO5A==";
       };
     };
     "@babel/types-7.16.8" = {
@@ -661,13 +661,13 @@ let
         sha1 = "c7ce28f36d4bcd9744e5ffc2c5fcde1c73261fc0";
       };
     };
-    "chokidar-3.5.2" = {
+    "chokidar-3.5.3" = {
       name = "chokidar";
       packageName = "chokidar";
-      version = "3.5.2";
+      version = "3.5.3";
       src = fetchurl {
-        url = "https://registry.npmjs.org/chokidar/-/chokidar-3.5.2.tgz";
-        sha512 = "ekGhOnNVPgT77r4K/U3GDhu+FQ2S8TnK/s2KbIGXi0SZWuwkZ2QNyfWdZW+TVfn84DpEP7rLeCt2UI6bJ8GwbQ==";
+        url = "https://registry.npmjs.org/chokidar/-/chokidar-3.5.3.tgz";
+        sha512 = "Dr3sfKRP6oTcjf2JmUmFJfeVMvXBdegxB0iVQ5eb2V10uFJUCAS8OByZdVAyVb8xXNz3GjjTgj9kLWsZTqE6kw==";
       };
     };
     "chownr-2.0.0" = {
@@ -1228,13 +1228,13 @@ let
         sha1 = "51af7d614ad9a9f610ea1bafbb989d6b1c56890f";
       };
     };
-    "fast-glob-3.2.10" = {
+    "fast-glob-3.2.11" = {
       name = "fast-glob";
       packageName = "fast-glob";
-      version = "3.2.10";
+      version = "3.2.11";
       src = fetchurl {
-        url = "https://registry.npmjs.org/fast-glob/-/fast-glob-3.2.10.tgz";
-        sha512 = "s9nFhFnvR63wls6/kM88kQqDhMu0AfdjqouE2l5GVQPbqLgyFjjU5ry/r2yKsJxpb9Py1EYNqieFrmMaX4v++A==";
+        url = "https://registry.npmjs.org/fast-glob/-/fast-glob-3.2.11.tgz";
+        sha512 = "xrO3+1bxSo3ZVHAnqzyuewYT6aMFHRAd4Kcs92MAonjwQZLsK9d0SF1IyQ3k5PoirxTW0Oe/RqFgMQ6TcNE5Ew==";
       };
     };
     "fastq-1.13.0" = {
@@ -2002,13 +2002,13 @@ let
         sha512 = "ynTsyrFSdE5oZ/O9GEf00kPngmOfVwazR5GKDq6EYfhlpFug3J2zybX56a2PRRpc9P+FuSoGNAwjlbDs9jJBPQ==";
       };
     };
-    "liquidjs-9.32.1" = {
+    "liquidjs-9.33.1" = {
       name = "liquidjs";
       packageName = "liquidjs";
-      version = "9.32.1";
+      version = "9.33.1";
       src = fetchurl {
-        url = "https://registry.npmjs.org/liquidjs/-/liquidjs-9.32.1.tgz";
-        sha512 = "U/ymmm4M3sNJszHlF0Gzneky17qk+vWmu3nFkWKdniQhqaZNk6eZQdbcKkFGFPN4I9ijrBRjDsLBLysu292j8w==";
+        url = "https://registry.npmjs.org/liquidjs/-/liquidjs-9.33.1.tgz";
+        sha512 = "qIMSXkUMFG5VZmBp1qxcOEFeGzmA2A8Fy818rMTAWKyy2ftUwOEoVtvXFdqm3iSeQEoj8pzTOmC6KQOP0SipUA==";
       };
     };
     "localtunnel-2.0.2" = {
@@ -2353,6 +2353,15 @@ let
         sha512 = "hZXc7K2e+PgeI1eDBe/10Ard4ekbfrrqG8Ep+8Jmf4JID2bNg7NvCPOZN+kfF574pFQI7mum2AUqDidoKqcTOw==";
       };
     };
+    "negotiator-0.6.3" = {
+      name = "negotiator";
+      packageName = "negotiator";
+      version = "0.6.3";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/negotiator/-/negotiator-0.6.3.tgz";
+        sha512 = "+EUsqGPLsM+j/zdChZjsnX51g4XrHFOIXwfnCVPGlQk/k5giakcKsuxCObBRu6DSm9opw/O6slWbJdghQM4bBg==";
+      };
+    };
     "neo-async-2.6.2" = {
       name = "neo-async";
       packageName = "neo-async";
@@ -2371,13 +2380,13 @@ let
         sha512 = "AO81vsIO1k1sM4Zrd6Hu7regmJN1NSiAja10gc4bX3F0wd+9rQmcuHQaHVQCYIEC8iFXnE+mavh23GOt7wBgug==";
       };
     };
-    "node-fetch-2.6.6" = {
+    "node-fetch-2.6.7" = {
       name = "node-fetch";
       packageName = "node-fetch";
-      version = "2.6.6";
+      version = "2.6.7";
       src = fetchurl {
-        url = "https://registry.npmjs.org/node-fetch/-/node-fetch-2.6.6.tgz";
-        sha512 = "Z8/6vRlTUChSdIgMa51jxQ4lrw/Jy5SOW10ObaA47/RElsAN2c5Pn8bTgFGWn/ibwzXTE8qwr1Yzx28vsecXEA==";
+        url = "https://registry.npmjs.org/node-fetch/-/node-fetch-2.6.7.tgz";
+        sha512 = "ZjMPFEfVx5j+y2yF35Kzx5sF7kDzxuDj6ziH4FFbOp87zKDZNx8yExJIb05OGF4Nlt9IHFIMBkRl41VdvcNdbQ==";
       };
     };
     "node-gyp-8.4.1" = {
@@ -2929,13 +2938,13 @@ let
         sha1 = "925d2601d39ac485e091cf0da5c6e694dc3dcaff";
       };
     };
-    "resolve-1.21.0" = {
+    "resolve-1.22.0" = {
       name = "resolve";
       packageName = "resolve";
-      version = "1.21.0";
+      version = "1.22.0";
       src = fetchurl {
-        url = "https://registry.npmjs.org/resolve/-/resolve-1.21.0.tgz";
-        sha512 = "3wCbTpk5WJlyE4mSOtDLhqQmGFi0/TD9VPwmiolnk8U0wRgMEktqCXd3vy5buTO3tljvalNvKrjHEfrd2WpEKA==";
+        url = "https://registry.npmjs.org/resolve/-/resolve-1.22.0.tgz";
+        sha512 = "Hhtrw0nLeSrFQ7phPp4OOcVjLPIeMnRlr5mcnVuMe7M/7eBn98A3hmFRLoFo3DLZkivSYwhRUJTyPyWAk56WLw==";
       };
     };
     "resp-modifier-6.0.2" = {
@@ -3762,7 +3771,7 @@ in
     dependencies = [
       sources."@11ty/dependency-tree-2.0.0"
       sources."@babel/helper-validator-identifier-7.16.7"
-      sources."@babel/parser-7.16.8"
+      sources."@babel/parser-7.16.12"
       sources."@babel/types-7.16.8"
       sources."@iarna/toml-2.2.5"
       sources."@nodelib/fs.scandir-2.1.5"
@@ -3818,7 +3827,7 @@ in
         ];
       })
       sources."character-parser-2.2.0"
-      sources."chokidar-3.5.2"
+      sources."chokidar-3.5.3"
       (sources."cliui-7.0.4" // {
         dependencies = [
           sources."ansi-regex-5.0.1"
@@ -3891,7 +3900,7 @@ in
       sources."etag-1.8.1"
       sources."eventemitter3-4.0.7"
       sources."extend-shallow-2.0.1"
-      sources."fast-glob-3.2.10"
+      sources."fast-glob-3.2.11"
       sources."fastq-1.13.0"
       sources."filelist-1.0.2"
       sources."fill-range-7.0.1"
@@ -3979,7 +3988,7 @@ in
       sources."kleur-4.1.4"
       sources."limiter-1.1.5"
       sources."linkify-it-3.0.3"
-      sources."liquidjs-9.32.1"
+      sources."liquidjs-9.33.1"
       (sources."localtunnel-2.0.2" // {
         dependencies = [
           sources."debug-4.3.2"
@@ -4076,7 +4085,7 @@ in
       sources."require-directory-2.1.1"
       sources."require-main-filename-2.0.0"
       sources."requires-port-1.0.0"
-      sources."resolve-1.21.0"
+      sources."resolve-1.22.0"
       (sources."resp-modifier-6.0.2" // {
         dependencies = [
           sources."debug-2.6.9"
@@ -4230,7 +4239,7 @@ in
       sources."inherits-2.0.4"
       sources."minimatch-3.0.4"
       sources."ms-2.1.2"
-      sources."node-fetch-2.6.6"
+      sources."node-fetch-2.6.7"
       sources."once-1.4.0"
       sources."p-finally-1.0.0"
       sources."p-queue-6.6.2"
@@ -4274,10 +4283,10 @@ in
   simple-git = nodeEnv.buildNodePackage {
     name = "simple-git";
     packageName = "simple-git";
-    version = "2.48.0";
+    version = "3.1.0";
     src = fetchurl {
-      url = "https://registry.npmjs.org/simple-git/-/simple-git-2.48.0.tgz";
-      sha512 = "z4qtrRuaAFJS4PUd0g+xy7aN4y+RvEt/QTJpR184lhJguBA1S/LsVlvE/CM95RsYMOFJG3NGGDjqFCzKU19S/A==";
+      url = "https://registry.npmjs.org/simple-git/-/simple-git-3.1.0.tgz";
+      sha512 = "XpiIA5CBB8S40cJwkLhVe3ysyuLjvOrPo/xjorJl+hspFBgJFueqKXQbKhUl5Ujh2TWMt2jhxl5UTGciFnkXmA==";
     };
     dependencies = [
       sources."@kwsites/file-exists-1.1.1"
@@ -4394,7 +4403,7 @@ in
       sources."mkdirp-1.0.4"
       sources."ms-2.1.2"
       sources."nan-2.15.0"
-      sources."negotiator-0.6.2"
+      sources."negotiator-0.6.3"
       sources."node-gyp-8.4.1"
       sources."nopt-5.0.0"
       sources."npmlog-6.0.0"
