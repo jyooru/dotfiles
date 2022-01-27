@@ -21,6 +21,10 @@
       "4 ga-z77-d3h" = {
         hostname = "ga-z77-d3h.dev.joel.tokyo";
       };
+      "r retropie" = {
+        hostname = "192.168.0.21";
+        user = "pi";
+      };
     };
   };
 }
