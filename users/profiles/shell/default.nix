@@ -2,6 +2,13 @@
   imports = [ ./abbrs.nix ./starship-nerd-fonts-symbols.nix ];
 
   programs = {
+    bat = {
+      enable = true;
+      config = {
+        style = "plain";
+      };
+    };
+
     fish = {
       enable = true;
 
