@@ -14,3 +14,6 @@ cd "$root/overlays/node-packages" && ./update.sh && git add . && git commit -m "
 # packages.caddy-modded
 # once i fix ambiguous import
 # cd "$root/packages/caddy-modded" && ./update.sh && git add . && git commit -m "chore(packages.caddy-modded): update"
+
+# packages.vscode-extensions
+cd "$root/packages/vscode-extensions" && ./update.fish && git add . && git commit -m "chore(packages.vscode-extensions): update"

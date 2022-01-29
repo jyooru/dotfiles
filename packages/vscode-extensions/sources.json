@@ -50,8 +50,8 @@
   {
     "name": "vscode-docker",
     "publisher": "ms-azuretools",
-    "sha256": "0hhlhx3xy7x31xx2v3srvk67immajs6dm9h0wi49ii1rwx61zxah",
-    "version": "1.18.0"
+    "sha256": "0qg4k5ivwa54i9f5ls1a0wl7blpymaq03dakdvvzallarip01qkf",
+    "version": "1.19.0"
   },
   {
     "name": "python",
@@ -62,14 +62,14 @@
   {
     "name": "vscode-pylance",
     "publisher": "ms-python",
-    "sha256": "0v5ynwbjyh3ggw2m0j2dpx1yx691zi3w3rmlm97ngjy6p3ldr701",
-    "version": "2022.1.1"
+    "sha256": "1b5ihrac9xsq35a39vlq7krr1ffqpdjxdlhv9s056hs033kayazl",
+    "version": "2022.1.5"
   },
   {
     "name": "jupyter",
     "publisher": "ms-toolsai",
-    "sha256": "0gb9znvakcqbimvnnl4qkr6lyyvw0zvaya658zqfxfcf3fyfs59x",
-    "version": "2022.1.1001707094"
+    "sha256": "1nzd47zbhh6fn2h9id0vjp52f6fnp04yqdhqiinsviwsn4zaxk1x",
+    "version": "2022.1.1001760686"
   },
   {
     "name": "color-highlight",
@@ -80,8 +80,8 @@
   {
     "name": "material-icon-theme",
     "publisher": "PKief",
-    "sha256": "1l2s8j645riqjmj09i3v71s8ycin5vd6brdp35z472fnk6wyi1y6",
-    "version": "4.11.0"
+    "sha256": "1c434f2za01rrfbcfyk0k3pkr29bl12f8il1y7dsr4yxkafsfrd6",
+    "version": "4.12.1"
   },
   {
     "name": "vscode-css-peek",
@@ -122,8 +122,8 @@
   {
     "name": "shellcheck",
     "publisher": "timonwong",
-    "sha256": "0gw4ais8nprk0b879arqc9n1v88g15xbvav5c8nn6ypadzhalfvy",
-    "version": "0.18.3"
+    "sha256": "00cii58md6v028h0xfvbdjvg3r44451mi0lfmjwiwif5xcw3wnlx",
+    "version": "0.18.4"
   },
   {
     "name": "markdown-all-in-one",
