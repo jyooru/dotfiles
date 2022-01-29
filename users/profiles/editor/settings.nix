@@ -23,23 +23,20 @@
     "editor.tabSize" = 2;
     "explorer.confirmDelete" = false;
     "explorer.confirmDragAndDrop" = false;
-    "editor.inlineSuggest.enabled" = true;
     "files.associations" = { "*.liquid" = "html"; };
     "files.exclude" = {
       "**/.stfolder" = true;
       "**/__pycache__" = true;
     };
-    "git.confirmSync" = false;
     "git.autofetch" = true;
+    "git.confirmSync" = false;
     "git.fetchOnPull" = true;
     "git.inputValidationLength" = 2147483647;
     "git.inputValidationSubjectLength" = 2147483647;
     "git.pruneOnFetch" = true;
-    "remote.containers.dotfiles.repository" = "https://github.com/jyooru/dotfiles.git";
     "workbench.startupEditor" = "none";
 
     # extensions
-    "gitlens.hovers.currentLine.over" = "line";
     "gitlens.currentLine.enabled" = false;
     "redhat.telemetry.enabled" = false;
     "material-icon-theme.folders.associations" = {
@@ -83,8 +80,6 @@
     "python.showStartPage" = false;
     "python.testing.pytestEnabled" = true;
     "rust-client.autoStartRls" = false;
-    "shellcheck.customArgs" = [ "-s bash" "-x" ];
-    "[nginx]"."editor.defaultFormatter" = "raynigon.nginx-formatter";
     "[yaml]"."editor.defaultFormatter" = "redhat.vscode-yaml";
   };
 }
