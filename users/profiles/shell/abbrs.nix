@@ -21,16 +21,16 @@
 
     g = "git";
     ga = "git add";
-    gaa = "git add ."; # git add all
+    gaa = "git add --all";
     gbu = "git branch --set-upstream-to=origin/";
-    gb = "git checkout -b";
+    gb = "git branch";
     gbd = "git branch -d";
     gbD = "git branch -D";
     gbm = "git branch -m";
     gbpd = "git checkout main || git checkout master && git pull && git branch -d"; # git branch pull delete
     gc = "git commit";
     gca = "git commit --amend";
-    gch = "git checkout";
+    gch = "git checkout -b";
     gcl = "git clone";
     gd = "git diff";
     gf = "git fetch";
