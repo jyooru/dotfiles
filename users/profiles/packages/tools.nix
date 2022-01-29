@@ -9,6 +9,7 @@
     fd # "find" rust alternative
     ffsend # file sender
     gh # github cli
+    hexyl # hex viewer
     httpie # http cli
     iotop # I/O monitor
     ipinfo # ipinfo cli
