@@ -1,6 +1,6 @@
 { lib, pkgs, ... }:
 {
-  imports = [ ./keybindings.nix ./settings.nix ];
+  imports = [ ./icons.nix ./keybindings.nix ./settings.nix ./theme.nix ];
 
   programs.vscode = {
     enable = true;
