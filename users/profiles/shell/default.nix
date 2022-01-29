@@ -10,7 +10,7 @@
         set -gx GIT_EDITOR nano
 
         set -g fish_greeting
-        set -g fish_color_command normal --italics
+        set -g fish_color_command normal --bold
         set -g fish_color_param normal
         set -g fish_color_valid_path brcyan --underline
       '';
