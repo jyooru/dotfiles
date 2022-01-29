@@ -30,7 +30,8 @@
     gbpd = "git checkout main || git checkout master && git pull && git branch -d"; # git branch pull delete
     gc = "git commit";
     gca = "git commit --amend";
-    gch = "git checkout -b";
+    gch = "git checkout";
+    gchb = "git checkout -b";
     gcl = "git clone";
     gd = "git diff";
     gf = "git fetch";
