@@ -20,7 +20,18 @@
       };
     };
 
-    starship.enable = true;
+    starship = {
+      enable = true;
+      settings = {
+        # https://starship.rs/config/
+
+        character = {
+          success_symbol = "[>](bold green)";
+          error_symbol = "[>](bold red)";
+        };
+      };
+    };
+
     zoxide.enable = true;
   };
 }
