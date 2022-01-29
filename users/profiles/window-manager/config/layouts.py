@@ -17,6 +17,4 @@ layouts = [
     layout.Columns(border_on_single=True, **layout_defaults),
     layout.Stack(num_stacks=1, **layout_defaults),
     layout.RatioTile(**layout_defaults),
-    layout.MonadTall(**layout_defaults),
-    layout.MonadWide(**layout_defaults),
 ]
