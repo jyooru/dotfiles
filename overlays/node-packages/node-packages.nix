@@ -1300,13 +1300,13 @@ let
         sha512 = "dm9s5Pw7Jc0GvMYbshN6zchCA9RgQlzzEZX3vylR9IqFfS8XciblUXOKfW6SiuJ0e13eDYZoZV5wdrev7P3Nwg==";
       };
     };
-    "flatted-3.2.4" = {
+    "flatted-3.2.5" = {
       name = "flatted";
       packageName = "flatted";
-      version = "3.2.4";
+      version = "3.2.5";
       src = fetchurl {
-        url = "https://registry.npmjs.org/flatted/-/flatted-3.2.4.tgz";
-        sha512 = "8/sOawo8tJ4QOBX8YlQBMxL8+RLZfxMQOif9o0KUKTNTjMYElWPE0r/m5VNFxTRd0NSw8qSy8dajrwX4RYI1Hw==";
+        url = "https://registry.npmjs.org/flatted/-/flatted-3.2.5.tgz";
+        sha512 = "WIWGi2L3DyTUvUrwRKgGi9TwxQMUEqPOPQBVi71R96jZXJdFskXEmf54BoZaS1kknGODoIGASGEzBUYdyMCBJg==";
       };
     };
     "follow-redirects-1.14.7" = {
@@ -3496,13 +3496,13 @@ let
         sha512 = "8Y75pvTYkLJW2hWQHXxoqRgV7qb9B+9vFEtidML+7koHUFapnVJAZ6cKs+Qjz5Aw3aZWHMC6u0wJE3At+nSGwA==";
       };
     };
-    "uglify-js-3.14.5" = {
+    "uglify-js-3.15.0" = {
       name = "uglify-js";
       packageName = "uglify-js";
-      version = "3.14.5";
+      version = "3.15.0";
       src = fetchurl {
-        url = "https://registry.npmjs.org/uglify-js/-/uglify-js-3.14.5.tgz";
-        sha512 = "qZukoSxOG0urUTvjc2ERMTcAy+BiFh3weWAkeurLwjrCba73poHmG3E36XEjd/JGukMzwTL7uCxZiAexj8ppvQ==";
+        url = "https://registry.npmjs.org/uglify-js/-/uglify-js-3.15.0.tgz";
+        sha512 = "x+xdeDWq7FiORDvyIJ0q/waWd4PhjBNOm5dQUOq2AKC0IEjxOS66Ha9tctiVDGcRQuh69K7fgU5oRuTK4cysSg==";
       };
     };
     "unique-filename-1.1.1" = {
@@ -4172,7 +4172,7 @@ in
       sources."token-stream-1.0.0"
       sources."ua-parser-js-1.0.2"
       sources."uc.micro-1.0.6"
-      sources."uglify-js-3.14.5"
+      sources."uglify-js-3.15.0"
       sources."universalify-0.1.2"
       sources."unpipe-1.0.0"
       sources."utils-merge-1.0.1"
@@ -4231,7 +4231,7 @@ in
       sources."debug-4.3.3"
       sources."eventemitter3-4.0.7"
       sources."flat-cache-3.0.4"
-      sources."flatted-3.2.4"
+      sources."flatted-3.2.5"
       sources."fs.realpath-1.0.0"
       sources."glob-7.2.0"
       sources."hash-string-1.0.0"
@@ -4283,10 +4283,10 @@ in
   simple-git = nodeEnv.buildNodePackage {
     name = "simple-git";
     packageName = "simple-git";
-    version = "3.1.0";
+    version = "3.1.1";
     src = fetchurl {
-      url = "https://registry.npmjs.org/simple-git/-/simple-git-3.1.0.tgz";
-      sha512 = "XpiIA5CBB8S40cJwkLhVe3ysyuLjvOrPo/xjorJl+hspFBgJFueqKXQbKhUl5Ujh2TWMt2jhxl5UTGciFnkXmA==";
+      url = "https://registry.npmjs.org/simple-git/-/simple-git-3.1.1.tgz";
+      sha512 = "VamXD/Royf2Xo7s+ASzT9fp2cJatLtz/w8zLwjOLCAq9FC9ks5mEoBUYVwXuDq4GoqDReqV5r/GM+lwx6Jucyw==";
     };
     dependencies = [
       sources."@kwsites/file-exists-1.1.1"
