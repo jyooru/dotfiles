@@ -7,6 +7,37 @@
     "editor.fontLigatures" = true;
     "editor.fontSize" = 14;
     "editor.minimap.enabled" = false;
+    "material-icon-theme.folders.associations" = {
+      # https://github.com/PKief/vscode-material-icon-theme#folder-icons
+
+      # ~
+      "media" = "video";
+      # ~/code
+      "clones" = "download";
+      "repos" = "src";
+      "workspaces" = "resource";
+      # ~/code/clones
+      "view" = "review";
+      # ~/code/repos
+      "gh" = "github";
+      "gl" = "gitlab";
+      "local" = "client";
+      # ~/code/repos/gh/**/.github
+      "workflows" = "ci";
+      # ~/code/repos/gh/jyooru
+      "dotfiles" = "config";
+      "nixpkgs" = "packages";
+      # ~/code/repos/gh/jyooru/dotfiles
+      "hosts" = "client";
+      "overlays" = "queue";
+      "profiles" = "config";
+      "users" = "home";
+      # ~/code/repos/gh/jyooru/dotfiles/profiles
+      "hardware" = "core";
+      # ~/code/repos/gh/jyooru/nixpkgs
+      "pkgs" = "packages";
+      "result" = "dist";
+    };
     "workbench.activityBar.visible" = false;
     "workbench.colorTheme" = "Min Dark";
     "workbench.editor.showTabs" = false;
@@ -39,27 +70,6 @@
     # extensions
     "gitlens.currentLine.enabled" = false;
     "redhat.telemetry.enabled" = false;
-    "material-icon-theme.folders.associations" = {
-      # https://github.com/PKief/vscode-material-icon-theme#file-icons
-      "clones" = "download";
-      "repos" = "src";
-      "gh" = "github";
-      "gl" = "gitlab";
-      "local" = "client";
-      "starred" = "import";
-      "workspaces" = "resources";
-      "view" = "review";
-      "media" = "video";
-      "hosts" = "client";
-      "hardware" = "core";
-      "programs" = "app";
-      "result" = "dist";
-      "dotfiles" = "config";
-      "nixpkgs" = "packages";
-      "pkgs" = "packages";
-      "overlays" = "queue";
-      "workflows" = "ci";
-    };
 
     # languages
     "workbench.editorAssociations" = { "*.ipynb" = "jupyter-notebook"; };
