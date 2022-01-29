@@ -1,50 +1,5 @@
 {
   programs.vscode.userSettings = {
-    # theme
-    "editor.cursorBlinking" = "smooth";
-    "editor.cursorSmoothCaretAnimation" = true;
-    "editor.fontFamily" = "FiraCode Nerd Font";
-    "editor.fontLigatures" = true;
-    "editor.fontSize" = 14;
-    "editor.minimap.enabled" = false;
-    "material-icon-theme.folders.associations" = {
-      # https://github.com/PKief/vscode-material-icon-theme#folder-icons
-
-      # ~
-      "media" = "video";
-      # ~/code
-      "clones" = "download";
-      "repos" = "src";
-      "workspaces" = "resource";
-      # ~/code/clones
-      "view" = "review";
-      # ~/code/repos
-      "gh" = "github";
-      "gl" = "gitlab";
-      "local" = "client";
-      # ~/code/repos/gh/**/.github
-      "workflows" = "ci";
-      # ~/code/repos/gh/jyooru
-      "dotfiles" = "config";
-      "nixpkgs" = "packages";
-      # ~/code/repos/gh/jyooru/dotfiles
-      "hosts" = "client";
-      "overlays" = "queue";
-      "profiles" = "config";
-      "users" = "home";
-      # ~/code/repos/gh/jyooru/dotfiles/profiles
-      "hardware" = "core";
-      # ~/code/repos/gh/jyooru/nixpkgs
-      "pkgs" = "packages";
-      "result" = "dist";
-    };
-    "workbench.activityBar.visible" = false;
-    "workbench.colorTheme" = "Min Dark";
-    "workbench.editor.showTabs" = false;
-    "workbench.iconTheme" = "material-icon-theme";
-    "workbench.statusBar.visible" = false;
-    "window.menuBarVisibility" = "hidden";
-
     # functionality
     "diffEditor.renderSideBySide" = false;
     "editor.formatOnType" = true;
