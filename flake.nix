@@ -25,7 +25,18 @@
         inherit self inputs supportedSystems;
 
         channelsConfig = { allowUnfree = true; };
-        channels = { nixpkgs = { overlays = [ (builtins.attrValues overlays) nur.overlay ]; }; };
+        channels = {
+          nixpkgs = {
+            overlays = [ (builtins.attrValues overlays) nur.overlay ];
+            patches = [
+              (builtins.fetchurl {
+                # https://github.com/NixOS/nixpkgs/pull/156974
+                url = "https://github.com/NixOS/nixpkgs/pull/156974.patch";
+                sha256 = "0npxb36ic5g360wjjjsis9shj7niyj7s7mggmp7bgiagjlj9rv9l";
+              })
+            ];
+          };
+        };
 
         nixos = {
           hostDefaults = { system = "x86_64-linux"; channelName = "nixpkgs"; modules = [ home-manager.nixosModules.home-manager ]; };
