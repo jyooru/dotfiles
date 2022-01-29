@@ -29,6 +29,8 @@
           success_symbol = "[>](bold green)";
           error_symbol = "[>](bold red)";
         };
+
+        cmd_duration.min_time = 10 * 1000;
       };
     };
 
