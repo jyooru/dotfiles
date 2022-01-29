@@ -11,7 +11,10 @@ let
       sha256 = "BLHGVPMQd8O4h5TVx/F/klzSra+FZYogp22V6Yq04T0=";
     };
 
-    patches = [ ./fix-restart.patch ];
+    patches = [
+      ./fix-restart.patch
+      ./play-pause-icons.patch
+    ];
 
     postPatch = ''
       substituteInPlace libqtile/pangocffi.py \
