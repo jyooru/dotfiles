@@ -21,7 +21,7 @@
 
     g = "git";
     ga = "git add";
-    gaa = "git add ."; # git add all
+    gaa = "git add --all";
     gbu = "git branch --set-upstream-to=origin/";
     gb = "git checkout -b";
     gbd = "git branch -d";
