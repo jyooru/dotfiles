@@ -56,7 +56,7 @@
             profiles = rakeLeaves ./users/profiles;
             suites = with profiles; rec {
               base = [ git shell packages.tools ssh ];
-              gui = base ++ [ browser compositor editor file-manager launcher terminal-emulator packages.apps packages.code window-manager ];
+              gui = base ++ [ browser compositor editor file-manager launcher notification-daemon terminal-emulator packages.apps packages.code window-manager ];
             };
           };
           users = {
