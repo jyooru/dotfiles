@@ -25,15 +25,17 @@
     "explorer.confirmDragAndDrop" = false;
     "editor.inlineSuggest.enabled" = true;
     "files.associations" = { "*.liquid" = "html"; };
-    "files.exclude" = { "**/.stfolder" = true; "**/__pycache__" = true; };
+    "files.exclude" = {
+      "**/.stfolder" = true;
+      "**/__pycache__" = true;
+    };
     "git.confirmSync" = false;
     "git.autofetch" = true;
     "git.fetchOnPull" = true;
     "git.inputValidationLength" = 2147483647;
     "git.inputValidationSubjectLength" = 2147483647;
     "git.pruneOnFetch" = true;
-    "remote.containers.dotfiles.repository" =
-      "https://github.com/jyooru/dotfiles.git";
+    "remote.containers.dotfiles.repository" = "https://github.com/jyooru/dotfiles.git";
     "workbench.startupEditor" = "none";
 
     # extensions
@@ -64,22 +66,15 @@
 
     # languages
     "workbench.editorAssociations" = { "*.ipynb" = "jupyter-notebook"; };
-    #html
-    "[html]" = { "editor.defaultFormatter" = "esbenp.prettier-vscode"; };
-    # js
-    "[javascript]" = {
-      "editor.defaultFormatter" = "esbenp.prettier-vscode";
-    };
-    # json
-    "[json]" = { "editor.defaultFormatter" = "vscode.json-language-features"; };
-    "[jsonc]" = { "editor.defaultFormatter" = "vscode.json-language-features"; };
-    # md
+    "[html]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+    "[javascript]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+    "[json]"."editor.defaultFormatter" = "vscode.json-language-features";
+    "[jsonc]"."editor.defaultFormatter" = "vscode.json-language-features";
     "[markdown]" = {
-      "editor.wordWrap" = "on";
       "editor.defaultFormatter" = "esbenp.prettier-vscode";
+      "editor.wordWrap" = "on";
     };
-    # py
-    "[python]" = { "editor.tabSize" = 4; };
+    "[python]"."editor.tabSize" = 4;
     "python.defaultInterpreterPath" = "/usr/bin/python";
     "python.formatting.provider" = "black";
     "python.linting.flake8Enabled" = true;
@@ -87,13 +82,9 @@
     "python.pythonPath" = "/usr/bin/python";
     "python.showStartPage" = false;
     "python.testing.pytestEnabled" = true;
-    # rs
     "rust-client.autoStartRls" = false;
-    # sh
     "shellcheck.customArgs" = [ "-s bash" "-x" ];
-    # nginx.conf
-    "[nginx]" = { "editor.defaultFormatter" = "raynigon.nginx-formatter"; };
-    # yaml
-    "[yaml]" = { "editor.defaultFormatter" = "redhat.vscode-yaml"; };
+    "[nginx]"."editor.defaultFormatter" = "raynigon.nginx-formatter";
+    "[yaml]"."editor.defaultFormatter" = "redhat.vscode-yaml";
   };
 }
