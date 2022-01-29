@@ -12,7 +12,7 @@
     "workbench.editor.showTabs" = false;
     "workbench.iconTheme" = "material-icon-theme";
     "workbench.statusBar.visible" = false;
-    "window.menuBarVisibility" = "toggle"; # alt shows menu
+    "window.menuBarVisibility" = "hidden";
 
     # functionality
     "diffEditor.renderSideBySide" = false;
