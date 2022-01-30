@@ -10,6 +10,6 @@ in
 {
   services.hercules-ci-agent = {
     enable = true;
-    concurrentTasks = buildMachines.${fqdn}.maxJobs;
+    settings.concurrentTasks = buildMachines.${fqdn}.maxJobs;
   };
 }

@@ -55,8 +55,12 @@ widgets = (
         widget.Mpris2(
             display_metadata=["xesam:title", "xesam:artist"],
             mouse_callbacks={
-                "Button1": lambda: qtile.cmd_spawn("playerctl --player spotify previous"),
-                "Button2": lambda: qtile.cmd_spawn("playerctl --player spotify play-pause"),
+                "Button1": lambda: qtile.cmd_spawn(
+                    "playerctl --player spotify previous"
+                ),
+                "Button2": lambda: qtile.cmd_spawn(
+                    "playerctl --player spotify play-pause"
+                ),
                 "Button3": lambda: qtile.cmd_spawn("playerctl --player spotify next"),
             },
             name="spotify",
