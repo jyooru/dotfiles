@@ -2,6 +2,7 @@
   description = "NixOS configuration";
 
   inputs = {
+    comma = { url = "github:nix-community/comma"; flake = false; };
     deploy-rs.url = "github:serokell/deploy-rs";
     digga = { url = "github:Pacman99/digga/customBuilds-mkDefault"; inputs = { deploy.follows = "deploy-rs"; nixpkgs.follows = "nixpkgs"; nixlib.follows = "nixpkgs"; home-manager.follows = "home-manager"; }; };
     flake-utils.url = "github:numtide/flake-utils";
@@ -11,7 +12,7 @@
     nur.url = "github:nix-community/NUR";
   };
 
-  outputs = { self, digga, nixpkgs, home-manager, deploy-rs, flake-utils, nur, nixos-hardware, ... } @ inputs:
+  outputs = { self, comma, digga, nixpkgs, home-manager, deploy-rs, flake-utils, nur, nixos-hardware, ... } @ inputs:
     let
       inherit (digga.lib) importHosts rakeLeaves mkDeployNodes mkHomeConfigurations mkFlake;
 
@@ -25,7 +26,15 @@
         inherit self inputs supportedSystems;
 
         channelsConfig = { allowUnfree = true; };
-        channels = { nixpkgs = { overlays = [ (builtins.attrValues overlays) nur.overlay ]; }; };
+        channels = {
+          nixpkgs = {
+            overlays = [
+              (builtins.attrValues overlays)
+              nur.overlay
+              (final: prev: { comma = import comma { pkgs = final; }; })
+            ];
+          };
+        };
 
         nixos = {
           hostDefaults = { system = "x86_64-linux"; channelName = "nixpkgs"; modules = [ home-manager.nixosModules.home-manager ]; };
