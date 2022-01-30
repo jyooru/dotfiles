@@ -1,5 +1,5 @@
 {
-  imports = [ ./abbrs.nix ./starship-nerd-fonts-symbols.nix ];
+  imports = [ ./abbrs.nix ./starship-nerd-font-symbols.nix ];
 
   programs = {
     bat = {
