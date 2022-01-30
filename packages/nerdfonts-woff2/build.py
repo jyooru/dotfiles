@@ -27,8 +27,11 @@ def convert_ttfs(inputs: List[str], output: str):
     # https://stackoverflow.com/a/14533902, modified
     pool = Pool()
     for i, returncode in enumerate(pool.imap(partial(call, shell=True), commands)):
-        if returncode != 0:
-            raise Exception("%d command failed: %d" % (i, returncode))
+        text = f"{i+1}/{len(commands)+ 1}: {returncode} {commands[i]}"
+        if returncode == 0:
+            print(text)
+        else:
+            raise Exception(text)
 
 
 def parse_args() -> argparse.Namespace:
