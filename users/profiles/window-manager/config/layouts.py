@@ -1,5 +1,4 @@
 from libqtile import layout
-from libqtile.config import Match
 
 
 layout_defaults = dict(
