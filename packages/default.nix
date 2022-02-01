@@ -1,4 +1,10 @@
-{ pkgs }:
+{ pkgs, system }:
+
+let
+  inherit (import ../overlays/node-packages/composition.nix {
+    inherit pkgs system;
+  }) ttf2woff2;
+in
 with pkgs;
 rec {
   caddy-modded = callPackage ./caddy-modded { };
@@ -10,8 +16,6 @@ rec {
     inherit ttf2woff2;
     nerdfonts = nerdfonts.override { fonts = [ "FiraCode" ]; };
   };
-
-  ttf2woff2 = callPackage ./ttf2woff2 { };
 
   vscode-extensions = recurseIntoAttrs (callPackage ./vscode-extensions { });
 }
