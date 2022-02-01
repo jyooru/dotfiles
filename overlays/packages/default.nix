@@ -1,1 +1,1 @@
-final: prev: import ../../packages { pkgs = final; }
+final: prev: import ../../packages { pkgs = final; inherit (final) system; }

@@ -16,6 +16,4 @@ rec {
     inherit ttf2woff2;
     nerdfonts = nerdfonts.override { fonts = [ "FiraCode" ]; };
   };
-
-  vscode-extensions = recurseIntoAttrs (callPackage ./vscode-extensions { });
 }

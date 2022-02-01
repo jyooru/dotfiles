@@ -5,6 +5,7 @@ let
     fixNixServe = "fix-nix-serve";
     nodePackages = "node-packages";
     packages = "packages";
+    vscodeExtensions = "vscode-extensions";
     xsecurelock = "xsecurelock";
 
     qtile = "qtile"; # fixes and features, would put this in packages.qtile-modded but the module does not support custom packages
