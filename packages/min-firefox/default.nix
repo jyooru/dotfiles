@@ -1,16 +1,19 @@
-{ lib, stdenv, firefox-themes, git }:
+{ lib, stdenv, fetchFromGitHub }:
 stdenv.mkDerivation rec {
   pname = "min-firefox";
   version = "1.0.0";
 
-  src = ./.;
+  src = fetchFromGitHub {
+    owner = "CristianDragos";
+    repo = "FirefoxThemes";
+    rev = version;
+    sha256 = "1r38k90w5zvfg8z5mbkaj656xpajzxrqkxhxg8ag50wxlzbkz8ad";
+  };
 
-  nativeBuildInputs = [ git ];
-
-  buildPhase = ''
-    cp -Lr --no-preserve=mode ${firefox-themes}/* "."
-    git apply "colors.patch" "description.patch"
-  '';
+  patches = [
+    ./colors.patch
+    ./description.patch
+  ];
 
   installPhase = ''
     cp -r "Simplify Darkish/Simplify Gray/" "$out"

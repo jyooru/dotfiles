@@ -93,7 +93,7 @@
           inherit system;
           overlays = [ overlay ];
         };
-        packages = import ./packages { inherit pkgs; };
+        packages = import ./packages { inherit pkgs system; };
       }
     ));
 }

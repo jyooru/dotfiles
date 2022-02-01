@@ -1,13 +1,18 @@
 let
   overlays = {
-    dedicatedGPU = "dedicated-gpu";
-    fixNebula = "fix-nebula";
-    fixNixServe = "fix-nix-serve";
-    nodePackages = "node-packages";
-    packages = "packages";
-    xsecurelock = "xsecurelock";
+    # customisations
+    customiseDedicatedGPU = ./customise-dedicated-gpu;
+    customiseQtile = ./customise-qtile;
+    customiseXsecurelock = ./customise-xsecurelock;
 
-    qtile = "qtile"; # fixes and features, would put this in packages.qtile-modded but the module does not support custom packages
+    # fixes
+    fixNebula = ./fix-nebula;
+    fixNixServe = ./fix-nix-serve;
+
+    # package sets
+    nodePackages = ./node-packages;
+    packages = ./packages;
+    vscodeExtensions = ./vscode-extensions;
   };
 in
-builtins.mapAttrs (_: path: import (./. + "/${path}")) overlays
+builtins.mapAttrs (_: path: import path) overlays
