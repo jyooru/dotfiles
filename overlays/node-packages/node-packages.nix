@@ -58,24 +58,6 @@ let
         sha512 = "trnsAYxU3xnS1gPHPyU961coFyLkh4gAD/0zQ5mymY4yOZ+CYvsPqUbOFSw0aDM4y0tV7tiFxL/1XfXPNC6IPg==";
       };
     };
-    "@kwsites/file-exists-1.1.1" = {
-      name = "_at_kwsites_slash_file-exists";
-      packageName = "@kwsites/file-exists";
-      version = "1.1.1";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/@kwsites/file-exists/-/file-exists-1.1.1.tgz";
-        sha512 = "m9/5YGR18lIwxSFDwfE3oA7bWuq9kdau6ugN4H2rJeyhFQZcG9AgSHkQtSD15a8WvTgfz9aikZMrKPHvbpqFiw==";
-      };
-    };
-    "@kwsites/promise-deferred-1.1.1" = {
-      name = "_at_kwsites_slash_promise-deferred";
-      packageName = "@kwsites/promise-deferred";
-      version = "1.1.1";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/@kwsites/promise-deferred/-/promise-deferred-1.1.1.tgz";
-        sha512 = "GaHYm+c0O9MjZRu0ongGBRbinu8gVAMd2UZjji6jVmqKtZluZnptXGWhz1E8j8D2HJ3f/yMxKAUC0b+57wncIw==";
-      };
-    };
     "@nodelib/fs.scandir-2.1.5" = {
       name = "_at_nodelib_slash_fs.scandir";
       packageName = "@nodelib/fs.scandir";
@@ -1291,24 +1273,6 @@ let
         sha512 = "PpOwAdQ/YlXQ2vj8a3h8IipDuYRi3wceVQQGYWxNINccq40Anw7BlsEXCMbt1Zt+OLA6Fq9suIpIWD0OsnISlw==";
       };
     };
-    "flat-cache-3.0.4" = {
-      name = "flat-cache";
-      packageName = "flat-cache";
-      version = "3.0.4";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/flat-cache/-/flat-cache-3.0.4.tgz";
-        sha512 = "dm9s5Pw7Jc0GvMYbshN6zchCA9RgQlzzEZX3vylR9IqFfS8XciblUXOKfW6SiuJ0e13eDYZoZV5wdrev7P3Nwg==";
-      };
-    };
-    "flatted-3.2.5" = {
-      name = "flatted";
-      packageName = "flatted";
-      version = "3.2.5";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/flatted/-/flatted-3.2.5.tgz";
-        sha512 = "WIWGi2L3DyTUvUrwRKgGi9TwxQMUEqPOPQBVi71R96jZXJdFskXEmf54BoZaS1kknGODoIGASGEzBUYdyMCBJg==";
-      };
-    };
     "follow-redirects-1.14.7" = {
       name = "follow-redirects";
       packageName = "follow-redirects";
@@ -1532,15 +1496,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/has-unicode/-/has-unicode-2.0.1.tgz";
         sha1 = "e0e6fe6a28cf51138855e086d1691e771de2a8b9";
-      };
-    };
-    "hash-string-1.0.0" = {
-      name = "hash-string";
-      packageName = "hash-string";
-      version = "1.0.0";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/hash-string/-/hash-string-1.0.0.tgz";
-        sha1 = "c3fa15f078ddd16bc150b4176fde7091620f2c7f";
       };
     };
     "http-cache-semantics-4.1.0" = {
@@ -2002,13 +1957,13 @@ let
         sha512 = "ynTsyrFSdE5oZ/O9GEf00kPngmOfVwazR5GKDq6EYfhlpFug3J2zybX56a2PRRpc9P+FuSoGNAwjlbDs9jJBPQ==";
       };
     };
-    "liquidjs-9.33.1" = {
+    "liquidjs-9.34.0" = {
       name = "liquidjs";
       packageName = "liquidjs";
-      version = "9.33.1";
+      version = "9.34.0";
       src = fetchurl {
-        url = "https://registry.npmjs.org/liquidjs/-/liquidjs-9.33.1.tgz";
-        sha512 = "qIMSXkUMFG5VZmBp1qxcOEFeGzmA2A8Fy818rMTAWKyy2ftUwOEoVtvXFdqm3iSeQEoj8pzTOmC6KQOP0SipUA==";
+        url = "https://registry.npmjs.org/liquidjs/-/liquidjs-9.34.0.tgz";
+        sha512 = "LIOqPT3hvnmJQKwhJwBLcEwaEthdWJH2uvNjC9Q6K/n25+tuXQuvd/bwH1WwWBtBpzvESjcDWdM2SHpRlTLvqg==";
       };
     };
     "localtunnel-2.0.2" = {
@@ -2380,15 +2335,6 @@ let
         sha512 = "AO81vsIO1k1sM4Zrd6Hu7regmJN1NSiAja10gc4bX3F0wd+9rQmcuHQaHVQCYIEC8iFXnE+mavh23GOt7wBgug==";
       };
     };
-    "node-fetch-2.6.7" = {
-      name = "node-fetch";
-      packageName = "node-fetch";
-      version = "2.6.7";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/node-fetch/-/node-fetch-2.6.7.tgz";
-        sha512 = "ZjMPFEfVx5j+y2yF35Kzx5sF7kDzxuDj6ziH4FFbOp87zKDZNx8yExJIb05OGF4Nlt9IHFIMBkRl41VdvcNdbQ==";
-      };
-    };
     "node-gyp-8.4.1" = {
       name = "node-gyp";
       packageName = "node-gyp";
@@ -2522,15 +2468,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/p-map/-/p-map-4.0.0.tgz";
         sha512 = "/bjOqmgETBYB5BoEeGVea8dmvHb2m9GLy1E9W43yeyfP6QQCZGFNa+XRceJEuDB6zqr+gKpIAmlLebMpykw/MQ==";
-      };
-    };
-    "p-queue-6.6.2" = {
-      name = "p-queue";
-      packageName = "p-queue";
-      version = "6.6.2";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/p-queue/-/p-queue-6.6.2.tgz";
-        sha512 = "RwFpb72c/BhQLEXIZ5K2e+AhgNVmIejGlTgiB9MzZ0e93GRvqZ7uSi0dvRF7/XIXDeNkra2fNHBxTyPDGySpjQ==";
       };
     };
     "p-timeout-3.2.0" = {
@@ -3145,15 +3082,6 @@ let
         sha512 = "E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==";
       };
     };
-    "short-hash-1.0.0" = {
-      name = "short-hash";
-      packageName = "short-hash";
-      version = "1.0.0";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/short-hash/-/short-hash-1.0.0.tgz";
-        sha1 = "3f491d728fcc777ec605bbaf7f83f23712f42050";
-      };
-    };
     "sigmund-1.0.1" = {
       name = "sigmund";
       packageName = "sigmund";
@@ -3469,15 +3397,6 @@ let
         sha1 = "cc200eab2613f4166d27ff9afc7ca56d49df6eb4";
       };
     };
-    "tr46-0.0.3" = {
-      name = "tr46";
-      packageName = "tr46";
-      version = "0.0.3";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/tr46/-/tr46-0.0.3.tgz";
-        sha1 = "8184fd347dac9cdc185992f3a6622e14b9d9ab6a";
-      };
-    };
     "ua-parser-js-1.0.2" = {
       name = "ua-parser-js";
       packageName = "ua-parser-js";
@@ -3566,24 +3485,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/void-elements/-/void-elements-3.1.0.tgz";
         sha1 = "614f7fbf8d801f0bb5f0661f5b2f5785750e4f09";
-      };
-    };
-    "webidl-conversions-3.0.1" = {
-      name = "webidl-conversions";
-      packageName = "webidl-conversions";
-      version = "3.0.1";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/webidl-conversions/-/webidl-conversions-3.0.1.tgz";
-        sha1 = "24534275e2a7bc6be7bc86611cc16ae0a5654871";
-      };
-    };
-    "whatwg-url-5.0.0" = {
-      name = "whatwg-url";
-      packageName = "whatwg-url";
-      version = "5.0.0";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/whatwg-url/-/whatwg-url-5.0.0.tgz";
-        sha1 = "966454e8765462e37644d3626f6742ce8b70965d";
       };
     };
     "which-2.0.2" = {
@@ -3988,7 +3889,7 @@ in
       sources."kleur-4.1.4"
       sources."limiter-1.1.5"
       sources."linkify-it-3.0.3"
-      sources."liquidjs-9.33.1"
+      sources."liquidjs-9.34.0"
       (sources."localtunnel-2.0.2" // {
         dependencies = [
           sources."debug-4.3.2"
@@ -4216,52 +4117,6 @@ in
     bypassCache = true;
     reconstructLock = true;
   };
-  "@11ty/eleventy-cache-assets" = nodeEnv.buildNodePackage {
-    name = "_at_11ty_slash_eleventy-cache-assets";
-    packageName = "@11ty/eleventy-cache-assets";
-    version = "2.3.0";
-    src = fetchurl {
-      url = "https://registry.npmjs.org/@11ty/eleventy-cache-assets/-/eleventy-cache-assets-2.3.0.tgz";
-      sha512 = "W8tvO00GlWaKt3ccpEStaUBoj9BE3EgzuD8uYChCfYbN2Q4HkEItkiapvIJT0zJwAwoMfnSq6VHPLScYlX2XCg==";
-    };
-    dependencies = [
-      sources."balanced-match-1.0.2"
-      sources."brace-expansion-1.1.11"
-      sources."concat-map-0.0.1"
-      sources."debug-4.3.3"
-      sources."eventemitter3-4.0.7"
-      sources."flat-cache-3.0.4"
-      sources."flatted-3.2.5"
-      sources."fs.realpath-1.0.0"
-      sources."glob-7.2.0"
-      sources."hash-string-1.0.0"
-      sources."inflight-1.0.6"
-      sources."inherits-2.0.4"
-      sources."minimatch-3.0.4"
-      sources."ms-2.1.2"
-      sources."node-fetch-2.6.7"
-      sources."once-1.4.0"
-      sources."p-finally-1.0.0"
-      sources."p-queue-6.6.2"
-      sources."p-timeout-3.2.0"
-      sources."path-is-absolute-1.0.1"
-      sources."rimraf-3.0.2"
-      sources."short-hash-1.0.0"
-      sources."tr46-0.0.3"
-      sources."webidl-conversions-3.0.1"
-      sources."whatwg-url-5.0.0"
-      sources."wrappy-1.0.2"
-    ];
-    buildInputs = globalBuildInputs;
-    meta = {
-      description = "Cache remote assets, locally (automatically).";
-      homepage = "https://github.com/11ty/eleventy-cache-assets#readme";
-      license = "MIT";
-    };
-    production = true;
-    bypassCache = true;
-    reconstructLock = true;
-  };
   "normalize.css" = nodeEnv.buildNodePackage {
     name = "normalize.css";
     packageName = "normalize.css";
@@ -4274,30 +4129,6 @@ in
     meta = {
       description = "A modern alternative to CSS resets";
       homepage = "https://necolas.github.io/normalize.css";
-      license = "MIT";
-    };
-    production = true;
-    bypassCache = true;
-    reconstructLock = true;
-  };
-  simple-git = nodeEnv.buildNodePackage {
-    name = "simple-git";
-    packageName = "simple-git";
-    version = "3.1.1";
-    src = fetchurl {
-      url = "https://registry.npmjs.org/simple-git/-/simple-git-3.1.1.tgz";
-      sha512 = "VamXD/Royf2Xo7s+ASzT9fp2cJatLtz/w8zLwjOLCAq9FC9ks5mEoBUYVwXuDq4GoqDReqV5r/GM+lwx6Jucyw==";
-    };
-    dependencies = [
-      sources."@kwsites/file-exists-1.1.1"
-      sources."@kwsites/promise-deferred-1.1.1"
-      sources."debug-4.3.3"
-      sources."ms-2.1.2"
-    ];
-    buildInputs = globalBuildInputs;
-    meta = {
-      description = "Simple GIT interface for node.js";
-      homepage = "https://github.com/steveukx/git-js#readme";
       license = "MIT";
     };
     production = true;
