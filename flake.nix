@@ -4,7 +4,7 @@
   inputs = {
     comma = { url = "github:nix-community/comma"; flake = false; };
     deploy-rs.url = "github:serokell/deploy-rs";
-    digga = { url = "github:Pacman99/digga/customBuilds-mkDefault"; inputs = { deploy.follows = "deploy-rs"; nixpkgs.follows = "nixpkgs"; nixlib.follows = "nixpkgs"; home-manager.follows = "home-manager"; }; };
+    digga = { url = "github:Pacman99/digga/customBuilds-mkDefault"; inputs = { deploy.follows = "deploy-rs"; nixpkgs.follows = "nixpkgs"; home-manager.follows = "home-manager"; }; };
     flake-utils.url = "github:numtide/flake-utils";
     home-manager = { url = "github:nix-community/home-manager"; inputs.nixpkgs.follows = "nixpkgs"; };
     nixos-hardware.url = "github:NixOS/nixos-hardware";
