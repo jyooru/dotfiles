@@ -4,6 +4,6 @@
 
   programs.vscode = {
     enable = true;
-    extensions = with lib; collect isDerivation (pkgs.callPackage ../../../overlays/vscode-extensions/sources.nix);
+    extensions = with lib; collect isDerivation (pkgs.callPackage ../../../overlays/vscode-extensions/sources.nix { });
   };
 }
