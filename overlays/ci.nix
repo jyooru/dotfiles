@@ -18,6 +18,7 @@ recurseIntoAttrs (
     (overlay: packages:
       recurseIntoAttrs (
         let pkgs = import nixpkgs {
+          config.allowUnfree = true;
           inherit system;
           overlays = [ overlays.${overlay} ];
         };
