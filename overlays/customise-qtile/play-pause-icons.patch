@@ -1,21 +1,21 @@
 diff --git a/libqtile/widget/mpris2widget.py b/libqtile/widget/mpris2widget.py
-index 18e944f3..a1a5a539 100644
+index ef6157e7..41bcfc07 100644
 --- a/libqtile/widget/mpris2widget.py
 +++ b/libqtile/widget/mpris2widget.py
-@@ -122,7 +122,7 @@ class Mpris2(base._TextBox):
-         if playbackstatus == 'Paused':
+@@ -125,7 +125,7 @@ class Mpris2(base._TextBox):
+         if playbackstatus == "Paused":
              if self.stop_pause_text is not None:
                  self.is_playing = False
 -                self.displaytext = self.stop_pause_text
 +                self.displaytext = self.stop_pause_text + " " + self.displaytext
              elif self.displaytext:
                  self.is_playing = False
-                 self.displaytext = 'Paused: {}'.format(self.displaytext)
-@@ -130,6 +130,7 @@ class Mpris2(base._TextBox):
+                 self.displaytext = "Paused: {}".format(self.displaytext)
+@@ -133,6 +133,7 @@ class Mpris2(base._TextBox):
                  self.is_playing = False
-                 self.displaytext = 'Paused'
-         elif playbackstatus == 'Playing':
+                 self.displaytext = "Paused"
+         elif playbackstatus == "Playing":
 +            self.displaytext =  "契 " + self.displaytext
              if not self.displaytext and olddisplaytext:
                  self.is_playing = True
-                 self.displaytext = olddisplaytext.replace('Paused: ', '')
+                 self.displaytext = olddisplaytext.replace("Paused: ", "")
