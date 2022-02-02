@@ -1,5 +1,20 @@
 final: prev:
+let
+  unwrapped = prev.qtile.passthru.unwrapped.overrideAttrs (old: {
+    patches = (old.patches or [ ]) ++ [
+      ./fix-restart.patch
+      ./play-pause-icons.patch
+    ];
+
+    propagatedBuildInputs = (old.propagatedBuildInputs or [ ]) ++ (with final.python3Packages; [
+      dbus-next
+    ]);
+  });
+in
 {
-  # i gave up trying to override the wrapper
-  qtile = final.callPackage ./package.nix { };
+  qtile = (final.python3.withPackages (_: [ unwrapped ])).overrideAttrs
+    (_: {
+      name = "${unwrapped.pname}-${unwrapped.version}";
+      passthru = { inherit unwrapped; };
+    });
 }
