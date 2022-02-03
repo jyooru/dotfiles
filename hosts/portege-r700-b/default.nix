@@ -2,8 +2,6 @@
 {
   imports = [ ./hardware-configuration.nix ];
 
-  networking.hostName = "portege-r700-b";
-
   boot = {
     loader.grub = {
       enable = true;
