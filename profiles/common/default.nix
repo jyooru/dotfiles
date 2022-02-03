@@ -21,7 +21,7 @@ in
     '';
     trustedUsers = [ "root" "joel" ];
     binaryCaches = map (x: "https://nix.${x}.${config.networking.domain}") hosts;
-    binaryCachePublicKeys = map (x: builtins.readFile (../../. + "/hosts/${x}/binary-cache.pub")) hosts;
+    binaryCachePublicKeys = map (x: builtins.readFile (../../. + "/hosts/${x}/keys/binary-cache.pub")) hosts;
   };
   nixpkgs.config = import ./nixpkgs.nix;
 

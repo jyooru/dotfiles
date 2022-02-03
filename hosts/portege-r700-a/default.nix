@@ -1,7 +1,6 @@
+{ suites, ... }:
 {
-  imports = [ ./hardware-configuration.nix ];
-
-  networking.hostName = "portege-r700-a";
+  imports = [ ./hardware-configuration.nix ] ++ suites.server;
 
   boot = {
     loader.grub = {

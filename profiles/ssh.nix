@@ -7,9 +7,9 @@ let
 in
 {
   services.openssh = {
-    enable = pathExists (../hosts + "/${hostName}/host.pub");
+    enable = pathExists (../hosts + "/${hostName}/keys/ssh.pub");
     passwordAuthentication = false;
   };
 
-  programs.ssh.knownHosts = listToAttrs (map (name: { inherit name; value = { publicKeyFile = ../hosts + "/${name}/host.pub"; }; }) hosts);
+  programs.ssh.knownHosts = listToAttrs (map (name: { inherit name; value = { publicKeyFile = ../hosts + "/${name}/keys/ssh.pub"; }; }) hosts);
 }
