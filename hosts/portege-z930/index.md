@@ -1,4 +1,7 @@
-# portege-z930
+---
+layout: page
+title: portege-z930
+---
 
 <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fassets.mmsrg.com%2Fisr%2F166325%2Fc1%2F-%2FASSET_MMS_56019743%2Ffee_786_587_png&f=1&nofb=1" align="right" height="250px">
 

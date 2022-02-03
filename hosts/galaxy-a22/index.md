@@ -1,3 +1,8 @@
+---
+layout: page
+title: galaxy-a22
+---
+
 ## Setup
 
 ### Material Files ([me.zhanghai.android.files](https://f-droid.org/packages/me.zhanghai.android.files/))

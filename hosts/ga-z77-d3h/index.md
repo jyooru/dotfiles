@@ -1,4 +1,7 @@
-# ga-z77-d3h
+---
+layout: page
+title: ga-z77-d3h
+---
 
 - **OS:** NixOS 21.05 (Okapi) x86_64
 - **Kernel:** 5.10.79

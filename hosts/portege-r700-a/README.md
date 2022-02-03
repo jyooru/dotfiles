@@ -1,4 +1,7 @@
-# portege-r700-a
+---
+title: portege-r700-a
+layout: page
+---
 
 <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi1.wp.com%2Fbiareview.com%2Fwp-content%2Fuploads%2F2017%2F05%2FToshiba-Portege-R700.png%3Ffit%3D629%252C372%26ssl%3D1&f=1&nofb=1" align="right" height="250px">
 

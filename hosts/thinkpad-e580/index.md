@@ -1,3 +1,8 @@
+---
+layout: page
+title: thinkpad-e580
+---
+
 # thinkpad-e580
 
 <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww3.lenovo.com%2Fmedias%2Flenovo-laptop-thinkpad-e580-hero.png%3Fcontext%3DbWFzdGVyfHJvb3R8NzAzNjR8aW1hZ2UvcG5nfGg3My9oZTAvOTYxOTcxODE0NDAzMC5wbmd8MzAzNjdhMWNlYzZkMjVjYjdiNjY2ZWNkYThiZWRkMTg0ZWUwM2I4ZjNmNjQwNDdkOTYxZThmODlkZjRmNDg0Nw&f=1&nofb=1" align="right" height="250px">
