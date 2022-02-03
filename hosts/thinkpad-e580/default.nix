@@ -36,7 +36,6 @@
 
     nix-serve = {
       enable = true;
-      environment.HOME = "/dev/null"; # bug fix
       secretKeyFile = "/var/binary-cache.pem";
     };
 
@@ -63,6 +62,7 @@
       videoDrivers = [ "amdgpu" "radeon" "nouveau" "modesetting" "fbdev" ];
     };
   };
+  systemd.services.nix-serve.environment.HOME = "/dev/null"; # bug fix
 
   programs = {
     gnupg.agent = {
