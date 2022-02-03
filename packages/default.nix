@@ -9,6 +9,8 @@ with pkgs;
 rec {
   caddy-modded = callPackage ./caddy-modded { };
 
+  docs = callPackage ../docs { };
+
   min-firefox = callPackage ./min-firefox { };
 
   nerdfonts-woff2 = callPackage ./nerdfonts-woff2 { inherit ttf2woff2; };

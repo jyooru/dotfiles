@@ -77,10 +77,15 @@
       with pkgs;
       rec {
         devShell = mkShell {
-          packages = [ nixpkgs-fmt deploy-rs.outputs.packages.${system}.deploy-rs qtile nodePackages.node2nix ]
-          ++ (import ./users/profiles/packages/code.nix { inherit pkgs; }).home.packages;
+          packages = packages.docs.nativeBuildInputs ++ [
+            nixpkgs-fmt
+            deploy-rs.outputs.packages.${system}.deploy-rs
+            qtile
+            nodePackages.node2nix
+          ] ++ (import ./users/profiles/packages/code.nix { inherit pkgs; }).home.packages;
         };
 
+        defaultPackage = packages.docs;
         legacyPackages = import nixpkgs {
           inherit system;
           overlays = [ overlay ];
