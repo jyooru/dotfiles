@@ -1,5 +1,6 @@
+{ suites, ... }:
 {
-  imports = [ ./hardware-configuration.nix ./minecraft.nix ./sftp.nix ];
+  imports = [ ./hardware-configuration.nix ./minecraft.nix ./sftp.nix ] ++ suites.server';
 
   boot = {
     loader.systemd-boot.enable = true;

@@ -1,6 +1,16 @@
-{ config, pkgs, suites, ... }:
+{ config, inputs, pkgs, profiles, suites, ... }:
 {
-  imports = [ ./hardware-configuration.nix ] ++ suites.base;
+  imports = [
+    ./hardware-configuration.nix
+  ] ++ (with inputs.nixos-hardware.nixosModules; [
+    common-cpu-intel
+    common-gpu-amd
+    common-pc-laptop
+    common-pc-laptop-ssd
+  ]) ++ (with profiles; [
+    distributed-build
+    hardware.android
+  ]) ++ suites.base;
 
   networking.hostName = "thinkpad-e580";
 
