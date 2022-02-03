@@ -66,8 +66,8 @@
         users.users.joel = {
           isNormalUser = true;
           openssh.authorizedKeys.keyFiles = [
-            ../galaxy-a22/com.termux/id_rsa.pub
-            ../galaxy-a22/me.zhanghai.android.files/id_rsa.pub
+            ../galaxy-a22/keys/ssh-com.termux.pub
+            ../galaxy-a22/keys/ssh-me.zhanghai.android.files.pub
           ];
         };
 
@@ -94,8 +94,8 @@
         users.users.joel = {
           isNormalUser = true;
           openssh.authorizedKeys.keyFiles = [
-            ../retropie/id_rsa.pi.pub
-            ../retropie/id_rsa.root.pub
+            ../retropie/keys/ssh-pi.pub
+            ../retropie/keys/ssh-root.pub
           ];
         };
       };

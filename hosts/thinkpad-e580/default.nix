@@ -16,10 +16,10 @@
   };
 
   users.users = {
-    root.openssh.authorizedKeys.keyFiles = [ ./id_rsa.root.pub ]; # deploy
+    root.openssh.authorizedKeys.keyFiles = [ ./keys/ssh-root.pub ]; # deploy
     joel.openssh.authorizedKeys.keyFiles = [
-      ../galaxy-a22/com.termux/id_rsa.pub
-      ../galaxy-a22/me.zhanghai.android.files/id_rsa.pub
+      ../galaxy-a22/keys/ssh-com.termux.pub
+      ../galaxy-a22/keys/ssh-me.zhanghai.android.files.pub
     ];
   };
 
