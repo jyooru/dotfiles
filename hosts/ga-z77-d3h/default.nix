@@ -1,7 +1,5 @@
 {
-  imports = [ ./hardware-configuration.nix ];
-
-  networking.hostName = "ga-z77-d3h";
+  imports = [ ./hardware-configuration.nix ./minecraft.nix ./sftp.nix ];
 
   boot = {
     loader.systemd-boot.enable = true;
@@ -20,85 +18,6 @@
   };
 
   services.nebula.networks."joel".listen.port = 4244;
-
-  networking.firewall.allowedTCPPorts = [ 7170 7171 1883 25565 ];
-  virtualisation.oci-containers.containers = {
-    "minecraft" = {
-      image = "itzg/minecraft-server";
-      ports = [ "25565:25565" ];
-      environment = {
-        EULA = "true";
-        TYPE = "purpur";
-        OVERRIDE_SERVER_PROPERTIES = "true";
-        MOTD = "\\u00A7b                    \\u00A7lplay.joel.tokyo\\u00A7r\\n\\u00A7c                          [1.18.1]";
-        MEMORY = "4G";
-        ENABLE_ROLLING_LOGS = "true";
-        DIFFICULTY = "hard";
-      };
-      extraOptions = [ "--tty" ];
-      volumes = [
-        "/home/joel/node/data/minecraft:/data"
-      ];
-    };
-  };
+  networking.firewall.allowedTCPPorts = [ 7170 7171 1883 ];
   virtualisation.oci-containers.containers."streamr".ports = [ "7170:7170" "7171:7171" "1883:1883" ];
-
-  networking.firewall.interfaces."enp4s0".allowedTCPPorts = [ 2202 ];
-  networking.firewall.interfaces."nebula0".allowedTCPPorts = [ 2201 ];
-  containers = {
-    "sftp-files" = {
-      autoStart = true;
-      ephemeral = true;
-
-      bindMounts."files" = {
-        hostPath = "/home/joel/files";
-        mountPoint = "/srv";
-        isReadOnly = false;
-      };
-
-      config = {
-        services.openssh = {
-          enable = true;
-          listenAddresses = [{ addr = "0.0.0.0"; port = 2201; }];
-          passwordAuthentication = false;
-        };
-
-        users.users.joel = {
-          isNormalUser = true;
-          openssh.authorizedKeys.keyFiles = [
-            ../galaxy-a22/keys/ssh-com.termux.pub
-            ../galaxy-a22/keys/ssh-me.zhanghai.android.files.pub
-          ];
-        };
-
-      };
-    };
-
-    "sftp-files-games-roms" = {
-      autoStart = true;
-      ephemeral = true;
-
-      bindMounts."files" = {
-        hostPath = "/home/joel/files/games/roms";
-        mountPoint = "/srv";
-        isReadOnly = true;
-      };
-
-      config = {
-        services.openssh = {
-          enable = true;
-          listenAddresses = [{ addr = "0.0.0.0"; port = 2202; }];
-          passwordAuthentication = false;
-        };
-
-        users.users.joel = {
-          isNormalUser = true;
-          openssh.authorizedKeys.keyFiles = [
-            ../retropie/keys/ssh-pi.pub
-            ../retropie/keys/ssh-root.pub
-          ];
-        };
-      };
-    };
-  };
 }
