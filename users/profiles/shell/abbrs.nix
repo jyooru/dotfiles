@@ -23,7 +23,8 @@
     ga = "git add";
     gaa = "git add --all";
     gbu = "git branch --set-upstream-to=origin/";
-    gb = "git branch";
+    gb = "git checkout -b";
+    gbb = "git branch";
     gbd = "git branch -d";
     gbD = "git branch -D";
     gbm = "git branch -m";
@@ -31,7 +32,6 @@
     gc = "git commit";
     gca = "git commit --amend";
     gch = "git checkout";
-    gchb = "git checkout -b";
     gcl = "git clone";
     gd = "git diff";
     gf = "git fetch";
