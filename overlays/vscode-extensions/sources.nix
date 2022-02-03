@@ -1,10 +1,10 @@
 { lib, vscode-utils }:
 let
-  inherit (lib) foldr importJSON;
+  inherit (lib) foldr importJSON recursiveUpdate;
   inherit (vscode-utils) buildVscodeMarketplaceExtension;
 in
 
-lib.foldr (a: b: a // b) { } (map
+foldr (a: b: recursiveUpdate a b) { } (map
   (extension:
     {
       ${extension.publisher}.${extension.name} = buildVscodeMarketplaceExtension {
