@@ -9,7 +9,7 @@ with pkgs;
 rec {
   caddy-modded = callPackage ./caddy-modded { };
 
-  docs = callPackage ../docs { };
+  docs-src = callPackage ../docs { };
 
   min-firefox = callPackage ./min-firefox { };
 

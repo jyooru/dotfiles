@@ -1,7 +1,7 @@
 { lib, stdenv, python3 }:
 stdenv.mkDerivation {
   # no version so not pname
-  name = "dotfiles-docs";
+  name = "dotfiles-docs-src";
 
   src = ../.;
 

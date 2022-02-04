@@ -77,7 +77,7 @@
       with pkgs;
       rec {
         devShell = mkShell {
-          packages = packages.docs.nativeBuildInputs ++ [
+          packages = packages.docs-src.nativeBuildInputs ++ [
             nixpkgs-fmt
             deploy-rs.outputs.packages.${system}.deploy-rs
             qtile
@@ -85,7 +85,7 @@
           ] ++ (import ./users/profiles/packages/code.nix { inherit pkgs; }).home.packages;
         };
 
-        defaultPackage = packages.docs;
+        defaultPackage = packages.docs-src;
         legacyPackages = import nixpkgs {
           inherit system;
           overlays = [ overlay ];
