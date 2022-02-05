@@ -1,10 +1,11 @@
-from fuzzywuzzy.fuzz import token_sort_ratio
 from json import load
+from pathlib import Path
+from sys import argv
+
+from fuzzywuzzy.fuzz import token_sort_ratio
 from rich.box import SIMPLE_HEAVY
 from rich.console import Console
 from rich.table import Table
-from sys import argv
-from pathlib import Path
 
 
 def generate_day_indexes():
