@@ -34,5 +34,7 @@
     xorg.xev # x event viewer
     git # version control system
     whois # whois viewer
+
+    timetable # packages/timetable
   ];
 }
