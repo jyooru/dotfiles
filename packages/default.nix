@@ -16,4 +16,6 @@ rec {
     inherit ttf2woff2;
     nerdfonts = nerdfonts.override { fonts = [ "FiraCode" ]; };
   };
+
+  timetable = callPackage ./timetable { };
 }
