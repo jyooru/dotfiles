@@ -47,7 +47,6 @@
               base = [ common file-sync locale networking ssh vpn ] ++ users;
               users = with profiles.users; [ joel root ];
               server = base ++ [ profiles.server ];
-              server' = server ++ [ ci ];
             };
           };
         };
