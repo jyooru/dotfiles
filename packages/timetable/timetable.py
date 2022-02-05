@@ -25,36 +25,42 @@ def fuzzy_select(selection: str, options: dict[str, str]) -> str:
     match = list(matches_sorted.keys())[-1:][0]
     return match
 
-days = generate_day_indexes()
-day = fuzzy_select(" ".join(argv[1:]), generate_day_indexes())
 
-table = Table(box=SIMPLE_HEAVY, title=days[day], title_style="bold")
+def main() -> None:
+    days = generate_day_indexes()
+    day = fuzzy_select(" ".join(argv[1:]), generate_day_indexes())
 
-table.add_column("Period", justify="center", style="bold green")
-table.add_column("Class", style="bold")
-table.add_column("Room", style="bold cyan")
-table.add_column("Teacher")
+    table = Table(box=SIMPLE_HEAVY, title=days[day], title_style="bold")
 
-with open(Path.home() / "school/timetable.json") as file:
-    timetable = load(file)
+    table.add_column("Period", justify="center", style="bold green")
+    table.add_column("Class", style="bold")
+    table.add_column("Room", style="bold cyan")
+    table.add_column("Teacher")
 
-periods = {
-    "5": "F",
-    "6": "5",
-    "7": "6",
-}
+    with open(Path.home() / "school/timetable.json") as file:
+        timetable = load(file)
 
-for index, period in timetable[day].items():
-    if index in periods:
-        index = periods[index]
+    periods = {
+        "5": "F",
+        "6": "5",
+        "7": "6",
+    }
 
-    table.add_row(
-        index,
-        period["name"],
-        period["room"],
-        period["teacher"],
-    )
+    for index, period in timetable[day].items():
+        if index in periods:
+            index = periods[index]
 
-console = Console()
-print()
-console.print(table)
+        table.add_row(
+            index,
+            period["name"],
+            period["room"],
+            period["teacher"],
+        )
+
+    console = Console()
+    print()
+    console.print(table)
+
+
+if __name__ == "__main__":
+    main()
