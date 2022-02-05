@@ -7,6 +7,7 @@ from rich.box import SIMPLE_HEAVY
 from rich.console import Console
 from rich.table import Table
 
+
 periods = {
     "5": "F",
     "6": "5",
@@ -53,9 +54,24 @@ def generate_timetable(title: str, data) -> Table:
             period["teacher"],
         )
 
+    return table
+
+
+def find_timetable() -> Path:
+    paths = [
+        Path.home() / ".config/timetable.json",
+        Path.home() / "school/timetable.json",
+        Path.home() / "timetable.json",
+    ]
+    for path in paths:
+        if path.exists():
+            return path
+
+    raise FileNotFoundError("Could not find 'timetable.json'")
+
 
 def main() -> None:
-    with open(Path.home() / "school/timetable.json") as file:
+    with open(find_timetable()) as file:
         timetable = load(file)
 
     days = generate_day_indexes()
