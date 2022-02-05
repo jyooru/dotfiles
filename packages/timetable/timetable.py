@@ -7,56 +7,60 @@ from rich.box import SIMPLE_HEAVY
 from rich.console import Console
 from rich.table import Table
 
+periods = {
+    "5": "F",
+    "6": "5",
+    "7": "6",
+}
+
 
 def generate_day_indexes():
-    index = {}
+    indexes = {}
     weeks = ["A", "B"]
     days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
     for week in weeks:
         for day in days:
-            index[str(len(index) + 1)] = f"Week {week} {day}"
-    return index
+            indexes[str(len(indexes) + 1)] = f"Week {week} {day}"
+    return indexes
 
 
 def fuzzy_select(selection: str, options: dict[str, str]) -> str:
-    matches = {
-        index: token_sort_ratio(selection, option) for index, option in options.items()
-    }
+    # rank
+    matches = {i: token_sort_ratio(selection, option) for i, option in options.items()}
+    # sort
     matches_sorted = dict(sorted(matches.items(), key=lambda item: item[1]))
+    # get highest ranking
     match = list(matches_sorted.keys())[-1:][0]
     return match
 
 
-def main() -> None:
-    days = generate_day_indexes()
-    day = fuzzy_select(" ".join(argv[1:]), generate_day_indexes())
-
-    table = Table(box=SIMPLE_HEAVY, title=days[day], title_style="bold")
+def generate_timetable(title: str, data) -> Table:
+    table = Table(box=SIMPLE_HEAVY, title=title, title_style="bold")
 
     table.add_column("Period", justify="center", style="bold green")
     table.add_column("Class", style="bold")
     table.add_column("Room", style="bold cyan")
     table.add_column("Teacher")
 
-    with open(Path.home() / "school/timetable.json") as file:
-        timetable = load(file)
-
-    periods = {
-        "5": "F",
-        "6": "5",
-        "7": "6",
-    }
-
-    for index, period in timetable[day].items():
-        if index in periods:
-            index = periods[index]
+    for i, period in data.items():
+        if i in periods:
+            i = periods[i]
 
         table.add_row(
-            index,
+            i,
             period["name"],
             period["room"],
             period["teacher"],
         )
+
+
+def main() -> None:
+    with open(Path.home() / "school/timetable.json") as file:
+        timetable = load(file)
+
+    days = generate_day_indexes()
+    day = fuzzy_select(" ".join(argv[1:]), days)
+    table = generate_timetable(days[day], timetable[day])
 
     console = Console()
     print()
