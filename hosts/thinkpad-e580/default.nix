@@ -39,8 +39,6 @@
   sound.enable = true;
 
   services = {
-    auto-cpufreq.enable = true;
-
     # this host isn't a lighthouse, but all hosts should have a unique port for NAT traversal to avoid overlaps
     nebula.networks."joel".listen.port = 4240;
 
@@ -53,6 +51,8 @@
       enable = true;
       guiAddress = "0.0.0.0:8384";
     };
+
+    tlp.enable = true;
 
     xserver = {
       enable = true;
