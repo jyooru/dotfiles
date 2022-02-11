@@ -10,7 +10,6 @@ let
     customiseXsecurelock = [ "xsecurelock" ];
 
     fixNebula = [ "nebula" ];
-    fixNixServe = [ "nix-serve" ];
   };
 in
 recurseIntoAttrs (

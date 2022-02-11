@@ -7,7 +7,6 @@ let
 
     # fixes
     fixNebula = ./fix-nebula;
-    fixNixServe = ./fix-nix-serve;
 
     # package sets
     nodePackages = ./node-packages;

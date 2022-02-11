@@ -4,11 +4,11 @@
   inputs = {
     comma = { url = "github:nix-community/comma"; flake = false; };
     deploy-rs.url = "github:serokell/deploy-rs";
-    digga = { url = "github:Pacman99/digga/customBuilds-mkDefault"; inputs = { deploy.follows = "deploy-rs"; nixpkgs.follows = "nixpkgs"; home-manager.follows = "home-manager"; }; };
+    digga = { url = "github:divnix/digga"; inputs = { deploy.follows = "deploy-rs"; nixpkgs.follows = "nixpkgs"; home-manager.follows = "home-manager"; }; };
     flake-utils.url = "github:numtide/flake-utils";
     home-manager = { url = "github:nix-community/home-manager"; inputs.nixpkgs.follows = "nixpkgs"; };
     nixos-hardware.url = "github:NixOS/nixos-hardware";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
     nur.url = "github:nix-community/NUR";
   };
 
@@ -33,6 +33,13 @@
               nur.overlay
               (final: prev: { comma = import comma { pkgs = final; }; })
             ];
+            patches = [
+              (builtins.fetchurl
+                {
+                  url = "https://github.com/NixOS/nixpkgs/pull/159159.patch";
+                  sha256 = "0v14j0x534wwqkk6bg5rkix1j5iqsaypa2bzsgjmgk4ffnkcv9c8";
+                })
+            ];
           };
         };
 
@@ -55,7 +62,7 @@
           importables = rec {
             profiles = rakeLeaves ./users/profiles;
             suites = with profiles; rec {
-              base = [ git shell packages.tools ssh ];
+              base = [ common git shell packages.tools ssh ];
               gui = base ++ [ browser compositor editor file-manager launcher notification-daemon terminal-emulator packages.apps packages.code window-manager ];
             };
           };

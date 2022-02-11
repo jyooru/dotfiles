@@ -14,14 +14,14 @@
   {
     "name": "prettier-vscode",
     "publisher": "esbenp",
-    "sha256": "1vfyzxaqj0bdl9cd0x6glnydbi85pf4j9fbasj2i0lfqn06l27lm",
-    "version": "9.1.0"
+    "sha256": "1ci17xm6mpxsbdazh0qgqk8c7h2v8ajy45d2mcslcc8gcgbkgqj4",
+    "version": "9.2.0"
   },
   {
     "name": "discord-vscode",
     "publisher": "icrawl",
-    "sha256": "1s173cjfq4zajddq986j6dpmqwg3ja5lrlvqhcm339py2wqbrpd4",
-    "version": "5.7.0"
+    "sha256": "0r9n2g5rif4y2619wccjqh3pn9rljb3yhblz09pdksmfi2ifakr1",
+    "version": "5.8.0"
   },
   {
     "name": "nix-ide",
@@ -68,8 +68,8 @@
   {
     "name": "jupyter",
     "publisher": "ms-toolsai",
-    "sha256": "1nzd47zbhh6fn2h9id0vjp52f6fnp04yqdhqiinsviwsn4zaxk1x",
-    "version": "2022.1.1001760686"
+    "sha256": "1wgs92zh3ajch7si83h9dd5hhysr6jg8yy46f08770s3z9cq61j3",
+    "version": "2022.1.1001775990"
   },
   {
     "name": "color-highlight",

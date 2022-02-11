@@ -11,9 +11,9 @@ cd "$root" && nix flake update && nix flake lock && git add . && git commit -m "
 # overlays.node-packages
 cd "$root/overlays/node-packages" && ./update.sh && git add . && git commit -m "chore(overlays.node-packages): update"
 
+# overlays.vscode-extensions
+cd "$root/overlays/vscode-extensions" && ./update.fish && git add . && git commit -m "chore(overlays.vscode-extensions): update"
+
 # packages.caddy-modded
 # once i fix ambiguous import
 # cd "$root/packages/caddy-modded" && ./update.sh && git add . && git commit -m "chore(packages.caddy-modded): update"
-
-# packages.vscode-extensions
-cd "$root/packages/vscode-extensions" && ./update.fish && git add . && git commit -m "chore(packages.vscode-extensions): update"
