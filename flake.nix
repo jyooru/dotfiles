@@ -8,7 +8,7 @@
     flake-utils.url = "github:numtide/flake-utils";
     home-manager = { url = "github:nix-community/home-manager"; inputs.nixpkgs.follows = "nixpkgs"; };
     nixos-hardware.url = "github:NixOS/nixos-hardware";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
     nur.url = "github:nix-community/NUR";
   };
 
