@@ -19,9 +19,11 @@ in
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
-    trustedUsers = [ "root" "joel" ];
-    binaryCaches = map (x: "https://nix.${x}.${config.networking.domain}") hosts;
-    binaryCachePublicKeys = map (x: builtins.readFile (../../. + "/hosts/${x}/keys/binary-cache.pub")) hosts;
+    settings = {
+      trusted-users = [ "root" "joel" ];
+      substituters = map (x: "https://nix.${x}.${config.networking.domain}") hosts;
+      trusted-public-keys = map (x: builtins.readFile (../../. + "/hosts/${x}/keys/binary-cache.pub")) hosts;
+    };
   };
   nixpkgs.config = import ./nixpkgs.nix;
 
