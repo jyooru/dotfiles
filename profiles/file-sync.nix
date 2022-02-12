@@ -4,6 +4,7 @@ let
   inherit (config.networking) domain hostName;
 
   all = cluster ++ [ "galaxy-a22" ];
+  allBackup = backup ++ [ "galaxy-a22" ];
   backup = [ "thinkpad-e580" "portege-r700-a" "ga-z77-d3h" ]; # nodes in cluster with big hard drive plus laptop
   cluster = [ "thinkpad-e580" "portege-r700-a" "portege-r700-b" "portege-z930" "ga-z77-d3h" ]; # all nodes in cluster plus laptop
   devices = mapAttrs
@@ -21,15 +22,15 @@ let
   folders = mapAttrs
     (name: values: values // { path = ''/home/joel${if (elem hostName specialDevices) && (!(elem name specialFolders)) then "/files" else ""}/'' + name; })
     {
-      "archive" = { devices = backup; id = "u4tsv-7hxb7"; };
+      "archive" = { devices = allBackup; id = "u4tsv-7hxb7"; };
       "cluster" = { devices = cluster; id = "jyxof-ssssq"; };
       "code" = { devices = cluster; id = "wcqyy-zrab5"; };
-      "documents" = { devices = backup; id = "pgpew-tged2"; };
+      "documents" = { devices = allBackup; id = "pgpew-tged2"; };
       "games" = { devices = backup; id = "xt4t4-d2jad"; };
       "media" = { devices = backup; id = "kasul-jsgfj"; };
-      "media/phone" = { devices = backup ++ [ "galaxy-a22" ]; id = "xkgdh-rrx6u"; };
-      "notes" = { devices = backup ++ [ "galaxy-a22" ]; id = "bc6qz-tad4c"; };
-      "school" = { devices = backup; id = "s6jde-csrow"; };
+      "media/phone" = { devices = allBackup; id = "xkgdh-rrx6u"; };
+      "notes" = { devices = allBackup; id = "bc6qz-tad4c"; };
+      "school" = { devices = allBackup; id = "s6jde-csrow"; };
       "tmp" = { devices = all; id = "5f6yn-csxu7"; };
     };
   specialFolders = [ "cluster" "tmp" ]; # folders not in this list are put in ~/files on cluster nodes
