@@ -94,7 +94,6 @@
   home-manager.users.joel = {
     xdg.userDirs = {
       enable = true;
-      createDirectories = true;
       desktop = "$HOME/desktop";
       documents = "$HOME/documents";
       download = "$HOME/downloads";
