@@ -33,13 +33,6 @@
               nur.overlay
               (final: prev: { comma = import comma { pkgs = final; }; })
             ];
-            patches = [
-              (builtins.fetchurl
-                {
-                  url = "https://github.com/NixOS/nixpkgs/pull/159159.patch";
-                  sha256 = "0v14j0x534wwqkk6bg5rkix1j5iqsaypa2bzsgjmgk4ffnkcv9c8";
-                })
-            ];
           };
         };
 
