@@ -25,6 +25,7 @@ let
       "archive" = { devices = allBackup; id = "u4tsv-7hxb7"; };
       "cluster" = { devices = cluster; id = "jyxof-ssssq"; };
       "code" = { devices = cluster; id = "wcqyy-zrab5"; };
+      "data" = { devices = allBackup; id = "n3a2w-sqney"; };
       "documents" = { devices = allBackup; id = "pgpew-tged2"; };
       "games" = { devices = backup; id = "xt4t4-d2jad"; };
       "media" = { devices = backup; id = "kasul-jsgfj"; };
