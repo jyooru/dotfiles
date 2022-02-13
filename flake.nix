@@ -69,6 +69,8 @@
 
         deploy.nodes = mkDeployNodes self.nixosConfigurations { };
 
+        templates = import ./templates;
+
         inherit overlay overlays;
 
       } // (flake-utils.lib.eachSystem supportedSystems (system:
