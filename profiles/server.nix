@@ -56,7 +56,6 @@
           server {
             listen 8000;
             listen [::]:8000;
-            proxy_protocol on;
             proxy_pass http_servers;
           }
 
