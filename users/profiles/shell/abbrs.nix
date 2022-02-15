@@ -1,7 +1,7 @@
 {
   programs.fish.shellAbbrs = {
     c = "code";
-    d = "docker";
+    d = "ddgr";
     py = "python";
     pym = "python -m";
     r = "ranger";
