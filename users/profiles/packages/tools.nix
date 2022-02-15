@@ -4,6 +4,7 @@
     brightnessctl # brightness control
     dig # dns lookup
     pandoc # document converter
+    ddgr # duckduckgo cli
     ncdu # disk space viewer
     p7zip # file archiver, optional dependecy for preview in ranger
     fd # "find" rust alternative
