@@ -6,9 +6,11 @@
     discord # chat (friends, public)
     gnome.nautilus # file manager (gui)
     ranger # file manager (tui)
-    minecraft # game
     arduino # ide for arduino
     vlc # media player
+    polymc # minecraft launcher
+    openjdk8 # minecraft java version
+    # openjdk17 # minecraft java version
     spotify # music streaming service
     obsidian # notes
     onlyoffice-bin # office suite
