@@ -18,6 +18,7 @@ in
       https-everywhere
       ipfs-companion
       metamask
+      ublock-origin
     ];
 
     profiles."profile" = {
