@@ -1,5 +1,5 @@
-#!/usr/bin/env nix-shell
-#!nix-shell -i fish -p fish git
+#!/usr/bin/env fish
+
 
 set root (pwd)
 

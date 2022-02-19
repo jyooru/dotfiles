@@ -78,7 +78,15 @@
       with pkgs;
       rec {
         devShell = mkShell {
-          packages = [ nixpkgs-fmt deploy-rs.outputs.packages.${system}.deploy-rs qtile nodePackages.node2nix ]
+          packages = [
+            deploy-rs.defaultPackage.${system}
+            fish
+            git
+            nixpkgs-fmt
+            nodePackages.node2nix
+            nodePackages.prettier
+            qtile
+          ]
           ++ (import ./users/profiles/packages/code.nix { inherit pkgs; }).home.packages;
         };
 
