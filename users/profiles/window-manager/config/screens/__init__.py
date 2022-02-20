@@ -5,6 +5,13 @@ from .bar import bar
 from .widgets import widget_defaults
 
 
+__all__ = [
+    "bar",
+    "screens",
+    "widget_defaults",
+]
+
+
 gap = Gap(6)
 
 screen_defaults = dict(
@@ -19,5 +26,3 @@ screens = [
     Screen(top=bar, **screen_defaults),
     Screen(top=gap, **screen_defaults),
 ]
-
-__all__ = [screens, widget_defaults]

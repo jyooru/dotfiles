@@ -6,11 +6,11 @@ from .screens import screens, widget_defaults
 
 
 __all__ = [
-    groups,
-    keys,
-    floating_layout,
-    layouts,
-    mouse,
-    screens,
-    widget_defaults,
+    "groups",
+    "keys",
+    "floating_layout",
+    "layouts",
+    "mouse",
+    "screens",
+    "widget_defaults",
 ]
