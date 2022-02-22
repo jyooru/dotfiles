@@ -1,4 +1,5 @@
 { inputs, lib, pkgs, system }:
+
 let
   inherit (inputs) nixpkgs;
   inherit (lib) getAttrs mapAttrs recurseIntoAttrs;
@@ -12,6 +13,7 @@ let
     fixNebula = [ "nebula" ];
   };
 in
+
 recurseIntoAttrs (
   (mapAttrs
     (overlay: packages:

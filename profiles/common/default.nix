@@ -1,7 +1,9 @@
 { config, pkgs, self, ... }:
+
 let
   hosts = builtins.attrNames self.nixosConfigurations;
 in
+
 {
   users.mutableUsers = true;
 

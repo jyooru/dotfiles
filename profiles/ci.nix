@@ -1,4 +1,5 @@
 { config, ... }:
+
 let
   inherit (config.networking) fqdn;
 
@@ -7,6 +8,7 @@ let
     (import ./distributed-build.nix { inherit config; }).nix.buildMachines
   );
 in
+
 {
   services.hercules-ci-agent = {
     enable = true;

@@ -11,5 +11,10 @@ in
     passwordAuthentication = false;
   };
 
-  programs.ssh.knownHosts = listToAttrs (map (name: { inherit name; value = { publicKeyFile = ../hosts + "/${name}/keys/ssh.pub"; }; }) hosts);
+  programs.ssh.knownHosts = listToAttrs (map
+    (name: {
+      inherit name;
+      value = { publicKeyFile = ../hosts + "/${name}/keys/ssh.pub"; };
+    })
+    hosts);
 }
