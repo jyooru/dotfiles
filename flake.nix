@@ -13,6 +13,7 @@
   };
 
   outputs = { self, comma, digga, nixpkgs, home-manager, deploy-rs, flake-utils, nur, nixos-hardware, ... } @ inputs:
+
     let
       inherit (digga.lib) importHosts rakeLeaves mkDeployNodes mkHomeConfigurations mkFlake;
 
@@ -21,9 +22,10 @@
       overlays = import ./overlays;
       overlay = overlays.packages;
     in
+
     mkFlake
       {
-        inherit self inputs supportedSystems;
+        inherit self inputs overlay overlays supportedSystems;
 
         channelsConfig = { allowUnfree = true; };
         channels = {
@@ -36,8 +38,50 @@
           };
         };
 
+        deploy.nodes = mkDeployNodes self.nixosConfigurations { };
+
+        home = {
+          importables = rec {
+            profiles = rakeLeaves ./users/profiles;
+
+            suites = with profiles; rec {
+              base = [
+                common
+                git
+                shell
+                packages.tools
+                ssh
+              ];
+              gui = base ++ [
+                browser
+                compositor
+                editor
+                file-manager
+                launcher
+                notification-daemon
+                terminal-emulator
+                packages.apps
+                packages.code
+                window-manager
+              ];
+            };
+          };
+
+          users = {
+            joel = { suites, ... }: { imports = suites.gui; };
+            root = { suites, ... }: { imports = suites.base; };
+          };
+        };
+
+        homeConfigurations = mkHomeConfigurations self.nixosConfigurations;
+
         nixos = {
-          hostDefaults = { system = "x86_64-linux"; channelName = "nixpkgs"; modules = [ home-manager.nixosModules.home-manager ]; };
+          hostDefaults = {
+            system = "x86_64-linux";
+            channelName = "nixpkgs";
+            modules = [ home-manager.nixosModules.home-manager ];
+          };
+
           imports = [ (importHosts ./hosts) ];
           importables = rec {
             profiles = rakeLeaves ./profiles // {
@@ -51,50 +95,35 @@
           };
         };
 
-        home = {
-          importables = rec {
-            profiles = rakeLeaves ./users/profiles;
-            suites = with profiles; rec {
-              base = [ common git shell packages.tools ssh ];
-              gui = base ++ [ browser compositor editor file-manager launcher notification-daemon terminal-emulator packages.apps packages.code window-manager ];
-            };
-          };
-          users = {
-            joel = { suites, ... }: { imports = suites.gui; };
-            root = { suites, ... }: { imports = suites.base; };
-          };
-        };
-
-        homeConfigurations = mkHomeConfigurations self.nixosConfigurations;
-
-        deploy.nodes = mkDeployNodes self.nixosConfigurations { };
-
         templates = import ./templates;
-
-        inherit overlay overlays;
-
-      } // (flake-utils.lib.eachSystem supportedSystems (system:
-      let pkgs = import nixpkgs { inherit system; }; in
-      with pkgs;
-      rec {
-        devShell = mkShell {
-          packages = [
-            deploy-rs.defaultPackage.${system}
-            fish
-            git
-            nixpkgs-fmt
-            nodePackages.node2nix
-            nodePackages.prettier
-            qtile
-          ]
-          ++ (import ./users/profiles/packages/code.nix { inherit pkgs; }).home.packages;
-        };
-
-        legacyPackages = import nixpkgs {
-          inherit system;
-          overlays = [ overlay ];
-        };
-        packages = import ./packages { inherit pkgs system; };
       }
-    ));
+
+    //
+
+    (flake-utils.lib.eachSystem supportedSystems
+      (system:
+        let
+          pkgs = import nixpkgs { inherit system; };
+        in
+
+        with pkgs;
+
+        rec {
+          devShell = mkShell {
+            packages = [
+              deploy-rs.defaultPackage.${system}
+              fish
+              git
+              nixpkgs-fmt
+              nodePackages.node2nix
+              nodePackages.prettier
+              qtile
+            ]
+            ++ (import ./users/profiles/packages/code.nix { inherit pkgs; }).home.packages;
+          };
+
+          packages = import ./packages { inherit pkgs system; };
+        }
+      )
+    );
 }

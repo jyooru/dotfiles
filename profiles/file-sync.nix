@@ -1,4 +1,5 @@
 { config, lib, ... }:
+
 let
   inherit (lib) elem mapAttrs filterAttrs remove;
   inherit (config.networking) domain hostName;
@@ -36,6 +37,7 @@ let
     };
   specialFolders = [ "cluster" "tmp" ]; # folders not in this list are put in ~/files on cluster nodes
 in
+
 {
   boot.kernel.sysctl = {
     "fs.inotify.max_user_watches" = "204800";
