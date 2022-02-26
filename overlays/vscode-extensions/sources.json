@@ -14,8 +14,8 @@
   {
     "name": "prettier-vscode",
     "publisher": "esbenp",
-    "sha256": "1ci17xm6mpxsbdazh0qgqk8c7h2v8ajy45d2mcslcc8gcgbkgqj4",
-    "version": "9.2.0"
+    "sha256": "1w6whr6h5v7i16f3j1kahs02mk7w2jplr5rrnsjwyszvcy6hz644",
+    "version": "9.3.0"
   },
   {
     "name": "discord-vscode",
@@ -26,8 +26,8 @@
   {
     "name": "nix-ide",
     "publisher": "jnoortheen",
-    "sha256": "1ms96ij6z4bysdhqgdaxx2znvczyhzx57iifbqws50m1c3m7pkx7",
-    "version": "0.1.19"
+    "sha256": "16mmivdssjky11gmih7zp99d41m09r0ii43n17d4i6xwivagi9a3",
+    "version": "0.1.20"
   },
   {
     "name": "fish-ide",
@@ -50,8 +50,8 @@
   {
     "name": "vscode-docker",
     "publisher": "ms-azuretools",
-    "sha256": "0qg4k5ivwa54i9f5ls1a0wl7blpymaq03dakdvvzallarip01qkf",
-    "version": "1.19.0"
+    "sha256": "0a1v8hqbrl51pxbzvjd69azqcyqid4gmva3dnk440q7szr61hy4b",
+    "version": "1.20.0"
   },
   {
     "name": "python",
@@ -62,14 +62,14 @@
   {
     "name": "vscode-pylance",
     "publisher": "ms-python",
-    "sha256": "01csiyr4wc0z4ppfnn0k5higzamg5rmkfxhk5ip4id966ipbfbdl",
-    "version": "2022.2.3"
+    "sha256": "1r46bq46dgs7jpmwadqapyy3lnh9fn9vj0x0hnzaf8i4bzkx0cfq",
+    "version": "2022.2.4"
   },
   {
     "name": "jupyter",
     "publisher": "ms-toolsai",
-    "sha256": "0q90yvc8z2y1sslm41yyp1vmkn4cb4ckhk5bm8xb21102xzvc48k",
-    "version": "2022.2.1010501003"
+    "sha256": "0sixl0ihga9r6i51vi4dw2vi6hgfys86nwdv54l6v35zggzxq337",
+    "version": "2022.2.1010571005"
   },
   {
     "name": "color-highlight",
@@ -122,8 +122,8 @@
   {
     "name": "shellcheck",
     "publisher": "timonwong",
-    "sha256": "1r67rd8cxrf43z25f7wpp85jdmkpgki61kxp5r5dcpnrp51a3lvd",
-    "version": "0.18.8"
+    "sha256": "0l3k5sr4s9kdz82d303b9gqrzmyc78nk16aw7p503043d4r53f8g",
+    "version": "0.18.9"
   },
   {
     "name": "markdown-all-in-one",
