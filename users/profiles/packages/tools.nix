@@ -1,15 +1,20 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
+    bandwhich # bandwidth monitor
     brightnessctl # brightness control
-    dig # dns lookup
+    pastel # colors cli
+    dog # dns lookup
     pandoc # document converter
-    ddgr # duckduckgo cli
+    broot # directory viewer
     ncdu # disk space viewer
+    nix-du # disk space viewer for nix store
+    ddgr # duckduckgo cli
     p7zip # file archiver, optional dependecy for preview in ranger
     fd # "find" rust alternative
     ffsend # file sender
     gh # github cli
+    graphviz # graphing tools
     hexyl # hex viewer
     httpie # http cli
     iotop # I/O monitor
@@ -24,6 +29,8 @@
     ffmpeg # media converter
     yt-dlp # media downloader
     sshfs # mount filesystems over ssh
+    manix # nix documentation cli
+    gping # ping but with a graph
     pv # pipe progress monitor
     nmap # port scanner
     scrot # screenshot
@@ -31,6 +38,7 @@
     neofetch # system info
     btop # system monitor
     htop # system monitor
+    aircrack-ng # wifi tools
     wmctrl # window manager control
     xorg.xev # x event viewer
     git # version control system
