@@ -12,7 +12,7 @@
     nur.url = "github:nix-community/NUR";
   };
 
-  outputs = { self, comma, digga, nixpkgs, home-manager, deploy-rs, flake-utils, nur, nixos-hardware, ... } @ inputs:
+  outputs = { self, comma, digga, nixpkgs, home-manager, deploy-rs, flake-utils, nur, ... } @ inputs:
 
     let
       inherit (digga.lib) importHosts rakeLeaves mkDeployNodes mkHomeConfigurations mkFlake;
@@ -33,7 +33,7 @@
             overlays = [
               (builtins.attrValues overlays)
               nur.overlay
-              (final: prev: { comma = import comma { pkgs = final; }; })
+              (final: _: { comma = import comma { pkgs = final; }; })
             ];
           };
         };
