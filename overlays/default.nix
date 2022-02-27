@@ -15,4 +15,4 @@ let
   };
 in
 
-builtins.mapAttrs (_: path: import path) overlays
+builtins.mapAttrs (_: import) overlays

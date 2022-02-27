@@ -31,7 +31,7 @@ in
     settings = {
       # https://github.com/slackhq/nebula/blob/master/examples/config.yml
 
-      static_host_map = let thisHost = (lighthouses.${hostName} or ""); in removeAttrs staticHosts [ thisHost ];
+      static_host_map = let thisHost = lighthouses.${hostName} or ""; in removeAttrs staticHosts [ thisHost ];
 
       lighthouse = rec {
         am_lighthouse = elem hostName lighthouseHostnames;
