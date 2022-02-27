@@ -51,7 +51,7 @@ in
     openDefaultPorts = true;
     systemService = true;
     devices = removeAttrs devices [ hostName ];
-    folders = mapAttrs (name: values: values // { devices = remove hostName values.devices; })
+    folders = mapAttrs (_: values: values // { devices = remove hostName values.devices; })
       (filterAttrs (_: v: elem hostName v.devices) folders);
   };
 }

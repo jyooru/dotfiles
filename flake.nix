@@ -2,17 +2,24 @@
   description = "NixOS configuration";
 
   inputs = {
-    comma = { url = "github:nix-community/comma"; flake = false; };
+    comma.url = "github:nix-community/comma";
     deploy-rs.url = "github:serokell/deploy-rs";
-    digga = { url = "github:divnix/digga"; inputs = { deploy.follows = "deploy-rs"; nixpkgs.follows = "nixpkgs"; home-manager.follows = "home-manager"; }; };
+    digga = {
+      url = "github:divnix/digga";
+      inputs = {
+        deploy.follows = "deploy-rs";
+        home-manager.follows = "home-manager";
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
     flake-utils.url = "github:numtide/flake-utils";
-    home-manager = { url = "github:nix-community/home-manager"; inputs.nixpkgs.follows = "nixpkgs"; };
+    home-manager.url = "github:nix-community/home-manager";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
     nur.url = "github:nix-community/NUR";
   };
 
-  outputs = { self, comma, digga, nixpkgs, home-manager, deploy-rs, flake-utils, nur, nixos-hardware, ... } @ inputs:
+  outputs = { self, comma, digga, nixpkgs, home-manager, deploy-rs, flake-utils, nur, ... } @ inputs:
 
     let
       inherit (digga.lib) importHosts rakeLeaves mkDeployNodes mkHomeConfigurations mkFlake;
@@ -33,7 +40,7 @@
             overlays = [
               (builtins.attrValues overlays)
               nur.overlay
-              (final: prev: { comma = import comma { pkgs = final; }; })
+              (final: _: { comma = import comma { pkgs = final; }; })
             ];
           };
         };
