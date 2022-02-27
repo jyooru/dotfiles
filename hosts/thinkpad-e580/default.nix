@@ -39,8 +39,6 @@
   sound.enable = true;
 
   services = {
-    auto-cpufreq.enable = true;
-
     # this host isn't a lighthouse, but all hosts should have a unique port for NAT traversal to avoid overlaps
     nebula.networks."joel".listen.port = 4240;
 
@@ -53,6 +51,8 @@
       enable = true;
       guiAddress = "0.0.0.0:8384";
     };
+
+    tlp.enable = true;
 
     xserver = {
       enable = true;
@@ -94,15 +94,14 @@
   home-manager.users.joel = {
     xdg.userDirs = {
       enable = true;
-      createDirectories = true;
-      desktop = "\$HOME/desktop";
-      documents = "\$HOME/documents";
-      download = "\$HOME/downloads";
-      music = "\$HOME/media/music";
-      pictures = "\$HOME/media/screenshots";
-      publicShare = "\$HOME/share";
-      templates = "\$HOME/templates";
-      videos = "\$HOME/media/videos";
+      desktop = "$HOME/desktop";
+      documents = "$HOME/documents";
+      download = "$HOME/downloads";
+      music = "$HOME/media/music";
+      pictures = "$HOME/media/screenshots";
+      publicShare = "$HOME/share";
+      templates = "$HOME/templates";
+      videos = "$HOME/media/videos";
     };
 
     home.file."nodeCaddyfile" = {

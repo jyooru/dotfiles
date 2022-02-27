@@ -1,7 +1,9 @@
 { config, ... }:
+
 let
   inherit (config.networking) domain;
 in
+
 {
   nix = {
     buildMachines = (map

@@ -13,7 +13,8 @@
     python3Packages.poetry # python package manager
     python3Packages.pytest # python test framework
     nixpkgs-fmt # nix formatter
-    nix-linter # nix linter
+    statix # nix linter
+    deadnix # nix unused code scanner
     nixpkgs-review # nixpkgs pull request reviewing tool
   ];
 }

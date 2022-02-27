@@ -1,19 +1,23 @@
-#!/usr/bin/env nix-shell
-#!nix-shell -i fish -p fish git
+#!/usr/bin/env fish
 
 set root (pwd)
 
+cd "$root" &&
+    nix flake update &&
+    nix flake lock && # make sure all lockfile changes are committed
+    git add . &&
+    git commit -m "chore(flake): update"
 
-# flake
-# `nix flake lock`: make sure all lockfile changes are committed - some lockfile changes happen when using the flake (eg nixos-rebuild)
-cd "$root" && nix flake update && nix flake lock && git add . && git commit -m "chore(flake): update"
+cd "$root/overlays/node-packages" &&
+    ./update.sh &&
+    git add . &&
+    git commit -m "chore(overlays.node-packages): update"
 
-# overlays.node-packages
-cd "$root/overlays/node-packages" && ./update.sh && git add . && git commit -m "chore(overlays.node-packages): update"
+cd "$root/overlays/vscode-extensions" &&
+    ./update.fish &&
+    git add . &&
+    git commit -m "chore(overlays.vscode-extensions): update"
 
 # packages.caddy-modded
 # once i fix ambiguous import
 # cd "$root/packages/caddy-modded" && ./update.sh && git add . && git commit -m "chore(packages.caddy-modded): update"
-
-# packages.vscode-extensions
-cd "$root/packages/vscode-extensions" && ./update.fish && git add . && git commit -m "chore(packages.vscode-extensions): update"

@@ -1,7 +1,7 @@
 {
   programs.fish.shellAbbrs = {
     c = "code";
-    d = "docker";
+    d = "ddgr";
     py = "python";
     pym = "python -m";
     r = "ranger";
@@ -62,6 +62,7 @@
     nf = "nix flake";
     nfc = "nix flake check";
     nfl = "nix flake lock";
+    nfi = "nix flake init -t github:jyooru/dotfiles#";
     nfu = "nix flake update";
     nh = "nix-hash";
     nhb = "nix-hash --type sha256 --to-base32";

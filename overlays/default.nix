@@ -7,7 +7,6 @@ let
 
     # fixes
     fixNebula = ./fix-nebula;
-    fixNixServe = ./fix-nix-serve;
 
     # package sets
     nodePackages = ./node-packages;
@@ -15,4 +14,5 @@ let
     vscodeExtensions = ./vscode-extensions;
   };
 in
+
 builtins.mapAttrs (_: path: import path) overlays

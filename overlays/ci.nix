@@ -1,4 +1,5 @@
 { inputs, lib, pkgs, system }:
+
 let
   inherit (inputs) nixpkgs;
   inherit (lib) getAttrs mapAttrs recurseIntoAttrs;
@@ -10,9 +11,9 @@ let
     customiseXsecurelock = [ "xsecurelock" ];
 
     fixNebula = [ "nebula" ];
-    fixNixServe = [ "nix-serve" ];
   };
 in
+
 recurseIntoAttrs (
   (mapAttrs
     (overlay: packages:

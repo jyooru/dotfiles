@@ -1,8 +1,8 @@
 final: prev:
+
 let
   unwrapped = prev.qtile.passthru.unwrapped.overrideAttrs (old: {
     patches = (old.patches or [ ]) ++ [
-      ./fix-restart.patch
       ./play-pause-icons.patch
     ];
 
@@ -11,6 +11,7 @@ let
     ]);
   });
 in
+
 {
   qtile = (final.python3.withPackages (_: [ unwrapped ])).overrideAttrs
     (_: {

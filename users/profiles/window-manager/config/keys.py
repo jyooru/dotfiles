@@ -232,7 +232,7 @@ keys = [
     Key(
         [mod, "mod1"],
         "Escape",
-        sh(f"{lock} && sleep 0.5 && systemctl suspend"),
+        sh(f"{lock} & systemctl suspend"),
         desc="Lock screen and suspend",
     ),
     Key(
