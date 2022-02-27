@@ -7,7 +7,7 @@ let
 in
 {
   services.openssh = {
-    enable = pathExists (../hosts + "/${hostName}/keys/ssh.pub");
+    enable = pathExists "${../hosts}/${hostName}/keys/ssh.pub";
     passwordAuthentication = false;
   };
 

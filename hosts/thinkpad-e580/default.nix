@@ -42,11 +42,6 @@
     # this host isn't a lighthouse, but all hosts should have a unique port for NAT traversal to avoid overlaps
     nebula.networks."joel".listen.port = 4240;
 
-    nix-serve = {
-      enable = true;
-      secretKeyFile = "/var/binary-cache.pem";
-    };
-
     syncthing = {
       enable = true;
       guiAddress = "0.0.0.0:8384";
@@ -72,7 +67,6 @@
       videoDrivers = [ "amdgpu" "radeon" "nouveau" "modesetting" "fbdev" ];
     };
   };
-  systemd.services.nix-serve.environment.HOME = "/dev/null"; # bug fix
 
   programs = {
     gnupg.agent = {
@@ -120,11 +114,6 @@
         ${config.networking.hostName}.dev.joel.tokyo {
           import joel.tokyo
           respond "Hello world"
-        }
-
-        nix.${config.networking.hostName}.dev.joel.tokyo {
-          import joel.tokyo
-          reverse_proxy 172.17.0.1:5000
         }
 
         syncthing.srv.${config.networking.hostName}.dev.joel.tokyo {

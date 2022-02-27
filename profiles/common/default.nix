@@ -1,7 +1,10 @@
 { config, pkgs, self, ... }:
 
+with builtins;
+
 let
-  hosts = builtins.attrNames self.nixosConfigurations;
+  hosts = attrNames self.nixosConfigurations;
+  cacheHosts = filter (host: pathExists "${../../hosts}/${host}/keys/binary-cache.pub") hosts;
 in
 
 {
@@ -23,8 +26,9 @@ in
     '';
     settings = {
       trusted-users = [ "root" "joel" ];
-      substituters = map (x: "https://nix.${x}.${config.networking.domain}") hosts;
-      trusted-public-keys = map (x: builtins.readFile (../../. + "/hosts/${x}/keys/binary-cache.pub")) hosts;
+      substituters = map (x: "https://nix.${x}.${config.networking.domain}") cacheHosts;
+      trusted-public-keys =
+        map (x: readFile (../../. + "/hosts/${x}/keys/binary-cache.pub")) cacheHosts;
     };
   };
   nixpkgs.config = import ./nixpkgs.nix;
