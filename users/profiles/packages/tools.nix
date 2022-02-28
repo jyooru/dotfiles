@@ -4,7 +4,7 @@
     bandwhich # bandwidth monitor
     brightnessctl # brightness control
     pastel # colors cli
-    dog # dns lookup
+    dogdns # dns lookup
     pandoc # document converter
     broot # directory viewer
     ncdu # disk space viewer
