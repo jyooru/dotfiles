@@ -117,7 +117,7 @@
               nixpkgs-fmt
               nodePackages.node2nix
               nodePackages.prettier
-              qtile
+              # qtile
             ]
             ++ packages.docs-src.nativeBuildInputs
             ++ (import ./users/profiles/packages/code.nix { inherit pkgs; }).home.packages;

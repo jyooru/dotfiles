@@ -1,22 +1,24 @@
+from pathlib import Path
+
 import frontmatter
-from os import  getcwd, walk, rename, path
 
 
-source = getcwd()
+def main(source: Path = Path(".")):
+    for item in source.glob("**/*"):
+        if not item.is_file():
+            continue
 
+        if str(item).endswith(".md"):
+            metadata = frontmatter.load(item.open())
+            if "layout" not in metadata:
+                metadata["layout"] = "page"
+            frontmatter.dump(metadata, item.open('wb'))
+            
+            if item.name == "README.md":
+                index_path = item.parent / "index.md"
+                assert not index_path.exists()
+                item.rename(index_path)
 
-def main():
-    for root, dirs, files in walk(source):
-        for file in files:
-            if file.endswith(".md"):
-                full_path = f"{root}/{file}"
-                metadata = frontmatter.load(full_path)
-                if "layout" not in metadata:
-                    metadata["layout"] = "page"
-                frontmatter.dump(metadata, full_path)
-                if file == "README.md":
-                    assert not path.exists(root + "index.md")
-                    rename(full_path, f"{root}/index.md")
 
 if __name__ == "__main__":
     main()
