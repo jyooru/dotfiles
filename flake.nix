@@ -31,6 +31,8 @@
       overlay = overlays.packages;
     in
 
+    with builtins;
+
     mkFlake
       {
         inherit self inputs overlay overlays supportedSystems;
@@ -39,7 +41,7 @@
         channels = {
           nixpkgs = {
             overlays = [
-              (builtins.attrValues overlays)
+              (attrValues overlays)
               (final: _: { comma = import comma { pkgs = final; }; })
               fenix.overlay
               nur.overlay
@@ -112,7 +114,10 @@
     (flake-utils.lib.eachSystem supportedSystems
       (system:
         let
-          pkgs = import nixpkgs { inherit system; };
+          pkgs = import nixpkgs {
+            inherit system;
+            overlays = [ fenix.overlay ];
+          };
         in
 
         with pkgs;
