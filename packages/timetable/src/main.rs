@@ -5,6 +5,7 @@ use serde::{Deserialize, Serialize};
 use std::env;
 use std::fs;
 use std::path::Path;
+use tabled::Object;
 use tabled::{
     Alignment, Column, Format, FormatFrom, Full, Header, Modify, Row, Style, Table, Tabled,
 };
@@ -71,6 +72,17 @@ pub fn query_choice(choices: &[String], pattern: String) -> usize {
     0
 }
 
+fn map_period(period: &str) -> String {
+    let integer = period.parse::<u8>().unwrap();
+    if integer == 5 {
+        "F".to_string()
+    } else if integer > 5 {
+        (integer - 1).to_string()
+    } else {
+        integer.to_string()
+    }
+}
+
 fn main() {
     let path = find_timetable().expect("Cannot find file");
     let file = fs::read_to_string(path).expect("Cannot read file");
@@ -96,6 +108,7 @@ fn main() {
         // labels
         .with(Modify::new(Row(1..2)).with(FormatFrom(labels)))
         // columns
+        .with(Modify::new(Column(..1).not(Row(..2))).with(Format(map_period)))
         .with(Modify::new(Column(..1)).with(Alignment::center_horizontal()))
         .with(Modify::new(Column(..1)).with(Format(|s| s.green().bold().to_string())))
         .with(Modify::new(Column(1..2)).with(Format(|s| s.bold().to_string())))
