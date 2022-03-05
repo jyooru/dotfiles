@@ -44,7 +44,6 @@
     "python.pythonPath" = "/usr/bin/python";
     "python.showStartPage" = false;
     "python.testing.pytestEnabled" = true;
-    "rust-client.autoStartRls" = false;
     "[yaml]"."editor.defaultFormatter" = "redhat.vscode-yaml";
   };
 }

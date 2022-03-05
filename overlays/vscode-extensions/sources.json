@@ -8,8 +8,8 @@
   {
     "name": "gitlens",
     "publisher": "eamodio",
-    "sha256": "0apjjlfdwljqih394ggz2d8m599pyyjrb0b4cfcz83601b7hk3x6",
-    "version": "11.7.0"
+    "sha256": "1xv1vzx643qa8jhjpnpv2wrymz38w130vm0idkcl77lh209r5i8x",
+    "version": "12.0.1"
   },
   {
     "name": "prettier-vscode",
@@ -56,20 +56,20 @@
   {
     "name": "python",
     "publisher": "ms-python",
-    "sha256": "0nc5s7xg8gl7b4llz3jy9xj2mg0qvcb9ldshp138y3llqfcs4di4",
-    "version": "2022.0.1814523869"
+    "sha256": "0dfxqnm9i27izdvv5n5b88zlnmlabpg8yz94l7wqlgda34339a8z",
+    "version": "2022.3.10631003"
   },
   {
     "name": "vscode-pylance",
     "publisher": "ms-python",
-    "sha256": "1r46bq46dgs7jpmwadqapyy3lnh9fn9vj0x0hnzaf8i4bzkx0cfq",
-    "version": "2022.2.4"
+    "sha256": "1s4cyrzqpb4ijwj942dqd86pcxwxdhshx80r2z80mc3q0l6gkhcd",
+    "version": "2022.3.0"
   },
   {
     "name": "jupyter",
     "publisher": "ms-toolsai",
-    "sha256": "0sixl0ihga9r6i51vi4dw2vi6hgfys86nwdv54l6v35zggzxq337",
-    "version": "2022.2.1010571005"
+    "sha256": "1hqwxy4fv91l0q29np7mz85w3ca3dlvkng1avh4xqrc6gwf7kkf3",
+    "version": "2022.3.1000642447"
   },
   {
     "name": "color-highlight",
@@ -106,12 +106,6 @@
     "publisher": "redhat",
     "sha256": "19a7ii4zrwcqb331jx78h7qpz8a4ar1w77k7nw43mcczx9gkb7sa",
     "version": "1.4.0"
-  },
-  {
-    "name": "rust",
-    "publisher": "rust-lang",
-    "sha256": "039ns854v1k4jb9xqknrjkj8lf62nfcpfn0716ancmjc4f0xlzb3",
-    "version": "0.7.8"
   },
   {
     "name": "fish-vscode",

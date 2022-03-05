@@ -16,7 +16,6 @@ pranaygp.vscode-css-peek
 redhat.vscode-commons
 redhat.vscode-xml
 redhat.vscode-yaml
-rust-lang.rust
 skyapps.fish-vscode
 timonwong.shellcheck
 yzhang.markdown-all-in-one
