@@ -12,6 +12,7 @@
         nixpkgs.follows = "nixpkgs";
       };
     };
+    fenix.url = "github:nix-community/fenix";
     flake-utils.url = "github:numtide/flake-utils";
     home-manager.url = "github:nix-community/home-manager";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
@@ -19,7 +20,7 @@
     nur.url = "github:nix-community/NUR";
   };
 
-  outputs = { self, comma, digga, nixpkgs, home-manager, deploy-rs, flake-utils, nur, ... } @ inputs:
+  outputs = { self, comma, digga, nixpkgs, home-manager, deploy-rs, flake-utils, nur, fenix, ... } @ inputs:
 
     let
       inherit (digga.lib) importHosts rakeLeaves mkDeployNodes mkHomeConfigurations mkFlake;
@@ -30,6 +31,8 @@
       overlay = overlays.packages;
     in
 
+    with builtins;
+
     mkFlake
       {
         inherit self inputs overlay overlays supportedSystems;
@@ -38,9 +41,10 @@
         channels = {
           nixpkgs = {
             overlays = [
-              (builtins.attrValues overlays)
-              nur.overlay
+              (attrValues overlays)
               (final: _: { comma = import comma { pkgs = final; }; })
+              fenix.overlay
+              nur.overlay
             ];
           };
         };
@@ -110,7 +114,10 @@
     (flake-utils.lib.eachSystem supportedSystems
       (system:
         let
-          pkgs = import nixpkgs { inherit system; };
+          pkgs = import nixpkgs {
+            inherit system;
+            overlays = [ fenix.overlay ];
+          };
         in
 
         with pkgs;
