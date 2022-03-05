@@ -1,24 +1,15 @@
+use crossterm::style::Stylize;
+use fuzzy_matcher::skim::SkimMatcherV2;
+use fuzzy_matcher::FuzzyMatcher;
+use serde::{Deserialize, Serialize};
 use std::env;
 use std::fs;
 use std::path::Path;
+use tabled::{
+    Alignment, Column, Format, FormatFrom, Full, Header, Modify, Row, Style, Table, Tabled,
+};
 
-use tabled::Alignment;
-use tabled::Column;
-use tabled::Format;
-use tabled::FormatFrom;
-use tabled::Full;
-use tabled::Header;
-use tabled::Modify;
-use tabled::Row;
-use tabled::Style;
-use tabled::Table;
-
-use crossterm::style::Stylize;
-
-mod parse;
-mod query;
-
-fn find_timetable() -> String {
+fn find_timetable() -> Option<String> {
     let home = env::var("HOME").unwrap();
     let paths = [
         ".config/timetable.json",
@@ -27,61 +18,88 @@ fn find_timetable() -> String {
     ];
 
     for path in paths {
-        let full_path = home.clone() + "/" + path;
+        let full_path = format!("{}/{}", home, path);
         if Path::new(&full_path).exists() {
-            return full_path;
+            return Some(full_path);
         }
     }
-
-    panic!("Could not find timetable.json");
+    None
 }
 
-fn get_pattern() -> String {
-    let mut args: Vec<String> = env::args().collect();
-    args.remove(0);
-    args.to_vec().join(" ")
+#[derive(Serialize, Deserialize, Tabled)]
+struct Period {
+    period: u8,
+    name: String,
+    room: String,
+    teacher: String,
+}
+type Day = [Period; 7];
+type Timetable = [Day; 10];
+
+fn parse_timetable(timetable: String) -> Result<Timetable, serde_json::Error> {
+    serde_json::from_str(&timetable)
 }
 
 fn get_choices() -> Vec<String> {
     let weeks = ['A', 'B'];
     let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 
-    let mut choices: Vec<String> = Vec::new();
-    for week in weeks {
-        for day in days {
-            choices.push(format!("{} {}", day, week));
+    days.map(|day| weeks.map(|week| format!("{} {}", day, week)))
+        .concat()
+}
+
+fn get_pattern() -> String {
+    let mut args: Vec<String> = env::args().collect();
+    args.remove(0);
+    args.join(" ")
+}
+
+pub fn query_choice(choices: &[String], pattern: String) -> usize {
+    let matcher = SkimMatcherV2::default();
+
+    let mut scores = Vec::new();
+    for choice in choices {
+        scores.push(matcher.fuzzy_match(choice, &pattern).unwrap_or(0))
+    }
+
+    let best_score = scores.iter().max().unwrap();
+    for index in 0..scores.len() {
+        if scores.get(index).unwrap() == best_score {
+            return index;
         }
     }
-    choices
+    0
 }
 
 fn main() {
-    let file = fs::read_to_string(find_timetable()).expect("Cannot read file");
-    let timetable = parse::parse_timetable(file);
+    let path = find_timetable().expect("Cannot find file");
+    let file = fs::read_to_string(path).expect("Cannot read file");
+    let timetable = parse_timetable(file).expect("Cannot parse file");
 
     let choices = get_choices();
-    let choice = query::query_choice(&choices, get_pattern()).expect("Fuzzy matching failed");
+    let choice = query_choice(&choices, get_pattern());
 
     let day = timetable.get(choice).unwrap();
+    let header = &choices.get(choice).unwrap();
+    let labels = ["Period", "Class", "Room", "Teacher"]
+        .iter()
+        .map(|s| s.bold().reset().to_string())
+        .collect();
+
     let table = Table::new(day)
-        .with(Style::psql().vertical_off().header('━'))
-        .with(Header(&choices.get(choice).unwrap()))
-        .with(Modify::new(Row(..2)).with(Format(|s| s.bold().reset().to_string())))
-        .with(Modify::new(Row(..1)).with(Format(|s| format!("{}\n", s))))
-        .with(Modify::new(Row(1..2)).with(FormatFrom(vec![
-            "Period".bold().reset().to_string(),
-            "Class".bold().reset().to_string(),
-            "Room".bold().reset().to_string(),
-            "Teacher".bold().reset().to_string(),
-        ])))
         .with(Modify::new(Full).with(Alignment::left()))
-        .with(
-            Modify::new(Column(..1))
-                .with(Alignment::center_horizontal())
-                .with(Format(|s| s.green().bold().to_string())),
-        )
+        // borders
+        .with(Style::psql().vertical_off().header('━'))
+        // header
+        .with(Header(header))
+        .with(Modify::new(Row(..1)).with(Format(|s| format!("{}\n", s).bold().reset().to_string())))
+        // labels
+        .with(Modify::new(Row(1..2)).with(FormatFrom(labels)))
+        // columns
+        .with(Modify::new(Column(..1)).with(Alignment::center_horizontal()))
+        .with(Modify::new(Column(..1)).with(Format(|s| s.green().bold().to_string())))
         .with(Modify::new(Column(1..2)).with(Format(|s| s.bold().to_string())))
         .with(Modify::new(Column(2..3)).with(Format(|s| s.bold().cyan().to_string())));
 
-    println!("\n{}", table.to_string())
+    print!("\n{}", table)
 }

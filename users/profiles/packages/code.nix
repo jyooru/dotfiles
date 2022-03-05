@@ -8,6 +8,7 @@
       (with fenix; combine [
         stable.rustc
         stable.cargo
+        stable.clippy
         stable.rust-src
         stable.rustfmt
         rust-analyzer
