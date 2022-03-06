@@ -1,0 +1,12 @@
+diff --git a/pyproject.toml b/pyproject.toml
+index 719266f..d117a7d 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -18,7 +18,6 @@ click = "^8.0.1"
+ pydantic = "^1.8.2"
+ requests = "^2.26.0"
+ rich = "^10.11.0"
+-bs4 = "^0.0.1"
+
+ [tool.poetry.dev-dependencies]
+ pytest = "^6.1.2"
