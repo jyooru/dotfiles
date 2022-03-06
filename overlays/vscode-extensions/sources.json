@@ -68,8 +68,8 @@
   {
     "name": "jupyter",
     "publisher": "ms-toolsai",
-    "sha256": "1hqwxy4fv91l0q29np7mz85w3ca3dlvkng1avh4xqrc6gwf7kkf3",
-    "version": "2022.3.1000642447"
+    "sha256": "13f7595hbdib3xdy90fb6ak3q7nmpm156m4jjcvby9k46ff42p03",
+    "version": "2022.3.1000652335"
   },
   {
     "name": "color-highlight",
