@@ -100,32 +100,33 @@
 
     home.file."nodeCaddyfile" = {
       target = "node/config/Caddyfile";
-      text = ''
-        {
-          log {
-            output file /var/log/caddy/log.json {
-              roll_keep_for 14d
+      text = let inherit (config.networking) fqdn; in
+        ''
+          {
+            log {
+              output file /var/log/caddy/log.json {
+                roll_keep_for 14d
+              }
             }
           }
-        }
 
-        import secretsCaddyfile # cloudflare key for tls
+          import secretsCaddyfile # cloudflare key for tls
 
-        ${config.networking.hostName}.dev.joel.tokyo {
-          import joel.tokyo
-          respond "Hello world"
-        }
+          ${fqdn} {
+            import joel.tokyo
+            respond "Hello world"
+          }
 
-        syncthing.srv.${config.networking.hostName}.dev.joel.tokyo {
-          import joel.tokyo
-          reverse_proxy 172.17.0.1:8384
-        }
+          syncthing.${fqdn} {
+            import joel.tokyo
+            reverse_proxy 172.17.0.1:8384
+          }
 
-        ipfs.srv.${config.networking.hostName}.dev.joel.tokyo {
-          import joel.tokyo
-          respond "Hello world"
-        }
-      '';
+          ipfs.${fqdn} {
+            import joel.tokyo
+            respond "Hello world"
+          }
+        '';
     };
   };
 

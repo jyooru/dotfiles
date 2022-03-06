@@ -13,10 +13,10 @@ let
   lighthouseHostnames = attrNames lighthouses;
   lighthouseIps = attrValues lighthouses;
   staticHosts = {
-    "10.42.0.11" = [ "home.run.joel.tokyo:4241" "192.168.0.11:4241" ];
-    "10.42.0.12" = [ "home.run.joel.tokyo:4242" "192.168.0.12:4242" ];
-    "10.42.0.13" = [ "home.run.joel.tokyo:4243" "192.168.0.13:4243" ];
-    "10.42.0.14" = [ "home.run.joel.tokyo:4244" "192.168.0.14:4244" ];
+    "10.42.0.11" = [ "home.joel.tokyo:4241" "192.168.0.11:4241" ];
+    "10.42.0.12" = [ "home.joel.tokyo:4242" "192.168.0.12:4242" ];
+    "10.42.0.13" = [ "home.joel.tokyo:4243" "192.168.0.13:4243" ];
+    "10.42.0.14" = [ "home.joel.tokyo:4244" "192.168.0.14:4244" ];
   };
 in
 

@@ -29,7 +29,7 @@ More detailed specs are available on each seperate hosts' README.
 1. Login as root.
    `sudo su`
 2. `cd /var`
-3. `nix-store --generate-binary-cache-key nix.$(hostname).dev.joel.tokyo binary-cache.pem binary-cache.pub`
+3. `nix-store --generate-binary-cache-key nix.$(hostname).joel.tokyo binary-cache.pem binary-cache.pub`
 4. Enable the nix-serve service. <!-- chown: invalid user: ‘nix-serve’ -->
 5. `chown nix-serve binary-cache.pem && chmod 600 binary-cache.pem`
 6. `cat /var/binary-cache.pub` and save to `hosts/$(hostname)/keys/binary-cache.pub`
