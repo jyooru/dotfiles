@@ -44,7 +44,7 @@ in
         respond = true;
       };
 
-      cipher = "chachapoly";
+      cipher = "aes";
 
       preferred_ranges = "192.168.0.0/24";
 
