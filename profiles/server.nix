@@ -94,39 +94,40 @@
   systemd.services.nix-serve.environment.HOME = "/dev/null";
   home-manager.users.joel.home.file."nodeCaddyfile" = {
     target = "node/config/Caddyfile";
-    text = ''
-      import clusterCaddyfile
+    text = let inherit (config.networking) domain fqdn hostName; in
+      ''
+        import clusterCaddyfile
 
-      tmp.joel.tokyo {
-        import joel.tokyo
-        reverse_proxy 10.42.0.1:8080
-      }
+        tmp.${domain} {
+          import joel.tokyo
+          reverse_proxy 10.42.0.1:8080
+        }
 
-      ${config.networking.hostName}.dev.joel.tokyo {
-        import joel.tokyo
-        respond "Hello world"
-      }
+        ${fqdn} {
+          import joel.tokyo
+          respond "Hello world"
+        }
 
-      nix.${config.networking.hostName}.dev.joel.tokyo {
-        import joel.tokyo
-        reverse_proxy 172.17.0.1:5000
-      }
+        nix.${fqdn} {
+          import joel.tokyo
+          reverse_proxy 172.17.0.1:5000
+        }
 
-      syncthing.srv.${config.networking.hostName}.dev.joel.tokyo {
-        import joel.tokyo
-        reverse_proxy 172.17.0.1:8384
-      }
+        syncthing.${fqdn} {
+          import joel.tokyo
+          reverse_proxy 172.17.0.1:8384
+        }
 
-      ipfs.srv.${config.networking.hostName}.dev.joel.tokyo {
-        import joel.tokyo
-        respond "Hello world"
-      }
-    '' + (if config.networking.hostName == "portege-z930" then ''
-      vaultwarden.srv.joel.tokyo {
-        import joel.tokyo
-        reverse_proxy 172.17.0.1:8002
-      }
-    '' else "");
+        ipfs.${fqdn} {
+          import joel.tokyo
+          respond "Hello world"
+        }
+      '' + (if hostName == "portege-z930" then ''
+        vaultwarden.${domain} {
+          import joel.tokyo
+          reverse_proxy 172.17.0.1:8002
+        }
+      '' else "");
   };
   virtualisation.oci-containers.containers = {
     "caddy" = {

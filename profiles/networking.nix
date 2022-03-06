@@ -1,6 +1,6 @@
 {
   networking = rec {
-    domain = "dev.joel.tokyo";
+    domain = "joel.tokyo";
     firewall.enable = true;
     networkmanager = {
       enable = true;

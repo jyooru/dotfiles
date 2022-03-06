@@ -1,16 +1,11 @@
 { config, ... }:
-
-let
-  inherit (config.networking) domain;
-in
-
 {
   nix = {
     buildMachines = map
       (values: {
         systems = [ "x86_64-linux" "aarch64-linux" "armv6l-linux" ];
         sshUser = "joel";
-      } // values // { hostName = "${values.hostName}.${domain}"; })
+      } // values // { hostName = "${values.hostName}.${config.networking.domain}"; })
       [
         { maxJobs = 4; speedFactor = 1; hostName = "portege-r700-a"; }
         { maxJobs = 4; speedFactor = 1; hostName = "portege-r700-b"; }
