@@ -16,7 +16,7 @@
     flake-utils.url = "github:numtide/flake-utils";
     home-manager.url = "github:nix-community/home-manager";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
+    nixpkgs.url = "github:jyooru/nixpkgs/nixos-master-staging-next";
     nur.url = "github:nix-community/NUR";
   };
 
