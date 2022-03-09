@@ -8,7 +8,7 @@ final: prev:
         icon = "minecraft-launcher";
         comment = "Official launcher for Minecraft, a sandbox-building game";
         desktopName = "Minecraft Launcher";
-        categories = "Game;";
+        categories = [ "Game" ];
       })
     ];
   });
