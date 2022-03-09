@@ -45,7 +45,8 @@ fn get_choices() -> Vec<String> {
     let weeks = ['A', 'B'];
     let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 
-    days.map(|day| weeks.map(|week| format!("{} {}", day, week)))
+    weeks
+        .map(|week| days.map(|day| format!("{} {}", day, week)))
         .concat()
 }
 
@@ -57,7 +58,6 @@ fn get_pattern() -> String {
 
 pub fn query_choice(choices: &[String], pattern: String) -> usize {
     let matcher = SkimMatcherV2::default();
-
     let mut scores = Vec::new();
     for choice in choices {
         scores.push(matcher.fuzzy_match(choice, &pattern).unwrap_or(0))
