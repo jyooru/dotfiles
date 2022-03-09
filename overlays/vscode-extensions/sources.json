@@ -56,8 +56,8 @@
   {
     "name": "python",
     "publisher": "ms-python",
-    "sha256": "0dfxqnm9i27izdvv5n5b88zlnmlabpg8yz94l7wqlgda34339a8z",
-    "version": "2022.3.10631003"
+    "sha256": "1mak68zlw2fl1alckjvqxraysx4a51k8p1vcvh29fqrgnppdxrwi",
+    "version": "2022.3.10671003"
   },
   {
     "name": "vscode-pylance",
@@ -68,8 +68,8 @@
   {
     "name": "jupyter",
     "publisher": "ms-toolsai",
-    "sha256": "1hqwxy4fv91l0q29np7mz85w3ca3dlvkng1avh4xqrc6gwf7kkf3",
-    "version": "2022.3.1000642447"
+    "sha256": "1x7j46ambsbbg755zw2r0qly0x276qv2ps83mmpfjid7lr7bfih3",
+    "version": "2022.3.1000691006"
   },
   {
     "name": "color-highlight",
@@ -80,8 +80,8 @@
   {
     "name": "material-icon-theme",
     "publisher": "PKief",
-    "sha256": "0b5z08v34q10xlbjbb5sn3zdwq6bflhd96z3dqsiakywhrsxi0jm",
-    "version": "4.13.0"
+    "sha256": "1d6wv5jxg4syz9dlj3q4rrv1cfk86hlff5132qga7j6y8z8f4x9q",
+    "version": "4.14.1"
   },
   {
     "name": "vscode-css-peek",
@@ -104,8 +104,8 @@
   {
     "name": "vscode-yaml",
     "publisher": "redhat",
-    "sha256": "19a7ii4zrwcqb331jx78h7qpz8a4ar1w77k7nw43mcczx9gkb7sa",
-    "version": "1.4.0"
+    "sha256": "1qsjsfggfya282rh618fc89cfgpxii7yv2kyh5is6x2r2606cy15",
+    "version": "1.5.1"
   },
   {
     "name": "fish-vscode",
