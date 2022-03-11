@@ -1336,13 +1336,13 @@ let
         sha512 = "yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A==";
       };
     };
-    "gauge-4.0.2" = {
+    "gauge-4.0.3" = {
       name = "gauge";
       packageName = "gauge";
-      version = "4.0.2";
+      version = "4.0.3";
       src = fetchurl {
-        url = "https://registry.npmjs.org/gauge/-/gauge-4.0.2.tgz";
-        sha512 = "aSPRm2CvA9R8QyU5eXMFPd+cYkyxLsXHd2l5/FOH2V/eml//M04G6KZOmTap07O1PvEwNcl2NndyLfK8g3QrKA==";
+        url = "https://registry.npmjs.org/gauge/-/gauge-4.0.3.tgz";
+        sha512 = "ICw1DhAwMtb22rYFwEHgJcx1JCwJGv3x6G0OQUq56Nge+H4Q8JEwr8iveS0XFlsUNSI67F5ffMGK25bK4Pmskw==";
       };
     };
     "get-caller-file-2.0.5" = {
@@ -1462,13 +1462,13 @@ let
         sha1 = "b5d454dc2199ae225699f3467e5a07f3b955bafd";
       };
     };
-    "has-symbols-1.0.2" = {
+    "has-symbols-1.0.3" = {
       name = "has-symbols";
       packageName = "has-symbols";
-      version = "1.0.2";
+      version = "1.0.3";
       src = fetchurl {
-        url = "https://registry.npmjs.org/has-symbols/-/has-symbols-1.0.2.tgz";
-        sha512 = "chXa79rL/UC2KlX17jo3vRGz0azaWEx5tGqZg5pO3NUyEJVB17dMruQlzCCOfUvElghKcm5194+BCRvi2Rv/Gw==";
+        url = "https://registry.npmjs.org/has-symbols/-/has-symbols-1.0.3.tgz";
+        sha512 = "l3LCuF6MgDNwTDKkdYGEihYjt5pRPbEg46rtlmnSPlUbgmB8LOIrKJbYYFBSbnPaJexMKtiPO8hmeRjRz2Td+A==";
       };
     };
     "has-tostringtag-1.0.0" = {
@@ -1921,13 +1921,13 @@ let
         sha512 = "ynTsyrFSdE5oZ/O9GEf00kPngmOfVwazR5GKDq6EYfhlpFug3J2zybX56a2PRRpc9P+FuSoGNAwjlbDs9jJBPQ==";
       };
     };
-    "liquidjs-9.35.0" = {
+    "liquidjs-9.36.0" = {
       name = "liquidjs";
       packageName = "liquidjs";
-      version = "9.35.0";
+      version = "9.36.0";
       src = fetchurl {
-        url = "https://registry.npmjs.org/liquidjs/-/liquidjs-9.35.0.tgz";
-        sha512 = "NcjRogPdZ7xZA62X9DEEmZL8TDt9j5LydfUYtbdZlRrJ7TPAbEQ9yYJz5g0GTaGKOidk29+BFqfFmqxq5vC2Dw==";
+        url = "https://registry.npmjs.org/liquidjs/-/liquidjs-9.36.0.tgz";
+        sha512 = "HbU4xBsY1r3ZEORTgPsiluXsOtMx8iI0MqTsPejgIk+sIgta5wQUYsoQgUPuGKWVHKKKMO9PidiMEPKlePl8rg==";
       };
     };
     "localtunnel-2.0.2" = {
@@ -2740,13 +2740,13 @@ let
         sha512 = "Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==";
       };
     };
-    "raw-body-2.5.0" = {
+    "raw-body-2.5.1" = {
       name = "raw-body";
       packageName = "raw-body";
-      version = "2.5.0";
+      version = "2.5.1";
       src = fetchurl {
-        url = "https://registry.npmjs.org/raw-body/-/raw-body-2.5.0.tgz";
-        sha512 = "XpyZ6O7PVu3ItMQl0LslfsRoKxMOxi3SzDkrOtxMES5AqLFpYjQCryxI4LGygUN2jL+RgFsPkMPPlG7cg/47+A==";
+        url = "https://registry.npmjs.org/raw-body/-/raw-body-2.5.1.tgz";
+        sha512 = "qqJBtEyVgS0ZmPGdCFPWJ3FreoqvG4MVQln/kCgF7Olq95IbOp0/BWyMwbdtn4VTvkM8Y7khCQ2Xgk/tcrCXig==";
       };
     };
     "readable-stream-3.6.0" = {
@@ -3352,13 +3352,13 @@ let
         sha512 = "8Y75pvTYkLJW2hWQHXxoqRgV7qb9B+9vFEtidML+7koHUFapnVJAZ6cKs+Qjz5Aw3aZWHMC6u0wJE3At+nSGwA==";
       };
     };
-    "uglify-js-3.15.1" = {
+    "uglify-js-3.15.3" = {
       name = "uglify-js";
       packageName = "uglify-js";
-      version = "3.15.1";
+      version = "3.15.3";
       src = fetchurl {
-        url = "https://registry.npmjs.org/uglify-js/-/uglify-js-3.15.1.tgz";
-        sha512 = "FAGKF12fWdkpvNJZENacOH0e/83eG6JyVQyanIJaBXCN1J11TUQv1T1/z8S+Z0CG0ZPk1nPcreF/c7lrTd0TEQ==";
+        url = "https://registry.npmjs.org/uglify-js/-/uglify-js-3.15.3.tgz";
+        sha512 = "6iCVm2omGJbsu3JWac+p6kUiOpg3wFO2f8lIXjfEb8RrmLjzog1wTPMmwKB7swfzzqxj9YM+sGUM++u1qN4qJg==";
       };
     };
     "unique-filename-1.1.1" = {
@@ -3766,7 +3766,7 @@ in
       sources."has-binary2-1.0.3"
       sources."has-cors-1.1.0"
       sources."has-flag-3.0.0"
-      sources."has-symbols-1.0.2"
+      sources."has-symbols-1.0.3"
       sources."has-tostringtag-1.0.0"
       (sources."http-errors-2.0.0" // {
         dependencies = [
@@ -3816,7 +3816,7 @@ in
       sources."kleur-4.1.4"
       sources."limiter-1.1.5"
       sources."linkify-it-3.0.3"
-      sources."liquidjs-9.35.0"
+      sources."liquidjs-9.36.0"
       (sources."localtunnel-2.0.2" // {
         dependencies = [
           sources."debug-4.3.2"
@@ -3904,7 +3904,7 @@ in
       sources."qs-6.2.3"
       sources."queue-microtask-1.2.3"
       sources."range-parser-1.2.1"
-      sources."raw-body-2.5.0"
+      sources."raw-body-2.5.1"
       sources."readdirp-3.6.0"
       sources."recursive-copy-2.0.14"
       sources."require-directory-2.1.1"
@@ -3999,7 +3999,7 @@ in
       sources."token-stream-1.0.0"
       sources."ua-parser-js-1.0.2"
       sources."uc.micro-1.0.6"
-      sources."uglify-js-3.15.1"
+      sources."uglify-js-3.15.3"
       sources."universalify-0.1.2"
       sources."unpipe-1.0.0"
       sources."utils-merge-1.0.1"
@@ -4129,7 +4129,7 @@ in
       sources."file-uri-to-path-1.0.0"
       sources."fs-minipass-2.1.0"
       sources."fs.realpath-1.0.0"
-      sources."gauge-4.0.2"
+      sources."gauge-4.0.3"
       sources."glob-7.2.0"
       sources."graceful-fs-4.2.9"
       sources."has-unicode-2.0.1"
