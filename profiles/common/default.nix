@@ -28,7 +28,11 @@ in
       trusted-users = [ "root" "joel" ];
       substituters = map (x: "https://nix.${x}.${config.networking.domain}") cacheHosts;
       trusted-public-keys =
-        map (x: readFile (../../. + "/hosts/${x}/keys/binary-cache.pub")) cacheHosts;
+        let
+          currentKeys = map (x: readFile (../../. + "/hosts/${x}/keys/binary-cache.pub")) cacheHosts;
+          oldKeys = map (replaceStrings [ ".joel.tokyo" ] [ ".dev.joel.tokyo" ]) currentKeys;
+        in
+        currentKeys ++ oldKeys;
     };
   };
   nixpkgs.config = import ./nixpkgs.nix;
