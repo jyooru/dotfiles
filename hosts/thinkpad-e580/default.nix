@@ -1,4 +1,4 @@
-{ config, inputs, suites, pkgs, profiles, ... }:
+{ config, inputs, pkgs, profiles, secrets, suites, ... }:
 {
   imports = suites.base ++ (with profiles; [
     distributed-build
@@ -58,63 +58,50 @@
     };
   };
 
-  home-manager.users.joel = {
-    xdg.userDirs = {
-      enable = true;
-      desktop = "$HOME/desktop";
-      documents = "$HOME/documents";
-      download = "$HOME/downloads";
-      music = "$HOME/media/music";
-      pictures = "$HOME/media/screenshots";
-      publicShare = "$HOME/share";
-      templates = "$HOME/templates";
-      videos = "$HOME/media/videos";
-    };
-
-    home.file."nodeCaddyfile" = {
-      target = "node/config/Caddyfile";
-      text = let inherit (config.networking) fqdn; in
-        ''
-          {
-            log {
-              output file /var/log/caddy/log.json {
-                roll_keep_for 14d
-              }
-            }
-          }
-
-          import secretsCaddyfile # cloudflare key for tls
-
-          ${fqdn} {
-            import joel.tokyo
-            respond "Hello world"
-          }
-
-          syncthing.${fqdn} {
-            import joel.tokyo
-            reverse_proxy 172.17.0.1:8384
-          }
-
-          ipfs.${fqdn} {
-            import joel.tokyo
-            respond "Hello world"
-          }
-        '';
-    };
+  home-manager.users.joel.xdg.userDirs = {
+    enable = true;
+    desktop = "$HOME/desktop";
+    documents = "$HOME/documents";
+    download = "$HOME/downloads";
+    music = "$HOME/media/music";
+    pictures = "$HOME/media/screenshots";
+    publicShare = "$HOME/share";
+    templates = "$HOME/templates";
+    videos = "$HOME/media/videos";
   };
 
-  virtualisation = {
-    oci-containers.containers."caddy" = {
-      image = "jyooru/caddy";
-      ports = [ "80:80" "443:443" ];
-      volumes = [
-        "/home/joel/node/config/Caddyfile:/etc/caddy/Caddyfile:ro"
-        "/home/joel/node/config/secretsCaddyfile:/etc/caddy/secretsCaddyfile:ro"
-        "/home/joel/node/data/caddy:/data"
-        "/home/joel/node/log/caddy:/var/log/caddy"
-      ];
-    };
-
-    virtualbox.host.enable = true;
+  age.secrets."tls-joel.tokyo" = {
+    file = secrets."tls-joel.tokyo";
+    owner = "caddy";
+    group = "caddy";
   };
+
+
+  systemd.services.caddy.serviceConfig.AmbientCapabilities = [ "CAP_NET_BIND_SERVICE" ];
+  services.caddy = {
+    enable = true;
+    package = pkgs.caddy-modded;
+    extraConfig = with config.networking; ''
+      (joel.tokyo) {
+        import /run/agenix/tls-joel.tokyo
+      }
+
+      ${fqdn} {
+        import joel.tokyo
+        respond "Hello world"
+      }
+
+      syncthing.${fqdn} {
+        import joel.tokyo
+        reverse_proxy 172.17.0.1:8384
+      }
+
+      ipfs.${fqdn} {
+        import joel.tokyo
+        respond "Hello world"
+      }
+    '';
+  };
+
+  virtualisation.virtualbox.host.enable = true;
 }
