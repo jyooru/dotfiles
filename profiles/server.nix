@@ -141,12 +141,6 @@
         "/home/joel/cluster/www:/srv:ro"
       ];
     };
-    "streamr" = lib.mkIf (config.networking.hostName != "portege-z930") {
-      image = "streamr/broker-node:testnet";
-      # ports in host config
-      extraOptions = [ "--tty" ];
-      volumes = [ "/home/joel/node/config/streamr:/root/.streamr" ];
-    };
   };
 }
 

@@ -19,6 +19,4 @@
   };
 
   services.nebula.networks."joel".listen.port = 4244;
-  networking.firewall.allowedTCPPorts = [ 7170 7171 1883 ];
-  virtualisation.oci-containers.containers."streamr".ports = [ "7170:7170" "7171:7171" "1883:1883" ];
 }
