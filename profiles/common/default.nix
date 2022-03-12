@@ -4,7 +4,10 @@ with builtins;
 
 let
   hosts = attrNames self.nixosConfigurations;
-  cacheHosts = filter (host: pathExists "${../../hosts}/${host}/keys/binary-cache.pub") hosts;
+  cacheHosts = filter (host: (pathExists "${../../hosts}/${host}/keys/binary-cache.pub") && (host != config.networking.hostName)) hosts;
+  currentKeys = map (x: readFile (../../. + "/hosts/${x}/keys/binary-cache.pub")) cacheHosts;
+  oldKeys = map (replaceStrings [ ".joel.tokyo" ] [ ".dev.joel.tokyo" ]) currentKeys;
+  trusted-public-keys = currentKeys ++ oldKeys;
 in
 
 {
@@ -27,12 +30,7 @@ in
     settings = {
       trusted-users = [ "root" "joel" ];
       substituters = map (x: "https://nix.${x}.${config.networking.domain}") cacheHosts;
-      trusted-public-keys =
-        let
-          currentKeys = map (x: readFile (../../. + "/hosts/${x}/keys/binary-cache.pub")) cacheHosts;
-          oldKeys = map (replaceStrings [ ".joel.tokyo" ] [ ".dev.joel.tokyo" ]) currentKeys;
-        in
-        currentKeys ++ oldKeys;
+      inherit trusted-public-keys;
     };
   };
   nixpkgs.config = import ./nixpkgs.nix;

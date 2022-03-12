@@ -81,16 +81,11 @@
         }
       '';
     };
-    nix-serve = {
-      enable = true;
-      secretKeyFile = "/var/binary-cache.pem";
-    };
     syncthing = {
       enable = true;
       guiAddress = "0.0.0.0:8384";
     };
   };
-  systemd.services.nix-serve.environment.HOME = "/dev/null";
   home-manager.users.joel.home.file."nodeCaddyfile" = {
     target = "node/config/Caddyfile";
     text = let inherit (config.networking) domain fqdn hostName; in
