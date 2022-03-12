@@ -1,8 +1,12 @@
 { hmUsers, pkgs, ... }:
 {
-  home-manager.users = {
-    inherit (hmUsers) root;
-  };
+  home-manager.users.root.imports = [
+    ./profiles/common
+    ./profiles/git
+    ./profiles/shell
+    ./profiles/packages/tools.nix
+    ./profiles/ssh
+  ];
 
   users.users.root.shell = pkgs.fish;
 }

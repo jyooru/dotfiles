@@ -51,39 +51,6 @@
 
         deploy.nodes = mkDeployNodes self.nixosConfigurations { };
 
-        home = {
-          importables = rec {
-            profiles = rakeLeaves ./users/profiles;
-
-            suites = with profiles; rec {
-              base = [
-                common
-                git
-                shell
-                packages.tools
-                ssh
-              ];
-              gui = base ++ [
-                browser
-                compositor
-                editor
-                file-manager
-                launcher
-                notification-daemon
-                terminal-emulator
-                packages.apps
-                packages.code
-                window-manager
-              ];
-            };
-          };
-
-          users = {
-            joel = { suites, ... }: { imports = suites.gui; };
-            root = { suites, ... }: { imports = suites.base; };
-          };
-        };
-
         homeConfigurations = mkHomeConfigurations self.nixosConfigurations;
 
         nixos = {
