@@ -3,7 +3,7 @@
 
   inputs = {
     comma.url = "github:nix-community/comma";
-    deploy-rs.url = "github:serokell/deploy-rs";
+    deploy.url = "github:serokell/deploy-rs";
     fenix.url = "github:nix-community/fenix";
     hardware.url = "github:nixos/nixos-hardware";
     home-manager = { url = "github:nix-community/home-manager"; inputs.nixpkgs.follows = "nixpkgs"; };
@@ -12,8 +12,9 @@
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
   };
 
-  outputs = { self, comma, deploy-rs, fenix, hardware, home-manager, nixpkgs, nur, utils, ... } @ inputs:
+  outputs = { self, comma, deploy, fenix, hardware, home-manager, nixpkgs, nur, utils, ... } @ inputs:
 
+    with deploy.lib.x86_64-linux;
     with nixpkgs.lib;
     with utils.lib;
 
@@ -25,6 +26,7 @@
       channelsConfig = import ./profiles/common/nixpkgs.nix;
       sharedOverlays = [
         (final: _: { comma = import comma { pkgs = final; }; })
+        deploy.overlay
         fenix.overlay
         nur.overlay
       ] ++ (attrValues self.overlays);
@@ -42,18 +44,24 @@
         modules = [ home-manager.nixosModule ];
       };
       hosts = import ./hosts { inherit utils; };
+      deploy = {
+        nodes = mapAttrs
+          (_: configuration: {
+            hostname = configuration.config.networking.fqdn;
+            profiles.system.path = activate.nixos configuration;
+          })
+          self.nixosConfigurations;
+
+        sshUser = "root";
+      };
 
       outputsBuilder = channels:
         let pkgs = channels.nixpkgs; in
         with pkgs; {
           devShell = mkShell {
             packages = [
-              deploy-rs.defaultPackage.${system}
-              fish
-              git
               nixpkgs-fmt
               nodePackages.node2nix
-              nodePackages.prettier
               qtile
             ]
             ++ (import ./users/profiles/packages/code.nix { inherit pkgs; }).home.packages;

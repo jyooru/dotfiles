@@ -18,7 +18,7 @@
         "type": "github"
       }
     },
-    "deploy-rs": {
+    "deploy": {
       "inputs": {
         "flake-compat": "flake-compat",
         "nixpkgs": "nixpkgs_2",
@@ -204,7 +204,7 @@
     "root": {
       "inputs": {
         "comma": "comma",
-        "deploy-rs": "deploy-rs",
+        "deploy": "deploy",
         "fenix": "fenix",
         "hardware": "hardware",
         "home-manager": "home-manager",
