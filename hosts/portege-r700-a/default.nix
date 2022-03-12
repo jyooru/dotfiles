@@ -1,8 +1,7 @@
-{ ... }:
+{ suites, ... }:
 {
-  imports = [
+  imports = suites.server ++ [
     ./hardware-configuration.nix
-    ../../suites/server.nix
   ];
 
   boot = {

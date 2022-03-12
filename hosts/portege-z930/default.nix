@@ -1,7 +1,6 @@
-{ ... }:
+{ suites, ... }:
 {
-  imports = [
-    ../../suites/server.nix
+  imports = suites.server ++ [
     ./hardware-configuration.nix
     ./vaultwarden.nix
   ];

@@ -4,90 +4,48 @@
   inputs = {
     comma.url = "github:nix-community/comma";
     deploy-rs.url = "github:serokell/deploy-rs";
-    digga = {
-      url = "github:divnix/digga";
-      inputs = {
-        deploy.follows = "deploy-rs";
-        home-manager.follows = "home-manager";
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
     fenix.url = "github:nix-community/fenix";
-    flake-utils.url = "github:numtide/flake-utils";
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nixos-hardware.url = "github:NixOS/nixos-hardware";
+    hardware.url = "github:nixos/nixos-hardware";
+    home-manager = { url = "github:nix-community/home-manager"; inputs.nixpkgs.follows = "nixpkgs"; };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
-    nur.url = "github:nix-community/NUR";
+    nur.url = "github:nix-community/nur";
+    utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
   };
 
-  outputs = { self, comma, digga, nixpkgs, home-manager, deploy-rs, flake-utils, nur, fenix, ... } @ inputs:
+  outputs = { self, comma, deploy-rs, fenix, hardware, home-manager, nixpkgs, nur, utils, ... } @ inputs:
 
-    let
-      inherit (digga.lib) importHosts rakeLeaves mkDeployNodes mkHomeConfigurations mkFlake;
+    with nixpkgs.lib;
+    with utils.lib;
+
+    mkFlake {
+      inherit self inputs;
 
       supportedSystems = [ "x86_64-linux" ];
 
-      overlays = import ./overlays;
-      overlay = overlays.packages;
-    in
+      channelsConfig = import ./profiles/common/nixpkgs.nix;
+      sharedOverlays = [
+        (final: _: { comma = import comma { pkgs = final; }; })
+        fenix.overlay
+        nur.overlay
+      ] ++ (attrValues self.overlays);
 
-    with builtins;
-
-    mkFlake
-      {
-        inherit self inputs overlay overlays supportedSystems;
-
-        channelsConfig = { allowUnfree = true; };
-        channels = {
-          nixpkgs = {
-            overlays = [
-              (attrValues overlays)
-              (final: _: { comma = import comma { pkgs = final; }; })
-              fenix.overlay
-              nur.overlay
-            ];
+      hostDefaults = {
+        specialArgs = rec {
+          inherit self inputs;
+          profiles = import ./profiles { inherit utils; };
+          users = import ./users { inherit utils; };
+          suites = with profiles; {
+            base = [ common file-sync locale networking users.joel users.root ssh vpn ];
+            server = suites.base ++ [ server ];
           };
         };
+        modules = [ home-manager.nixosModule ];
+      };
+      hosts = import ./hosts { inherit utils; };
 
-        deploy.nodes = mkDeployNodes self.nixosConfigurations { };
-
-        homeConfigurations = mkHomeConfigurations self.nixosConfigurations;
-
-        nixos = {
-          hostDefaults = {
-            system = "x86_64-linux";
-            channelName = "nixpkgs";
-            modules = [ home-manager.nixosModule ];
-          };
-
-          imports = [ (importHosts ./hosts) ];
-          importables = rec {
-            profiles = rakeLeaves ./profiles // {
-              users = rakeLeaves ./users;
-            };
-          };
-        };
-
-        templates = import ./templates;
-      }
-
-    //
-
-    (flake-utils.lib.eachSystem supportedSystems
-      (system:
-        let
-          pkgs = import nixpkgs {
-            inherit system;
-            overlays = [ fenix.overlay ];
-          };
-        in
-
-        with pkgs;
-
-        rec {
+      outputsBuilder = channels:
+        let pkgs = channels.nixpkgs; in
+        with pkgs; {
           devShell = mkShell {
             packages = [
               deploy-rs.defaultPackage.${system}
@@ -102,7 +60,17 @@
           };
 
           packages = import ./packages { inherit pkgs system; };
-        }
-      )
-    );
+        };
+
+      templates = import ./templates;
+
+      overlays = import ./overlays;
+      overlay = self.overlays.packages;
+
+      ci = with builtins; with self; {
+        devShell = devShell.${currentSystem};
+        overlays = import ./overlays/ci.nix { inherit inputs; };
+        packages = recurseIntoAttrs packages.${currentSystem};
+      };
+    };
 }

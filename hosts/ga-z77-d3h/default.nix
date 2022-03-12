@@ -1,11 +1,10 @@
-{ profiles, ... }:
+{ profiles, suites, ... }:
 {
-  imports = with profiles; [
+  imports = suites.server ++ [
     ./hardware-configuration.nix
     ./minecraft.nix
     ./sftp.nix
-    ci
-    ../../suites/server.nix
+    profiles.ci
   ];
 
   boot = {
