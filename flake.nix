@@ -9,10 +9,11 @@
     home-manager = { url = "github:nix-community/home-manager"; inputs.nixpkgs.follows = "nixpkgs"; };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
     nur.url = "github:nix-community/nur";
+    ragenix.url = "github:yaxitech/ragenix";
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
   };
 
-  outputs = { self, comma, deploy, fenix, hardware, home-manager, nixpkgs, nur, utils, ... } @ inputs:
+  outputs = { self, comma, deploy, fenix, hardware, home-manager, nixpkgs, nur, ragenix, utils, ... } @ inputs:
 
     with deploy.lib.x86_64-linux;
     with nixpkgs.lib;
@@ -29,6 +30,7 @@
         deploy.overlay
         fenix.overlay
         nur.overlay
+        ragenix.overlay
       ] ++ (attrValues self.overlays);
 
       hostDefaults = {
@@ -36,12 +38,16 @@
           inherit self inputs;
           profiles = import ./profiles { inherit utils; };
           users = import ./users { inherit utils; };
+          secrets = import ./secrets;
           suites = with profiles; {
             base = [ common file-sync locale networking users.joel users.root ssh vpn ];
             server = suites.base ++ [ server ];
           };
         };
-        modules = [ home-manager.nixosModule ];
+        modules = [
+          home-manager.nixosModule
+          ragenix.nixosModules.age
+        ];
       };
       hosts = import ./hosts { inherit utils; };
       deploy = {

@@ -26,6 +26,7 @@
       nixpkgs-fmt # nix formatter
       statix # nix linter
       deadnix # nix unused code scanner
+      ragenix # nixos secret encryption tool
       nixpkgs-review # nixpkgs pull request reviewing tool
     ];
   };
