@@ -2,7 +2,6 @@
 {
   imports = suites.server ++ [
     ./hardware-configuration.nix
-    ./minecraft.nix
     ./sftp.nix
     profiles.ci
   ];
