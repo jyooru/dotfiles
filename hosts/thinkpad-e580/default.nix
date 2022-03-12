@@ -1,16 +1,16 @@
-{ config, inputs, pkgs, profiles, suites, ... }:
+{ config, inputs, suites, pkgs, profiles, ... }:
 {
-  imports = [
+  imports = suites.base ++ (with profiles; [
+    distributed-build
+    hardware.android
+    interactive
     ./hardware-configuration.nix
-  ] ++ (with inputs.nixos-hardware.nixosModules; [
+  ]) ++ (with inputs.hardware.nixosModules; [
     common-cpu-intel
     common-gpu-amd
     common-pc-laptop
     common-pc-laptop-ssd
-  ]) ++ (with profiles; [
-    distributed-build
-    hardware.android
-  ]) ++ suites.base;
+  ]);
 
   networking.hostName = "thinkpad-e580";
 
@@ -33,10 +33,7 @@
     ];
   };
 
-  fonts.fonts = with pkgs; [ (nerdfonts.override { fonts = [ "FiraCode" ]; }) ];
 
-  hardware.pulseaudio.enable = true;
-  sound.enable = true;
 
   services = {
     # this host isn't a lighthouse, but all hosts should have a unique port for NAT traversal to avoid overlaps
@@ -49,32 +46,9 @@
 
     tlp.enable = true;
 
-    xserver = {
-      enable = true;
-
-      desktopManager.xterm.enable = false;
-      displayManager = {
-        defaultSession = "none+qtile";
-        autoLogin = { enable = true; user = "joel"; };
-      };
-
-      libinput.enable = true;
-
-      windowManager.qtile.enable = true;
-
-      # something automatically generates this - adding nixos-hardware.nixosModules.common-gpu-amd overrides it
-      # so also add the automatically generated stuff so X works
-      videoDrivers = [ "amdgpu" "radeon" "nouveau" "modesetting" "fbdev" ];
-    };
-  };
-
-  programs = {
-    gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
-    };
-    nm-applet.enable = true;
-    steam.enable = true;
+    # something automatically generates this - adding nixos-hardware.nixosModules.common-gpu-amd overrides it
+    # so also add the automatically generated stuff so X works
+    xserver.videoDrivers = [ "amdgpu" "radeon" "nouveau" "modesetting" "fbdev" ];
   };
 
   networking.firewall = {

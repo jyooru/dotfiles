@@ -1,6 +1,8 @@
 { suites, ... }:
 {
-  imports = [ ./hardware-configuration.nix ] ++ suites.server;
+  imports = suites.server ++ [
+    ./hardware-configuration.nix
+  ];
 
   boot = {
     loader.grub = {
