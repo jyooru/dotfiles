@@ -1,6 +1,7 @@
-{ config, inputs, pkgs, profiles, suites, ... }:
+{ config, inputs, pkgs, profiles, ... }:
 {
   imports = [
+    ../../suites/base.nix
     ./hardware-configuration.nix
   ] ++ (with inputs.nixos-hardware.nixosModules; [
     common-cpu-intel
@@ -10,7 +11,7 @@
   ]) ++ (with profiles; [
     distributed-build
     hardware.android
-  ]) ++ suites.base;
+  ]);
 
   networking.hostName = "thinkpad-e580";
 

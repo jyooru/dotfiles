@@ -1,6 +1,10 @@
-{ suites, ... }:
+{ ... }:
 {
-  imports = [ ./hardware-configuration.nix ./vaultwarden.nix ] ++ suites.server;
+  imports = [
+    ../../suites/server.nix
+    ./hardware-configuration.nix
+    ./vaultwarden.nix
+  ];
 
   boot = {
     loader.systemd-boot.enable = true;

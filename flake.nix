@@ -14,7 +14,10 @@
     };
     fenix.url = "github:nix-community/fenix";
     flake-utils.url = "github:numtide/flake-utils";
-    home-manager.url = "github:nix-community/home-manager";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
     nur.url = "github:nix-community/NUR";
@@ -57,18 +60,13 @@
           hostDefaults = {
             system = "x86_64-linux";
             channelName = "nixpkgs";
-            modules = [ home-manager.nixosModules.home-manager ];
+            modules = [ home-manager.nixosModule ];
           };
 
           imports = [ (importHosts ./hosts) ];
           importables = rec {
             profiles = rakeLeaves ./profiles // {
               users = rakeLeaves ./users;
-            };
-            suites = with profiles; rec {
-              base = [ common file-sync locale networking ssh vpn ] ++ users;
-              users = with profiles.users; [ joel root ];
-              server = base ++ [ profiles.server ];
             };
           };
         };
