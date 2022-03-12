@@ -78,10 +78,9 @@
   };
 
   networking.firewall = {
-    allowedTCPPorts = [ 80 443 ];
     interfaces = {
       "docker0".allowedTCPPorts = [ 5000 8384 ];
-      "nebula0".allowedTCPPorts = [ 8080 ]; # tmp.joel.tokyo
+      "nebula0".allowedTCPPorts = [ 80 443 8080 ];
     };
   };
 
