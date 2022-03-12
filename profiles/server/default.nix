@@ -3,19 +3,19 @@
   # TODO: refactor
 
   users.users.joel.openssh.authorizedKeys.keyFiles = [
-    ../hosts/thinkpad-e580/keys/ssh-joel.pub
-    ../hosts/thinkpad-e580/keys/ssh-root.pub
-    ../hosts/portege-r700-a/keys/ssh-root.pub
-    ../hosts/portege-r700-b/keys/ssh-root.pub
-    ../hosts/portege-z930/keys/ssh-root.pub
-    ../hosts/ga-z77-d3h/keys/ssh-root.pub
+    ../../hosts/thinkpad-e580/keys/ssh-joel.pub
+    ../../hosts/thinkpad-e580/keys/ssh-root.pub
+    ../../hosts/portege-r700-a/keys/ssh-root.pub
+    ../../hosts/portege-r700-b/keys/ssh-root.pub
+    ../../hosts/portege-z930/keys/ssh-root.pub
+    ../../hosts/ga-z77-d3h/keys/ssh-root.pub
   ];
   users.users.root.openssh.authorizedKeys.keyFiles = [
-    ../hosts/thinkpad-e580/keys/ssh-root.pub
-    ../hosts/portege-r700-a/keys/ssh-root.pub
-    ../hosts/portege-r700-b/keys/ssh-root.pub
-    ../hosts/portege-z930/keys/ssh-root.pub
-    ../hosts/ga-z77-d3h/keys/ssh-root.pub
+    ../../hosts/thinkpad-e580/keys/ssh-root.pub
+    ../../hosts/portege-r700-a/keys/ssh-root.pub
+    ../../hosts/portege-r700-b/keys/ssh-root.pub
+    ../../hosts/portege-z930/keys/ssh-root.pub
+    ../../hosts/ga-z77-d3h/keys/ssh-root.pub
   ];
 
   boot.binfmt.emulatedSystems = [ "aarch64-linux" "armv6l-linux" ];
