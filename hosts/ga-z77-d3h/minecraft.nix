@@ -1,5 +1,5 @@
 {
-  networking.firewall."enp4s0".allowedTCPPorts = [ 25565 ];
+  networking.firewall.interfaces."enp4s0".allowedTCPPorts = [ 25565 ];
   virtualisation.oci-containers.containers."minecraft" = {
     image = "itzg/minecraft-server";
     ports = [ "25565:25565" ];
