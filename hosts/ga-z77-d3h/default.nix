@@ -23,6 +23,7 @@
     };
   };
 
+  networking.firewall.interfaces."enp4s0".allowedTCPPorts = [ 8000 44300 ];
   services = {
     nebula.networks."joel".listen.port = 4244;
 
