@@ -10,6 +10,7 @@
   ]) ++ (with profiles; [
     distributed-build
     hardware.android
+    yggdrasil
   ]) ++ suites.base;
 
   networking.hostName = "thinkpad-e580";
