@@ -4,6 +4,7 @@
     distributed-build
     hardware.android
     interactive
+    yggdrasil
     ./hardware-configuration.nix
   ]) ++ (with inputs.hardware.nixosModules; [
     common-cpu-intel

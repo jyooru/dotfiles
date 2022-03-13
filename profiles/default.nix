@@ -13,6 +13,7 @@ exportModules [
   ./server
   ./ssh
   ./vpn
+  ./yggdrasil
 ] // {
   hardware = exportModules [
     ./hardware/amdgpu.nix
