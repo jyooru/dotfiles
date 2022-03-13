@@ -1,0 +1,15 @@
+diff --git a/nixos/modules/services/networking/yggdrasil.nix b/nixos/modules/services/networking/yggdrasil.nix
+index 99c18ae6919..e128b8aed0d 100644
+--- a/nixos/modules/services/networking/yggdrasil.nix
++++ b/nixos/modules/services/networking/yggdrasil.nix
+@@ -138,7 +138,9 @@ in {
+ 
+       preStart =
+         (if configProvided || configFileProvided || cfg.persistentKeys then
+-          "echo "
++          ''
++          mkdir -p /run/yggdrasil
++          echo ''
+ 
+           + (lib.optionalString configProvided
+             "'${builtins.toJSON cfg.config}'")

@@ -1,4 +1,4 @@
-{ profiles, suites, ... }:
+{ config, profiles, suites, ... }:
 {
   imports = suites.server ++ [
     ./hardware-configuration.nix
@@ -22,7 +22,12 @@
     };
   };
 
-  networking.firewall.interfaces."enp4s0".allowedTCPPorts = [ 22 8000 44300 ];
+  networking.firewall.interfaces."enp4s0".allowedTCPPorts = [
+    22
+    8000
+    (import ../../profiles/yggdrasil/ports.nix).${config.networking.hostName}
+    44300
+  ];
   services = {
     nebula.networks."joel".listen.port = 4244;
 

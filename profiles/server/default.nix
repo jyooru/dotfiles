@@ -1,5 +1,7 @@
-{ config, pkgs, secrets, ... }:
+{ config, pkgs, profiles, secrets, ... }:
 {
+  imports = with profiles; [ yggdrasil ];
+
   # TODO: refactor
 
   users.users.joel.openssh.authorizedKeys.keyFiles = [
