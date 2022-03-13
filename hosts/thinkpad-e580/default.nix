@@ -39,11 +39,6 @@
     # this host isn't a lighthouse, but all hosts should have a unique port for NAT traversal to avoid overlaps
     nebula.networks."joel".listen.port = 4240;
 
-    syncthing = {
-      enable = true;
-      guiAddress = "0.0.0.0:8384";
-    };
-
     tlp.enable = true;
 
     # something automatically generates this - adding nixos-hardware.nixosModules.common-gpu-amd overrides it
@@ -51,11 +46,9 @@
     xserver.videoDrivers = [ "amdgpu" "radeon" "nouveau" "modesetting" "fbdev" ];
   };
 
-  networking.firewall = {
-    interfaces = {
-      "docker0".allowedTCPPorts = [ 5000 8384 ];
-      "nebula0".allowedTCPPorts = [ 80 443 8080 ];
-    };
+  networking.firewall.interfaces = {
+    "docker0".allowedTCPPorts = [ 5000 8384 ];
+    "nebula0".allowedTCPPorts = [ 80 443 8080 ];
   };
 
   home-manager.users.joel.xdg.userDirs = {

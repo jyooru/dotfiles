@@ -43,12 +43,18 @@ in
     "fs.inotify.max_user_watches" = "204800";
   };
 
+  networking.firewall.interfaces."nebula0" = {
+    allowedTCPPorts = [ 22000 ];
+    allowedUDPPorts = [ 22000 21027 ];
+  };
+
   services.syncthing = {
+    enable = true;
+    guiAddress = "172.17.0.1:8384"; # docker0
     user = "joel";
     group = "users";
     configDir = "/home/joel/.config/syncthing";
     dataDir = "/home/joel";
-    openDefaultPorts = true;
     systemService = true;
     devices = removeAttrs devices [ hostName ];
     folders = mapAttrs (_: values: values // { devices = remove hostName values.devices; })
