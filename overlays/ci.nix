@@ -1,8 +1,11 @@
-{ inputs, lib, pkgs, system }:
+{ inputs }:
 
 let
   inherit (inputs) nixpkgs;
-  inherit (lib) getAttrs mapAttrs recurseIntoAttrs;
+  inherit (nixpkgs.lib) currentSystem getAttrs mapAttrs recurseIntoAttrs;
+
+  pkgs = import nixpkgs { };
+  system = currentSystem;
 
   overlays = import ./.;
   overlayPackages = {
@@ -20,7 +23,6 @@ recurseIntoAttrs (
       recurseIntoAttrs (
         let pkgs = import nixpkgs {
           config.allowUnfree = true;
-          inherit system;
           overlays = [ overlays.${overlay} ];
         };
         in

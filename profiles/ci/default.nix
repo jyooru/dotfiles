@@ -5,7 +5,7 @@ let
 
   buildMachines = builtins.listToAttrs (map
     (value: { name = value.hostName; inherit value; })
-    (import ./distributed-build.nix { inherit config; }).nix.buildMachines
+    (import ../distributed-build { inherit config; }).nix.buildMachines
   );
 in
 

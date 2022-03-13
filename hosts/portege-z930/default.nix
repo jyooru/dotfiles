@@ -1,6 +1,9 @@
 { suites, ... }:
 {
-  imports = [ ./hardware-configuration.nix ./vaultwarden.nix ] ++ suites.server;
+  imports = suites.server ++ [
+    ./hardware-configuration.nix
+    ./vaultwarden.nix
+  ];
 
   boot = {
     loader.systemd-boot.enable = true;
@@ -13,5 +16,6 @@
     };
   };
 
+  networking.firewall.interfaces."enp0s25".allowedTCPPorts = [ 22 8000 44300 ];
   services.nebula.networks."joel".listen.port = 4243;
 }
