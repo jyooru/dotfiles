@@ -22,9 +22,11 @@
       python3Packages.mypy # python type checker
       python3Packages.poetry # python package manager
       python3Packages.pytest # python test framework
+      deploy-rs.deploy-rs # nixos deployment tool
       nixpkgs-fmt # nix formatter
       statix # nix linter
       deadnix # nix unused code scanner
+      ragenix # nixos secret encryption tool
       nixpkgs-review # nixpkgs pull request reviewing tool
     ];
   };

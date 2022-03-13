@@ -1,6 +1,8 @@
 { suites, ... }:
 {
-  imports = [ ./hardware-configuration.nix ] ++ suites.server;
+  imports = suites.server ++ [
+    ./hardware-configuration.nix
+  ];
 
   boot = {
     loader.grub = {
@@ -16,7 +18,6 @@
     };
   };
 
+  networking.firewall.interfaces."enp0s25".allowedTCPPorts = [ 22 8000 44300 ];
   services.nebula.networks."joel".listen.port = 4242;
-  networking.firewall.allowedTCPPorts = [ 7174 7175 1885 ];
-  virtualisation.oci-containers.containers."streamr".ports = [ "7174:7174" "7175:7175" "1885:1885" ];
 }

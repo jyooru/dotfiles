@@ -1,16 +1,16 @@
-{ config, inputs, pkgs, profiles, suites, ... }:
+{ config, inputs, pkgs, profiles, secrets, suites, ... }:
 {
-  imports = [
+  imports = suites.base ++ (with profiles; [
+    distributed-build
+    hardware.android
+    interactive
     ./hardware-configuration.nix
-  ] ++ (with inputs.nixos-hardware.nixosModules; [
+  ]) ++ (with inputs.hardware.nixosModules; [
     common-cpu-intel
     common-gpu-amd
     common-pc-laptop
     common-pc-laptop-ssd
-  ]) ++ (with profiles; [
-    distributed-build
-    hardware.android
-  ]) ++ suites.base;
+  ]);
 
   networking.hostName = "thinkpad-e580";
 
@@ -33,115 +33,68 @@
     ];
   };
 
-  fonts.fonts = with pkgs; [ (nerdfonts.override { fonts = [ "FiraCode" ]; }) ];
 
-  hardware.pulseaudio.enable = true;
-  sound.enable = true;
 
   services = {
     # this host isn't a lighthouse, but all hosts should have a unique port for NAT traversal to avoid overlaps
     nebula.networks."joel".listen.port = 4240;
 
-    syncthing = {
-      enable = true;
-      guiAddress = "0.0.0.0:8384";
-    };
-
     tlp.enable = true;
 
-    xserver = {
-      enable = true;
-
-      desktopManager.xterm.enable = false;
-      displayManager = {
-        defaultSession = "none+qtile";
-        autoLogin = { enable = true; user = "joel"; };
-      };
-
-      libinput.enable = true;
-
-      windowManager.qtile.enable = true;
-
-      # something automatically generates this - adding nixos-hardware.nixosModules.common-gpu-amd overrides it
-      # so also add the automatically generated stuff so X works
-      videoDrivers = [ "amdgpu" "radeon" "nouveau" "modesetting" "fbdev" ];
-    };
+    # something automatically generates this - adding nixos-hardware.nixosModules.common-gpu-amd overrides it
+    # so also add the automatically generated stuff so X works
+    xserver.videoDrivers = [ "amdgpu" "radeon" "nouveau" "modesetting" "fbdev" ];
   };
 
-  programs = {
-    gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
-    };
-    nm-applet.enable = true;
-    steam.enable = true;
+  networking.firewall.interfaces = {
+    "docker0".allowedTCPPorts = [ 5000 8384 ];
+    "nebula0".allowedTCPPorts = [ 80 443 8080 ];
   };
 
-  networking.firewall = {
-    allowedTCPPorts = [ 80 443 ];
-    interfaces = {
-      "docker0".allowedTCPPorts = [ 5000 8384 ];
-      "nebula0".allowedTCPPorts = [ 8080 ]; # tmp.joel.tokyo
-    };
+  home-manager.users.joel.xdg.userDirs = {
+    enable = true;
+    desktop = "$HOME/desktop";
+    documents = "$HOME/documents";
+    download = "$HOME/downloads";
+    music = "$HOME/media/music";
+    pictures = "$HOME/media/screenshots";
+    publicShare = "$HOME/share";
+    templates = "$HOME/templates";
+    videos = "$HOME/media/videos";
   };
 
-  home-manager.users.joel = {
-    xdg.userDirs = {
-      enable = true;
-      desktop = "$HOME/desktop";
-      documents = "$HOME/documents";
-      download = "$HOME/downloads";
-      music = "$HOME/media/music";
-      pictures = "$HOME/media/screenshots";
-      publicShare = "$HOME/share";
-      templates = "$HOME/templates";
-      videos = "$HOME/media/videos";
-    };
-
-    home.file."nodeCaddyfile" = {
-      target = "node/config/Caddyfile";
-      text = let inherit (config.networking) fqdn; in
-        ''
-          {
-            log {
-              output file /var/log/caddy/log.json {
-                roll_keep_for 14d
-              }
-            }
-          }
-
-          import secretsCaddyfile # cloudflare key for tls
-
-          ${fqdn} {
-            import joel.tokyo
-            respond "Hello world"
-          }
-
-          syncthing.${fqdn} {
-            import joel.tokyo
-            reverse_proxy 172.17.0.1:8384
-          }
-
-          ipfs.${fqdn} {
-            import joel.tokyo
-            respond "Hello world"
-          }
-        '';
-    };
+  age.secrets."tls-joel.tokyo" = {
+    file = secrets."tls-joel.tokyo";
+    owner = "caddy";
+    group = "caddy";
   };
 
-  virtualisation = {
-    oci-containers.containers."caddy" = {
-      image = "jyooru/caddy";
-      ports = [ "80:80" "443:443" ];
-      volumes = [
-        "/home/joel/node/config/Caddyfile:/etc/caddy/Caddyfile:ro"
-        "/home/joel/node/config/secretsCaddyfile:/etc/caddy/secretsCaddyfile:ro"
-        "/home/joel/node/data/caddy:/data"
-        "/home/joel/node/log/caddy:/var/log/caddy"
-      ];
-    };
 
-    virtualbox.host.enable = true;
+  systemd.services.caddy.serviceConfig.AmbientCapabilities = [ "CAP_NET_BIND_SERVICE" ];
+  services.caddy = {
+    enable = true;
+    package = pkgs.caddy-modded;
+    extraConfig = with config.networking; ''
+      (joel.tokyo) {
+        import /run/agenix/tls-joel.tokyo
+      }
+
+      ${fqdn} {
+        import joel.tokyo
+        respond "Hello world"
+      }
+
+      syncthing.${fqdn} {
+        import joel.tokyo
+        reverse_proxy 172.17.0.1:8384
+      }
+
+      ipfs.${fqdn} {
+        import joel.tokyo
+        respond "Hello world"
+      }
+    '';
   };
+
+  virtualisation.virtualbox.host.enable = true;
 }
