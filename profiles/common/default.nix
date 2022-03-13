@@ -40,8 +40,6 @@ in
     stateVersion = "21.05";
   };
 
-  virtualisation.docker.enable = true;
-
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
