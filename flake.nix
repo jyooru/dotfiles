@@ -13,7 +13,7 @@
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
   };
 
-  outputs = { self, comma, deploy, fenix, hardware, home-manager, nixpkgs, nur, ragenix, utils, ... } @ inputs:
+  outputs = { self, comma, deploy, fenix, home-manager, nixpkgs, nur, ragenix, utils, ... } @ inputs:
 
     with deploy.lib.x86_64-linux;
     with nixpkgs.lib;

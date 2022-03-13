@@ -1,4 +1,4 @@
-{ hmUsers, pkgs, ... }:
+{ pkgs, ... }:
 {
   home-manager.users.root.imports = [
     ./profiles/common

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, secrets, ... }:
+{ config, pkgs, secrets, ... }:
 {
   # TODO: refactor
 
