@@ -87,7 +87,9 @@
 
       syncthing.${fqdn} {
         import joel.tokyo
-        reverse_proxy 172.17.0.1:8384
+        reverse_proxy localhost:8384 { 
+          header_up Host localhost:8384
+        }
       }
 
       ipfs.${fqdn} {

@@ -50,7 +50,6 @@ in
 
   services.syncthing = {
     enable = true;
-    guiAddress = "172.17.0.1:8384"; # docker0
     user = "joel";
     group = "users";
     configDir = "/home/joel/.config/syncthing";

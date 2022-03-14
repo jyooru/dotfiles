@@ -134,7 +134,9 @@
 
           syncthing.${fqdn} {
             import joel.tokyo
-            reverse_proxy ${config.services.syncthing.guiAddress}
+            reverse_proxy ${config.services.syncthing.guiAddress} {
+              header_up ${config.services.syncthing.guiAddress}
+            }
           }
 
           ipfs.${fqdn} {
