@@ -47,7 +47,7 @@ in
         Port = 20070;
       }];
       IfName = "ygg0";
-      NodeInfo.name = "y.${config.networking.fqdn}";
+      NodeInfo.name = "${hostName}.joel.ygg";
     };
   };
 }
