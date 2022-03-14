@@ -4,6 +4,7 @@
     brave # browser
     signal-desktop # chat (family, friends)
     discord # chat (friends, public)
+    alfis # decentralised free blockchain domain name system
     gnome.nautilus # file manager (gui)
     ranger # file manager (tui)
     arduino # ide for arduino

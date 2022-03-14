@@ -27,7 +27,12 @@ let
 in
 
 {
-  networking.firewall.allowedTCPPorts = [ 20070 ];
+  networking.firewall = {
+    allowedTCPPorts = [ 20070 ];
+    interfaces."ygg0".allowedTCPPorts = [
+      4244 # alfis
+    ];
+  };
 
   services.yggdrasil = {
     enable = true;
@@ -47,7 +52,7 @@ in
         Port = 20070;
       }];
       IfName = "ygg0";
-      NodeInfo.name = "y.${config.networking.fqdn}";
+      NodeInfo.name = "${hostName}.joel.ygg";
     };
   };
 }
