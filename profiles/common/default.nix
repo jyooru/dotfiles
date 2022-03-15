@@ -1,6 +1,6 @@
-{ config, pkgs, self, ... }:
+{ config, inputs, lib, pkgs, self, ... }:
 
-with builtins;
+with lib;
 
 let
   hosts = attrNames self.nixosConfigurations;
@@ -23,6 +23,11 @@ in
   };
 
   nix = {
+    nixPath = (mapAttrsToList
+      (name: value: "${name}=${value}")
+      inputs)
+    ++ [ "nixos-config=${self}" ];
+    registry = mapAttrs (name: value: { flake = value; }) inputs;
     package = pkgs.nixUnstable;
     extraOptions = ''
       experimental-features = nix-command flakes
