@@ -1,0 +1,21 @@
+diff --git a/nixos/modules/programs/mosh.nix b/nixos/modules/programs/mosh.nix
+index e08099e21a0..3ce09e9fb3a 100644
+--- a/nixos/modules/programs/mosh.nix
++++ b/nixos/modules/programs/mosh.nix
+@@ -4,7 +4,7 @@ with lib;
+ 
+ let
+ 
+-  cfg  = config.programs.mosh;
++  cfg = config.programs.mosh;
+ 
+ in
+ {
+@@ -29,7 +29,6 @@ in
+ 
+   config = mkIf cfg.enable {
+     environment.systemPackages = with pkgs; [ mosh ];
+-    networking.firewall.allowedUDPPortRanges = [ { from = 60000; to = 61000; } ];
+     security.wrappers = mkIf cfg.withUtempter {
+       utempter = {
+         source = "${pkgs.libutempter}/lib/utempter/utempter";
