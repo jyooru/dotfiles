@@ -6,14 +6,21 @@ let
   hosts = (attrNames self.nixosConfigurations) ++ [ "retropie" ];
 in
 {
-  networking.firewall.interfaces.nebula0.allowedTCPPorts = config.services.openssh.ports;
+  networking.firewall.interfaces."nebula0" = {
+    allowedTCPPorts = config.services.openssh.ports;
+    allowedUDPPortRanges = [{ from = 60000; to = 61000; }]; # mosh
+  };
 
-  programs.ssh.knownHosts = listToAttrs (map
-    (name: {
-      inherit name;
-      value = { publicKeyFile = ../../hosts + "/${name}/keys/ssh.pub"; };
-    })
-    hosts);
+  programs = {
+    mosh.enable = true;
+
+    ssh.knownHosts = listToAttrs (map
+      (name: {
+        inherit name;
+        value = { publicKeyFile = ../../hosts + "/${name}/keys/ssh.pub"; };
+      })
+      hosts);
+  };
 
   services.openssh = {
     enable = pathExists "${../../hosts}/${hostName}/keys/ssh.pub";

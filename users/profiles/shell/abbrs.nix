@@ -2,6 +2,7 @@
   programs.fish.shellAbbrs = {
     c = "code";
     d = "ddgr";
+    m = "mosh";
     py = "python";
     pym = "python -m";
     r = "ranger";
