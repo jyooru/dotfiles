@@ -32,7 +32,7 @@ in
     enable = true;
     settings = {
       forwarding_rules = toFile "forwarding-rules.txt" forwardingRules;
-      listen_addresses = [ "127.0.0.1:53" "[::1]:53" ];
+      listen_addresses = [ "[::]:53" ];
       server_names = [ "cloudflare" "cloudflare-ipv6" ];
     };
     upstreamDefaults = true;

@@ -27,7 +27,10 @@
     owner = "caddy";
     group = "caddy";
   };
-  networking.firewall.interfaces."nebula0".allowedTCPPorts = [ 80 8000 8001 443 44300 44301 ];
+  networking.firewall.interfaces."nebula0" = {
+    allowedTCPPorts = [ 53 80 8000 8001 443 44300 44301 ];
+    allowedUDPPorts = [ 53 ];
+  };
   services = {
     nginx = {
       # :80 -> localhost:8001
