@@ -8,8 +8,8 @@
   {
     "name": "gitlens",
     "publisher": "eamodio",
-    "sha256": "1s1wrrp5i7cqm8c4x67c9b19mf1sjpcxklyl58rfsnmjbrlnazsg",
-    "version": "12.0.4"
+    "sha256": "0zfawv9nn88x8m30h7ryax0c7p68najl23a51r88a70hqppzxshw",
+    "version": "12.0.5"
   },
   {
     "name": "prettier-vscode",
@@ -56,20 +56,20 @@
   {
     "name": "python",
     "publisher": "ms-python",
-    "sha256": "073ha9d5rcfln72mk6dyi4y5x57ml4gviy87l1n3bividrvxrzlc",
-    "version": "2022.3.10701002"
+    "sha256": "0pfj8mhz15jajby4zvb60b1ph330v7scg5w1ywi4s5xcvcj0x0y7",
+    "version": "2022.3.10771003"
   },
   {
     "name": "vscode-pylance",
     "publisher": "ms-python",
-    "sha256": "1x4m1617391sy7f4zcf3axn26r5kz5xg0fshy0shpdwgxi1557pd",
-    "version": "2022.3.1"
+    "sha256": "0nms1bcnnsdy86zg10scp4i8qhm25v1535xqv56pmhnxrrccdzs0",
+    "version": "2022.3.2"
   },
   {
     "name": "jupyter",
     "publisher": "ms-toolsai",
-    "sha256": "1lkw77fgf3qn8fgpiidrqn2a9nrw7pnfv7x6ic3w8j56cm00mrwn",
-    "version": "2022.3.1000721005"
+    "sha256": "175c5kvndpjfhkshf1g8n0smilclnhhnvz57lpvffalml40pwq09",
+    "version": "2022.3.1000791004"
   },
   {
     "name": "color-highlight",
