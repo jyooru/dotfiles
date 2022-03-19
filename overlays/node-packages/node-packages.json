@@ -1,6 +1,4 @@
 [
-  "@11ty/eleventy",
-  "normalize.css",
-  "terminal.css",
+  "@picocss/pico",
   "ttf2woff2"
 ]
