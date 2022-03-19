@@ -1,21 +1,16 @@
 { lib
-, python3Packages
+, stdenv
+, rustPlatform
+, pkg-config
 }:
 
-with python3Packages;
-
-buildPythonPackage rec {
+rustPlatform.buildRustPackage rec {
   pname = "timetable";
-  version = "0.1.0";
-  format = "pyproject";
+  version = "1.0.0";
 
   src = ./.;
 
-  nativeBuildInputs = [ poetry-core ];
-
-  propagatedBuildInputs = [ fuzzywuzzy rich ];
-
-  pythonImportsCheck = [ "fuzzywuzzy" "rich" ];
+  cargoSha256 = "14ya63hb6vrn09ygkwf7m2bi6raid8v40fcg4pf83p9grrrlpp0f";
 
   meta = with lib; {
     description = "Easily check your timetable from the terminal";

@@ -1,16 +1,31 @@
-{ hmUsers, pkgs, ... }:
+{ pkgs, ... }:
 {
-  imports = [
-    # lets me add more home-manager.users.joel config below
-    { home-manager.users = { inherit (hmUsers) joel; }; }
-  ];
+  home-manager.users.joel = {
+    imports = [
+      ./profiles/common
+      ./profiles/git
+      ./profiles/shell
+      ./profiles/packages/tools.nix
+      ./profiles/ssh
+      ./profiles/browser
+      ./profiles/compositor
+      ./profiles/editor
+      ./profiles/file-manager
+      ./profiles/launcher
+      ./profiles/notification-daemon
+      ./profiles/terminal-emulator
+      ./profiles/packages/apps.nix
+      ./profiles/packages/code.nix
+      ./profiles/window-manager
+    ];
 
-  home-manager.users.joel.programs.git = {
-    enable = true;
-    signing.key = "33CA5F24";
-    signing.signByDefault = true;
-    userEmail = "joel@joel.tokyo";
-    userName = "Joel";
+    programs.git = {
+      enable = true;
+      signing.key = "33CA5F24";
+      signing.signByDefault = true;
+      userEmail = "joel@joel.tokyo";
+      userName = "Joel";
+    };
   };
 
   users.users.joel = {

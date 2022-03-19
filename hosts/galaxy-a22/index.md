@@ -12,7 +12,7 @@ title: galaxy-a22
 
    | Field          | Value                                          |
    | -------------- | ---------------------------------------------- |
-   | Hostname       | ga-z77-d3h.dev.joel.tokyo                      |
+   | Hostname       | ga-z77-d3h.joel.tokyo                          |
    | Port           | 2201                                           |
    | Path           | srv                                            |
    | Name           | File server                                    |
@@ -22,7 +22,7 @@ title: galaxy-a22
 
    | Field          | Value                                          |
    | -------------- | ---------------------------------------------- |
-   | Hostname       | thinkpad-e580.dev.joel.tokyo                   |
+   | Hostname       | thinkpad-e580.joel.tokyo                       |
    | Port           |                                                |
    | Path           |                                                |
    | Name           | thinkpad-e580                                  |

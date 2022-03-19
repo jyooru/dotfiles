@@ -4,11 +4,10 @@
     bandwhich # bandwidth monitor
     brightnessctl # brightness control
     pastel # colors cli
-    dog # dns lookup
+    dogdns # dns lookup
     pandoc # document converter
     broot # directory viewer
     ncdu # disk space viewer
-    nix-du # disk space viewer for nix store
     ddgr # duckduckgo cli
     p7zip # file archiver, optional dependecy for preview in ranger
     fd # "find" rust alternative
@@ -19,6 +18,7 @@
     httpie # http cli
     iotop # I/O monitor
     ipinfo # ipinfo cli
+    jisho-api # jisho cli
     jq # json cli
     killall # kill processes by name
     lsd # "ls" rust alternative

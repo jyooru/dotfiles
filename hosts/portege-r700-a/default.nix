@@ -1,6 +1,8 @@
-{ suites, ... }:
+{ config, suites, ... }:
 {
-  imports = [ ./hardware-configuration.nix ] ++ suites.server;
+  imports = suites.server ++ [
+    ./hardware-configuration.nix
+  ];
 
   boot = {
     loader.grub = {
@@ -16,7 +18,11 @@
     };
   };
 
+  networking.firewall.interfaces."enp0s25".allowedTCPPorts = [
+    22
+    8000
+    (import ../../profiles/yggdrasil/ports.nix).${config.networking.hostName}
+    44300
+  ];
   services.nebula.networks."joel".listen.port = 4241;
-  networking.firewall.allowedTCPPorts = [ 7172 7173 1884 ];
-  virtualisation.oci-containers.containers."streamr".ports = [ "7172:7172" "7173:7173" "1884:1884" ];
 }

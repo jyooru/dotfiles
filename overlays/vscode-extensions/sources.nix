@@ -5,7 +5,7 @@ let
   inherit (vscode-utils) buildVscodeMarketplaceExtension;
 in
 
-foldr (a: b: recursiveUpdate a b) { }
+foldr recursiveUpdate { }
   (map
     (extension: {
       ${extension.publisher}.${extension.name} = buildVscodeMarketplaceExtension {

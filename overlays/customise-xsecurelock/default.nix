@@ -1,4 +1,4 @@
-final: prev:
+_: prev:
 {
   xsecurelock = prev.xsecurelock.overrideAttrs (old: {
     patches = (old.patches or [ ]) ++ [

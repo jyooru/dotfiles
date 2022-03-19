@@ -1,17 +1,14 @@
+{ config, ... }:
+
 {
   networking.firewall.interfaces."docker0".allowedTCPPorts = [ 8002 ];
-  virtualisation.oci-containers.containers = {
-    "vaultwarden" = {
-      image = "vaultwarden/server";
-      ports = [ "8002:80" ];
-      environment = {
-        DOMAIN = "https://vaultwarden.srv.joel.tokyo";
-        SIGNUPS_ALLOWED = "false";
-        WEBSOCKET_ENABLED = "true";
-      };
-      volumes = [
-        "/home/joel/node/data/vaultwarden:/data"
-      ];
+  services.vaultwarden = {
+    enable = true;
+    config = {
+      domain = "https://vaultwarden.${config.networking.domain}";
+      rocketAddress = "172.17.0.1";
+      rocketPort = 8002;
+      signupsAllowed = false;
     };
   };
 }

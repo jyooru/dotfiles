@@ -4,6 +4,7 @@
     brave # browser
     signal-desktop # chat (family, friends)
     discord # chat (friends, public)
+    alfis # decentralised free blockchain domain name system
     gnome.nautilus # file manager (gui)
     ranger # file manager (tui)
     arduino # ide for arduino
@@ -16,6 +17,7 @@
     onlyoffice-bin # office suite
     libreoffice # office suite
     bitwarden # password manager
+    scribusUnstable # pdf editor - stable version uses insecure python 2.7 pillow
     darktable # photo editor and raw developer
     gimp # photo editor
     qimgv # photo viewer

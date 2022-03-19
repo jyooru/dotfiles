@@ -1,6 +1,10 @@
-{ profiles, suites, ... }:
+{ config, profiles, suites, ... }:
 {
-  imports = with profiles; [ ./hardware-configuration.nix ./minecraft.nix ./sftp.nix ci ] ++ suites.server;
+  imports = suites.server ++ [
+    ./hardware-configuration.nix
+    ./sftp.nix
+    profiles.ci
+  ];
 
   boot = {
     loader.systemd-boot.enable = true;
@@ -18,7 +22,19 @@
     };
   };
 
-  services.nebula.networks."joel".listen.port = 4244;
-  networking.firewall.allowedTCPPorts = [ 7170 7171 1883 ];
-  virtualisation.oci-containers.containers."streamr".ports = [ "7170:7170" "7171:7171" "1883:1883" ];
+  networking.firewall.interfaces."enp4s0".allowedTCPPorts = [
+    22
+    8000
+    (import ../../profiles/yggdrasil/ports.nix).${config.networking.hostName}
+    44300
+  ];
+  services = {
+    nebula.networks."joel".listen.port = 4244;
+
+    nix-serve = {
+      enable = true;
+      secretKeyFile = "/var/binary-cache.pem";
+    };
+  };
+  systemd.services.nix-serve.environment.HOME = "/dev/null";
 }

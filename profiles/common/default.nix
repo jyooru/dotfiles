@@ -1,7 +1,13 @@
-{ config, pkgs, self, ... }:
+{ config, inputs, lib, pkgs, self, ... }:
+
+with lib;
 
 let
-  hosts = builtins.attrNames self.nixosConfigurations;
+  hosts = attrNames self.nixosConfigurations;
+  cacheHosts = filter (host: (pathExists "${../../hosts}/${host}/keys/binary-cache.pub") && (host != config.networking.hostName)) hosts;
+  currentKeys = map (x: readFile (../../. + "/hosts/${x}/keys/binary-cache.pub")) cacheHosts;
+  oldKeys = map (replaceStrings [ ".joel.tokyo" ] [ ".dev.joel.tokyo" ]) currentKeys;
+  trusted-public-keys = currentKeys ++ oldKeys;
 in
 
 {
@@ -17,14 +23,19 @@ in
   };
 
   nix = {
+    nixPath = (mapAttrsToList
+      (name: value: "${name}=${value}")
+      inputs)
+    ++ [ "nixos-config=${self}" ];
+    registry = mapAttrs (name: value: { flake = value; }) inputs;
     package = pkgs.nixUnstable;
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
     settings = {
       trusted-users = [ "root" "joel" ];
-      substituters = map (x: "https://nix.${x}.${config.networking.domain}") hosts;
-      trusted-public-keys = map (x: builtins.readFile (../../. + "/hosts/${x}/keys/binary-cache.pub")) hosts;
+      substituters = map (x: "https://nix.${x}.${config.networking.domain}") cacheHosts;
+      inherit trusted-public-keys;
     };
   };
   nixpkgs.config = import ./nixpkgs.nix;
@@ -33,8 +44,6 @@ in
     autoUpgrade.enable = true;
     stateVersion = "21.05";
   };
-
-  virtualisation.docker.enable = true;
 
   home-manager = {
     useGlobalPkgs = true;

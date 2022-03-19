@@ -2,122 +2,74 @@
   description = "NixOS configuration";
 
   inputs = {
-    comma = { url = "github:nix-community/comma"; flake = false; };
-    deploy-rs.url = "github:serokell/deploy-rs";
-    digga = { url = "github:divnix/digga"; inputs = { deploy.follows = "deploy-rs"; nixpkgs.follows = "nixpkgs"; home-manager.follows = "home-manager"; }; };
-    flake-utils.url = "github:numtide/flake-utils";
+    comma.url = "github:nix-community/comma";
+    deploy.url = "github:serokell/deploy-rs";
+    fenix.url = "github:nix-community/fenix";
+    hardware.url = "github:nixos/nixos-hardware";
     home-manager = { url = "github:nix-community/home-manager"; inputs.nixpkgs.follows = "nixpkgs"; };
-    nixos-hardware.url = "github:NixOS/nixos-hardware";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
-    nur.url = "github:nix-community/NUR";
+    nur.url = "github:nix-community/nur";
+    ragenix.url = "github:yaxitech/ragenix";
+    utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
   };
 
-  outputs = { self, comma, digga, nixpkgs, home-manager, deploy-rs, flake-utils, nur, nixos-hardware, ... } @ inputs:
+  outputs = { self, comma, deploy, fenix, home-manager, nixpkgs, nur, ragenix, utils, ... } @ inputs:
 
-    let
-      inherit (digga.lib) importHosts rakeLeaves mkDeployNodes mkHomeConfigurations mkFlake;
+    with deploy.lib.x86_64-linux;
+    with nixpkgs.lib;
+    with utils.lib;
+
+    mkFlake {
+      inherit self inputs;
 
       supportedSystems = [ "x86_64-linux" ];
 
-      overlays = import ./overlays;
-      overlay = overlays.packages;
-    in
+      channelsConfig = import ./profiles/common/nixpkgs.nix;
+      sharedOverlays = [
+        (final: _: { comma = import comma { pkgs = final; }; })
+        deploy.overlay
+        fenix.overlay
+        nur.overlay
+        ragenix.overlay
+      ] ++ (attrValues self.overlays);
+      channels.nixpkgs.patches = [ ./patches/fix-yggdrasil.patch ];
 
-    mkFlake
-      {
-        inherit self inputs overlay overlays supportedSystems;
-
-        channelsConfig = { allowUnfree = true; };
-        channels = {
-          nixpkgs = {
-            overlays = [
-              (builtins.attrValues overlays)
-              nur.overlay
-              (final: prev: { comma = import comma { pkgs = final; }; })
-            ];
+      hostDefaults = {
+        specialArgs = rec {
+          inherit self inputs;
+          profiles = import ./profiles { inherit utils; };
+          users = import ./users { inherit utils; };
+          secrets = import ./secrets;
+          suites = with profiles; {
+            base = [ common file-sync locale networking users.joel users.root ssh vpn ];
+            server = suites.base ++ [ server ];
           };
         };
+        modules = [
+          home-manager.nixosModule
+          ragenix.nixosModules.age
+        ];
+      };
+      hosts = import ./hosts { inherit utils; };
+      deploy = {
+        nodes = mapAttrs
+          (_: configuration: {
+            hostname = configuration.config.networking.fqdn;
+            profiles.system.path = activate.nixos configuration;
+          })
+          self.nixosConfigurations;
 
-        deploy.nodes = mkDeployNodes self.nixosConfigurations { };
+        sshUser = "root";
+      };
 
-        home = {
-          importables = rec {
-            profiles = rakeLeaves ./users/profiles;
-
-            suites = with profiles; rec {
-              base = [
-                common
-                git
-                shell
-                packages.tools
-                ssh
-              ];
-              gui = base ++ [
-                browser
-                compositor
-                editor
-                file-manager
-                launcher
-                notification-daemon
-                terminal-emulator
-                packages.apps
-                packages.code
-                window-manager
-              ];
-            };
-          };
-
-          users = {
-            joel = { suites, ... }: { imports = suites.gui; };
-            root = { suites, ... }: { imports = suites.base; };
-          };
-        };
-
-        homeConfigurations = mkHomeConfigurations self.nixosConfigurations;
-
-        nixos = {
-          hostDefaults = {
-            system = "x86_64-linux";
-            channelName = "nixpkgs";
-            modules = [ home-manager.nixosModules.home-manager ];
-          };
-
-          imports = [ (importHosts ./hosts) ];
-          importables = rec {
-            profiles = rakeLeaves ./profiles // {
-              users = rakeLeaves ./users;
-            };
-            suites = with profiles; rec {
-              base = [ common file-sync locale networking ssh vpn ] ++ users;
-              users = with profiles.users; [ joel root ];
-              server = base ++ [ profiles.server ];
-            };
-          };
-        };
-
-        templates = import ./templates;
-      }
-
-    //
-
-    (flake-utils.lib.eachSystem supportedSystems
-      (system:
-        let
-          pkgs = import nixpkgs { inherit system; };
-        in
-
-        with pkgs;
-
-        rec {
+      outputsBuilder = channels:
+        let pkgs = channels.nixpkgs; in
+        with pkgs; {
           devShell = mkShell {
             packages = [
-              deploy-rs.defaultPackage.${system}
-              fish
-              git
               nixpkgs-fmt
               nodePackages.node2nix
-              nodePackages.prettier
-              # qtile
+              qtile
             ]
             ++ packages.docs-src.nativeBuildInputs
             ++ (import ./users/profiles/packages/code.nix { inherit pkgs; }).home.packages;
@@ -126,7 +78,18 @@
 
           defaultPackage = packages.docs-src;
           packages = import ./packages { inherit pkgs system; };
-        }
-      )
-    );
+        };
+
+      templates = import ./templates;
+
+      overlays = import ./overlays;
+      overlay = self.overlays.packages;
+
+      ci = with builtins; with self; {
+        devShell = devShell.${currentSystem};
+        nixosConfigurations = recurseIntoAttrs (mapAttrs (_: value: value.config.system.build.toplevel) nixosConfigurations);
+        overlays = import ./overlays/ci.nix { inherit inputs; };
+        packages = recurseIntoAttrs packages.${currentSystem};
+      };
+    };
 }

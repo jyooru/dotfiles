@@ -13,6 +13,8 @@ rec {
 
   docs-src = callPackage ../docs { };
 
+  jisho-api = callPackage ./jisho-api { };
+
   min-firefox = callPackage ./min-firefox { };
 
   nerdfonts-woff2 = callPackage ./nerdfonts-woff2 { inherit ttf2woff2; };
