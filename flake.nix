@@ -32,7 +32,10 @@
         nur.overlay
         ragenix.overlay
       ] ++ (attrValues self.overlays);
-      channels.nixpkgs.patches = [ ./patches/fix-yggdrasil.patch ];
+      channels.nixpkgs.patches = [
+        ./patches/163701.patch
+        ./patches/fix-yggdrasil.patch
+      ];
 
       hostDefaults = {
         specialArgs = rec {
