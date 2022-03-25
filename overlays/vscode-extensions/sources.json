@@ -50,26 +50,26 @@
   {
     "name": "vscode-docker",
     "publisher": "ms-azuretools",
-    "sha256": "0a1v8hqbrl51pxbzvjd69azqcyqid4gmva3dnk440q7szr61hy4b",
-    "version": "1.20.0"
+    "sha256": "12rll1wn6xs1fzb391598pih3qw8dq4vdmyvmcind0ns42hsmlan",
+    "version": "1.21.0"
   },
   {
     "name": "python",
     "publisher": "ms-python",
-    "sha256": "0pfj8mhz15jajby4zvb60b1ph330v7scg5w1ywi4s5xcvcj0x0y7",
-    "version": "2022.3.10771003"
+    "sha256": "09g4xrmywz1wfp8afchn8gp0cln6n8dg0j62d3z55iv645jmachf",
+    "version": "2022.3.10831003"
   },
   {
     "name": "vscode-pylance",
     "publisher": "ms-python",
-    "sha256": "0nms1bcnnsdy86zg10scp4i8qhm25v1535xqv56pmhnxrrccdzs0",
-    "version": "2022.3.2"
+    "sha256": "1khfw0xad9ijv8jv50c6qjshr3c30j9i6nmm8v6wxlg8h9s2xjp3",
+    "version": "2022.3.3"
   },
   {
     "name": "jupyter",
     "publisher": "ms-toolsai",
-    "sha256": "175c5kvndpjfhkshf1g8n0smilclnhhnvz57lpvffalml40pwq09",
-    "version": "2022.3.1000791004"
+    "sha256": "13a1iabxnc94jx0jn3112kfkhn71sh2nx5z5hb1jndnph9zxn3gx",
+    "version": "2022.3.1000851004"
   },
   {
     "name": "color-highlight",
@@ -116,8 +116,8 @@
   {
     "name": "shellcheck",
     "publisher": "timonwong",
-    "sha256": "0l3k5sr4s9kdz82d303b9gqrzmyc78nk16aw7p503043d4r53f8g",
-    "version": "0.18.9"
+    "sha256": "0g8nrlxirmrz5rcvq007lmwki1m17a13hx75njb89jqj82i2gk1y",
+    "version": "0.18.10"
   },
   {
     "name": "markdown-all-in-one",
