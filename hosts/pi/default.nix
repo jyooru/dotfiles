@@ -13,4 +13,6 @@ in
     ../thinkpad-e580/id_rsa.pub
     ../galaxy-a22/com.termux/id_rsa.pub
   ];
+
+  nixpkgs.crossSystem.system = "armv6l-linux";
 }
