@@ -23,6 +23,10 @@
     "workbench.startupEditor" = "none";
 
     # extensions
+    "ev3devBrowser.additionalDevices" = [{
+      "name" = "j";
+      "ipAddress" = "192.168.1.3";
+    }];
     "gitlens.currentLine.enabled" = false;
     "redhat.telemetry.enabled" = false;
 
