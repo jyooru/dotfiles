@@ -14,8 +14,14 @@
   {
     "name": "prettier-vscode",
     "publisher": "esbenp",
-    "sha256": "1w6whr6h5v7i16f3j1kahs02mk7w2jplr5rrnsjwyszvcy6hz644",
-    "version": "9.3.0"
+    "sha256": "075anzdbp1q9qffivb5p6j1xqrl6vjqgnb3qxd0lrrbzfy3jilz1",
+    "version": "9.4.0"
+  },
+  {
+    "name": "ev3dev-browser",
+    "publisher": "ev3dev",
+    "sha256": "05hsrbj7a1wgcrl38wb0kjgxv8ygmra1ijvixzwannfxq6rn0siq",
+    "version": "1.2.0"
   },
   {
     "name": "discord-vscode",
@@ -28,6 +34,12 @@
     "publisher": "jnoortheen",
     "sha256": "16mmivdssjky11gmih7zp99d41m09r0ii43n17d4i6xwivagi9a3",
     "version": "0.1.20"
+  },
+  {
+    "name": "ev3-micropython",
+    "publisher": "lego-education",
+    "sha256": "0sdzrbd9rp8r7w1qlr8xbxzd2rirnk5kqi81q0sdi6r0mhpvphfm",
+    "version": "2.0.0"
   },
   {
     "name": "fish-ide",
@@ -56,8 +68,8 @@
   {
     "name": "python",
     "publisher": "ms-python",
-    "sha256": "09g4xrmywz1wfp8afchn8gp0cln6n8dg0j62d3z55iv645jmachf",
-    "version": "2022.3.10831003"
+    "sha256": "16s86psyxc0389kx027x5isw4b46gisw9b0cx3ffjlaq1gd50m4r",
+    "version": "2022.3.10841003"
   },
   {
     "name": "vscode-pylance",
@@ -68,8 +80,8 @@
   {
     "name": "jupyter",
     "publisher": "ms-toolsai",
-    "sha256": "13a1iabxnc94jx0jn3112kfkhn71sh2nx5z5hb1jndnph9zxn3gx",
-    "version": "2022.3.1000851004"
+    "sha256": "00cy6x313cjkk93m9482shczrmvgzhm01zz2fsjdl8gk9cysany6",
+    "version": "2022.3.1000861819"
   },
   {
     "name": "color-highlight",
