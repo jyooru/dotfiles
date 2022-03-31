@@ -35,6 +35,7 @@
     nmap # port scanner
     scrot # screenshot
     lm_sensors # sensor viewer
+    sysz # systemctl fuzzy finder
     neofetch # system info
     btop # system monitor
     htop # system monitor
