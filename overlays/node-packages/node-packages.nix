@@ -1255,13 +1255,13 @@ let
         sha512 = "yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A==";
       };
     };
-    "gauge-4.0.3" = {
+    "gauge-4.0.4" = {
       name = "gauge";
       packageName = "gauge";
-      version = "4.0.3";
+      version = "4.0.4";
       src = fetchurl {
-        url = "https://registry.npmjs.org/gauge/-/gauge-4.0.3.tgz";
-        sha512 = "ICw1DhAwMtb22rYFwEHgJcx1JCwJGv3x6G0OQUq56Nge+H4Q8JEwr8iveS0XFlsUNSI67F5ffMGK25bK4Pmskw==";
+        url = "https://registry.npmjs.org/gauge/-/gauge-4.0.4.tgz";
+        sha512 = "f9m+BEN5jkg6a0fZjleidjN51VE1X+mPFQ2DJ0uv1V39oCLCbsGe6yjbBnp7eK7z/+GAon99a3nHuqbuuthyPg==";
       };
     };
     "get-caller-file-2.0.5" = {
@@ -1714,13 +1714,13 @@ let
         sha512 = "MtWeTkl1qGsWUtbl/Jsca/8xSoK3x0UmS82sNbjqxxG/de/M/3b1DntdjHgPMC50enlTNwXOCRqPXLLt5cCfZA==";
       };
     };
-    "js-beautify-1.14.0" = {
+    "js-beautify-1.14.2" = {
       name = "js-beautify";
       packageName = "js-beautify";
-      version = "1.14.0";
+      version = "1.14.2";
       src = fetchurl {
-        url = "https://registry.npmjs.org/js-beautify/-/js-beautify-1.14.0.tgz";
-        sha512 = "yuck9KirNSCAwyNJbqW+BxJqJ0NLJ4PwBUzQQACl5O3qHMBXVkXb/rD0ilh/Lat/tn88zSZ+CAHOlk0DsY7GuQ==";
+        url = "https://registry.npmjs.org/js-beautify/-/js-beautify-1.14.2.tgz";
+        sha512 = "H85kX95a53os+q1OCqtYe8AXAmgy3BvtysA/V83S3fdhznm6WlUpGi14DqSPbKFsL3dXZFXYl7YQwW9U1+76ng==";
       };
     };
     "js-stringify-1.0.2" = {
@@ -2155,13 +2155,13 @@ let
         sha512 = "Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==";
       };
     };
-    "nested-error-stacks-2.1.0" = {
+    "nested-error-stacks-2.1.1" = {
       name = "nested-error-stacks";
       packageName = "nested-error-stacks";
-      version = "2.1.0";
+      version = "2.1.1";
       src = fetchurl {
-        url = "https://registry.npmjs.org/nested-error-stacks/-/nested-error-stacks-2.1.0.tgz";
-        sha512 = "AO81vsIO1k1sM4Zrd6Hu7regmJN1NSiAja10gc4bX3F0wd+9rQmcuHQaHVQCYIEC8iFXnE+mavh23GOt7wBgug==";
+        url = "https://registry.npmjs.org/nested-error-stacks/-/nested-error-stacks-2.1.1.tgz";
+        sha512 = "9iN1ka/9zmX1ZvLV9ewJYEk9h7RyRRtqdK0woXcqohu8EWIerfPUjYJPg0ULy0UqP7cslmdGc8xKDJcojlKiaw==";
       };
     };
     "node-gyp-8.4.1" = {
@@ -3591,7 +3591,7 @@ in
           sources."supports-color-7.2.0"
         ];
       })
-      sources."js-beautify-1.14.0"
+      sources."js-beautify-1.14.2"
       sources."js-stringify-1.0.2"
       sources."js-yaml-3.14.1"
       sources."jsonfile-3.0.1"
@@ -3833,7 +3833,7 @@ in
       sources."cp-file-7.0.0"
       sources."graceful-fs-4.2.9"
       sources."make-dir-3.1.0"
-      sources."nested-error-stacks-2.1.0"
+      sources."nested-error-stacks-2.1.1"
       sources."p-event-4.2.0"
       sources."p-finally-1.0.0"
       sources."p-timeout-3.2.0"
@@ -3889,7 +3889,7 @@ in
       sources."file-uri-to-path-1.0.0"
       sources."fs-minipass-2.1.0"
       sources."fs.realpath-1.0.0"
-      sources."gauge-4.0.3"
+      sources."gauge-4.0.4"
       sources."glob-7.2.0"
       sources."graceful-fs-4.2.9"
       sources."has-unicode-2.0.1"
