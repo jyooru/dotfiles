@@ -14,8 +14,8 @@
   {
     "name": "prettier-vscode",
     "publisher": "esbenp",
-    "sha256": "075anzdbp1q9qffivb5p6j1xqrl6vjqgnb3qxd0lrrbzfy3jilz1",
-    "version": "9.4.0"
+    "sha256": "0h5g746ij36h22v1y2883bqaphds7h1ck8mg8bywn9r723mxdy1g",
+    "version": "9.5.0"
   },
   {
     "name": "ev3dev-browser",
@@ -68,20 +68,20 @@
   {
     "name": "python",
     "publisher": "ms-python",
-    "sha256": "16s86psyxc0389kx027x5isw4b46gisw9b0cx3ffjlaq1gd50m4r",
-    "version": "2022.3.10841003"
+    "sha256": "14k0n71d3ilf9x7hsmx3vm4slbyqal44qq6mdcylkzrygfvybvqg",
+    "version": "2022.5.10911002"
   },
   {
     "name": "vscode-pylance",
     "publisher": "ms-python",
-    "sha256": "1khfw0xad9ijv8jv50c6qjshr3c30j9i6nmm8v6wxlg8h9s2xjp3",
-    "version": "2022.3.3"
+    "sha256": "0r1rgbw7kp5k5d1jvkcf0pwj8cwxyhg7hcsc3lf2nghxywzh065i",
+    "version": "2022.3.4"
   },
   {
     "name": "jupyter",
     "publisher": "ms-toolsai",
-    "sha256": "00cy6x313cjkk93m9482shczrmvgzhm01zz2fsjdl8gk9cysany6",
-    "version": "2022.3.1000861819"
+    "sha256": "11404ravwy04jadr72i7xiy81j5ql2qzza9ff6j1pw46nnybhk5x",
+    "version": "2022.4.1000912146"
   },
   {
     "name": "color-highlight",
@@ -92,8 +92,8 @@
   {
     "name": "material-icon-theme",
     "publisher": "PKief",
-    "sha256": "1d6wv5jxg4syz9dlj3q4rrv1cfk86hlff5132qga7j6y8z8f4x9q",
-    "version": "4.14.1"
+    "sha256": "1bs78k27ypq298zyhclcj3xac9xlj7f3zpy6jh2gv9x8fbwnqp3x",
+    "version": "4.15.0"
   },
   {
     "name": "vscode-css-peek",
@@ -110,14 +110,14 @@
   {
     "name": "vscode-xml",
     "publisher": "redhat",
-    "sha256": "0k4lym09wbyz25q76db5awgdamx3ycpmjv5njvbi9b7damj0w99z",
-    "version": "0.19.1"
+    "sha256": "1l073hqdivzyadjg8cn68wrmvbcrhc67yll4sypvb7rwvdznp80q",
+    "version": "0.20.0"
   },
   {
     "name": "vscode-yaml",
     "publisher": "redhat",
-    "sha256": "1qsjsfggfya282rh618fc89cfgpxii7yv2kyh5is6x2r2606cy15",
-    "version": "1.5.1"
+    "sha256": "123ycy1lky6gcz22gp2zc0y2wiyq97v85p2dxhdsm5dqf6bxjz1q",
+    "version": "1.6.0"
   },
   {
     "name": "fish-vscode",
@@ -128,8 +128,8 @@
   {
     "name": "shellcheck",
     "publisher": "timonwong",
-    "sha256": "0g8nrlxirmrz5rcvq007lmwki1m17a13hx75njb89jqj82i2gk1y",
-    "version": "0.18.10"
+    "sha256": "0sw9ycpjpa937phcixqbr7fqa3yy3r0af8d15wayj39lbx9gzjn0",
+    "version": "0.19.0"
   },
   {
     "name": "markdown-all-in-one",
