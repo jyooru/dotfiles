@@ -33,7 +33,6 @@
         ragenix.overlay
       ] ++ (attrValues self.overlays);
       channels.nixpkgs.patches = [
-        ./patches/163701.patch
         ./patches/fix-yggdrasil.patch
         ./patches/mosh-no-firewall-open.patch
       ];
