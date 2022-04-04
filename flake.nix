@@ -7,13 +7,14 @@
     fenix.url = "github:nix-community/fenix";
     hardware.url = "github:nixos/nixos-hardware";
     home-manager = { url = "github:nix-community/home-manager"; inputs.nixpkgs.follows = "nixpkgs"; };
+    minecraft-servers.url = "github:jyooru/nix-minecraft-servers";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
     nur.url = "github:nix-community/nur";
     ragenix.url = "github:yaxitech/ragenix";
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
   };
 
-  outputs = { self, comma, deploy, fenix, home-manager, nixpkgs, nur, ragenix, utils, ... } @ inputs:
+  outputs = { self, comma, deploy, fenix, home-manager, minecraft-servers, nixpkgs, nur, ragenix, utils, ... } @ inputs:
 
     with deploy.lib.x86_64-linux;
     with nixpkgs.lib;
@@ -31,6 +32,7 @@
         fenix.overlay
         nur.overlay
         ragenix.overlay
+        minecraft-servers.overlay
       ] ++ (attrValues self.overlays);
       channels.nixpkgs.patches = [
         ./patches/fix-yggdrasil.patch
