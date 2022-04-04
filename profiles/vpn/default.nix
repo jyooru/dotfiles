@@ -6,7 +6,7 @@ let
 
   lighthouses = {
     "portege-r700-a" = "10.42.0.11";
-    "portege-r700-b" = "10.42.0.12";
+    # "portege-r700-b" = "10.42.0.12";
     "portege-z930" = "10.42.0.13";
     "ga-z77-d3h" = "10.42.0.14";
   };
@@ -14,7 +14,7 @@ let
   lighthouseIps = attrValues lighthouses;
   staticHosts = {
     "10.42.0.11" = [ "home.joel.tokyo:4241" "192.168.0.11:4241" ];
-    "10.42.0.12" = [ "home.joel.tokyo:4242" "192.168.0.12:4242" ];
+    # "10.42.0.12" = [ "home.joel.tokyo:4242" "192.168.0.12:4242" ];
     "10.42.0.13" = [ "home.joel.tokyo:4243" "192.168.0.13:4243" ];
     "10.42.0.14" = [ "home.joel.tokyo:4244" "192.168.0.14:4244" ];
   };

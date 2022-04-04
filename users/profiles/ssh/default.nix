@@ -12,9 +12,9 @@
       "1 portege-r700-a" = {
         hostname = "portege-r700-a.joel.tokyo";
       };
-      "2 portege-r700-b" = {
-        hostname = "portege-r700-b.joel.tokyo";
-      };
+      # "2 portege-r700-b" = {
+      #   hostname = "portege-r700-b.joel.tokyo";
+      # };
       "3 portege-z930" = {
         hostname = "portege-z930.joel.tokyo";
       };
