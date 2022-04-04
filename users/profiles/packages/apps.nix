@@ -7,6 +7,7 @@
     alfis # decentralised free blockchain domain name system
     gnome.nautilus # file manager (gui)
     ranger # file manager (tui)
+    mindustry # game
     arduino # ide for arduino
     vlc # media player
     polymc # minecraft launcher
