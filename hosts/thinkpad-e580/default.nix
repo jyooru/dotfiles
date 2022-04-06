@@ -34,8 +34,6 @@
     ];
   };
 
-
-
   services = {
     # this host isn't a lighthouse, but all hosts should have a unique port for NAT traversal to avoid overlaps
     nebula.networks."joel".listen.port = 4240;
@@ -47,10 +45,19 @@
     xserver.videoDrivers = [ "amdgpu" "radeon" "nouveau" "modesetting" "fbdev" ];
   };
 
-  networking.firewall.interfaces = {
-    "docker0".allowedTCPPorts = [ 5000 8384 ];
-    "nebula0".allowedTCPPorts = [ 80 443 8080 ];
-  };
+  networking.firewall.interfaces =
+    let
+      lan = {
+        allowedTCPPorts = [ 6567 25565 ];
+        allowedUDPPorts = [ 6567 ];
+      };
+    in
+    {
+      "docker0".allowedTCPPorts = [ 5000 8384 ];
+      "enp0s20f0u2u1" = lan;
+      "nebula0".allowedTCPPorts = [ 80 443 8080 ];
+      "wlp5s0" = lan;
+    };
 
   home-manager.users.joel.xdg.userDirs = {
     enable = true;
