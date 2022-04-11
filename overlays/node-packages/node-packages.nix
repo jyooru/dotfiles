@@ -22,13 +22,13 @@ let
         sha512 = "hsEnFemeiW4D08A5gUAZxLBTXpZ39P+a+DGDsHw1yxqyQ/jzFEnxf5uTEGp+3bzAbNOxU1paTgYS4ECU/IgfDw==";
       };
     };
-    "@babel/parser-7.17.8" = {
+    "@babel/parser-7.17.9" = {
       name = "_at_babel_slash_parser";
       packageName = "@babel/parser";
-      version = "7.17.8";
+      version = "7.17.9";
       src = fetchurl {
-        url = "https://registry.npmjs.org/@babel/parser/-/parser-7.17.8.tgz";
-        sha512 = "BoHhDJrJXqcg+ZL16Xv39H9n+AqJ4pcDrQBGZN+wHxIysrLZ3/ECwCBUch/1zUNhnsXULcONU3Ei5Hmkfk6kiQ==";
+        url = "https://registry.npmjs.org/@babel/parser/-/parser-7.17.9.tgz";
+        sha512 = "vqUSBLP8dQHFPdPi9bc5GK9vRkYHJ49fsZdtoJ8EQ8ibpwk5rPKfvNIwChB0KVXcIjcepEBBd2VHC5r9Gy8ueg==";
       };
     };
     "@babel/types-7.17.0" = {
@@ -1300,13 +1300,13 @@ let
         sha512 = "AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow==";
       };
     };
-    "graceful-fs-4.2.9" = {
+    "graceful-fs-4.2.10" = {
       name = "graceful-fs";
       packageName = "graceful-fs";
-      version = "4.2.9";
+      version = "4.2.10";
       src = fetchurl {
-        url = "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.9.tgz";
-        sha512 = "NtNxqUcXgpW2iMrfqSfR73Glt39K+BLwWsPs94yR63v45T0Wbej7eRmL5cWfwEgqXnmjQp3zaJTshdRW/qC2ZQ==";
+        url = "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.10.tgz";
+        sha512 = "9ByhssR2fPVsNZj478qUUbKfmL0+t5BDVyjShtyZZLiK7ZDAArFFfopyOTj0M05wE2tJPisA4iTnnXl2YoPvOA==";
       };
     };
     "gray-matter-4.0.3" = {
@@ -1714,13 +1714,13 @@ let
         sha512 = "MtWeTkl1qGsWUtbl/Jsca/8xSoK3x0UmS82sNbjqxxG/de/M/3b1DntdjHgPMC50enlTNwXOCRqPXLLt5cCfZA==";
       };
     };
-    "js-beautify-1.14.2" = {
+    "js-beautify-1.14.3" = {
       name = "js-beautify";
       packageName = "js-beautify";
-      version = "1.14.2";
+      version = "1.14.3";
       src = fetchurl {
-        url = "https://registry.npmjs.org/js-beautify/-/js-beautify-1.14.2.tgz";
-        sha512 = "H85kX95a53os+q1OCqtYe8AXAmgy3BvtysA/V83S3fdhznm6WlUpGi14DqSPbKFsL3dXZFXYl7YQwW9U1+76ng==";
+        url = "https://registry.npmjs.org/js-beautify/-/js-beautify-1.14.3.tgz";
+        sha512 = "f1ra8PHtOEu/70EBnmiUlV8nJePS58y9qKjl4JHfYWlFH6bo7ogZBz//FAZp7jDuXtYnGYKymZPlrg2I/9Zo4g==";
       };
     };
     "js-stringify-1.0.2" = {
@@ -1874,6 +1874,15 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/lru-cache/-/lru-cache-6.0.0.tgz";
         sha512 = "Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==";
+      };
+    };
+    "lru-cache-7.8.1" = {
+      name = "lru-cache";
+      packageName = "lru-cache";
+      version = "7.8.1";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/lru-cache/-/lru-cache-7.8.1.tgz";
+        sha512 = "E1v547OCgJvbvevfjgK9sNKIVXO96NnsTsFPBlg4ZxjhsJSODoH9lk8Bm0OxvHNm6Vm5Yqkl/1fErDxhYL8Skg==";
       };
     };
     "luxon-2.3.1" = {
@@ -2758,13 +2767,13 @@ let
         sha512 = "b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==";
       };
     };
-    "semver-7.3.5" = {
+    "semver-7.3.6" = {
       name = "semver";
       packageName = "semver";
-      version = "7.3.5";
+      version = "7.3.6";
       src = fetchurl {
-        url = "https://registry.npmjs.org/semver/-/semver-7.3.5.tgz";
-        sha512 = "PoeGJYh8HK4BTO/a9Tf6ZG3veo/A7ZVsYrSA6J8ny9nb3B1VrpkuN+z9OE5wfE5p6H4LchYZsegiQgbJD94ZFQ==";
+        url = "https://registry.npmjs.org/semver/-/semver-7.3.6.tgz";
+        sha512 = "HZWqcgwLsjaX1HBD31msI/rXktuIhS+lWvdE4kN9z+8IVT4Itc7vqU2WvYsyD6/sjYCt4dEKH/m1M3dwI9CC5w==";
       };
     };
     "semver-compare-1.0.0" = {
@@ -3172,13 +3181,13 @@ let
         sha512 = "8Y75pvTYkLJW2hWQHXxoqRgV7qb9B+9vFEtidML+7koHUFapnVJAZ6cKs+Qjz5Aw3aZWHMC6u0wJE3At+nSGwA==";
       };
     };
-    "uglify-js-3.15.3" = {
+    "uglify-js-3.15.4" = {
       name = "uglify-js";
       packageName = "uglify-js";
-      version = "3.15.3";
+      version = "3.15.4";
       src = fetchurl {
-        url = "https://registry.npmjs.org/uglify-js/-/uglify-js-3.15.3.tgz";
-        sha512 = "6iCVm2omGJbsu3JWac+p6kUiOpg3wFO2f8lIXjfEb8RrmLjzog1wTPMmwKB7swfzzqxj9YM+sGUM++u1qN4qJg==";
+        url = "https://registry.npmjs.org/uglify-js/-/uglify-js-3.15.4.tgz";
+        sha512 = "vMOPGDuvXecPs34V74qDKk4iJ/SN4vL3Ow/23ixafENYvtrNvtbcgUeugTcUGRGsOF/5fU8/NYSL5Hyb3l1OJA==";
       };
     };
     "unique-filename-1.1.1" = {
@@ -3361,13 +3370,13 @@ let
         sha512 = "c2k48R0PwKIqKhPMWjeiF6y2xY/gPMUlro0sgxqXpbOIohWiLNXWslsootttv7E1e73QPAMQSg5FeySbVcpsPQ==";
       };
     };
-    "yargs-17.4.0" = {
+    "yargs-17.4.1" = {
       name = "yargs";
       packageName = "yargs";
-      version = "17.4.0";
+      version = "17.4.1";
       src = fetchurl {
-        url = "https://registry.npmjs.org/yargs/-/yargs-17.4.0.tgz";
-        sha512 = "WJudfrk81yWFSOkZYpAZx4Nt7V4xp7S/uJkX0CnxovMCt1wCE8LNftPpNuF9X/u9gN5nsD7ycYtRcDf2pL3UiA==";
+        url = "https://registry.npmjs.org/yargs/-/yargs-17.4.1.tgz";
+        sha512 = "WSZD9jgobAg3ZKuCQZSa3g9QOJeCCqLoLAykiWgmXnDo9EPnn4RPf5qVTtzgOx66o6/oqhcA5tHtJXpG8pMt3g==";
       };
     };
     "yargs-parser-20.2.9" = {
@@ -3411,7 +3420,7 @@ in
     dependencies = [
       sources."@11ty/dependency-tree-2.0.0"
       sources."@babel/helper-validator-identifier-7.16.7"
-      sources."@babel/parser-7.17.8"
+      sources."@babel/parser-7.17.9"
       sources."@babel/types-7.17.0"
       sources."@iarna/toml-2.2.5"
       sources."@nodelib/fs.scandir-2.1.5"
@@ -3548,7 +3557,7 @@ in
       sources."get-intrinsic-1.1.1"
       sources."glob-7.2.0"
       sources."glob-parent-5.1.2"
-      sources."graceful-fs-4.2.9"
+      sources."graceful-fs-4.2.10"
       sources."gray-matter-4.0.3"
       sources."hamljs-0.6.2"
       sources."handlebars-4.7.7"
@@ -3591,7 +3600,7 @@ in
           sources."supports-color-7.2.0"
         ];
       })
-      sources."js-beautify-1.14.2"
+      sources."js-beautify-1.14.3"
       sources."js-stringify-1.0.2"
       sources."js-yaml-3.14.1"
       sources."jsonfile-3.0.1"
@@ -3702,10 +3711,9 @@ in
       sources."rxjs-5.5.12"
       sources."safer-buffer-2.1.2"
       sources."section-matter-1.0.0"
-      (sources."semver-7.3.5" // {
+      (sources."semver-7.3.6" // {
         dependencies = [
-          sources."lru-cache-6.0.0"
-          sources."yallist-4.0.0"
+          sources."lru-cache-7.8.1"
         ];
       })
       sources."semver-compare-1.0.0"
@@ -3765,7 +3773,7 @@ in
       sources."token-stream-1.0.0"
       sources."ua-parser-js-1.0.2"
       sources."uc.micro-1.0.6"
-      sources."uglify-js-3.15.3"
+      sources."uglify-js-3.15.4"
       sources."universalify-0.1.2"
       sources."unpipe-1.0.0"
       sources."utils-merge-1.0.1"
@@ -3785,7 +3793,7 @@ in
       sources."xmlhttprequest-ssl-2.0.0"
       sources."y18n-5.0.8"
       sources."yallist-2.1.2"
-      (sources."yargs-17.4.0" // {
+      (sources."yargs-17.4.1" // {
         dependencies = [
           sources."yargs-parser-21.0.1"
         ];
@@ -3831,7 +3839,7 @@ in
     };
     dependencies = [
       sources."cp-file-7.0.0"
-      sources."graceful-fs-4.2.9"
+      sources."graceful-fs-4.2.10"
       sources."make-dir-3.1.0"
       sources."nested-error-stacks-2.1.1"
       sources."p-event-4.2.0"
@@ -3891,7 +3899,7 @@ in
       sources."fs.realpath-1.0.0"
       sources."gauge-4.0.4"
       sources."glob-7.2.0"
-      sources."graceful-fs-4.2.9"
+      sources."graceful-fs-4.2.10"
       sources."has-unicode-2.0.1"
       sources."http-cache-semantics-4.1.0"
       sources."http-proxy-agent-4.0.1"
@@ -3934,7 +3942,11 @@ in
       sources."rimraf-3.0.2"
       sources."safe-buffer-5.2.1"
       sources."safer-buffer-2.1.2"
-      sources."semver-7.3.5"
+      (sources."semver-7.3.6" // {
+        dependencies = [
+          sources."lru-cache-7.8.1"
+        ];
+      })
       sources."set-blocking-2.0.0"
       sources."signal-exit-3.0.7"
       sources."smart-buffer-4.2.0"
