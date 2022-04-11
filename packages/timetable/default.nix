@@ -10,7 +10,7 @@ rustPlatform.buildRustPackage rec {
 
   src = ./.;
 
-  cargoSha256 = "0wvybrvdh1kipz925b4644df654p20wvgcjlg69wc7i5dll5pv73";
+  cargoSha256 = "1w33dl78rsbnrpbjb9hfblizq2hlp5q8bwzvxif6g59i00nbdmrs";
 
   meta = with lib; {
     description = "Easily check your timetable from the terminal";
