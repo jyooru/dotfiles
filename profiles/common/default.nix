@@ -36,6 +36,7 @@ in
     # flake-utils-plus
     generateRegistryFromInputs = true;
     generateNixPathFromInputs = true;
+    linkInputs = true;
   };
   nixpkgs.config = import ./nixpkgs.nix;
 
