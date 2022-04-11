@@ -23,11 +23,6 @@ in
   };
 
   nix = {
-    nixPath = (mapAttrsToList
-      (name: value: "${name}=${value}")
-      inputs)
-    ++ [ "nixos-config=${self}" ];
-    registry = mapAttrs (name: value: { flake = value; }) inputs;
     package = pkgs.nixUnstable;
     extraOptions = ''
       experimental-features = nix-command flakes
@@ -37,6 +32,11 @@ in
       substituters = map (x: "https://nix.${x}.${config.networking.domain}") cacheHosts;
       inherit trusted-public-keys;
     };
+
+    # flake-utils-plus
+    generateRegistryFromInputs = true;
+    generateNixPathFromInputs = true;
+    linkInputs = true;
   };
   nixpkgs.config = import ./nixpkgs.nix;
 
