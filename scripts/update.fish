@@ -8,12 +8,6 @@ cd "$root" &&
     git add . &&
     git commit -m "chore(flake): update"
 
-cd "$root/packages/timetable" &&
-    cargo update &&
-    read -p "echo Please update cargoSha256 in packages/timetable/default.nix and press enter..." &&
-    git add . &&
-    git commit -m "chore(packages.timetable): update"
-
 cd "$root/overlays/node-packages" &&
     ./update.sh &&
     git add . &&
