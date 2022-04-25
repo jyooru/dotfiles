@@ -17,6 +17,8 @@ rec {
 
   min-firefox = callPackage ./min-firefox { };
 
+  nakatoshi = callPackage ./nakatoshi { };
+
   nano-vanity = callPackage ./nano-vanity { };
 
   nerdfonts-woff2 = callPackage ./nerdfonts-woff2 { inherit ttf2woff2; };
