@@ -28,4 +28,6 @@ rec {
   };
 
   timetable = callPackage ./timetable { };
+
+  vanieth = callPackage ./vanieth { };
 }
