@@ -9,6 +9,8 @@ in
 with pkgs;
 
 rec {
+  atto = callPackage ./atto { };
+
   caddy-modded = callPackage ./caddy-modded { };
 
   jisho-api = callPackage ./jisho-api { };

@@ -1,4 +1,4 @@
-{ lib, stdenv, rustPlatform, fetchFromGitHub, ocl-icd }:
+{ lib, rustPlatform, fetchFromGitHub, ocl-icd }:
 rustPlatform.buildRustPackage rec {
   pname = "nano-vanity";
   version = "0.4.13";
