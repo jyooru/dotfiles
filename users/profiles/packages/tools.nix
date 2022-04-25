@@ -23,6 +23,8 @@
     killall # kill processes by name
     lsd # "ls" rust alternative
     tree # list directories recursively
+    atto # nano cli wallet
+    nano-vanity # nano vanity address generator
     docker-compose # manage multi-container applications
     cmatrix # matrix display
     playerctl # media player control

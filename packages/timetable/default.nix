@@ -1,8 +1,4 @@
-{ lib
-, stdenv
-, rustPlatform
-, pkg-config
-}:
+{ lib, rustPlatform }:
 
 rustPlatform.buildRustPackage rec {
   pname = "timetable";
