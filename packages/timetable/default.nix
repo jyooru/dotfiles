@@ -1,7 +1,6 @@
 { lib
 , stdenv
 , rustPlatform
-, pkg-config
 }:
 
 rustPlatform.buildRustPackage rec {
