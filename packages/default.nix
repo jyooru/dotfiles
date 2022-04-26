@@ -30,4 +30,6 @@ rec {
   timetable = callPackage ./timetable { };
 
   vanieth = callPackage ./vanieth { };
+
+  vanity-monero = callPackage ./vanity-monero { };
 }
