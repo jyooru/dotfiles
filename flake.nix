@@ -27,7 +27,7 @@
 
       channelsConfig = import ./profiles/common/nixpkgs.nix;
       sharedOverlays = [
-        (final: _: { comma = import comma { pkgs = final; }; })
+        (final: _: { inherit (comma.packages.${final.system}) comma; })
         deploy.overlay
         fenix.overlay
         nur.overlay
