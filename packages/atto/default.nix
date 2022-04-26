@@ -1,8 +1,4 @@
-{ lib
-, buildGoModule
-, fetchFromGitHub
-, ocl-icd
-}:
+{ lib, buildGoModule, fetchFromGitHub, ocl-icd }:
 buildGoModule rec {
   pname = "atto";
   version = "1.4.1";
