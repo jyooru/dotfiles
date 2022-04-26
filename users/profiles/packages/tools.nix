@@ -2,6 +2,7 @@
 {
   home.packages = with pkgs; [
     bandwhich # bandwidth monitor
+    nakatoshi # bitcoin vanity address generator
     brightnessctl # brightness control
     pastel # colors cli
     dogdns # dns lookup
@@ -45,7 +46,10 @@
     wmctrl # window manager control
     xorg.xev # x event viewer
     git # version control system
+    vanieth # ethereum vanity address generator
+    vanity-monero # monero vanity address generator
     whois # whois viewer
+
 
     timetable # packages/timetable
   ];
