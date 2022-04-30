@@ -10,7 +10,7 @@ let
   overlays = import ./.;
   overlayPackages = {
     customiseDedicatedGPU = [ "minecraft" "steam" ];
-    customiseQtile = [ "qtile" ];
+    # customiseQtile = [ "qtile" ]; # wlroots fails to build
     customiseXsecurelock = [ "xsecurelock" ];
 
     fixNebula = [ "nebula" ];

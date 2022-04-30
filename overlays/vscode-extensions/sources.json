@@ -62,26 +62,26 @@
   {
     "name": "vscode-docker",
     "publisher": "ms-azuretools",
-    "sha256": "12rll1wn6xs1fzb391598pih3qw8dq4vdmyvmcind0ns42hsmlan",
-    "version": "1.21.0"
+    "sha256": "12qfwfqaa6nxm6gg2g7g4m001lh57bbhhbpyawxqk81qnjw3vipr",
+    "version": "1.22.0"
   },
   {
     "name": "python",
     "publisher": "ms-python",
-    "sha256": "1lw2syvffbib1cfjlzmr32q6vq150xwmk738ams47pavy6q3kbzy",
-    "version": "2022.5.11051003"
+    "sha256": "0hr9y73xq4w3gi8zrmxrdwagj5wwa6isjz52vp7qbp2a5vvpdpqh",
+    "version": "2022.5.11191822"
   },
   {
     "name": "vscode-pylance",
     "publisher": "ms-python",
-    "sha256": "11yx0gxw4hpyqpv6x7bzmazq3v72fd42qb67laps64xjayfc6k5d",
-    "version": "2022.4.1"
+    "sha256": "0ykn0wy8qasafdl9dkwg5nhsq2w7i73f2iy1gy3gyav84r945d42",
+    "version": "2022.4.3"
   },
   {
     "name": "jupyter",
     "publisher": "ms-toolsai",
-    "sha256": "03mwmnv0qmhhvmcrmx6c075spi4sdmh0i0sbq41n0j2jgmj3vbks",
-    "version": "2022.4.1001071005"
+    "sha256": "04m83w4qg84jb7kpjcb3ms663rzg7biwyakbqbk8xl2vfd1ngd40",
+    "version": "2022.4.1001211005"
   },
   {
     "name": "color-highlight",
@@ -92,8 +92,8 @@
   {
     "name": "material-icon-theme",
     "publisher": "PKief",
-    "sha256": "1bs78k27ypq298zyhclcj3xac9xlj7f3zpy6jh2gv9x8fbwnqp3x",
-    "version": "4.15.0"
+    "sha256": "1alj7xbldfj35sajfkas3fspz5n3c6h9q1016qdagns1hmdfzq80",
+    "version": "4.16.0"
   },
   {
     "name": "vscode-css-peek",
@@ -116,8 +116,8 @@
   {
     "name": "vscode-yaml",
     "publisher": "redhat",
-    "sha256": "123ycy1lky6gcz22gp2zc0y2wiyq97v85p2dxhdsm5dqf6bxjz1q",
-    "version": "1.6.0"
+    "sha256": "1bbjpaypp0mq5akww5f0pkpq01j0xhhvkfr44f4lb2rdhr5nmnvc",
+    "version": "1.7.0"
   },
   {
     "name": "fish-vscode",
@@ -134,7 +134,7 @@
   {
     "name": "markdown-all-in-one",
     "publisher": "yzhang",
-    "sha256": "1qv4rmfn594hxinbp2h3903dbp5c5p3rz8ig0w2iiabj2zj2k6hn",
-    "version": "3.4.2"
+    "sha256": "0z0sdb5vmx1waln5k9fk6s6lj1pzpcm3hwm4xc47jz62iq8930m3",
+    "version": "3.4.3"
   }
 ]
