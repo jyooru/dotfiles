@@ -6,10 +6,17 @@ let
   hosts = (attrNames self.nixosConfigurations) ++ [ "retropie" ];
 in
 {
-  networking.firewall.interfaces."nebula0" = {
-    allowedTCPPorts = config.services.openssh.ports;
-    allowedUDPPortRanges = [{ from = 60000; to = 61000; }]; # mosh
-  };
+  networking.firewall.interfaces =
+    let
+      ports = {
+        allowedTCPPorts = config.services.openssh.ports;
+        allowedUDPPortRanges = [{ from = 60000; to = 61000; }]; # mosh
+      };
+    in
+    {
+      "nebula0" = ports;
+      "ygg0" = ports;
+    };
 
   programs = {
     mosh.enable = true;
