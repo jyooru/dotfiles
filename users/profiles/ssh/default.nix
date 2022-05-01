@@ -6,19 +6,19 @@
         hostname = "raspberrypi.local";
         user = "pi";
       };
-      "l laptop thinkpad-e580" = {
+      "l" = {
         hostname = "thinkpad-e580.joel.tokyo";
       };
-      "1 portege-r700-a" = {
+      "1" = {
         hostname = "portege-r700-a.joel.tokyo";
       };
-      # "2 portege-r700-b" = {
+      # "2" = {
       #   hostname = "portege-r700-b.joel.tokyo";
       # };
-      "3 portege-z930" = {
+      "3" = {
         hostname = "portege-z930.joel.tokyo";
       };
-      "4 ga-z77-d3h" = {
+      "4" = {
         hostname = "ga-z77-d3h.joel.tokyo";
       };
       "r retropie" = {
