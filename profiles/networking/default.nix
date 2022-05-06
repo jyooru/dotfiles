@@ -33,6 +33,7 @@ in
     settings = {
       forwarding_rules = toFile "forwarding-rules.txt" forwardingRules;
       listen_addresses = [ "[::]:53" ];
+      netprobe_timeout = 0;
       server_names = [ "cloudflare" "cloudflare-ipv6" ];
     };
     upstreamDefaults = true;
