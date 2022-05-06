@@ -130,15 +130,6 @@ let
         sha512 = "5/kmIOY9FF32nicXH+5yLNTX4NJ4atl7jRgqAJuIn/iyDFXBktOKDxCvyGE/EzmF4ngSUvjXxQUQlQiZ5lfw+w==";
       };
     };
-    "@socket.io/base64-arraybuffer-1.0.2" = {
-      name = "_at_socket.io_slash_base64-arraybuffer";
-      packageName = "@socket.io/base64-arraybuffer";
-      version = "1.0.2";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/@socket.io/base64-arraybuffer/-/base64-arraybuffer-1.0.2.tgz";
-        sha512 = "dOlCBKnDw4iShaIsH/bxujKTM18+2TOAsYz+KSc11Am38H4q5Xw8Bbz97ZYdrVNM+um3p7w86Bvvmcn9q+5+eQ==";
-      };
-    };
     "@socket.io/component-emitter-3.1.0" = {
       name = "_at_socket.io_slash_component-emitter";
       packageName = "@socket.io/component-emitter";
@@ -193,13 +184,13 @@ let
         sha512 = "Klz949h02Gz2uZCMGwDUSDS1YBlTdDDgbWHi+81l29tQALUtvz4rAYi5uoVhE5Lagoq6DeqAUlbrHvW/mXDgdQ==";
       };
     };
-    "@types/node-17.0.30" = {
+    "@types/node-17.0.31" = {
       name = "_at_types_slash_node";
       packageName = "@types/node";
-      version = "17.0.30";
+      version = "17.0.31";
       src = fetchurl {
-        url = "https://registry.npmjs.org/@types/node/-/node-17.0.30.tgz";
-        sha512 = "oNBIZjIqyHYP8VCNAV9uEytXVeXG2oR0w9lgAXro20eugRQfY002qr3CUl6BAe+Yf/z3CRjPdz27Pu6WWtuSRw==";
+        url = "https://registry.npmjs.org/@types/node/-/node-17.0.31.tgz";
+        sha512 = "AR0x5HbXGqkEx9CadRH3EBYx/VkiUgZIhP4wvPn/+5KIsgpNoyFaRlVe0Zlx9gRtg8fA06a9tskE2MSN7TcG4Q==";
       };
     };
     "a-sync-waterfall-1.0.1" = {
@@ -1021,22 +1012,22 @@ let
         sha512 = "4KzwW3F3bk+KlzSOY57fj/Jx6LyRQ1nbcyIadehl+AnXjKT7gDO0ORdRi/84ixvMKTym6ZKuxvbzN62HDDU1Lg==";
       };
     };
-    "engine.io-client-6.2.1" = {
+    "engine.io-client-6.2.2" = {
       name = "engine.io-client";
       packageName = "engine.io-client";
-      version = "6.2.1";
+      version = "6.2.2";
       src = fetchurl {
-        url = "https://registry.npmjs.org/engine.io-client/-/engine.io-client-6.2.1.tgz";
-        sha512 = "5cu7xubVxEwoB6O9hJ6Zfu990yBVjXfyMlE1ZvfO5L8if3Kvc9bgDNEapV0C5pMp+5Om1UZFnljxoOuFm6dBKA==";
+        url = "https://registry.npmjs.org/engine.io-client/-/engine.io-client-6.2.2.tgz";
+        sha512 = "8ZQmx0LQGRTYkHuogVZuGSpDqYZtCM/nv8zQ68VZ+JkOpazJ7ICdsSpaO6iXwvaU30oFg5QJOJWj8zWqhbKjkQ==";
       };
     };
-    "engine.io-parser-5.0.3" = {
+    "engine.io-parser-5.0.4" = {
       name = "engine.io-parser";
       packageName = "engine.io-parser";
-      version = "5.0.3";
+      version = "5.0.4";
       src = fetchurl {
-        url = "https://registry.npmjs.org/engine.io-parser/-/engine.io-parser-5.0.3.tgz";
-        sha512 = "BtQxwF27XUNnSafQLvDi0dQ8s3i6VgzSoQMJacpIcGNrlUdfHSKbgm3jmjCVvQluGzqwujQMPAoMai3oYSTurg==";
+        url = "https://registry.npmjs.org/engine.io-parser/-/engine.io-parser-5.0.4.tgz";
+        sha512 = "+nVFp+5z1E3HcToEnO7ZIj3g+3k9389DvWtvJZz0T6/eOCPIyyxehFcedoYrZQrp0LgQbD9pPXhpMBKMd5QURg==";
       };
     };
     "entities-2.1.0" = {
@@ -1210,13 +1201,13 @@ let
         sha1 = "ce0b6855b45853e791b2fcc680046d88253dd7f5";
       };
     };
-    "follow-redirects-1.14.9" = {
+    "follow-redirects-1.15.0" = {
       name = "follow-redirects";
       packageName = "follow-redirects";
-      version = "1.14.9";
+      version = "1.15.0";
       src = fetchurl {
-        url = "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.14.9.tgz";
-        sha512 = "MQDfihBQYMcyy5dhRDJUHcw7lb2Pv/TuE6xP1vyraLukNDHKbDxDNaOE3NbCAdKQApno+GPRyo1YAp89yCjK4w==";
+        url = "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.15.0.tgz";
+        sha512 = "aExlJShTV4qOUOL7yF1U5tvLCB0xQuudbf6toyYA0E/acBNw71mvjFTnLaRp50aQaYocMR0a/RMMBIHeZnGyjQ==";
       };
     };
     "fresh-0.5.2" = {
@@ -3460,13 +3451,12 @@ in
           sources."escape-string-regexp-2.0.0"
         ];
       })
-      sources."@socket.io/base64-arraybuffer-1.0.2"
       sources."@socket.io/component-emitter-3.1.0"
       sources."@types/component-emitter-1.2.11"
       sources."@types/cookie-0.4.1"
       sources."@types/cors-2.8.12"
       sources."@types/minimatch-3.0.5"
-      sources."@types/node-17.0.30"
+      sources."@types/node-17.0.31"
       sources."a-sync-waterfall-1.0.1"
       sources."abbrev-1.1.1"
       sources."accepts-1.3.8"
@@ -3555,8 +3545,8 @@ in
       sources."emoji-regex-8.0.0"
       sources."encodeurl-1.0.2"
       sources."engine.io-6.2.0"
-      sources."engine.io-client-6.2.1"
-      sources."engine.io-parser-5.0.3"
+      sources."engine.io-client-6.2.2"
+      sources."engine.io-parser-5.0.4"
       sources."entities-2.1.0"
       sources."errno-0.1.8"
       sources."escalade-3.1.1"
@@ -3580,7 +3570,7 @@ in
           sources."debug-2.6.9"
         ];
       })
-      sources."follow-redirects-1.14.9"
+      sources."follow-redirects-1.15.0"
       sources."fresh-0.5.2"
       sources."fs-extra-3.0.1"
       sources."fs.realpath-1.0.0"
