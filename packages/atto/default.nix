@@ -1,16 +1,16 @@
 { lib, buildGoModule, fetchFromGitHub, ocl-icd }:
 buildGoModule rec {
   pname = "atto";
-  version = "1.4.1";
+  version = "1.5.0";
 
   src = fetchFromGitHub {
     owner = "codesoap";
     repo = pname;
     rev = "v${version}";
-    sha256 = "sha256-8W6I5c8VHmdCY912CAJTMI1SFSJdkCAmMHX8QrLZmiM=";
+    sha256 = "sha256-kqywB7Ai0lV7SaGoirdpSAXNytOr40WOXu31v9mpO5Y=";
   };
 
-  vendorSha256 = "sha256-XkQM3Rcl1yp79fw+Cepp8JuXxVlZ6g3QGocLx8ejWXQ=";
+  vendorSha256 = "sha256-qeZbpcWVwk8GrLoYHbG5+tNPLAFjo0VydGMKXhhKw5s=";
 
   meta = with lib; {
     description = "Command line Nano wallet focusing on simplicity";
