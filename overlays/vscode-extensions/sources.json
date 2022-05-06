@@ -68,8 +68,8 @@
   {
     "name": "python",
     "publisher": "ms-python",
-    "sha256": "0hr9y73xq4w3gi8zrmxrdwagj5wwa6isjz52vp7qbp2a5vvpdpqh",
-    "version": "2022.5.11191822"
+    "sha256": "1myqhfpd331pg0f3hzd9zs9qyarzkywc0inrrvwvq11pyzk7xnyz",
+    "version": "2022.6.0"
   },
   {
     "name": "vscode-pylance",
@@ -80,8 +80,8 @@
   {
     "name": "jupyter",
     "publisher": "ms-toolsai",
-    "sha256": "04m83w4qg84jb7kpjcb3ms663rzg7biwyakbqbk8xl2vfd1ngd40",
-    "version": "2022.4.1001211005"
+    "sha256": "0pavv10d4dgl8669cbw4f99xw2dmfd5x4r6gv8cq82fqzja71krp",
+    "version": "2022.5.1001271006"
   },
   {
     "name": "color-highlight",
