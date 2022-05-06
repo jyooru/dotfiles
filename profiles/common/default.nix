@@ -40,10 +40,7 @@ in
   };
   nixpkgs.config = import ./nixpkgs.nix;
 
-  system = {
-    autoUpgrade.enable = true;
-    stateVersion = "21.05";
-  };
+  system.stateVersion = "21.05";
 
   home-manager = {
     useGlobalPkgs = true;
