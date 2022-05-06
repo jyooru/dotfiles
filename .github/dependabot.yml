@@ -1,0 +1,25 @@
+version: 2
+updates:
+  - package-ecosystem: "cargo"
+    directory: "/"
+    schedule:
+      day: "friday"
+      interval: "weekly"
+      time: "22:30"
+    target-branch: "chore/update"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      day: "friday"
+      interval: "weekly"
+      time: "22:30"
+    target-branch: "chore/update"
+
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      day: "friday"
+      interval: "weekly"
+      time: "22:30"
+    target-branch: "chore/update"
