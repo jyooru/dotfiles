@@ -31,6 +31,7 @@ in
   services.dnscrypt-proxy2 = {
     enable = true;
     settings = {
+      bootstrap_resolvers = [ "1.1.1.1:53" "1.0.0.1:53" ];
       forwarding_rules = toFile "forwarding-rules.txt" forwardingRules;
       listen_addresses = [ "[::]:53" ];
       netprobe_timeout = 0;
