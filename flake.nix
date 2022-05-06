@@ -38,6 +38,7 @@
         ./patches/fix-yggdrasil.patch
         ./patches/mosh-no-firewall-open.patch
         ./patches/qtile-without-wlroots.patch
+        ./patches/revert-x-update-due-to-segfault.patch
       ];
 
       hostDefaults = {
