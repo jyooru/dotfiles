@@ -58,5 +58,12 @@ in
     devices = removeAttrs devices [ hostName ];
     folders = mapAttrs (_: values: values // { devices = remove hostName values.devices; })
       (filterAttrs (_: v: elem hostName v.devices) folders);
+    extraOptions.options = {
+      # all devices use my nebula network
+      globalAnnounceEnabled = false;
+      localAnnounceEnabled = false;
+      natEnabled = false;
+      relaysEnabled = false;
+    };
   };
 }
