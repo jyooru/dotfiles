@@ -1,7 +1,7 @@
 version: 2
 updates:
   - package-ecosystem: "cargo"
-    directory: "/"
+    directory: "/packages/timetable"
     schedule:
       day: "friday"
       interval: "weekly"
@@ -9,7 +9,7 @@ updates:
     target-branch: "chore/update"
 
   - package-ecosystem: "github-actions"
-    directory: "/"
+    directory: "/templates/python"
     schedule:
       day: "friday"
       interval: "weekly"
@@ -17,7 +17,7 @@ updates:
     target-branch: "chore/update"
 
   - package-ecosystem: "pip"
-    directory: "/"
+    directory: "/templates/python"
     schedule:
       day: "friday"
       interval: "weekly"
