@@ -9,7 +9,7 @@ updates:
     target-branch: "chore/update"
 
   - package-ecosystem: "github-actions"
-    directory: "/templates/python"
+    directory: "/templates/python/.github/workflows"
     schedule:
       day: "friday"
       interval: "weekly"
