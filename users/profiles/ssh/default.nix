@@ -10,7 +10,7 @@ with lib;
         hosts = {
           "l" = "thinkpad-e580";
           "1" = "portege-r700-a";
-          # "2" = "portege-r700-b";
+          "2" = "portege-r700-b";
           "3" = "portege-z930";
           "4" = "ga-z77-d3h";
         };

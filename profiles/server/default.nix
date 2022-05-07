@@ -56,7 +56,7 @@
 
           upstream http_servers {
             server 10.42.0.11:8001;
-            # server 10.42.0.12:8001;
+            server 10.42.0.12:8001;
             server 10.42.0.13:8001;
             server 10.42.0.14:8001;
           }
@@ -76,7 +76,7 @@
 
           upstream https_servers {
             server 10.42.0.11:44301;
-            # server 10.42.0.12:44301;
+            server 10.42.0.12:44301;
             server 10.42.0.13:44301;
             server 10.42.0.14:44301;
           }
