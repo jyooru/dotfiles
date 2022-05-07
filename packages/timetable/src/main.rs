@@ -5,10 +5,9 @@ use serde::{Deserialize, Serialize};
 use std::env;
 use std::fs;
 use std::path::Path;
+use tabled::object::{Columns, Rows};
 use tabled::Object;
-use tabled::{
-    Alignment, Column, Format, FormatFrom, Full, Header, Modify, Row, Style, Table, Tabled,
-};
+use tabled::{Alignment, Format, Full, Header, Modify, Style, Table, Tabled};
 
 fn find_timetable() -> Option<String> {
     let home = env::var("HOME").unwrap();
@@ -30,7 +29,8 @@ fn find_timetable() -> Option<String> {
 #[derive(Serialize, Deserialize, Tabled)]
 struct Period {
     period: u8,
-    name: String,
+    #[serde(rename = "name")]
+    class: String,
     room: String,
     teacher: String,
 }
@@ -72,6 +72,12 @@ pub fn query_choice(choices: &[String], pattern: String) -> usize {
     0
 }
 
+fn capitalise(s: &str) -> String {
+    let mut v: Vec<char> = s.chars().collect();
+    v[0] = v[0].to_uppercase().nth(0).unwrap();
+    v.into_iter().collect()
+}
+
 fn map_period(period: &str) -> String {
     let integer = period.parse::<u8>().unwrap();
     if integer == 5 {
@@ -92,11 +98,7 @@ fn main() {
     let choice = query_choice(&choices, get_pattern());
 
     let day = timetable.get(choice).unwrap();
-    let header = &choices.get(choice).unwrap();
-    let labels = ["Period", "Class", "Room", "Teacher"]
-        .iter()
-        .map(|s| s.bold().reset().to_string())
-        .collect();
+    let header = format!("{}\n", &choices.get(choice).unwrap());
 
     let table = Table::new(day)
         .with(Modify::new(Full).with(Alignment::left()))
@@ -104,15 +106,16 @@ fn main() {
         .with(Style::psql().vertical_off().header('━'))
         // header
         .with(Header(header))
-        .with(Modify::new(Row(..1)).with(Format(|s| format!("{}\n", s).bold().reset().to_string())))
+        .with(Modify::new(Rows::first()).with(Format::new(|s| s.bold().reset().to_string())))
         // labels
-        .with(Modify::new(Row(1..2)).with(FormatFrom(labels)))
+        .with(Modify::new(Rows::single(1)).with(Format::new(capitalise)))
+        .with(Modify::new(Rows::single(1)).with(Format::new(|s| s.bold().reset().to_string())))
         // columns
-        .with(Modify::new(Column(..1).not(Row(..2))).with(Format(map_period)))
-        .with(Modify::new(Column(..1)).with(Alignment::center_horizontal()))
-        .with(Modify::new(Column(..1)).with(Format(|s| s.green().bold().to_string())))
-        .with(Modify::new(Column(1..2)).with(Format(|s| s.bold().to_string())))
-        .with(Modify::new(Column(2..3)).with(Format(|s| s.bold().cyan().to_string())));
+        .with(Modify::new(Columns::single(0).not(Rows::new(..2))).with(Format::new(map_period)))
+        .with(Modify::new(Columns::single(0)).with(Alignment::center()))
+        .with(Modify::new(Columns::single(0)).with(Format::new(|s| s.green().bold().to_string())))
+        .with(Modify::new(Columns::single(1)).with(Format::new(|s| s.bold().to_string())))
+        .with(Modify::new(Columns::single(2)).with(Format::new(|s| s.bold().cyan().to_string())));
 
     print!("\n{}", table)
 }
