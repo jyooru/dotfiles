@@ -8,14 +8,6 @@ updates:
       time: "22:30"
     target-branch: "chore/update"
 
-  - package-ecosystem: "github-actions"
-    directory: "/templates/python/.github/workflows"
-    schedule:
-      day: "friday"
-      interval: "weekly"
-      time: "22:30"
-    target-branch: "chore/update"
-
   - package-ecosystem: "pip"
     directory: "/templates/python"
     schedule:
