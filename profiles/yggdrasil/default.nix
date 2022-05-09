@@ -38,6 +38,7 @@ in
     enable = true;
     group = "wheel";
     persistentKeys = true;
+    openMulticastPort = true;
     config = {
       Listen =
         if isPublicPeer then
