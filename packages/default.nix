@@ -27,6 +27,8 @@ rec {
     nerdfonts = nerdfonts.override { fonts = [ "FiraCode" ]; };
   };
 
+  simpleygggen-cpp = callPackage ./simpleygggen-cpp { };
+
   timetable = callPackage ./timetable { };
 
   vanieth = callPackage ./vanieth { };
