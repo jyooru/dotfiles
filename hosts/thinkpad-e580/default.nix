@@ -77,7 +77,6 @@
     group = "caddy";
   };
 
-
   systemd.services.caddy.serviceConfig.AmbientCapabilities = [ "CAP_NET_BIND_SERVICE" ];
   services.caddy = {
     enable = true;
