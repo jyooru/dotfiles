@@ -22,7 +22,7 @@ stdenv.mkDerivation rec {
 
   meta = with lib; {
     description = "Simple Yggdrasil address miner in C++";
-    license = licenses.glp3Only;
+    license = licenses.gpl3Only;
     maintainers = with maintainers; [ jyooru ];
   };
 }

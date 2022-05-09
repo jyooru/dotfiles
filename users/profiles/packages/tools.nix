@@ -45,6 +45,7 @@
     aircrack-ng # wifi tools
     wmctrl # window manager control
     xorg.xev # x event viewer
+    simpleygggen-cpp # yggdrasil vanity address generator
     git # version control system
     vanieth # ethereum vanity address generator
     vanity-monero # monero vanity address generator
