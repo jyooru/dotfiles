@@ -4,6 +4,7 @@
     bandwhich # bandwidth monitor
     nakatoshi # bitcoin vanity address generator
     brightnessctl # brightness control
+    kalker # calculator
     pastel # colors cli
     dogdns # dns lookup
     pandoc # document converter
@@ -50,7 +51,6 @@
     vanieth # ethereum vanity address generator
     vanity-monero # monero vanity address generator
     whois # whois viewer
-
 
     timetable # packages/timetable
   ];
