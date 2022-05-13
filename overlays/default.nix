@@ -1,5 +1,7 @@
 let
-  overlays = {
+  overlays = rec {
+    default = packages;
+
     # customisations
     customiseDedicatedGPU = ./customise-dedicated-gpu;
     customiseQtile = ./customise-qtile;
