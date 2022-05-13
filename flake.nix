@@ -72,7 +72,7 @@
       outputsBuilder = channels:
         let pkgs = channels.nixpkgs; in
         with pkgs; {
-          devShell = mkShell {
+          devShells.default = mkShell {
             packages = [
               nixpkgs-fmt
               nodePackages.node2nix
@@ -87,13 +87,5 @@
       templates = import ./templates;
 
       overlays = import ./overlays;
-      overlay = self.overlays.packages;
-
-      ci = with builtins; with self; {
-        devShell = devShell.${currentSystem};
-        nixosConfigurations = recurseIntoAttrs (mapAttrs (_: value: value.config.system.build.toplevel) nixosConfigurations);
-        overlays = import ./overlays/ci.nix { inherit inputs; };
-        packages = recurseIntoAttrs packages.${currentSystem};
-      };
     };
 }
