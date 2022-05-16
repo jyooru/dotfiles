@@ -39,6 +39,8 @@
         ./patches/mosh-no-firewall-open.patch
         ./patches/qtile-without-wlroots.patch
         ./patches/revert-x-update-due-to-segfault.patch
+
+        ./patches/173235.patch
       ];
 
       hostDefaults = {
