@@ -1,14 +1,15 @@
 { lib, pkgs, ... }:
 
-let
-  inherit (lib) readFile;
+with lib;
 
+let
   theme = pkgs.min-firefox.outPath;
 in
 
 {
   programs.firefox = {
     enable = true;
+    package = pkgs.librewolf;
 
     extensions = with pkgs.nur.repos.rycee.firefox-addons; [
       bitwarden
@@ -33,6 +34,16 @@ in
       };
       userChrome = readFile (theme + "/userChrome.css");
       userContent = readFile (theme + "/userContent.css");
+    };
+  };
+
+  home.file.".librewolf/profiles.ini".text = generators.toINI { } {
+    General.StartWithLastProfile = 1;
+    Profile0 = {
+      Default = 1;
+      IsRelative = 1;
+      Name = "profile";
+      Path = "../.mozilla/firefox/profile";
     };
   };
 }
