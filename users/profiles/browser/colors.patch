@@ -1,0 +1,15 @@
+diff --git a/chrome/userChrome.css b/chrome/userChrome.css
+index 1cc831a..ab45ba5 100644
+--- a/chrome/userChrome.css
++++ b/chrome/userChrome.css
+@@ -19,8 +19,8 @@ by Miguel Avila
+ */
+
+ :root {
+-  --sfwindow: #19171a;
+-  --sfsecondary: #201e21;
++  --sfwindow: #1a1a1a;
++  --sfsecondary: #1f1f1f;
+ }
+
+ /* Urlbar View */
