@@ -247,7 +247,7 @@ keys = [
     for key, program in {
         "Return": terminal,
         "space": "rofi -combi-modi window,drun,ssh -show combi",
-        "b": "firefox",
+        "b": "librewolf",
         "e": "pgrep code && code --new-window || code",
         "r": terminal_command("ranger"),
         "n": "obsidian",
