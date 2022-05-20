@@ -15,8 +15,6 @@ rec {
 
   jisho-api = callPackage ./jisho-api { };
 
-  min-firefox = callPackage ./min-firefox { };
-
   nakatoshi = callPackage ./nakatoshi { };
 
   nano-vanity = callPackage ./nano-vanity { };
