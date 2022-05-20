@@ -2,27 +2,6 @@
 
 with lib;
 
-let
-  theme = with pkgs; stdenv.mkDerivation {
-    name = "simplefox";
-
-    src = fetchFromGitHub {
-      owner = "migueravila";
-      repo = "SimpleFox";
-      rev = "a4c1ec7d2af121047f09da4a572960e032ca29a6";
-      sha256 = "0mczxv25l4hc00hgmsc21ln4x9dblaf55p7ivgrbqqcrfdg0pll8";
-    };
-
-    patches = [
-      ./colors.patch
-    ];
-
-    installPhase = ''
-      cp -r chrome "$out"
-    '';
-  };
-in
-
 {
   programs.firefox = {
     enable = true;
@@ -87,8 +66,7 @@ in
           "browser.toolbars.bookmarks.visibility" = "never";
         };
 
-        userChrome = readFile (theme + "/userChrome.css");
-        userContent = readFile (theme + "/userContent.css");
+        userChrome = readFile (pkgs.callPackage ./cascade.nix { });
       };
   };
 
