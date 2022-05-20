@@ -21,3 +21,5 @@ cd "$root/overlays/vscode-extensions" &&
 # packages.caddy-modded
 # once caddy updates dependencies and fixes ambiguous import
 # cd "$root/packages/caddy-modded" && ./update.sh && git add . && git commit -m "chore(packages.caddy-modded): update"
+
+git push && gh pr create -t "chore: update" -b "" && gh pr merge --auto -m
