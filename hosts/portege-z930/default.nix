@@ -20,6 +20,7 @@
     22
     8000
     44300
+    (import ../../profiles/ipfs/ports.nix).${config.networking.hostName}
     (import ../../profiles/yggdrasil/ports.nix).${config.networking.hostName}
   ];
   services.nebula.networks."joel".listen.port = 4243;

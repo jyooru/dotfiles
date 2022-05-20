@@ -8,6 +8,7 @@ exportModules [
   ./distributed-build
   ./file-sync
   ./interactive
+  ./ipfs
   ./locale
   ./networking
   ./server

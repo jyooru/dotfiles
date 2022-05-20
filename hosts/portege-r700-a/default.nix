@@ -21,6 +21,7 @@
   networking.firewall.interfaces."enp0s25".allowedTCPPorts = [
     22
     8000
+    (import ../../profiles/ipfs/ports.nix).${config.networking.hostName}
     (import ../../profiles/yggdrasil/ports.nix).${config.networking.hostName}
     44300
   ];
