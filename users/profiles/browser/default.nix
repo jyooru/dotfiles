@@ -42,6 +42,8 @@ in
         "layers.acceleration.force-enabled" = true;
         "gfx.webrender.all" = true;
         "svg.context-properties.content.enabled" = true;
+        "browser.uiCustomization.state" = readFile ./ui.json;
+        "browser.toolbars.bookmarks.visibility" = "never";
       };
       userChrome = readFile (theme + "/userChrome.css");
       userContent = readFile (theme + "/userContent.css");
