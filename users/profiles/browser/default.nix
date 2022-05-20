@@ -31,11 +31,35 @@ in
     extensions = with pkgs.nur.repos.rycee.firefox-addons; [
       bitwarden
       # ipfs-companion
-      # metamask
+      # metamask # https://github.com/MetaMask/metamask-extension/issues/13163
       # ublock-origin # shipped with librewolf
     ];
 
     profiles."profile" = {
+      bookmarks = {
+        # %s doesn't seem to work?
+        github-dotfiles = {
+          keyword = "gd";
+          url = "https://github.com/jyooru/dotfiles";
+        };
+        github-nixpkgs = {
+          keyword = "gn";
+          url = "https://github.com/nixos/nixpkgs";
+        };
+        home-manager = {
+          keyword = "hm";
+          url = "https://nix-community.github.io/home-manager/options.html";
+        };
+        nix-search-options = {
+          keyword = "nso";
+          url = "https://search.nixos.org/options?channel=unstable&query=";
+        };
+        nix-search-packages = {
+          keyword = "nsp";
+          url = "https://search.nixos.org/packages?channel=unstable&query=";
+        };
+      };
+
       settings = {
         "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
