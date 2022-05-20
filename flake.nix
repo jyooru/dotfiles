@@ -32,7 +32,7 @@
         fenix.overlay
         nur.overlay
         ragenix.overlay
-        minecraft-servers.overlay
+        minecraft-servers.overlays.default
       ] ++ (attrValues self.overlays);
       channels.nixpkgs.patches = [
         ./patches/fix-yggdrasil.patch
