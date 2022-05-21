@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 {
   services.ipfs = {
     enable = true;
@@ -14,4 +14,6 @@
         "/ip6/::/udp/${port}/quic"
       ];
   };
+
+  systemd.services.ipfs.serviceConfig.ExecStartPost = "${pkgs.coreutils}/bin/chmod g+r /var/lib/ipfs/config";
 }
