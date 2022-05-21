@@ -4,6 +4,7 @@
     distributed-build
     hardware.android
     interactive
+    ipfs
     yggdrasil
     ./hardware-configuration.nix
   ]) ++ (with inputs.hardware.nixosModules; [
@@ -47,15 +48,17 @@
 
   networking.firewall.interfaces =
     let
+      ipfs = (import ../../profiles/ipfs/ports.nix).${config.networking.hostName};
+
       lan = {
-        allowedTCPPorts = [ 6567 25565 ];
-        allowedUDPPorts = [ 6567 ];
+        allowedTCPPorts = [ ipfs 6567 25565 ];
+        allowedUDPPorts = [ ipfs 6567 ];
       };
     in
     {
       "docker0".allowedTCPPorts = [ 5000 8384 ];
       "enp0s20f0u2u1" = lan;
-      "nebula0".allowedTCPPorts = [ 80 443 8080 ];
+      "nebula0".allowedTCPPorts = [ 80 443 ipfs 8080 ];
       "wlp5s0" = lan;
     };
 

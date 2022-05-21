@@ -1,6 +1,6 @@
 { config, pkgs, profiles, secrets, ... }:
 {
-  imports = with profiles; [ yggdrasil ];
+  imports = with profiles; [ ipfs yggdrasil ];
 
   # TODO: refactor
 

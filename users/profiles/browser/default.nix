@@ -9,7 +9,7 @@ with lib;
 
     extensions = with pkgs.nur.repos.rycee.firefox-addons; [
       bitwarden
-      # ipfs-companion
+      ipfs-companion
       # metamask # https://github.com/MetaMask/metamask-extension/issues/13163
       # ublock-origin # shipped with librewolf
     ];
