@@ -1,4 +1,6 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
+
+with lib;
 
 let
   port = (import ./ports.nix).${config.networking.hostName};
@@ -24,6 +26,10 @@ in
       "/ip4/0.0.0.0/udp/${port'}/quic"
       "/ip6/::/udp/${port'}/quic"
     ];
+
+    extraConfig.Peering.Peers = map
+      (ID: { inherit ID; }) # IPFS will query DHT for addresses
+      (attrValues (removeAttrs (import ./peers.nix) [ config.networking.hostName ]));
   };
 
   systemd.services.ipfs.serviceConfig.ExecStartPost = "${pkgs.coreutils}/bin/chmod g+r /var/lib/ipfs/config";
