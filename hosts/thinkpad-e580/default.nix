@@ -1,6 +1,7 @@
 { config, inputs, pkgs, profiles, secrets, suites, ... }:
 {
   imports = suites.base ++ (with profiles; [
+    alfis
     distributed-build
     hardware.android
     interactive
@@ -60,6 +61,7 @@
       "enp0s20f0u2u1" = lan;
       "nebula0".allowedTCPPorts = [ 80 443 ipfs 8080 ];
       "wlp5s0" = lan;
+      "ygg0".allowedTCPPorts = [ 4244 ];
     };
 
   home-manager.users.joel.xdg.userDirs = {

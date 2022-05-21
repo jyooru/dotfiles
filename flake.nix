@@ -52,7 +52,7 @@
             server = suites.base ++ [ server ];
           };
         };
-        modules = [
+        modules = (attrValues (import ./services { inherit utils; })) ++ [
           home-manager.nixosModule
           ragenix.nixosModules.age
         ];

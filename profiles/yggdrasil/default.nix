@@ -10,12 +10,7 @@ let
 in
 
 {
-  networking.firewall = {
-    allowedTCPPorts = [ 20070 ];
-    interfaces."ygg0".allowedTCPPorts = [
-      4244 # alfis
-    ];
-  };
+  networking.firewall.allowedTCPPorts = [ 20070 ];
 
   services.yggdrasil = {
     enable = true;
