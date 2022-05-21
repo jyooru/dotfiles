@@ -17,6 +17,8 @@ rec {
 
   nakatoshi = callPackage ./nakatoshi { };
 
+  nano-node = callPackage ./nano-node { };
+
   nano-vanity = callPackage ./nano-vanity { };
 
   nano-work-server = callPackage ./nano-work-server { };
