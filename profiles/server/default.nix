@@ -1,6 +1,6 @@
 { config, pkgs, profiles, secrets, ... }:
 {
-  imports = with profiles; [ ipfs yggdrasil ];
+  imports = with profiles; [ alfis ipfs yggdrasil ];
 
   # TODO: refactor
 
@@ -27,9 +27,12 @@
     owner = "caddy";
     group = "caddy";
   };
-  networking.firewall.interfaces."nebula0" = {
-    allowedTCPPorts = [ 53 80 8000 8001 443 44300 44301 ];
-    allowedUDPPorts = [ 53 ];
+  networking.firewall.interfaces = {
+    "nebula0" = {
+      allowedTCPPorts = [ 53 80 8000 8001 443 44300 44301 ];
+      allowedUDPPorts = [ 53 ];
+    };
+    "ygg0".allowedTCPPorts = [ 4244 ];
   };
   services = {
     nginx = {

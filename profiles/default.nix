@@ -3,6 +3,7 @@
 with utils.lib;
 
 exportModules [
+  ./alfis
   ./ci
   ./common
   ./distributed-build
