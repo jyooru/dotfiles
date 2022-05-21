@@ -35,8 +35,6 @@
     ];
   };
 
-  systemd.services.ipfs.serviceConfig.ExecStartPost = "${pkgs.coreutils}/bin/chmod g+r /var/lib/ipfs/config";
-
   services = {
     # this host isn't a lighthouse, but all hosts should have a unique port for NAT traversal to avoid overlaps
     nebula.networks."joel".listen.port = 4240;

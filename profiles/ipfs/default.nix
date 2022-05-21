@@ -1,5 +1,7 @@
 { config, pkgs, ... }:
 {
+  environment.variables.IPFS_PATH = config.services.ipfs.dataDir;
+
   services.ipfs = {
     enable = true;
     enableGC = true;
