@@ -1,9 +1,11 @@
 from libqtile import layout
 
+from .colors import base01, base02
+
 
 layout_defaults = dict(
-    border_focus="#444444",
-    border_normal="#303030",
+    border_focus=base02,
+    border_normal=base01,
     border_width=2,
     margin=6,
 )

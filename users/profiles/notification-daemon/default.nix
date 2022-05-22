@@ -5,8 +5,8 @@
       # https://dunst-project.org/documentation/
 
       global = {
-        background = "#1f1f1f";
-        foreground = "#bbbbbb";
+        background = "#151515";
+        foreground = "#BBB6B6";
         font = "FiraCode Nerd Font 11";
         frame_width = 2;
         icon_position = "off";
@@ -16,9 +16,9 @@
         width = "225";
       };
 
-      urgency_low = { frame_color = "#303030"; timeout = 5; };
-      urgency_normal = { frame_color = "#444444"; timeout = 5; };
-      urgency_critical.frame_color = "#ff0000";
+      urgency_low = { frame_color = "#1F1F1F"; timeout = 5; };
+      urgency_normal = { frame_color = "#2E2E2E"; timeout = 5; };
+      urgency_critical.frame_color = "#B66467";
     };
   };
 }

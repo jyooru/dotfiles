@@ -9,9 +9,11 @@ stdenv.mkDerivation rec {
     sha256 = "0i6xr1hfh3f76w1kkv0r7g45r0x6m0yi63wbx3mj4401m5pybnzc";
   };
 
-  patches = [
-    ./colors.patch
-  ];
+  buildPhase = ''
+    sed -i "s/#1E2021/#151515/
+            s/#191B1C/#151515/
+            s/#FAFAFC/#BBB6B6/" userChrome.css
+  '';
 
   installPhase = ''
     cp userChrome.css $out

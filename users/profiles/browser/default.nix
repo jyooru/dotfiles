@@ -15,7 +15,7 @@ with lib;
     ];
 
     profiles."profile" =
-      let duckduckgo = "https://duckduckgo.com/?kae=d&kbc=1&kap=-1&kao=-1&k1=-1&kax=-1&kav=1&kaq=-1&kak=-1&ks=m&kg=g&kaj=m&k7=1f1f1f&kj=1f1f1f&kt=FiraCode+Nerd+Font"; in
+      let duckduckgo = "https://duckduckgo.com/?kae=d&kbc=1&kap=-1&kao=-1&k1=-1&kax=-1&kav=1&kaq=-1&kak=-1&ks=m&kg=g&kaj=m&k7=151515&kj=151515&kt=FiraCode+Nerd+Font"; in
       {
         bookmarks = mapAttrs (keyword: url: { inherit keyword url; }) {
           # have to be imported manually in bookmarks manager -> import html
