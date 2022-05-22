@@ -11,6 +11,8 @@ let
 in
 
 {
+  environment.variables.EDITOR = "hx";
+      
   users.mutableUsers = true;
 
   services = {

@@ -9,7 +9,8 @@
       ./profiles/ssh
       ./profiles/browser
       ./profiles/compositor
-      ./profiles/editor
+      ./profiles/editors/helix
+      ./profiles/editors/vscode
       ./profiles/file-manager
       ./profiles/launcher
       ./profiles/notification-daemon
