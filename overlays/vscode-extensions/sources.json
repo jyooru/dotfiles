@@ -48,16 +48,16 @@
     "version": "0.4.0"
   },
   {
+    "name": "paradise-vscode",
+    "publisher": "Manas",
+    "sha256": "03cznn8pkx7admvbc9h80r8m1i00zjzzkcq913y3mqmpi7isb30d",
+    "version": "0.0.1"
+  },
+  {
     "name": "caddyfile-support",
     "publisher": "matthewpi",
     "sha256": "1z2rc185gcsavc9b9lwf42yjc9447j4g4bwn4r9byzdignyf8vbq",
     "version": "0.2.0"
-  },
-  {
-    "name": "min-theme",
-    "publisher": "miguelsolorio",
-    "sha256": "1ik4gj9yypjzaqfsg0awqkgqsid86hcxlv0h6pcnk3m6alxgspqc",
-    "version": "1.5.0"
   },
   {
     "name": "vscode-docker",
@@ -68,8 +68,8 @@
   {
     "name": "python",
     "publisher": "ms-python",
-    "sha256": "09pzz9zzrbcy9acxm33jm6w1h83lr6b94w7rxxii4mj6wa9nqyrq",
-    "version": "2022.7.11400308"
+    "sha256": "04jvbip81zk8fszi4w8p3sf6gv8vh5x2inryqd2ww54jib3y5kms",
+    "version": "2022.7.11401005"
   },
   {
     "name": "vscode-pylance",
@@ -80,8 +80,8 @@
   {
     "name": "jupyter",
     "publisher": "ms-toolsai",
-    "sha256": "0z6i7a5sba42yc2inp3yvw6lm6m0kings2iv18h4d6zyhm2lb61p",
-    "version": "2022.5.1001411044"
+    "sha256": "1pg0kyplaqjz455vn44x2szpck05jr0q890zmgkgcjykh09wcxvb",
+    "version": "2022.5.1001421011"
   },
   {
     "name": "color-highlight",
