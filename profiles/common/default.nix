@@ -11,7 +11,7 @@ let
 in
 
 {
-  environment.variables.EDITOR = "hx";
+  environment.sessionVariables.EDITOR = "hx";
       
   users.mutableUsers = true;
 
