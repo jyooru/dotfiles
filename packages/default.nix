@@ -17,7 +17,11 @@ rec {
 
   nakatoshi = callPackage ./nakatoshi { };
 
+  nano-node = callPackage ./nano-node { };
+
   nano-vanity = callPackage ./nano-vanity { };
+
+  nano-work-server = callPackage ./nano-work-server { };
 
   nerdfonts-woff2 = callPackage ./nerdfonts-woff2 { inherit ttf2woff2; };
   nerdfonts-woff2-firacode = callPackage ./nerdfonts-woff2 {
