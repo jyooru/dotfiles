@@ -8,7 +8,7 @@ let
 in
 
 {
-  environment.variables.IPFS_PATH = config.services.ipfs.dataDir;
+  environment.sessionVariables.IPFS_PATH = config.services.ipfs.dataDir;
 
   networking.firewall.interfaces."ygg0" = {
     allowedTCPPorts = [ port ];
