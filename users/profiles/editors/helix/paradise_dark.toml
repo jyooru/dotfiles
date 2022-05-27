@@ -4,13 +4,13 @@
 "ui.virtual" = "base03"
 "ui.menu" = { fg = "base05", bg = "base01" }
 "ui.menu.selected" = { fg = "base01", bg = "base04" }
-"ui.linenr" = { fg = "base03", bg = "base01" }
+"ui.linenr" = { fg = "base03", bg = "base00" }
 "ui.popup" = { bg = "base01" }
 "ui.window" = { bg = "base01" }
-"ui.linenr.selected" = { fg = "base04", bg = "base01", modifiers = ["bold"] }
+"ui.linenr.selected" = { fg = "base04", bg = "base00", modifiers = ["bold"] }
 "ui.selection" = { bg = "base02" }
 "comment" = { fg = "base03", modifiers = ["italic"] }
-"ui.statusline" = { fg = "base04", bg = "base01" }
+"ui.statusline" = { fg = "base04", bg = "base00" }
 "ui.cursor" = { fg = "base04", modifiers = ["reversed"] }
 "ui.cursor.primary" = { fg = "base05", modifiers = ["reversed"] }
 "ui.text" = "base05"
