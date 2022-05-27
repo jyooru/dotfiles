@@ -27,9 +27,16 @@ in
       "/ip6/::/udp/${port'}/quic"
     ];
 
-    extraConfig.Peering.Peers = map
-      (ID: { inherit ID; }) # IPFS will query DHT for addresses
-      (attrValues (removeAttrs (import ./peers.nix) [ config.networking.hostName ]));
+    extraConfig = {
+      Peering.Peers = map
+        (ID: { inherit ID; }) # IPFS will query DHT for addresses
+        (attrValues (removeAttrs (import ./peers.nix) [ config.networking.hostName ]));
+      Swarm.ConnMgr = {
+        # my router can't handle all these connections
+        HighWater = 400;
+        LowWater = 200;
+      };
+    };
   };
 
   systemd.services.ipfs.serviceConfig.ExecStartPost = "${pkgs.coreutils}/bin/chmod g+r /var/lib/ipfs/config";
