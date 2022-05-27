@@ -17,6 +17,7 @@
 
     declarative = true;
     serverProperties = {
+      enable-command-block = true;
       motd = "\\u00A7fSelect all squares with \\u00A7lstreet signs\\n\\u00A7rIf there are none, click skip";
       online-mode = false;
     };
