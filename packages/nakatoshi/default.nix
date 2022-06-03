@@ -7,10 +7,10 @@ rustPlatform.buildRustPackage rec {
     owner = "ndelvalle";
     repo = pname;
     rev = "v${version}";
-    sha256 = "sha256-ytjWcJNQ5Eecm475KGT/ShaH7HvZpF47nTQwG7eJP/Y=";
+    hash = "sha256-ytjWcJNQ5Eecm475KGT/ShaH7HvZpF47nTQwG7eJP/Y=";
   };
 
-  cargoSha256 = "sha256-yocRTrGsdDXNz/LHPB4o7EfFF5ANsNDhCysOU6Lm654=";
+  cargoHash = "sha256-yocRTrGsdDXNz/LHPB4o7EfFF5ANsNDhCysOU6Lm654=";
 
   meta = with lib; {
     description = "Bitcoin vanity address generator";
