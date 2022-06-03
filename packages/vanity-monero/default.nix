@@ -7,7 +7,7 @@ buildGoModule rec {
     owner = "monero-ecosystem";
     repo = pname;
     rev = "v${version}";
-    sha256 = "sha256-tEYQk/GQADyRoWidKSnPQFCCbtZCvMaPF9ej9SQk6V4=";
+    hash = "sha256-tEYQk/GQADyRoWidKSnPQFCCbtZCvMaPF9ej9SQk6V4=";
   };
 
   vendorSha256 = "sha256-SzWED3M6MVxC4p64g512XVaO7JoHyO3aAgxnzHX9jO4=";

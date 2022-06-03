@@ -14,7 +14,7 @@ stdenv.mkDerivation rec {
     owner = "nanocurrency";
     repo = pname;
     rev = "V${version}";
-    sha256 = "0zl8i5cvkckpgj5zz3zc3h16c9jxsy6xr8110d7jcfvv3vch1nlj";
+    hash = "sha256-ktoA2R57OyZPAyGg3I3XXSZmAhzsj/+LfHeyuVmJiH4=";
     fetchSubmodules = true;
   };
 

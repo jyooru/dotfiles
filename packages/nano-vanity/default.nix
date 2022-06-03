@@ -7,10 +7,10 @@ rustPlatform.buildRustPackage rec {
     owner = "plasmapower";
     repo = pname;
     rev = "3ba2ef1fe5b836695564cad98f40eb49e2addae1";
-    sha256 = "sha256-UXsrWWjB5jvbxqfeVI7J2dAolnLAeL25zyAYe3VvsF8=";
+    hash = "sha256-UXsrWWjB5jvbxqfeVI7J2dAolnLAeL25zyAYe3VvsF8=";
   };
 
-  cargoSha256 = "sha256-Brc4/lUJ27jCDaNWsyul6pEpllZ9yJnPewUwQBoXDoI=";
+  cargoHash = "sha256-Brc4/lUJ27jCDaNWsyul6pEpllZ9yJnPewUwQBoXDoI=";
 
   buildInputs = [ ocl-icd ];
 
