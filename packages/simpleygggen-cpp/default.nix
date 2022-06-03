@@ -8,7 +8,7 @@ stdenv.mkDerivation rec {
     owner = "acetone";
     repo = "SimpleYggGen-CPP";
     rev = version;
-    sha256 = "13izgrsf2ica682d49g21rb5yw7d9xik0cqn2lmn5dkw0qql0vcd";
+    hash = "sha256-jW1AMQZ8tmIrFRYzMGNP7XBfVg7iJdIEMopF4XR+P44=";
   };
 
   nativeBuildInputs = [ cmake ];
