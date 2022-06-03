@@ -7,10 +7,10 @@ rustPlatform.buildRustPackage rec {
     owner = "nanocurrency";
     repo = pname;
     rev = "44468bc511da1b77ce5328b581c5ce5f71806389";
-    sha256 = "0d961dsaajllbwy4mxi4ipz77xh8b351razcranpg6khii5cxkwc";
+    hash = "sha256-jM/OSoxwmnetyuyrHMpYCPZz/o0k9ko8X5RKpXQLJjU=";
   };
 
-  cargoSha256 = "0jpf4f3hf4zs05dlgdlq04w8fi1g43dzc78s77r2dsq9vd3cqxn7";
+  cargoSha256 = "0jaf4f3hf4zs05dlgdlq04w8fi1g43dzc78s77r2dsq9vd3cqxn7";
 
   buildInputs = [ ocl-icd ];
 
