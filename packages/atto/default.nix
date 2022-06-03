@@ -7,7 +7,7 @@ buildGoModule rec {
     owner = "codesoap";
     repo = pname;
     rev = "v${version}";
-    sha256 = "sha256-kqywB7Ai0lV7SaGoirdpSAXNytOr40WOXu31v9mpO5Y=";
+    hash = "sha256-kqywB7Ai0lV7SaGoirdpSAXNytOr40WOXu31v9mpO5Y=";
   };
 
   vendorSha256 = "sha256-qeZbpcWVwk8GrLoYHbG5+tNPLAFjo0VydGMKXhhKw5s=";
