@@ -10,7 +10,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-jM/OSoxwmnetyuyrHMpYCPZz/o0k9ko8X5RKpXQLJjU=";
   };
 
-  cargoSha256 = "0jaf4f3hf4zs05dlgdlq04w8fi1g43dzc78s77r2dsq9vd3cqxn7";
+  cargoHash = "sha256-x3bMRtsJ6ybyORod9tsgL0SHOAGYtkdbAfoTB4cj7ko=";
 
   buildInputs = [ ocl-icd ];
 
