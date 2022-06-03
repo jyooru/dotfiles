@@ -47,7 +47,7 @@
 "diff.minus" = "base08"
 
 "diagnostic" = { modifiers = ["underlined"] }
-"ui.gutter" = { bg = "base01" }
+"ui.gutter" = { bg = "base00" }
 "info" = "base0D"
 "hint" = "base03"
 "debug" = "base03"
