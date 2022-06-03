@@ -17,7 +17,7 @@
     onlyoffice-bin # office suite
     libreoffice # office suite
     bitwarden # password manager
-    scribusUnstable # pdf editor - stable version uses insecure python 2.7 pillow
+    scribus # pdf editor
     darktable # photo editor and raw developer
     gimp # photo editor
     qimgv # photo viewer

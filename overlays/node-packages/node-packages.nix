@@ -31,22 +31,22 @@ let
         sha512 = "hsEnFemeiW4D08A5gUAZxLBTXpZ39P+a+DGDsHw1yxqyQ/jzFEnxf5uTEGp+3bzAbNOxU1paTgYS4ECU/IgfDw==";
       };
     };
-    "@babel/parser-7.18.0" = {
+    "@babel/parser-7.18.3" = {
       name = "_at_babel_slash_parser";
       packageName = "@babel/parser";
-      version = "7.18.0";
+      version = "7.18.3";
       src = fetchurl {
-        url = "https://registry.npmjs.org/@babel/parser/-/parser-7.18.0.tgz";
-        sha512 = "AqDccGC+m5O/iUStSJy3DGRIUFu7WbY/CppZYwrEUB4N0tZlnI8CSTsgL7v5fHVFmUbRv2sd+yy27o8Ydt4MGg==";
+        url = "https://registry.npmjs.org/@babel/parser/-/parser-7.18.3.tgz";
+        sha512 = "rL50YcEuHbbauAFAysNsJA4/f89fGTOBRNs9P81sniKnKAr4xULe5AecolcsKbi88xu0ByWYDj/S1AJ3FSFuSQ==";
       };
     };
-    "@babel/types-7.18.0" = {
+    "@babel/types-7.18.2" = {
       name = "_at_babel_slash_types";
       packageName = "@babel/types";
-      version = "7.18.0";
+      version = "7.18.2";
       src = fetchurl {
-        url = "https://registry.npmjs.org/@babel/types/-/types-7.18.0.tgz";
-        sha512 = "vhAmLPAiC8j9K2GnsnLPCIH5wCrPpYIVBCWRBFDCB7Y/BXLqi/O+1RSTTM2bsmg6U/551+FCf9PNPxjABmxHTw==";
+        url = "https://registry.npmjs.org/@babel/types/-/types-7.18.2.tgz";
+        sha512 = "0On6B8A4/+mFUto5WERt3EEuG1NznDirvwca1O8UwXQHVY8g3R7OzYgxXdOfMwLO08UrpUD/2+3Bclyq+/C94Q==";
       };
     };
     "@gar/promisify-1.1.3" = {
@@ -739,7 +739,7 @@ let
       version = "0.0.1";
       src = fetchurl {
         url = "https://registry.npmjs.org/concat-map/-/concat-map-0.0.1.tgz";
-        sha1 = "d8a96bd77fd68df7793a73036a3ba0d5405d477b";
+        sha512 = "/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==";
       };
     };
     "condense-newlines-0.2.1" = {
@@ -748,7 +748,7 @@ let
       version = "0.2.1";
       src = fetchurl {
         url = "https://registry.npmjs.org/condense-newlines/-/condense-newlines-0.2.1.tgz";
-        sha1 = "3de985553139475d32502c83b02f60684d24c55f";
+        sha512 = "P7X+QL9Hb9B/c8HI5BFFKmjgBu2XpQuF98WZ9XkO+dBGgk5XgwiQz7o1SmpglNWId3581UcS0SFAWfoIhMHPfg==";
       };
     };
     "config-chain-1.1.13" = {
@@ -766,7 +766,7 @@ let
       version = "3.6.6";
       src = fetchurl {
         url = "https://registry.npmjs.org/connect/-/connect-3.6.6.tgz";
-        sha1 = "09eff6c55af7236e137135a72574858b6786f524";
+        sha512 = "OO7axMmPpu/2XuX1+2Yrg0ddju31B6xLZMWkJ5rYBu4YRmRVlOjvlY6kw2FJKiAzyxGwnrDUAG4s1Pf0sbBMCQ==";
       };
     };
     "connect-history-api-fallback-1.6.0" = {
@@ -784,7 +784,7 @@ let
       version = "1.1.0";
       src = fetchurl {
         url = "https://registry.npmjs.org/console-control-strings/-/console-control-strings-1.1.0.tgz";
-        sha1 = "3d7cf4464db6446ea644bf4b39507f9851008e8e";
+        sha512 = "ty/fTekppD2fIwRvnZAVdeOiGd1c7YXEixbgJTNzqcxJWKQnjJ/V1bNEEE6hygpM3WjwHFUVK6HTjWSzV4a8sQ==";
       };
     };
     "constantinople-4.0.1" = {
@@ -1201,13 +1201,13 @@ let
         sha1 = "ce0b6855b45853e791b2fcc680046d88253dd7f5";
       };
     };
-    "follow-redirects-1.15.0" = {
+    "follow-redirects-1.15.1" = {
       name = "follow-redirects";
       packageName = "follow-redirects";
-      version = "1.15.0";
+      version = "1.15.1";
       src = fetchurl {
-        url = "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.15.0.tgz";
-        sha512 = "aExlJShTV4qOUOL7yF1U5tvLCB0xQuudbf6toyYA0E/acBNw71mvjFTnLaRp50aQaYocMR0a/RMMBIHeZnGyjQ==";
+        url = "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.15.1.tgz";
+        sha512 = "yLAMQs+k0b2m7cVxpS1VKJVvoz7SS9Td1zss3XRwXj+ZDH00RJgnuLx7E44wx02kQLrdM3aOOy+FpzS7+8OizA==";
       };
     };
     "fresh-0.5.2" = {
@@ -2155,13 +2155,13 @@ let
         sha512 = "71ippSywq5Yb7/tVYyGbkBggbU8H3u5Rz56fH60jGFgr8uHwxs+aSKeqmluIVzM0m0kB7xQjKS6qPfd0b2ZoqQ==";
       };
     };
-    "nan-2.15.0" = {
+    "nan-2.16.0" = {
       name = "nan";
       packageName = "nan";
-      version = "2.15.0";
+      version = "2.16.0";
       src = fetchurl {
-        url = "https://registry.npmjs.org/nan/-/nan-2.15.0.tgz";
-        sha512 = "8ZtvEnA2c5aYCZYd1cvgdnU6cqwixRoYg70xPLWUws5ORTa/lnw+u4amixRS/Ac5U5mQVgp9pnlSUnbNWFaWZQ==";
+        url = "https://registry.npmjs.org/nan/-/nan-2.16.0.tgz";
+        sha512 = "UdAqHyFngu7TfQKsCBgAA6pWDkT8MAO7d0jyOecVhN5354xbLqdn8mV9Tat9gepAupm0bt2DbeaSC8vS52MuFA==";
       };
     };
     "negotiator-0.6.3" = {
@@ -3190,13 +3190,13 @@ let
         sha1 = "cc200eab2613f4166d27ff9afc7ca56d49df6eb4";
       };
     };
-    "typescript-4.6.4" = {
+    "typescript-4.7.2" = {
       name = "typescript";
       packageName = "typescript";
-      version = "4.6.4";
+      version = "4.7.2";
       src = fetchurl {
-        url = "https://registry.npmjs.org/typescript/-/typescript-4.6.4.tgz";
-        sha512 = "9ia/jWHIEbo49HfjrLGfKbZSuWo9iTMwXO+Ca3pRsSpbsMbc7/IU8NKdCZVRRBafVPGnoJeFL76ZOAA84I9fEg==";
+        url = "https://registry.npmjs.org/typescript/-/typescript-4.7.2.tgz";
+        sha512 = "Mamb1iX2FDUpcTRzltPxgWMKy3fhg0TN378ylbktPGPK/99KbDtMQ4W1hwgsbPAsG3a0xKa1vmw4VKZQbkvz5A==";
       };
     };
     "ua-parser-js-1.0.2" = {
@@ -3448,8 +3448,8 @@ in
       sources."@11ty/dependency-tree-2.0.1"
       sources."@11ty/eleventy-utils-1.0.1"
       sources."@babel/helper-validator-identifier-7.16.7"
-      sources."@babel/parser-7.18.0"
-      sources."@babel/types-7.18.0"
+      sources."@babel/parser-7.18.3"
+      sources."@babel/types-7.18.2"
       sources."@iarna/toml-2.2.5"
       sources."@nodelib/fs.scandir-2.1.5"
       sources."@nodelib/fs.stat-2.0.5"
@@ -3579,7 +3579,7 @@ in
           sources."debug-2.6.9"
         ];
       })
-      sources."follow-redirects-1.15.0"
+      sources."follow-redirects-1.15.1"
       sources."fresh-0.5.2"
       sources."fs-extra-3.0.1"
       sources."fs.realpath-1.0.0"
@@ -3805,7 +3805,7 @@ in
       sources."to-regex-range-5.0.1"
       sources."toidentifier-1.0.1"
       sources."token-stream-1.0.0"
-      sources."typescript-4.6.4"
+      sources."typescript-4.7.2"
       sources."ua-parser-js-1.0.2"
       sources."uc.micro-1.0.6"
       sources."uglify-js-3.15.5"
@@ -3968,7 +3968,7 @@ in
       sources."minizlib-2.1.2"
       sources."mkdirp-1.0.4"
       sources."ms-2.1.2"
-      sources."nan-2.15.0"
+      sources."nan-2.16.0"
       sources."negotiator-0.6.3"
       sources."node-gyp-9.0.0"
       sources."nopt-5.0.0"
