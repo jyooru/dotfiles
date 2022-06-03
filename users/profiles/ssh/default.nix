@@ -27,10 +27,6 @@ with lib;
           hostname = "raspberrypi.local";
           user = "pi";
         };
-        "r retropie" = {
-          hostname = "192.168.0.21";
-          user = "pi";
-        };
       };
   };
 }

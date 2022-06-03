@@ -3,7 +3,7 @@ let
   inherit (builtins) attrNames listToAttrs pathExists;
   inherit (config.networking) hostName;
 
-  hosts = (attrNames self.nixosConfigurations) ++ [ "retropie" ];
+  hosts = (attrNames self.nixosConfigurations);
 in
 {
   networking.firewall.interfaces =
