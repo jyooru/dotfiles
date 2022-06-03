@@ -65,8 +65,6 @@
     nfl = "nix flake lock";
     nfi = "nix flake init -t github:jyooru/dotfiles#";
     nfu = "nix flake update";
-    nh = "nix-hash";
-    nhb = "nix-hash --type sha256 --to-base32";
     np = "nix-prefetch-url";
     nr = "nix run";
     nrr = "nix run .";
