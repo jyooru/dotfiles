@@ -37,7 +37,6 @@
       channels.nixpkgs.patches = [
         ./patches/fix-yggdrasil.patch
         ./patches/mosh-no-firewall-open.patch
-        ./patches/qtile-without-wlroots.patch
       ];
 
       hostDefaults = {
