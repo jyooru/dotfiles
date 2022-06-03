@@ -68,26 +68,26 @@
   {
     "name": "python",
     "publisher": "ms-python",
-    "sha256": "1lvm4m0s9pj8jkx62xb1z9k9s9yccdp6gv5b8syg7fhjlhn1slb2",
-    "version": "2022.7.11461005"
+    "sha256": "11a28a8xy2h8r4bxbffyg24bpglg0sdkc4xxsck5lspmzbf61r8z",
+    "version": "2022.7.11521008"
   },
   {
     "name": "vscode-pylance",
     "publisher": "ms-python",
-    "sha256": "0qzw33s3lg75ammr28xwnf5n2rfxnv6qvfdnjaaamm3rg82lm9w7",
-    "version": "2022.5.3"
+    "sha256": "10algdh5l5w7vp42pn6a4bizbx8snnkriw0m3hkjca7d8dnjvsrd",
+    "version": "2022.6.0"
   },
   {
     "name": "jupyter",
     "publisher": "ms-toolsai",
-    "sha256": "0l3lng6laj8wmkh8sdhqc5swbr6cnjrl5qxm9sb9f4xdca539rx0",
-    "version": "2022.5.1001491011"
+    "sha256": "06qsplka0695awk39na23kg1sr1iqc7pr2md9rd059f1fbdn3na4",
+    "version": "2022.5.1001552309"
   },
   {
     "name": "color-highlight",
     "publisher": "naumovs",
-    "sha256": "0ri1rylg0r9r1kdc67815gjlq5fwnb26xpyziva6a40brrbh70vm",
-    "version": "2.5.0"
+    "sha256": "1ssh5d4kn3b57gfw5w99pp3xybdk2xif8z6l7m3y2qf204wd1hsd",
+    "version": "2.6.0"
   },
   {
     "name": "material-icon-theme",
