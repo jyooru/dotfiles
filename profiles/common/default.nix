@@ -47,22 +47,5 @@ in
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    users =
-      let
-        defaults = {
-          programs.home-manager.enable = true;
-          nixpkgs.config = import ./nixpkgs.nix;
-          xdg.configFile."nixpkgs/config.nix".source = ./nixpkgs.nix;
-          xdg.configFile."btop/btop.conf".text = ''
-            clock_format = "/host"
-            theme_background = False
-          '';
-          home.stateVersion = "21.11";
-        };
-      in
-      {
-        root = defaults;
-        joel = defaults;
-      };
   };
 }
