@@ -28,13 +28,7 @@
     };
   };
 
-  users.users = {
-    root.openssh.authorizedKeys.keyFiles = [ ./keys/ssh-root.pub ]; # deploy
-    joel.openssh.authorizedKeys.keyFiles = [
-      ../galaxy-a22/keys/ssh-com.termux.pub
-      ../galaxy-a22/keys/ssh-me.zhanghai.android.files.pub
-    ];
-  };
+  users.users.root.openssh.authorizedKeys.keyFiles = [ ./keys/ssh-root.pub ]; # deploy
 
   services = {
     # this host isn't a lighthouse, but all hosts should have a unique port for NAT traversal to avoid overlaps
