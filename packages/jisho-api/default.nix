@@ -14,7 +14,7 @@ buildPythonPackage rec {
     owner = "pedroallenrevez";
     repo = pname;
     rev = version;
-    sha256 = "1xz8g07s0a1qhnd0vkvhqbrylb3a49bjxi7rwrlwqyhpz6pj30fy";
+    hash = "sha256-3oEhr/kXesxp5vnELlciaizq88Jwzw2ahTgooA946Pc=";
   };
 
   patches = [
