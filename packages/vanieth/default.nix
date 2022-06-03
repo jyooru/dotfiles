@@ -7,7 +7,7 @@ buildGoModule rec {
     owner = "makevoid";
     repo = pname;
     rev = "e13ba4a78b4794b1af2215582098520d571727ba";
-    sha256 = "sha256-ezTyslZIx+HiJ4kEJpZkpmrJbkVfDWleAB1FbvJ1b8U=";
+    hash = "sha256-ezTyslZIx+HiJ4kEJpZkpmrJbkVfDWleAB1FbvJ1b8U=";
   };
 
   vendorSha256 = "sha256-GImUEIovRKO19YCvhQt3oQYuFxwOSwnxgRZf5X9PW+g=";
