@@ -9,7 +9,8 @@
       ./profiles/ssh
       ./profiles/browser
       ./profiles/compositor
-      ./profiles/editor
+      ./profiles/editors/helix
+      ./profiles/editors/vscode
       ./profiles/file-manager
       ./profiles/launcher
       ./profiles/notification-daemon
@@ -30,7 +31,7 @@
 
   users.users.joel = {
     isNormalUser = true;
-    extraGroups = [ "adbusers" "autologin" "docker" "wheel" ];
+    extraGroups = [ "adbusers" "autologin" "docker" "ipfs" "wheel" ];
     shell = pkgs.fish;
   };
 }

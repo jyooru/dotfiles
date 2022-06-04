@@ -11,6 +11,8 @@ let
 in
 
 {
+  environment.sessionVariables.EDITOR = "hx";
+      
   users.mutableUsers = true;
 
   services = {
@@ -23,11 +25,6 @@ in
   };
 
   nix = {
-    nixPath = (mapAttrsToList
-      (name: value: "${name}=${value}")
-      inputs)
-    ++ [ "nixos-config=${self}" ];
-    registry = mapAttrs (name: value: { flake = value; }) inputs;
     package = pkgs.nixUnstable;
     extraOptions = ''
       experimental-features = nix-command flakes
@@ -37,13 +34,15 @@ in
       substituters = map (x: "https://nix.${x}.${config.networking.domain}") cacheHosts;
       inherit trusted-public-keys;
     };
+
+    # flake-utils-plus
+    generateRegistryFromInputs = true;
+    generateNixPathFromInputs = true;
+    linkInputs = true;
   };
   nixpkgs.config = import ./nixpkgs.nix;
 
-  system = {
-    autoUpgrade.enable = true;
-    stateVersion = "21.05";
-  };
+  system.stateVersion = "21.05";
 
   home-manager = {
     useGlobalPkgs = true;
@@ -54,7 +53,10 @@ in
           programs.home-manager.enable = true;
           nixpkgs.config = import ./nixpkgs.nix;
           xdg.configFile."nixpkgs/config.nix".source = ./nixpkgs.nix;
-          xdg.configFile."btop/btop.conf".text = "theme_background = False";
+          xdg.configFile."btop/btop.conf".text = ''
+            clock_format = "/host"
+            theme_background = False
+          '';
           home.stateVersion = "21.11";
         };
       in

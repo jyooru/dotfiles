@@ -1,9 +1,11 @@
 { config, inputs, pkgs, profiles, secrets, suites, ... }:
 {
   imports = suites.base ++ (with profiles; [
+    alfis
     distributed-build
     hardware.android
     interactive
+    ipfs
     yggdrasil
     ./hardware-configuration.nix
   ]) ++ (with inputs.hardware.nixosModules; [
@@ -26,15 +28,7 @@
     };
   };
 
-  users.users = {
-    root.openssh.authorizedKeys.keyFiles = [ ./keys/ssh-root.pub ]; # deploy
-    joel.openssh.authorizedKeys.keyFiles = [
-      ../galaxy-a22/keys/ssh-com.termux.pub
-      ../galaxy-a22/keys/ssh-me.zhanghai.android.files.pub
-    ];
-  };
-
-
+  users.users.root.openssh.authorizedKeys.keyFiles = [ ./keys/ssh-root.pub ]; # deploy
 
   services = {
     # this host isn't a lighthouse, but all hosts should have a unique port for NAT traversal to avoid overlaps
@@ -47,10 +41,22 @@
     xserver.videoDrivers = [ "amdgpu" "radeon" "nouveau" "modesetting" "fbdev" ];
   };
 
-  networking.firewall.interfaces = {
-    "docker0".allowedTCPPorts = [ 5000 8384 ];
-    "nebula0".allowedTCPPorts = [ 80 443 8080 ];
-  };
+  networking.firewall.interfaces =
+    let
+      ipfs = (import ../../profiles/ipfs/ports.nix).${config.networking.hostName};
+
+      lan = {
+        allowedTCPPorts = [ ipfs 6567 25565 ];
+        allowedUDPPorts = [ ipfs 6567 ];
+      };
+    in
+    {
+      "docker0".allowedTCPPorts = [ 5000 8384 ];
+      "enp0s20f0u2u1" = lan;
+      "nebula0".allowedTCPPorts = [ 80 443 ipfs 8080 ];
+      "wlp5s0" = lan;
+      "ygg0".allowedTCPPorts = [ 4244 ];
+    };
 
   home-manager.users.joel.xdg.userDirs = {
     enable = true;
@@ -69,7 +75,6 @@
     owner = "caddy";
     group = "caddy";
   };
-
 
   systemd.services.caddy.serviceConfig.AmbientCapabilities = [ "CAP_NET_BIND_SERVICE" ];
   services.caddy = {

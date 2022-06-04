@@ -10,7 +10,7 @@
     "editor.overviewRulerBorder" = false;
     "editor.scrollbar.vertical" = "hidden";
     "workbench.activityBar.visible" = false;
-    "workbench.colorTheme" = "Min Dark";
+    "workbench.colorTheme" = "Paradise";
     "workbench.editor.showTabs" = false;
     "workbench.iconTheme" = "material-icon-theme";
     "workbench.statusBar.visible" = false;

@@ -15,7 +15,7 @@ __all__ = [
 gap = Gap(6)
 
 screen_defaults = dict(
-    wallpaper="~/media/wallpapers/1a1a1a.png",
+    wallpaper="~/media/wallpapers/151515.png",
     wallpaper_mode="stretch",
     bottom=gap,
     left=gap,

@@ -1,5 +1,4 @@
 __pycache__
-result
-result-*
+result*
 target
 templates/**/*.lock

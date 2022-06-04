@@ -1,0 +1,17 @@
+diff --git a/userChrome.css b/userChrome.css
+index 315accc..ba15bda 100644
+--- a/userChrome.css
++++ b/userChrome.css
+@@ -51,9 +51,9 @@
+
+     @media (prefers-color-scheme: dark) { :root {
+
+-        --window-colour:                     #1E2021;
+-        --secondary-colour:                  #191B1C;
+-        --inverted-colour:                   #FAFAFC;
++        --window-colour:                     #1f1f1f;
++        --secondary-colour:                  #1f1f1f;
++        --inverted-colour:                   #bbbbbb;
+
+         /* Containter Tab Colours */
+         --uc-identity-color-blue:            #7ED6DF;

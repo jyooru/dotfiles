@@ -1,18 +1,12 @@
 from libqtile import qtile, widget
 
+from ..colors import base00, base03, base04, base08
 
-background = "#1f1f1f"
-background_alt = "#1a1a1a"
-border = "#303030"
-border_alt = "#444444"
-foreground = "#bbbbbb"
-foreground_alt = "#888888"
-color = "#1a95e0"
 
 u2006 = " "  # six-per-em space
 
 widget_defaults = dict(
-    foreground=foreground,
+    foreground=base04,
     font="FiraCode Nerd Font",
     fontsize=13,
     padding=12,
@@ -20,33 +14,33 @@ widget_defaults = dict(
 
 
 def bracket_wrap(*widgets, padding: int = 8, **kwargs) -> list:
-    kwargs["padding"] = kwargs.get("padding", padding)
     return (
-        [widget.TextBox("[", **kwargs)]
+        [widget.TextBox("[", padding=padding, **kwargs)]
         + list(widgets)
-        + [widget.TextBox("]", **kwargs)]
+        + [widget.TextBox("]", padding=padding, **kwargs)]
     )
 
 
 widgets = (
     bracket_wrap(
         widget.GroupBox(
-            active=foreground,
+            active=base04,
             borderwidth=2,
             disable_drag=True,
-            highlight_color=[background, background],
+            highlight_color=[base00, base00],
             highlight_method="line",
-            inactive=foreground_alt,
+            inactive=base03,
             margin_x=0,
             margin_y=4,
             rounded=False,
-            other_current_screen_border=foreground_alt,
-            other_screen_border=foreground_alt,
+            other_current_screen_border=base04,
+            other_screen_border=base04,
             padding_x=0,
             padding_y=0,
-            this_current_screen_border=foreground_alt,
-            this_screen_border=foreground_alt,
             spacing=6,
+            this_current_screen_border=base04,
+            this_screen_border=base04,
+            urgent_border = base08
         )
     )
     + [

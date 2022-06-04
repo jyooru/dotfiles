@@ -9,13 +9,21 @@ in
 with pkgs;
 
 rec {
+  atto = callPackage ./atto { };
+
   caddy-modded = callPackage ./caddy-modded { };
 
   docs-src = callPackage ../docs { };
 
   jisho-api = callPackage ./jisho-api { };
 
-  min-firefox = callPackage ./min-firefox { };
+  nakatoshi = callPackage ./nakatoshi { };
+
+  nano-node = callPackage ./nano-node { };
+
+  nano-vanity = callPackage ./nano-vanity { };
+
+  nano-work-server = callPackage ./nano-work-server { };
 
   nerdfonts-woff2 = callPackage ./nerdfonts-woff2 { inherit ttf2woff2; };
   nerdfonts-woff2-firacode = callPackage ./nerdfonts-woff2 {
@@ -23,5 +31,11 @@ rec {
     nerdfonts = nerdfonts.override { fonts = [ "FiraCode" ]; };
   };
 
+  simpleygggen-cpp = callPackage ./simpleygggen-cpp { };
+
   timetable = callPackage ./timetable { };
+
+  vanieth = callPackage ./vanieth { };
+
+  vanity-monero = callPackage ./vanity-monero { };
 }

@@ -7,13 +7,14 @@
     fenix.url = "github:nix-community/fenix";
     hardware.url = "github:nixos/nixos-hardware";
     home-manager = { url = "github:nix-community/home-manager"; inputs.nixpkgs.follows = "nixpkgs"; };
+    minecraft-servers.url = "github:jyooru/nix-minecraft-servers";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
     nur.url = "github:nix-community/nur";
     ragenix.url = "github:yaxitech/ragenix";
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
   };
 
-  outputs = { self, comma, deploy, fenix, home-manager, nixpkgs, nur, ragenix, utils, ... } @ inputs:
+  outputs = { self, comma, deploy, fenix, home-manager, minecraft-servers, nixpkgs, nur, ragenix, utils, ... } @ inputs:
 
     with deploy.lib.x86_64-linux;
     with nixpkgs.lib;
@@ -26,13 +27,17 @@
 
       channelsConfig = import ./profiles/common/nixpkgs.nix;
       sharedOverlays = [
-        (final: _: { comma = import comma { pkgs = final; }; })
+        (final: _: { inherit (comma.packages.${final.system}) comma; })
         deploy.overlay
         fenix.overlay
         nur.overlay
         ragenix.overlay
+        minecraft-servers.overlays.default
       ] ++ (attrValues self.overlays);
-      channels.nixpkgs.patches = [ ./patches/fix-yggdrasil.patch ];
+      channels.nixpkgs.patches = [
+        ./patches/fix-yggdrasil.patch
+        ./patches/mosh-no-firewall-open.patch
+      ];
 
       hostDefaults = {
         specialArgs = rec {
@@ -45,7 +50,7 @@
             server = suites.base ++ [ server ];
           };
         };
-        modules = [
+        modules = (attrValues (import ./services { inherit utils; })) ++ [
           home-manager.nixosModule
           ragenix.nixosModules.age
         ];
@@ -65,7 +70,7 @@
       outputsBuilder = channels:
         let pkgs = channels.nixpkgs; in
         with pkgs; {
-          devShell = mkShell {
+          devShells.default = mkShell {
             packages = [
               nixpkgs-fmt
               nodePackages.node2nix
@@ -83,13 +88,5 @@
       templates = import ./templates;
 
       overlays = import ./overlays;
-      overlay = self.overlays.packages;
-
-      ci = with builtins; with self; {
-        devShell = devShell.${currentSystem};
-        nixosConfigurations = recurseIntoAttrs (mapAttrs (_: value: value.config.system.build.toplevel) nixosConfigurations);
-        overlays = import ./overlays/ci.nix { inherit inputs; };
-        packages = recurseIntoAttrs packages.${currentSystem};
-      };
     };
 }

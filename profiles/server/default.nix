@@ -1,24 +1,18 @@
 { config, pkgs, profiles, secrets, ... }:
 {
-  imports = with profiles; [ yggdrasil ];
+  imports = with profiles; [ alfis ipfs yggdrasil ];
 
   # TODO: refactor
 
-  users.users.joel.openssh.authorizedKeys.keyFiles = [
-    ../../hosts/thinkpad-e580/keys/ssh-joel.pub
-    ../../hosts/thinkpad-e580/keys/ssh-root.pub
-    ../../hosts/portege-r700-a/keys/ssh-root.pub
-    ../../hosts/portege-r700-b/keys/ssh-root.pub
-    ../../hosts/portege-z930/keys/ssh-root.pub
-    ../../hosts/ga-z77-d3h/keys/ssh-root.pub
-  ];
-  users.users.root.openssh.authorizedKeys.keyFiles = [
-    ../../hosts/thinkpad-e580/keys/ssh-root.pub
-    ../../hosts/portege-r700-a/keys/ssh-root.pub
-    ../../hosts/portege-r700-b/keys/ssh-root.pub
-    ../../hosts/portege-z930/keys/ssh-root.pub
-    ../../hosts/ga-z77-d3h/keys/ssh-root.pub
-  ];
+  users.users = {
+    joel.openssh.authorizedKeys.keyFiles = [
+      ../../hosts/thinkpad-e580/keys/ssh-joel.pub
+      ../../hosts/thinkpad-e580/keys/ssh-root.pub
+    ];
+    root.openssh.authorizedKeys.keyFiles = [
+      ../../hosts/thinkpad-e580/keys/ssh-root.pub
+    ];
+  };
 
   boot.binfmt.emulatedSystems = [ "aarch64-linux" "armv6l-linux" ];
 
@@ -27,9 +21,12 @@
     owner = "caddy";
     group = "caddy";
   };
-  networking.firewall.interfaces."nebula0" = {
-    allowedTCPPorts = [ 53 80 8000 8001 443 44300 44301 ];
-    allowedUDPPorts = [ 53 ];
+  networking.firewall.interfaces = {
+    "nebula0" = {
+      allowedTCPPorts = [ 53 80 8000 8001 443 44300 44301 ];
+      allowedUDPPorts = [ 53 ];
+    };
+    "ygg0".allowedTCPPorts = [ 4244 ];
   };
   services = {
     nginx = {

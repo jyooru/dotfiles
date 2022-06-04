@@ -23,12 +23,20 @@
     "workbench.startupEditor" = "none";
 
     # extensions
+    "ev3devBrowser.additionalDevices" = [{
+      "name" = "j";
+      "ipAddress" = "192.168.1.3";
+    }];
     "gitlens.currentLine.enabled" = false;
     "redhat.telemetry.enabled" = false;
 
     # languages
     "workbench.editorAssociations" = { "*.ipynb" = "jupyter-notebook"; };
-    "[html]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+    "[html]"."editor.defaultFormatter" = "vscode.html-language-features";
+    "html.format.endWithNewline" = true;
+    "html.format.indentInnerHtml" = true;
+    "html.format.maxPreserveNewLines" = 1;
+    "html.format.templating" = true;
     "[javascript]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
     "[json]"."editor.defaultFormatter" = "vscode.json-language-features";
     "[jsonc]"."editor.defaultFormatter" = "vscode.json-language-features";

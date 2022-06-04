@@ -1,0 +1,25 @@
+version: 2
+updates:
+  - package-ecosystem: "gomod"
+    directory: "/packages/caddy-modded"
+    schedule:
+      day: "friday"
+      interval: "weekly"
+      time: "22:30"
+    target-branch: "chore/update"
+
+  - package-ecosystem: "cargo"
+    directory: "/packages/timetable"
+    schedule:
+      day: "friday"
+      interval: "weekly"
+      time: "22:30"
+    target-branch: "chore/update"
+
+  - package-ecosystem: "pip"
+    directory: "/templates/python"
+    schedule:
+      day: "friday"
+      interval: "weekly"
+      time: "22:30"
+    target-branch: "chore/update"

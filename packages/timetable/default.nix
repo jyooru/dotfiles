@@ -1,8 +1,4 @@
-{ lib
-, stdenv
-, rustPlatform
-, pkg-config
-}:
+{ lib, rustPlatform }:
 
 rustPlatform.buildRustPackage rec {
   pname = "timetable";
@@ -10,7 +6,7 @@ rustPlatform.buildRustPackage rec {
 
   src = ./.;
 
-  cargoSha256 = "14ya63hb6vrn09ygkwf7m2bi6raid8v40fcg4pf83p9grrrlpp0f";
+  cargoHash = "sha256-1MMHn5/gNkHzEvs1YlkG5nbPJswpApC8QKJYy0g/NyU=";
 
   meta = with lib; {
     description = "Easily check your timetable from the terminal";

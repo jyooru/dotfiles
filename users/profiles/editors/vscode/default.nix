@@ -14,7 +14,7 @@ with lib;
     enable = true;
     extensions = (collect
       isDerivation
-      (pkgs.callPackage ../../../overlays/vscode-extensions/sources.nix { })) ++ [
+      (pkgs.callPackage ../../../../overlays/vscode-extensions/sources.nix { })) ++ [
       pkgs.fenix.rust-analyzer-vscode-extension
     ];
   };

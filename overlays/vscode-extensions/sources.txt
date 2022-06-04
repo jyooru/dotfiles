@@ -1,11 +1,13 @@
 bbenoist.Nix
 eamodio.gitlens
 esbenp.prettier-vscode
+ev3dev.ev3dev-browser
 icrawl.discord-vscode
 jnoortheen.nix-ide
+lego-education.ev3-micropython
 lunaryorn.fish-ide
+Manas.paradise-vscode
 matthewpi.caddyfile-support
-miguelsolorio.min-theme
 ms-azuretools.vscode-docker
 ms-python.python
 ms-python.vscode-pylance

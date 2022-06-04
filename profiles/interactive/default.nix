@@ -1,6 +1,17 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
+
+with lib;
+
 {
-  fonts.fonts = with pkgs; [ (nerdfonts.override { fonts = [ "FiraCode" ]; }) ];
+  fonts = {
+    fontconfig.defaultFonts = genAttrs [ "monospace" "serif" "sansSerif" ] (_: [ "FiraCode Nerd Font" ]);
+    fonts = with pkgs; [
+      (nerdfonts.override { fonts = [ "FiraCode" ]; })
+      noto-fonts
+      noto-fonts-extra
+      noto-fonts-cjk
+    ];
+  };
 
   hardware.pulseaudio.enable = true;
   sound.enable = true;

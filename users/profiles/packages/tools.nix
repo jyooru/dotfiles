@@ -2,7 +2,9 @@
 {
   home.packages = with pkgs; [
     bandwhich # bandwidth monitor
+    nakatoshi # bitcoin vanity address generator
     brightnessctl # brightness control
+    kalker # calculator
     pastel # colors cli
     dogdns # dns lookup
     pandoc # document converter
@@ -23,6 +25,8 @@
     killall # kill processes by name
     lsd # "ls" rust alternative
     tree # list directories recursively
+    atto # nano cli wallet
+    nano-vanity # nano vanity address generator
     docker-compose # manage multi-container applications
     cmatrix # matrix display
     playerctl # media player control
@@ -35,13 +39,17 @@
     nmap # port scanner
     scrot # screenshot
     lm_sensors # sensor viewer
+    sysz # systemctl fuzzy finder
     neofetch # system info
     btop # system monitor
     htop # system monitor
     aircrack-ng # wifi tools
     wmctrl # window manager control
     xorg.xev # x event viewer
+    simpleygggen-cpp # yggdrasil vanity address generator
     git # version control system
+    vanieth # ethereum vanity address generator
+    vanity-monero # monero vanity address generator
     whois # whois viewer
 
     timetable # packages/timetable

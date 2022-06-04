@@ -8,14 +8,20 @@
   {
     "name": "gitlens",
     "publisher": "eamodio",
-    "sha256": "0zfawv9nn88x8m30h7ryax0c7p68najl23a51r88a70hqppzxshw",
-    "version": "12.0.5"
+    "sha256": "0g5kxc3b6hhxhjvmdviviy7yv615nqi92wqv1rg7wzv1vg565y40",
+    "version": "12.0.7"
   },
   {
     "name": "prettier-vscode",
     "publisher": "esbenp",
-    "sha256": "1w6whr6h5v7i16f3j1kahs02mk7w2jplr5rrnsjwyszvcy6hz644",
-    "version": "9.3.0"
+    "sha256": "0h5g746ij36h22v1y2883bqaphds7h1ck8mg8bywn9r723mxdy1g",
+    "version": "9.5.0"
+  },
+  {
+    "name": "ev3dev-browser",
+    "publisher": "ev3dev",
+    "sha256": "05hsrbj7a1wgcrl38wb0kjgxv8ygmra1ijvixzwannfxq6rn0siq",
+    "version": "1.2.0"
   },
   {
     "name": "discord-vscode",
@@ -30,10 +36,22 @@
     "version": "0.1.20"
   },
   {
+    "name": "ev3-micropython",
+    "publisher": "lego-education",
+    "sha256": "0sdzrbd9rp8r7w1qlr8xbxzd2rirnk5kqi81q0sdi6r0mhpvphfm",
+    "version": "2.0.0"
+  },
+  {
     "name": "fish-ide",
     "publisher": "lunaryorn",
     "sha256": "06pdiazxl4xpql6xcmv1sz77i2dcj7mfjsfdxbsa5cky007sqifh",
     "version": "0.4.0"
+  },
+  {
+    "name": "paradise-vscode",
+    "publisher": "Manas",
+    "sha256": "03cznn8pkx7admvbc9h80r8m1i00zjzzkcq913y3mqmpi7isb30d",
+    "version": "0.0.1"
   },
   {
     "name": "caddyfile-support",
@@ -42,46 +60,40 @@
     "version": "0.2.0"
   },
   {
-    "name": "min-theme",
-    "publisher": "miguelsolorio",
-    "sha256": "1ik4gj9yypjzaqfsg0awqkgqsid86hcxlv0h6pcnk3m6alxgspqc",
-    "version": "1.5.0"
-  },
-  {
     "name": "vscode-docker",
     "publisher": "ms-azuretools",
-    "sha256": "0a1v8hqbrl51pxbzvjd69azqcyqid4gmva3dnk440q7szr61hy4b",
-    "version": "1.20.0"
+    "sha256": "12qfwfqaa6nxm6gg2g7g4m001lh57bbhhbpyawxqk81qnjw3vipr",
+    "version": "1.22.0"
   },
   {
     "name": "python",
     "publisher": "ms-python",
-    "sha256": "0pfj8mhz15jajby4zvb60b1ph330v7scg5w1ywi4s5xcvcj0x0y7",
-    "version": "2022.3.10771003"
+    "sha256": "11a28a8xy2h8r4bxbffyg24bpglg0sdkc4xxsck5lspmzbf61r8z",
+    "version": "2022.7.11521008"
   },
   {
     "name": "vscode-pylance",
     "publisher": "ms-python",
-    "sha256": "0nms1bcnnsdy86zg10scp4i8qhm25v1535xqv56pmhnxrrccdzs0",
-    "version": "2022.3.2"
+    "sha256": "10algdh5l5w7vp42pn6a4bizbx8snnkriw0m3hkjca7d8dnjvsrd",
+    "version": "2022.6.0"
   },
   {
     "name": "jupyter",
     "publisher": "ms-toolsai",
-    "sha256": "175c5kvndpjfhkshf1g8n0smilclnhhnvz57lpvffalml40pwq09",
-    "version": "2022.3.1000791004"
+    "sha256": "06qsplka0695awk39na23kg1sr1iqc7pr2md9rd059f1fbdn3na4",
+    "version": "2022.5.1001552309"
   },
   {
     "name": "color-highlight",
     "publisher": "naumovs",
-    "sha256": "0ri1rylg0r9r1kdc67815gjlq5fwnb26xpyziva6a40brrbh70vm",
-    "version": "2.5.0"
+    "sha256": "1ssh5d4kn3b57gfw5w99pp3xybdk2xif8z6l7m3y2qf204wd1hsd",
+    "version": "2.6.0"
   },
   {
     "name": "material-icon-theme",
     "publisher": "PKief",
-    "sha256": "1d6wv5jxg4syz9dlj3q4rrv1cfk86hlff5132qga7j6y8z8f4x9q",
-    "version": "4.14.1"
+    "sha256": "1dmmqc003v45pmiz6yccpnvw94hbvbg7fhy24njii0kwpxbv4q7l",
+    "version": "4.17.0"
   },
   {
     "name": "vscode-css-peek",
@@ -98,14 +110,14 @@
   {
     "name": "vscode-xml",
     "publisher": "redhat",
-    "sha256": "0k4lym09wbyz25q76db5awgdamx3ycpmjv5njvbi9b7damj0w99z",
-    "version": "0.19.1"
+    "sha256": "1l073hqdivzyadjg8cn68wrmvbcrhc67yll4sypvb7rwvdznp80q",
+    "version": "0.20.0"
   },
   {
     "name": "vscode-yaml",
     "publisher": "redhat",
-    "sha256": "1qsjsfggfya282rh618fc89cfgpxii7yv2kyh5is6x2r2606cy15",
-    "version": "1.5.1"
+    "sha256": "1bbjpaypp0mq5akww5f0pkpq01j0xhhvkfr44f4lb2rdhr5nmnvc",
+    "version": "1.7.0"
   },
   {
     "name": "fish-vscode",
@@ -116,13 +128,13 @@
   {
     "name": "shellcheck",
     "publisher": "timonwong",
-    "sha256": "0l3k5sr4s9kdz82d303b9gqrzmyc78nk16aw7p503043d4r53f8g",
-    "version": "0.18.9"
+    "sha256": "0l8fbim19jgcdgxxgidnhdczxvhls920vrffwrac8k1y34lgfl3v",
+    "version": "0.19.3"
   },
   {
     "name": "markdown-all-in-one",
     "publisher": "yzhang",
-    "sha256": "0ihfrsg2sc8d441a2lkc453zbw1jcpadmmkbkaf42x9b9cipd5qb",
-    "version": "3.4.0"
+    "sha256": "0z0sdb5vmx1waln5k9fk6s6lj1pzpcm3hwm4xc47jz62iq8930m3",
+    "version": "3.4.3"
   }
 ]
