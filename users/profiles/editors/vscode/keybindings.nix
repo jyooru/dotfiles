@@ -1,7 +1,7 @@
 {
   programs.vscode.keybindings = [
     {
-      key = "ctrl+alt+";
+      key = "ctrl+alt+,";
       command = "workbench.action.openSettingsJson";
     }
     {

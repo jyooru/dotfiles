@@ -11,6 +11,8 @@
     "explorer.confirmDragAndDrop" = false;
     "files.associations" = { "*.liquid" = "html"; };
     "files.exclude" = {
+      "**/.mypy_cache" = true;
+      "**/.pytest_cache" = true;
       "**/.stfolder" = true;
       "**/__pycache__" = true;
     };
@@ -45,13 +47,11 @@
       "editor.wordWrap" = "on";
     };
     "[python]"."editor.tabSize" = 4;
-    "python.defaultInterpreterPath" = "/usr/bin/python";
     "python.formatting.provider" = "black";
     "python.linting.flake8Enabled" = true;
     "python.linting.flake8Args" = [ "--max-line-length=88" ];
-    "python.pythonPath" = "/usr/bin/python";
-    "python.showStartPage" = false;
     "python.testing.pytestEnabled" = true;
+    "[typescript]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
     "[yaml]"."editor.defaultFormatter" = "redhat.vscode-yaml";
   };
 }
