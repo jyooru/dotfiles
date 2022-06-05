@@ -1,33 +1,14 @@
-{ config, self, ... }:
-let
-  inherit (builtins) attrNames listToAttrs pathExists;
-  inherit (config.networking) hostName;
+{ config, lib, ... }:
 
-  hosts = (attrNames self.nixosConfigurations);
-in
+with lib;
+
 {
-  networking.firewall.interfaces =
-    let
-      ports = {
-        allowedTCPPorts = config.services.openssh.ports;
-        allowedUDPPortRanges = [{ from = 60000; to = 61000; }]; # mosh
-      };
-    in
-    {
-      "nebula0" = ports;
-      "ygg0" = ports;
-    };
+  networking.firewall.interfaces = genAttrs [ "nebula0" "ygg0" ] (_: {
+    allowedTCPPorts = config.services.openssh.ports;
+    allowedUDPPortRanges = [{ from = 60000; to = 61000; }]; # mosh
+  });
 
-  programs = {
-    mosh.enable = true;
-
-    ssh.knownHosts = listToAttrs (map
-      (name: {
-        inherit name;
-        value = { publicKeyFile = ../../../hosts + "/${name}/keys/ssh.pub"; };
-      })
-      hosts);
-  };
+  programs.mosh.enable = true;
 
   services.openssh = {
     enable = true;

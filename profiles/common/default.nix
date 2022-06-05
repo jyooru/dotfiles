@@ -44,6 +44,13 @@ in
   };
   nixpkgs.config = import ./nixpkgs.nix;
 
+  programs.ssh.knownHosts = listToAttrs (map
+    (name: {
+      inherit name;
+      value = { publicKeyFile = ../../hosts + "/${name}/keys/ssh.pub"; };
+    })
+    hosts);
+
   system.stateVersion = "21.05";
 
   home-manager = {
