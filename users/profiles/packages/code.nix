@@ -25,6 +25,7 @@
       deploy-rs.deploy-rs # nixos deployment tool
       nixpkgs-fmt # nix formatter
       statix # nix linter
+      nodePackages.node2nix # nix node tool
       fup-repl # nix repl tool
       deadnix # nix unused code scanner
       ragenix # nixos secret encryption tool

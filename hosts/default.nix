@@ -1,18 +1,24 @@
-{ utils }:
+let
+  hosts = [
+    "ga-z77-d3h"
+    "portege-r700-a"
+    "portege-r700-b"
+    "portege-z930"
+    "thinkpad-e580"
+  ];
+in
 
 with builtins;
-with utils.lib;
 
-mapAttrs
-  (_: value:
-    {
-      modules = [ value ];
-    }
-  )
-  (exportModules [
-    ./ga-z77-d3h
-    ./portege-r700-a
-    ./portege-r700-b
-    ./portege-z930
-    ./thinkpad-e580
-  ])
+listToAttrs (
+  map
+    (name: {
+      inherit name;
+      value = {
+        modules = [
+          (import (./. + "/${name}"))
+        ];
+      };
+    })
+    hosts
+)

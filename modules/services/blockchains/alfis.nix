@@ -20,7 +20,7 @@ in
     settings = {
       origin = mkOption {
         default = "0000001D2A77D63477172678502E51DE7F346061FF7EB188A2445ECA3FC0780E";
-        type = types.str; # Should this by types.strMatching?
+        type = types.str;
         description = ''
           The hash of first block in a chain to know with which nodes to work.
         '';

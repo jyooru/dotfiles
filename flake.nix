@@ -14,8 +14,9 @@
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
   };
 
-  outputs = { self, comma, deploy, fenix, home-manager, minecraft-servers, nixpkgs, nur, ragenix, utils, ... } @ inputs:
+  outputs = { ... } @ inputs:
 
+    with inputs;
     with deploy.lib.x86_64-linux;
     with nixpkgs.lib;
     with utils.lib;
@@ -34,22 +35,12 @@
         ragenix.overlay
         minecraft-servers.overlays.default
       ] ++ (attrValues self.overlays);
+
       channels.nixpkgs.patches = [
         ./patches/fix-yggdrasil.patch
         ./patches/mosh-no-firewall-open.patch
       ];
 
-      hostDefaults = {
-        specialArgs = {
-          inherit self inputs;
-          secrets = import ./secrets;
-        };
-        modules = (attrValues (import ./services { inherit utils; })) ++ [
-          home-manager.nixosModule
-          ragenix.nixosModules.age
-        ];
-      };
-      hosts = import ./hosts { inherit utils; };
       deploy = {
         nodes = mapAttrs
           (_: configuration: {
@@ -57,27 +48,37 @@
             profiles.system.path = activate.nixos configuration;
           })
           self.nixosConfigurations;
-
         sshUser = "root";
       };
 
+      hostDefaults = {
+        specialArgs = {
+          inherit self inputs;
+          secrets = import ./secrets;
+        };
+        modules = [
+          home-manager.nixosModule
+          ragenix.nixosModules.age
+        ] ++ (attrValues self.nixosModules);
+      };
+
+      hosts = import ./hosts;
+
+      nixosModules = import ./modules;
+
       outputsBuilder = channels:
         let pkgs = channels.nixpkgs; in
-        with pkgs; {
+        with pkgs;
+        {
           devShells.default = mkShell {
-            packages = [
-              nixpkgs-fmt
-              nodePackages.node2nix
-              qtile
-            ]
-            ++ (import ./users/profiles/packages/code.nix { inherit pkgs; }).home.packages;
+            packages = (import ./users/profiles/packages/code.nix { inherit pkgs; }).home.packages;
           };
 
           packages = import ./packages { inherit pkgs system; };
         };
 
-      templates = import ./templates;
-
       overlays = import ./overlays;
+
+      templates = import ./templates;
     };
 }
