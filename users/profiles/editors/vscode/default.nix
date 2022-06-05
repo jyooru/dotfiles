@@ -4,7 +4,6 @@ with lib;
 
 {
   imports = [
-    ./icons.nix
     ./keybindings.nix
     ./settings.nix
     ./theme.nix
