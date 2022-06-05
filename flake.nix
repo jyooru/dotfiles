@@ -2,7 +2,6 @@
   description = "NixOS configuration";
 
   inputs = {
-    comma.url = "github:nix-community/comma";
     deploy.url = "github:serokell/deploy-rs";
     fenix.url = "github:nix-community/fenix";
     hardware.url = "github:nixos/nixos-hardware";
@@ -28,7 +27,6 @@
 
       channelsConfig = import ./profiles/common/nixpkgs.nix;
       sharedOverlays = [
-        (final: _: { inherit (comma.packages.${final.system}) comma; })
         deploy.overlay
         fenix.overlay
         nur.overlay
