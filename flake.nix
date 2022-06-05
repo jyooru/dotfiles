@@ -40,15 +40,9 @@
       ];
 
       hostDefaults = {
-        specialArgs = rec {
+        specialArgs = {
           inherit self inputs;
-          profiles = import ./profiles { inherit utils; };
-          users = import ./users { inherit utils; };
           secrets = import ./secrets;
-          suites = with profiles; {
-            base = [ common file-sync locale networking users.joel users.root ssh vpn ];
-            server = suites.base ++ [ server ];
-          };
         };
         modules = (attrValues (import ./services { inherit utils; })) ++ [
           home-manager.nixosModule

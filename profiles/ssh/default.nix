@@ -30,7 +30,7 @@ in
   };
 
   services.openssh = {
-    enable = pathExists "${../../hosts}/${hostName}/keys/ssh.pub";
+    enable = true;
     openFirewall = false;
     passwordAuthentication = false;
   };

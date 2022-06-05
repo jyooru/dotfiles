@@ -1,6 +1,5 @@
-{ config, pkgs, profiles, secrets, ... }:
+{ config, pkgs, secrets, ... }:
 {
-  imports = with profiles; [ alfis ipfs yggdrasil ];
 
   # TODO: refactor
 

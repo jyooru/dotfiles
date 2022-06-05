@@ -1,8 +1,10 @@
-{ config, suites, ... }:
+{ config, ... }:
 {
-  imports = suites.server ++ [
+  imports = [
     ./hardware-configuration.nix
     ./vaultwarden.nix
+
+    ../../suites/server
   ];
 
   boot = {

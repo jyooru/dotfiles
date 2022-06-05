@@ -1,19 +1,25 @@
-{ config, inputs, pkgs, profiles, secrets, suites, ... }:
+{ config, inputs, pkgs, secrets, ... }:
 {
-  imports = suites.base ++ (with profiles; [
-    alfis
-    distributed-build
-    hardware.android
-    interactive
-    ipfs
-    yggdrasil
+  imports = [
     ./hardware-configuration.nix
-  ]) ++ (with inputs.hardware.nixosModules; [
-    common-cpu-intel
-    common-gpu-amd
-    common-pc-laptop
-    common-pc-laptop-ssd
-  ]);
+
+    ../../profiles/alfis
+    ../../profiles/distributed-build
+    ../../profiles/hardware/android.nix
+    ../../profiles/interactive
+    ../../profiles/ipfs
+    ../../profiles/yggdrasil
+
+    ../../suites/base
+
+    ../../users/users/joel/gui.nix
+  ] ++ (with inputs.hardware.nixosModules;
+    [
+      common-cpu-intel
+      common-gpu-amd
+      common-pc-laptop
+      common-pc-laptop-ssd
+    ]);
 
   networking.hostName = "thinkpad-e580";
 
