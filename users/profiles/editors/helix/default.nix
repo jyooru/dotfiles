@@ -4,14 +4,6 @@ with lib;
 with pkgs;
 
 {
-  home.packages = [
-    gopls
-    nodePackages.bash-language-server
-    nodePackages.typescript-language-server
-    python3Packages.python-lsp-server
-    rnix-lsp
-  ];
-
   programs.helix = {
     enable = true;
 
