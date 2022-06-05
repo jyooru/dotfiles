@@ -1,15 +1,15 @@
 {
   imports = [
-    ../../profiles/browser
-    ../../profiles/compositor
+    ../../profiles/browsers/librewolf
+    ../../profiles/compositors/picom
     ../../profiles/editors/vscode
-    ../../profiles/file-manager
-    ../../profiles/launcher
-    ../../profiles/notification-daemon
-    ../../profiles/terminal-emulator
+    ../../profiles/file-managers/ranger
+    ../../profiles/launchers/rofi
+    ../../profiles/notification-daemons/dunst
+    ../../profiles/terminal-emulators/alacritty
     ../../profiles/packages/apps.nix
     ../../profiles/packages/code.nix
-    ../../profiles/window-manager
+    ../../profiles/window-managers/qtile
 
     ../base
   ];
