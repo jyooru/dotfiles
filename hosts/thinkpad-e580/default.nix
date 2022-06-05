@@ -3,12 +3,10 @@
   imports = [
     ./hardware-configuration.nix
 
-    ../../profiles/alfis
-    ../../profiles/distributed-build
-    ../../profiles/hardware/android.nix
+    ../../profiles/nodes/alfis
     ../../profiles/interactive
-    ../../profiles/ipfs
-    ../../profiles/yggdrasil
+    ../../profiles/nodes/ipfs
+    ../../profiles/networks/yggdrasil
 
     ../../suites/base
 
@@ -49,7 +47,7 @@
 
   networking.firewall.interfaces =
     let
-      ipfs = (import ../../profiles/ipfs/ports.nix).${config.networking.hostName};
+      ipfs = (import ../../profiles/nodes/ipfs/ports.nix).${config.networking.hostName};
 
       lan = {
         allowedTCPPorts = [ ipfs 6567 25565 ];
@@ -111,4 +109,24 @@
   };
 
   virtualisation.virtualbox.host.enable = true;
+
+  programs.adb.enable = true;
+  environment.systemPackages = with pkgs; [
+    scrcpy # android screen mirroring tool
+    heimdall # samsung device custom recovery installer
+  ];
+
+  nix = {
+    buildMachines = [
+      {
+        hostName = "ga-z77-d3h.${config.networking.domain}";
+        maxJobs = 4;
+        speedFactor = 4;
+        sshUser = "joel";
+        systems = [ "x86_64-linux" "aarch64-linux" "armv6l-linux" ];
+      }
+    ];
+    distributedBuilds = true;
+    settings.builders-use-substitutes = true;
+  };
 }

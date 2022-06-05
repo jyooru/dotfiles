@@ -23,8 +23,8 @@
   networking.firewall.interfaces."enp0s25".allowedTCPPorts = [
     22
     8000
-    (import ../../profiles/ipfs/ports.nix).${config.networking.hostName}
-    (import ../../profiles/yggdrasil/ports.nix).${config.networking.hostName}
+    (import ../../profiles/nodes/ipfs/ports.nix).${config.networking.hostName}
+    (import ../../profiles/networks/yggdrasil/ports.nix).${config.networking.hostName}
     44300
   ];
   services.nebula.networks."joel".listen.port = 4241;

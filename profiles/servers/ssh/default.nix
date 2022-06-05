@@ -24,7 +24,7 @@ in
     ssh.knownHosts = listToAttrs (map
       (name: {
         inherit name;
-        value = { publicKeyFile = ../../hosts + "/${name}/keys/ssh.pub"; };
+        value = { publicKeyFile = ../../../hosts + "/${name}/keys/ssh.pub"; };
       })
       hosts);
   };

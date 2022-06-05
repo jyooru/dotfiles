@@ -1,11 +1,10 @@
 {
   imports = [
     ../../profiles/common
-    ../../profiles/file-sync
-    ../../profiles/locale
+    ../../profiles/nodes/syncthing
     ../../profiles/networking
-    ../../profiles/ssh
-    ../../profiles/vpn
+    ../../profiles/servers/ssh
+    ../../profiles/networks/nebula
 
     ../../users/users/joel
     ../../users/users/root

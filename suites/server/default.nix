@@ -2,9 +2,9 @@
   imports = [
     ../base
 
-    ../../profiles/alfis
-    ../../profiles/ipfs
-    ../../profiles/server
-    ../../profiles/yggdrasil
+    ../../profiles/nodes/alfis
+    ../../profiles/nodes/ipfs
+    ../../profiles/servers/server
+    ../../profiles/networks/yggdrasil
   ];
 }

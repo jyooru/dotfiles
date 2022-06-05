@@ -11,6 +11,8 @@ let
 in
 
 {
+  imports = [ ./locale.nix ];
+
   environment.sessionVariables.EDITOR = "hx";
 
   users.mutableUsers = true;
