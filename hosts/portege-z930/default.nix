@@ -2,7 +2,8 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./vaultwarden.nix
+
+    ../../profiles/servers/vaultwarden
 
     ../../suites/server
   ];

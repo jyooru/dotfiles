@@ -2,9 +2,9 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./minecraft.nix
 
     ../../profiles/servers/hercules-ci
+    ../../profiles/servers/minecraft
 
     ../../suites/server
   ];
