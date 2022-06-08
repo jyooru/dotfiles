@@ -3,7 +3,12 @@
   d = "https://duckduckgo.com/?kae=d&kbc=1&kap=-1&kao=-1&k1=-1&kax=-1&kav=1&kaq=-1&kak=-1&ks=m&kg=g&kaj=m&k7=151515&kj=151515&kt=FiraCode+Nerd+Font";
   o = "https://office.com/login"; # school
   r = "https://reddit.com/";
+  j = "https://joel.tokyo/";
+  v = "https://vaultwarden.joel.tokyo/";
   y = "https://youtube.com/";
+
+  aa = "https://archlinuxarm.org/platforms";
+  aw = "https://wiki.archlinux.org/";
 
   ci = "https://hercules-ci.com/github/jyooru";
   gd = "https://github.com/jyooru/dotfiles";
@@ -20,13 +25,21 @@
   nso = "https://search.nixos.org/options?channel=unstable";
   nsp = "https://search.nixos.org/packages?channel=unstable";
 
-  # TODO: host domains (thinkpad-e580.joel.tokyo, syncthing.thinkpad-e580.joel.tokyo, ...)
-  j = "https://joel.tokyo";
-  jv = "https://vaultwarden.joel.tokyo";
+  l1 = "https://localhost:1111/";
+  l8 = "https://localhost:8080/";
 
+  # s* automatically generated in default.nix
+  s = "file:///home/joel/school/";
+
+  x = "https://coinmarketcap.com/";
+  xe = "https://etherscan.io/";
+  xeg = "https://ethereumprice.org/gas/";
+  xep = "https://polygonscan.com/";
   xno = "https://nanolooker.com/";
   xnot = "https://nanoticker.info/";
   xnomc = "https://raiblocksmc-play.com/";
 
-  yggm = "http://[21e:e795:8e82:a9e2:ff48:952d:55f2:f0bb]/";
+  yd = "https://viewer.alfis.name/";
+  ys = "https://yggdrasil-network.github.io/services.html";
+  ym = "http://[21e:e795:8e82:a9e2:ff48:952d:55f2:f0bb]/";
 }
