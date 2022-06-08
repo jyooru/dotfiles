@@ -3,7 +3,41 @@
 with lib;
 
 let
-  bookmarks = (import ./bookmarks.nix);
+  hosts = {
+    "l" = "thinkpad-e580";
+    "1" = "portege-r700-a";
+    "2" = "portege-r700-b";
+    "3" = "portege-z930";
+    "4" = "ga-z77-d3h";
+  };
+  subjects = [ "business" "english" "it" "japanese" "maths" "science" ];
+  term = "2";
+
+  bookmarks = foldl' (x: y: x // y) { } ([
+    (import ./bookmarks.nix)
+  ] ++ (attrValues
+    (mapAttrs
+      (keyword: hostname:
+        let hd = "${hostname}.joel.tokyo"; in
+        {
+          ${keyword} = "https://${hd}";
+          "${keyword}f" = "https://ipfs.${hd}";
+          "${keyword}s" = "https://syncthing.${hd}";
+        })
+      hosts)
+  ) ++ (map
+    (subject:
+      let s = substring 0 1 subject; in
+      {
+        "s${s}" = "file:///home/joel/school/${subject}/";
+        "s${s}x" = "file:///home/joel/school/${subject}/textbook.pdf";
+        "s${s}t" = "file:///home/joel/school/${subject}/term ${term}/";
+        "s${s}e" = "file:///home/joel/school/${subject}/term ${term}/exercises.pdf";
+        "s${s}a" = "file:///home/joel/school/${subject}/term ${term}/assessment/";
+        "s${s}at" = "file:///home/joel/school/${subject}/term ${term}/assessment/task.pdf";
+      })
+    subjects))
+  ;
 in
 
 {
