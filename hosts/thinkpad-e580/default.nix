@@ -11,15 +11,12 @@
     ../../suites/base
 
     ../../users/users/joel/gui.nix
-  ] ++ (with inputs.hardware.nixosModules;
-    [
-      common-cpu-intel
-      common-gpu-amd
-      common-pc-laptop
-      common-pc-laptop-ssd
-    ]);
-
-  networking.hostName = "thinkpad-e580";
+  ] ++ (with inputs.hardware.nixosModules; [
+    common-cpu-intel
+    common-gpu-amd
+    common-pc-laptop
+    common-pc-laptop-ssd
+  ]);
 
   boot = {
     loader.systemd-boot.enable = true;
@@ -54,7 +51,7 @@
 
 
   networking.firewall = {
-    interfaces."nebula0".allowedTCPPorts = [ 80 443 8080 ];
+    interfaces."nebula0".allowedTCPPorts = [ 80 443 ];
 
     lan = {
       allowedTCPPorts = [ 6567 25565 ];
@@ -63,25 +60,8 @@
     };
   };
 
-  home-manager.users.joel.xdg.userDirs = {
-    enable = true;
-    desktop = "$HOME/desktop";
-    documents = "$HOME/documents";
-    download = "$HOME/downloads";
-    music = "$HOME/media/music";
-    pictures = "$HOME/media/screenshots";
-    publicShare = "$HOME/share";
-    templates = "$HOME/templates";
-    videos = "$HOME/media/videos";
-  };
-
-  virtualisation.virtualbox.host.enable = true;
-
   programs.adb.enable = true;
-  environment.systemPackages = with pkgs; [
-    scrcpy # android screen mirroring tool
-    heimdall # samsung device custom recovery installer
-  ];
+  environment.systemPackages = with pkgs; [ scrcpy ];
 
   nix = {
     buildMachines = [
