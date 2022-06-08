@@ -1,3 +1,7 @@
+{ config, lib, ... }:
+
+with lib;
+
 let
   listen = "127.0.0.1:5354";
 in
@@ -5,6 +9,10 @@ in
 with builtins;
 
 {
+  networking.firewall.interfaces.${config.services.yggdrasil.config.IfName}.allowedTCPPorts = [
+    (toInt (last (splitString ":" config.services.alfis.settings.net.listen)))
+  ];
+
   services = {
     alfis = {
       enable = true;

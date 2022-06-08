@@ -20,12 +20,12 @@
     owner = "caddy";
     group = "caddy";
   };
-  networking.firewall.interfaces = {
-    "nebula0" = {
+  networking.firewall = {
+    interfaces."nebula0" = {
       allowedTCPPorts = [ 53 80 8000 8001 443 44300 44301 ];
       allowedUDPPorts = [ 53 ];
     };
-    "ygg0".allowedTCPPorts = [ 4244 ];
+    lan.allowedTCPPorts = [ 8000 44300 ];
   };
   services = {
     nginx = {

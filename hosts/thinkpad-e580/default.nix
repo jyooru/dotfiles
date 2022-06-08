@@ -35,6 +35,13 @@
   users.users.root.openssh.authorizedKeys.keyFiles = [ ./keys/ssh-root.pub ]; # deploy
 
   services = {
+    ipfs.swarmAddress = [
+      "/ip4/0.0.0.0/tcp/4000"
+      "/ip6/::/tcp/4000"
+      "/ip4/0.0.0.0/udp/4000/quic"
+      "/ip6/::/udp/4000/quic"
+    ];
+
     # this host isn't a lighthouse, but all hosts should have a unique port for NAT traversal to avoid overlaps
     nebula.networks."joel".listen.port = 4240;
 
@@ -45,22 +52,16 @@
     xserver.videoDrivers = [ "amdgpu" "radeon" "nouveau" "modesetting" "fbdev" ];
   };
 
-  networking.firewall.interfaces =
-    let
-      ipfs = (import ../../profiles/nodes/ipfs/ports.nix).${config.networking.hostName};
 
-      lan = {
-        allowedTCPPorts = [ ipfs 6567 25565 ];
-        allowedUDPPorts = [ ipfs 6567 ];
-      };
-    in
-    {
-      "docker0".allowedTCPPorts = [ 5000 8384 ];
-      "enp0s20f0u2u1" = lan;
-      "nebula0".allowedTCPPorts = [ 80 443 ipfs 8080 ];
-      "wlp5s0" = lan;
-      "ygg0".allowedTCPPorts = [ 4244 ];
+  networking.firewall = {
+    interfaces."nebula0".allowedTCPPorts = [ 80 443 8080 ];
+
+    lan = {
+      allowedTCPPorts = [ 6567 25565 ];
+      allowedUDPPorts = [ 6567 ];
+      interfaces = [ "wlp5s0" "enp0s20f0u2u1" ];
     };
+  };
 
   home-manager.users.joel.xdg.userDirs = {
     enable = true;

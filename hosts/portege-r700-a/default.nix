@@ -20,12 +20,18 @@
     };
   };
 
-  networking.firewall.interfaces."enp0s25".allowedTCPPorts = [
-    22
-    8000
-    (import ../../profiles/nodes/ipfs/ports.nix).${config.networking.hostName}
-    (import ../../profiles/networks/yggdrasil/ports.nix).${config.networking.hostName}
-    44300
-  ];
-  services.nebula.networks."joel".listen.port = 4241;
+  networking.firewall.lan.interfaces = [ "enp0s25" ];
+
+  services = {
+    ipfs.swarmAddress = [
+      "/ip4/0.0.0.0/tcp/4001"
+      "/ip6/::/tcp/4001"
+      "/ip4/0.0.0.0/udp/4001/quic"
+      "/ip6/::/udp/4001/quic"
+    ];
+
+    nebula.networks."joel".listen.port = 4241;
+
+    yggdrasil.config.Listen = [ "tls://[::]:20071" ];
+  };
 }

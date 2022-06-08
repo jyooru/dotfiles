@@ -3,16 +3,21 @@
 with lib;
 
 let
-  port = (import ./ports.nix).${config.networking.hostName};
-  port' = toString port;
+  ports = unique (map
+    (address: toInt (elemAt (splitString "/" address) 4))
+    config.services.ipfs.swarmAddress);
+  allowedPorts = {
+    allowedTCPPorts = ports;
+    allowedUDPPorts = ports;
+  };
 in
 
 {
   environment.sessionVariables.IPFS_PATH = config.services.ipfs.dataDir;
 
-  networking.firewall.interfaces."ygg0" = {
-    allowedTCPPorts = [ port ];
-    allowedUDPPorts = [ port ];
+  networking.firewall = {
+    interfaces = genAttrs [ "nebula0" "ygg0" ] (_: allowedPorts);
+    lan = allowedPorts;
   };
 
   services.ipfs = {
@@ -20,12 +25,6 @@ in
     enableGC = true;
     emptyRepo = true; # no help files
     localDiscovery = true;
-    swarmAddress = [
-      "/ip4/0.0.0.0/tcp/${port'}"
-      "/ip6/::/tcp/${port'}"
-      "/ip4/0.0.0.0/udp/${port'}/quic"
-      "/ip6/::/udp/${port'}/quic"
-    ];
 
     extraConfig = {
       Peering.Peers = map
