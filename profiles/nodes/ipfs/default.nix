@@ -5,7 +5,7 @@ with lib;
 let
   inherit (config.networking) fqdn hostName;
 
-  gateway = (splitString "/" config.services.ipfs.gatewayAddress);
+  gateway = splitString "/" config.services.ipfs.gatewayAddress;
   ports = unique (map
     (address: toInt (elemAt (splitString "/" address) 4))
     config.services.ipfs.swarmAddress);

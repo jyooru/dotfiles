@@ -3,9 +3,9 @@
 with lib;
 
 let
-  ports = (unique (map
+  ports = unique (map
     (address: toInt (last (splitString ":" address)))
-    (config.services.yggdrasil.config.Listen or [ ])));
+    (config.services.yggdrasil.config.Listen or [ ]));
 in
 
 {

@@ -13,7 +13,7 @@
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
   };
 
-  outputs = { ... } @ inputs:
+  outputs = inputs:
 
     with inputs;
     with deploy.lib.x86_64-linux;
@@ -69,7 +69,7 @@
         with pkgs;
         {
           devShells.default = mkShell {
-            packages = (import ./users/profiles/packages/code.nix { inherit pkgs; }).home.packages;
+            inherit ((import ./users/profiles/packages/code.nix { inherit pkgs; }).home) packages;
           };
 
           packages = import ./packages { inherit pkgs system; };
