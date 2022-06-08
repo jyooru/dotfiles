@@ -32,12 +32,18 @@
   users.users.root.openssh.authorizedKeys.keyFiles = [ ./keys/ssh-root.pub ]; # deploy
 
   services = {
-    ipfs.swarmAddress = [
-      "/ip4/0.0.0.0/tcp/4000"
-      "/ip6/::/tcp/4000"
-      "/ip4/0.0.0.0/udp/4000/quic"
-      "/ip6/::/udp/4000/quic"
-    ];
+    ipfs = {
+      # let's me still use offline ipfs without killing my battery
+      # have an alias setup to turn it back on easily
+      extraConfig.Swarm.ConnMgr.Type = "none";
+
+      swarmAddress = [
+        "/ip4/0.0.0.0/tcp/4000"
+        "/ip6/::/tcp/4000"
+        "/ip4/0.0.0.0/udp/4000/quic"
+        "/ip6/::/udp/4000/quic"
+      ];
+    };
 
     # this host isn't a lighthouse, but all hosts should have a unique port for NAT traversal to avoid overlaps
     nebula.networks."joel".listen.port = 4240;
