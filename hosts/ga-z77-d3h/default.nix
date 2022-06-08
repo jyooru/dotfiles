@@ -29,15 +29,14 @@
 
   services = {
     ipfs.swarmAddress = [
-      "/ip4/0.0.0.0/tcp/4001"
-      "/ip6/::/tcp/4001"
-      "/ip4/0.0.0.0/udp/4001/quic"
-      "/ip6/::/udp/4001/quic"
+      "/ip4/0.0.0.0/tcp/4004"
+      "/ip6/::/tcp/4004"
+      "/ip4/0.0.0.0/udp/4004/quic"
+      "/ip6/::/udp/4004/quic"
     ];
 
     nebula.networks."joel".listen.port = 4244;
 
     yggdrasil.config.Listen = [ "tls://[::]:20074" ];
   };
-  systemd.services.nix-serve.environment.HOME = "/dev/null";
 }
