@@ -16,26 +16,22 @@ with lib;
   hardware.pulseaudio.enable = true;
   sound.enable = true;
 
-  services = {
-    xserver = {
-      enable = true;
+  services.xserver = {
+    enable = true;
 
-      desktopManager.xterm.enable = false;
-      displayManager = {
-        defaultSession = "none+qtile";
-        autoLogin = { enable = true; user = "joel"; };
-      };
+    desktopManager.xterm.enable = false;
 
-      libinput.enable = true;
-
-      windowManager.qtile.enable = true;
+    displayManager = {
+      defaultSession = "none+qtile";
+      autoLogin = { enable = true; user = "joel"; };
     };
+    windowManager.qtile.enable = true;
+
+    libinput.enable = true;
   };
+
   programs = {
-    gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
-    };
+    gnupg.agent.enable = true;
     nm-applet.enable = true;
     steam.enable = true;
   };

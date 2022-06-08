@@ -1,4 +1,4 @@
-final: prev:
+_final: prev:
 {
   polymc = prev.polymc.overrideAttrs (old: {
     postInstall = (old.postInstall or "") + ''

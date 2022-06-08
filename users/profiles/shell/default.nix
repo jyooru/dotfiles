@@ -1,8 +1,5 @@
-{ pkgs, ... }:
 {
   imports = [ ./abbrs.nix ./starship-nerd-font-symbols.nix ];
-
-  home.packages = with pkgs; [ comma ];
 
   programs = {
     bat = {

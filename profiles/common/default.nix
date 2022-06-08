@@ -1,4 +1,4 @@
-{ config, inputs, lib, pkgs, self, ... }:
+{ config, lib, pkgs, self, ... }:
 
 with lib;
 
@@ -11,17 +11,11 @@ let
 in
 
 {
-  environment.sessionVariables.EDITOR = "hx";
-      
-  users.mutableUsers = true;
+  imports = [ ./locale.nix ];
 
-  services = {
-    logind = {
-      lidSwitch = "ignore";
-      extraConfig = ''
-        HandlePowerKey=ignore
-      '';
-    };
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
   };
 
   nix = {
@@ -40,29 +34,26 @@ in
     generateNixPathFromInputs = true;
     linkInputs = true;
   };
+
   nixpkgs.config = import ./nixpkgs.nix;
+
+  programs.ssh.knownHosts = listToAttrs (map
+    (name: {
+      inherit name;
+      value = { publicKeyFile = ../../hosts + "/${name}/keys/ssh.pub"; };
+    })
+    hosts);
+
+  services = {
+    logind = {
+      lidSwitch = "ignore";
+      extraConfig = ''
+        HandlePowerKey=ignore
+      '';
+    };
+  };
 
   system.stateVersion = "21.05";
 
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    users =
-      let
-        defaults = {
-          programs.home-manager.enable = true;
-          nixpkgs.config = import ./nixpkgs.nix;
-          xdg.configFile."nixpkgs/config.nix".source = ./nixpkgs.nix;
-          xdg.configFile."btop/btop.conf".text = ''
-            clock_format = "/host"
-            theme_background = False
-          '';
-          home.stateVersion = "21.11";
-        };
-      in
-      {
-        root = defaults;
-        joel = defaults;
-      };
-  };
+  users.mutableUsers = true;
 }

@@ -1,22 +1,3 @@
-with builtins;
-
-let
-  # https://github.com/Revertron/Alfis/blob/master/src/blockchain/data/zones.txt
-  alfisZones = [
-    "anon"
-    "btn"
-    "conf"
-    "index"
-    "merch"
-    "mirror"
-    "mob"
-    "screen"
-    "srv"
-    "ygg"
-  ];
-  forwardingRules = concatStringsSep "\n" (map (zone: "${zone} 127.0.0.1:5354") alfisZones);
-in
-
 {
   networking = rec {
     domain = "joel.tokyo";
@@ -32,7 +13,6 @@ in
     enable = true;
     settings = {
       bootstrap_resolvers = [ "1.1.1.1:53" "1.0.0.1:53" ];
-      forwarding_rules = toFile "forwarding-rules.txt" forwardingRules;
       listen_addresses = [ "[::]:53" ];
       netprobe_timeout = 0;
       server_names = [ "cloudflare" "cloudflare-ipv6" ];

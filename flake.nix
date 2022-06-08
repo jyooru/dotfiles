@@ -2,7 +2,6 @@
   description = "NixOS configuration";
 
   inputs = {
-    comma.url = "github:nix-community/comma";
     deploy.url = "github:serokell/deploy-rs";
     fenix.url = "github:nix-community/fenix";
     hardware.url = "github:nixos/nixos-hardware";
@@ -14,8 +13,9 @@
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
   };
 
-  outputs = { self, comma, deploy, fenix, home-manager, minecraft-servers, nixpkgs, nur, ragenix, utils, ... } @ inputs:
+  outputs = inputs:
 
+    with inputs;
     with deploy.lib.x86_64-linux;
     with nixpkgs.lib;
     with utils.lib;
@@ -27,35 +27,18 @@
 
       channelsConfig = import ./profiles/common/nixpkgs.nix;
       sharedOverlays = [
-        (final: _: { inherit (comma.packages.${final.system}) comma; })
         deploy.overlay
         fenix.overlay
         nur.overlay
         ragenix.overlay
         minecraft-servers.overlays.default
       ] ++ (attrValues self.overlays);
+
       channels.nixpkgs.patches = [
         ./patches/fix-yggdrasil.patch
         ./patches/mosh-no-firewall-open.patch
       ];
 
-      hostDefaults = {
-        specialArgs = rec {
-          inherit self inputs;
-          profiles = import ./profiles { inherit utils; };
-          users = import ./users { inherit utils; };
-          secrets = import ./secrets;
-          suites = with profiles; {
-            base = [ common file-sync locale networking users.joel users.root ssh vpn ];
-            server = suites.base ++ [ server ];
-          };
-        };
-        modules = (attrValues (import ./services { inherit utils; })) ++ [
-          home-manager.nixosModule
-          ragenix.nixosModules.age
-        ];
-      };
-      hosts = import ./hosts { inherit utils; };
       deploy = {
         nodes = mapAttrs
           (_: configuration: {
@@ -63,27 +46,37 @@
             profiles.system.path = activate.nixos configuration;
           })
           self.nixosConfigurations;
-
         sshUser = "root";
       };
 
+      hostDefaults = {
+        specialArgs = {
+          inherit self inputs;
+          secrets = import ./secrets;
+        };
+        modules = [
+          home-manager.nixosModule
+          ragenix.nixosModules.age
+        ] ++ (attrValues self.nixosModules);
+      };
+
+      hosts = import ./hosts;
+
+      nixosModules = import ./modules;
+
       outputsBuilder = channels:
         let pkgs = channels.nixpkgs; in
-        with pkgs; {
+        with pkgs;
+        {
           devShells.default = mkShell {
-            packages = [
-              nixpkgs-fmt
-              nodePackages.node2nix
-              qtile
-            ]
-            ++ (import ./users/profiles/packages/code.nix { inherit pkgs; }).home.packages;
+            inherit ((import ./users/profiles/packages/code.nix { inherit pkgs; }).home) packages;
           };
 
           packages = import ./packages { inherit pkgs system; };
         };
 
-      templates = import ./templates;
-
       overlays = import ./overlays;
+
+      templates = import ./templates;
     };
 }

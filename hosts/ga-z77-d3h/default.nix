@@ -1,9 +1,12 @@
-{ config, profiles, suites, ... }:
+{ config, ... }:
 {
-  imports = suites.server ++ [
+  imports = [
     ./hardware-configuration.nix
-    ./minecraft.nix
-    profiles.ci
+
+    ../../profiles/servers/hercules-ci
+    ../../profiles/servers/minecraft
+
+    ../../suites/server
   ];
 
   boot = {
@@ -22,20 +25,19 @@
     };
   };
 
-  networking.firewall.interfaces."enp4s0".allowedTCPPorts = [
-    22
-    8000
-    (import ../../profiles/ipfs/ports.nix).${config.networking.hostName}
-    (import ../../profiles/yggdrasil/ports.nix).${config.networking.hostName}
-    44300
-  ];
+  networking.firewall.lan.interfaces = [ "enp4s0" ];
+
   services = {
+    ipfs.swarmAddress = [
+      "/ip4/0.0.0.0/tcp/4001"
+      "/ip6/::/tcp/4001"
+      "/ip4/0.0.0.0/udp/4001/quic"
+      "/ip6/::/udp/4001/quic"
+    ];
+
     nebula.networks."joel".listen.port = 4244;
 
-    nix-serve = {
-      enable = true;
-      secretKeyFile = "/var/binary-cache.pem";
-    };
+    yggdrasil.config.Listen = [ "tls://[::]:20074" ];
   };
   systemd.services.nix-serve.environment.HOME = "/dev/null";
 }

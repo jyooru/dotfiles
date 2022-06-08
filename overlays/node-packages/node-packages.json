@@ -1,6 +1,1 @@
-[
-  "@11ty/eleventy",
-  "normalize.css",
-  "terminal.css",
-  "ttf2woff2"
-]
+["@11ty/eleventy", "normalize.css", "terminal.css", "ttf2woff2"]

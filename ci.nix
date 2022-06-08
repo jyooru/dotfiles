@@ -8,7 +8,7 @@ with flake.inputs.nixpkgs.lib;
 with flake;
 
 {
-  devShells = recurseIntoAttrs { default = devShells.${currentSystem}.default; };
+  devShells = recurseIntoAttrs devShells.${currentSystem};
   nixosConfigurations = recurseIntoAttrs (mapAttrs (_: value: value.config.system.build.toplevel) nixosConfigurations);
   overlays = import ./overlays/ci.nix { inherit inputs; };
   packages = recurseIntoAttrs packages.${currentSystem};
