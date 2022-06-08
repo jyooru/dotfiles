@@ -24,7 +24,6 @@ in
   };
 
   services = {
-    # TODO: parse config.services.ipfs.gatewayAddress
     caddy.virtualHosts."ipfs.${fqdn}".extraConfig = ''
       import tls
       reverse_proxy ${elemAt gateway 2}:${elemAt gateway 4}

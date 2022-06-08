@@ -13,17 +13,9 @@ in
 {
   imports = [ ./locale.nix ];
 
-  environment.sessionVariables.EDITOR = "hx";
-
-  users.mutableUsers = true;
-
-  services = {
-    logind = {
-      lidSwitch = "ignore";
-      extraConfig = ''
-        HandlePowerKey=ignore
-      '';
-    };
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
   };
 
   nix = {
@@ -42,6 +34,7 @@ in
     generateNixPathFromInputs = true;
     linkInputs = true;
   };
+
   nixpkgs.config = import ./nixpkgs.nix;
 
   programs.ssh.knownHosts = listToAttrs (map
@@ -51,10 +44,16 @@ in
     })
     hosts);
 
+  services = {
+    logind = {
+      lidSwitch = "ignore";
+      extraConfig = ''
+        HandlePowerKey=ignore
+      '';
+    };
+  };
+
   system.stateVersion = "21.05";
 
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-  };
+  users.mutableUsers = true;
 }

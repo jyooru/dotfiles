@@ -2,6 +2,10 @@
 
 with lib;
 
+let
+  bookmarks = (import ./bookmarks.nix);
+in
+
 {
   programs.firefox = {
     enable = true;
@@ -14,60 +18,26 @@ with lib;
       # ublock-origin # shipped with librewolf
     ];
 
-    profiles."profile" =
-      let duckduckgo = "https://duckduckgo.com/?kae=d&kbc=1&kap=-1&kao=-1&k1=-1&kax=-1&kav=1&kaq=-1&kak=-1&ks=m&kg=g&kaj=m&k7=151515&kj=151515&kt=FiraCode+Nerd+Font"; in
-      {
-        bookmarks = mapAttrs (keyword: url: { inherit keyword url; }) {
-          # have to be imported manually in bookmarks manager -> import html
-          # typing a keyword and pressing enter goes to that url
+    profiles."profile" = {
+      # have to be imported manually in bookmarks manager -> import html
+      # typing a keyword and pressing enter goes to that url
+      bookmarks = mapAttrs (keyword: url: { inherit keyword url; }) bookmarks;
 
-          c = "https://dash.cloudflare.com/";
-          d = duckduckgo;
-          o = "https://office.com/login"; # school
-          r = "https://reddit.com/";
-          y = "https://youtube.com/";
+      settings = {
+        "browser.newtabpage.enabled" = false;
+        "browser.startup.homepage" = bookmarks.d;
 
-          ci = "https://hercules-ci.com/github/jyooru";
-          gd = "https://github.com/jyooru/dotfiles";
-          gdc = "https://hercules-ci.com/github/jyooru/dotfiles";
-          gi = "https://github.com/notifications";
-          gj = "https://github.com/jyooru";
-          gn = "https://github.com/nixos/nixpkgs";
-          gs = "https://github.com/stars";
-
-          hm = "https://nix-community.github.io/home-manager/options.html";
-          nm = "https://nixos.org/manual/nix/unstable/expressions/builtins.html";
-          npm = "https://nixos.org/manual/nixpkgs/unstable/";
-          nom = "https://nixos.org/manual/nixos/unstable/";
-          nso = "https://search.nixos.org/options?channel=unstable";
-          nsp = "https://search.nixos.org/packages?channel=unstable";
-
-          # TODO: host domains (thinkpad-e580.joel.tokyo, syncthing.thinkpad-e580.joel.tokyo, ...)
-          j = "https://joel.tokyo";
-          jv = "https://vaultwarden.joel.tokyo";
-
-          xno = "https://nanolooker.com/";
-          xnot = "https://nanoticker.info/";
-          xnomc = "https://raiblocksmc-play.com/";
-
-          yggm = "http://[21e:e795:8e82:a9e2:ff48:952d:55f2:f0bb]/";
-        };
-
-        settings = {
-          "browser.newtabpage.enabled" = false;
-          "browser.startup.homepage" = duckduckgo;
-
-          "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
-          "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-          "layers.acceleration.force-enabled" = true;
-          "gfx.webrender.all" = true;
-          "svg.context-properties.content.enabled" = true;
-          "browser.uiCustomization.state" = readFile ./ui.json;
-          "browser.toolbars.bookmarks.visibility" = "never";
-        };
-
-        userChrome = readFile (pkgs.callPackage ./cascade.nix { });
+        "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
+        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+        "layers.acceleration.force-enabled" = true;
+        "gfx.webrender.all" = true;
+        "svg.context-properties.content.enabled" = true;
+        "browser.uiCustomization.state" = readFile ./ui.json;
+        "browser.toolbars.bookmarks.visibility" = "never";
       };
+
+      userChrome = readFile (pkgs.callPackage ./cascade.nix { });
+    };
   };
 
   home.file.".librewolf/profiles.ini".text = generators.toINI { } {

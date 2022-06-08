@@ -3,6 +3,9 @@ let
 in
 
 {
+  home.stateVersion = "21.11";
+
+
   programs.home-manager.enable = true;
 
   nixpkgs.config = import nixpkgsConfig;
@@ -12,6 +15,4 @@ in
     clock_format = "/host"
     theme_background = False
   '';
-
-  home.stateVersion = "21.11";
 }

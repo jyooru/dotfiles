@@ -4,6 +4,8 @@ with lib;
 with pkgs;
 
 {
+  home.sessionVariables.EDITOR = "hx";
+
   programs.helix = {
     enable = true;
 
