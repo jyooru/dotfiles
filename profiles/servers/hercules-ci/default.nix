@@ -19,4 +19,6 @@ with config.networking;
       secretKeyFile = "/var/binary-cache.pem";
     };
   };
+
+  systemd.services.nix-serve.environment.HOME = "/dev/null";
 }
