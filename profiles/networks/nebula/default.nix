@@ -1,8 +1,10 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, secrets, ... }:
 
 let
   inherit (lib) attrNames attrValues elem mkIf;
-  inherit (config.networking) hostName;
+  inherit (config.networking) fqdn hostName;
+
+  dev = "nebula0";
 
   lighthouses = {
     "portege-r700-a" = "10.42.0.11";
@@ -21,52 +23,80 @@ let
 in
 
 {
-  services.nebula.networks."joel" = rec {
-    enable = true;
+  age.secrets."tls-joel.tokyo" = {
+    file = secrets."tls-joel.tokyo";
+    owner = "caddy";
+    group = "caddy";
+  };
 
-    ca = "/etc/nebula/ca.crt";
-    cert = "/etc/nebula/host.crt";
-    key = "/etc/nebula/host.key";
+  networking.firewall.interfaces.${dev}.allowedTCPPorts = [ 80 443 ];
 
-    settings = {
-      # https://github.com/slackhq/nebula/blob/master/examples/config.yml
+  services = {
+    # internal services
+    caddy = {
+      enable = true;
+      package = pkgs.caddy-modded;
+      extraConfig = ''
+        (tls) {
+          import /run/agenix/tls-joel.tokyo    
+        }
+      '';
 
-      static_host_map = let thisHost = lighthouses.${hostName} or ""; in removeAttrs staticHosts [ thisHost ];
+      virtualHosts.${fqdn}.extraConfig = ''
+        import tls
+        respond "${hostName} OK"
+      '';
+    };
 
-      lighthouse = rec {
-        am_lighthouse = elem hostName lighthouseHostnames;
-        interval = 60;
-        hosts = mkIf (!am_lighthouse) lighthouseIps;
-      };
+    nebula.networks."joel" = rec {
+      enable = true;
 
-      punchy = {
-        punch = true;
-        respond = true;
-      };
+      ca = "/etc/nebula/ca.crt";
+      cert = "/etc/nebula/host.crt";
+      key = "/etc/nebula/host.key";
 
-      cipher = "aes";
+      settings = {
+        # https://github.com/slackhq/nebula/blob/master/examples/config.yml
 
-      preferred_ranges = "192.168.0.0/24";
+        static_host_map = let thisHost = lighthouses.${hostName} or ""; in removeAttrs staticHosts [ thisHost ];
 
-      tun = {
-        disabled = false;
-        dev = "nebula0";
-        drop_local_broadcast = false;
-        drop_multicast = false;
-        tx_queue = 500;
-        mtu = 1300;
-      };
-
-      firewall = {
-        conntrack = {
-          tcp_timeout = "12m";
-          udp_timeout = "3m";
-          default_timeout = "10m";
-          max_connections = 100000;
+        lighthouse = rec {
+          am_lighthouse = elem hostName lighthouseHostnames;
+          interval = 60;
+          hosts = mkIf (!am_lighthouse) lighthouseIps;
         };
-        outbound = [{ port = "any"; proto = "any"; host = "any"; }];
-        inbound = [{ port = "any"; proto = "any"; host = "any"; }];
+
+        punchy = {
+          punch = true;
+          respond = true;
+        };
+
+        cipher = "aes";
+
+        preferred_ranges = "192.168.0.0/24";
+
+        tun = {
+          disabled = false;
+          inherit dev;
+          drop_local_broadcast = false;
+          drop_multicast = false;
+          tx_queue = 500;
+          mtu = 1300;
+        };
+
+        firewall = {
+          conntrack = {
+            tcp_timeout = "12m";
+            udp_timeout = "3m";
+            default_timeout = "10m";
+            max_connections = 100000;
+          };
+          outbound = [{ port = "any"; proto = "any"; host = "any"; }];
+          inbound = [{ port = "any"; proto = "any"; host = "any"; }];
+        };
       };
     };
   };
+
+  systemd.services.caddy.serviceConfig.AmbientCapabilities = [ "CAP_NET_BIND_SERVICE" ];
 }

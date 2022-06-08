@@ -1,13 +1,23 @@
 { config, ... }:
 
+let
+  domain = "vaultwarden.${config.networking.domain}";
+  port = 8002;
+in
 {
-  networking.firewall.interfaces."docker0".allowedTCPPorts = [ 8002 ];
-  services.vaultwarden = {
-    enable = true;
-    config = {
-      domain = "https://vaultwarden.${config.networking.domain}";
-      rocketPort = 8002;
-      signupsAllowed = false;
+  services = {
+    caddy.virtualHosts.${domain}.extraConfig = ''
+      import tls
+      reverse_proxy 127.0.0.1:${toString port}
+    '';
+
+    vaultwarden = {
+      enable = true;
+      config = {
+        domain = "https://${domain}";
+        rocketPort = port;
+        signupsAllowed = false;
+      };
     };
   };
 }

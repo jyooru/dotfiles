@@ -75,40 +75,6 @@
     videos = "$HOME/media/videos";
   };
 
-  age.secrets."tls-joel.tokyo" = {
-    file = secrets."tls-joel.tokyo";
-    owner = "caddy";
-    group = "caddy";
-  };
-
-  systemd.services.caddy.serviceConfig.AmbientCapabilities = [ "CAP_NET_BIND_SERVICE" ];
-  services.caddy = {
-    enable = true;
-    package = pkgs.caddy-modded;
-    extraConfig = with config.networking; ''
-      (joel.tokyo) {
-        import /run/agenix/tls-joel.tokyo
-      }
-
-      ${fqdn} {
-        import joel.tokyo
-        respond "Hello world"
-      }
-
-      syncthing.${fqdn} {
-        import joel.tokyo
-        reverse_proxy localhost:8384 { 
-          header_up Host localhost:8384
-        }
-      }
-
-      ipfs.${fqdn} {
-        import joel.tokyo
-        respond "Hello world"
-      }
-    '';
-  };
-
   virtualisation.virtualbox.host.enable = true;
 
   programs.adb.enable = true;
@@ -124,7 +90,7 @@
         maxJobs = 4;
         speedFactor = 4;
         sshUser = "joel";
-        systems = [ "x86_64-linux" "aarch64-linux" "armv6l-linux" ];
+        systems = [ "x86_64-linux" ];
       }
     ];
     distributedBuilds = true;

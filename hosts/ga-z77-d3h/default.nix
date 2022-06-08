@@ -37,11 +37,6 @@
 
     nebula.networks."joel".listen.port = 4244;
 
-    nix-serve = {
-      enable = true;
-      secretKeyFile = "/var/binary-cache.pem";
-    };
-
     yggdrasil.config.Listen = [ "tls://[::]:20074" ];
   };
   systemd.services.nix-serve.environment.HOME = "/dev/null";
