@@ -35,7 +35,10 @@
     ipfs = {
       # let's me still use offline ipfs without killing my battery
       # have an alias setup to turn it back on easily
-      extraConfig.Swarm.ConnMgr.Type = "none";
+      extraConfig = {
+        Reprovider.Strategy = "pinned";
+        Swarm.ConnMgr.Type = "none";
+      };
 
       swarmAddress = [
         "/ip4/0.0.0.0/tcp/4000"
