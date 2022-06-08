@@ -40,7 +40,7 @@ widgets = (
             spacing=6,
             this_current_screen_border=base04,
             this_screen_border=base04,
-            urgent_border = base08
+            urgent_border=base08,
         )
     )
     + [

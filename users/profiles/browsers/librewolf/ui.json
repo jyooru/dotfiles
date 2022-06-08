@@ -13,18 +13,9 @@
       "fxa-toolbar-menu-button",
       "webextension_metamask_io-browser-action"
     ],
-    "toolbar-menubar": [
-      "menubar-items"
-    ],
-    "TabsToolbar": [
-      "tabbrowser-tabs",
-      "new-tab-button",
-      "alltabs-button"
-    ],
-    "PersonalToolbar": [
-      "import-button",
-      "personal-bookmarks"
-    ]
+    "toolbar-menubar": ["menubar-items"],
+    "TabsToolbar": ["tabbrowser-tabs", "new-tab-button", "alltabs-button"],
+    "PersonalToolbar": ["import-button", "personal-bookmarks"]
   },
   "currentVersion": 17,
   "newElementCount": 5
