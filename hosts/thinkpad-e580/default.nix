@@ -1,4 +1,4 @@
-{ config, inputs, pkgs, secrets, ... }:
+{ config, inputs, pkgs, ... }:
 {
   imports = [
     ./hardware-configuration.nix

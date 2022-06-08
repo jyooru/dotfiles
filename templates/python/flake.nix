@@ -23,7 +23,7 @@
         };
 
       overlays = rec {
-        change-me = final: prev: {
+        change-me = final: _prev: {
           change-me = final.poetry2nix.mkPoetryApplication { projectDir = ./.; };
         };
         default = change-me;

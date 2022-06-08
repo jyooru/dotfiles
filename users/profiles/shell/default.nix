@@ -1,4 +1,3 @@
-{ pkgs, ... }:
 {
   imports = [ ./abbrs.nix ./starship-nerd-font-symbols.nix ];
 
