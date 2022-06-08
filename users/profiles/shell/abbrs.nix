@@ -55,6 +55,18 @@
     gstp = "git stash pop";
     gu = "git reset --soft HEAD^"; # git undo
 
+    f = "ipfs";
+    fa = "ipfs add";
+    fc = "ipfs cat";
+    fccb = "ipfs config Swarm.ConnMgr.Type basic";
+    fccc = "sudo chmod g+r /var/lib/ipfs/config";
+    fccn = "ipfs config Swarm.ConnMgr.Type none";
+    fd = "ipfs dns";
+    fl = "ipfs ls";
+    fr = "ipfs resolve";
+    fsb = "ipfs stats bw";
+    fsh = "ipfs stats repo -H";
+
     n = "nix";
     nb = "nix build";
     nbb = "nix build .";

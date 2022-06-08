@@ -7,6 +7,8 @@
     ../../profiles/networks/yggdrasil
   ];
 
+  services.ipfs.extraConfig.Experimental.AcceleratedDHTClient = true;
+
   users.users = {
     joel.openssh.authorizedKeys.keyFiles = [
       ../../hosts/thinkpad-e580/keys/ssh-joel.pub
