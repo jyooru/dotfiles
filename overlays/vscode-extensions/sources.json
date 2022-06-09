@@ -68,20 +68,20 @@
   {
     "name": "python",
     "publisher": "ms-python",
-    "sha256": "11a28a8xy2h8r4bxbffyg24bpglg0sdkc4xxsck5lspmzbf61r8z",
-    "version": "2022.7.11521008"
+    "sha256": "0acijvfj9gscdby9hks1sc9zkxahpf9l31dvkran559bxpcy4ps8",
+    "version": "2022.9.11601008"
   },
   {
     "name": "vscode-pylance",
     "publisher": "ms-python",
-    "sha256": "10algdh5l5w7vp42pn6a4bizbx8snnkriw0m3hkjca7d8dnjvsrd",
-    "version": "2022.6.0"
+    "sha256": "0c785ff99hgzb83h3zab1avmnlx09l293n60g3qkmxsph7qyxlbw",
+    "version": "2022.6.11"
   },
   {
     "name": "jupyter",
     "publisher": "ms-toolsai",
-    "sha256": "06qsplka0695awk39na23kg1sr1iqc7pr2md9rd059f1fbdn3na4",
-    "version": "2022.5.1001552309"
+    "sha256": "1zpzzw38jhqadd9af622mpp8g9z12psv6zr73w7if0ncnj1f86mm",
+    "version": "2022.6.1001621021"
   },
   {
     "name": "color-highlight",
@@ -92,8 +92,8 @@
   {
     "name": "material-icon-theme",
     "publisher": "PKief",
-    "sha256": "1dmmqc003v45pmiz6yccpnvw94hbvbg7fhy24njii0kwpxbv4q7l",
-    "version": "4.17.0"
+    "sha256": "1mp504i45dy4fx07m921mmzsrblhvkhslm5skq8vv36qfpazivl3",
+    "version": "4.18.1"
   },
   {
     "name": "vscode-css-peek",
@@ -116,8 +116,8 @@
   {
     "name": "vscode-yaml",
     "publisher": "redhat",
-    "sha256": "1bbjpaypp0mq5akww5f0pkpq01j0xhhvkfr44f4lb2rdhr5nmnvc",
-    "version": "1.7.0"
+    "sha256": "1djd4mxnfrrlgiyrqjrrchza3q229sy57d71dggvf6f5k2wnj1qv",
+    "version": "1.8.0"
   },
   {
     "name": "fish-vscode",
@@ -128,8 +128,8 @@
   {
     "name": "shellcheck",
     "publisher": "timonwong",
-    "sha256": "0l8fbim19jgcdgxxgidnhdczxvhls920vrffwrac8k1y34lgfl3v",
-    "version": "0.19.3"
+    "sha256": "1ni9s4052422s1x0d5mwjx4nd89yf17v97pzim00yvcvylx7py5z",
+    "version": "0.19.4"
   },
   {
     "name": "markdown-all-in-one",
