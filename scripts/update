@@ -9,12 +9,12 @@ cd "$root" &&
     git commit -m "chore(flake): update"
 
 cd "$root/overlays/node-packages" &&
-    ./update.sh &&
+    ./update &&
     git add . &&
     git commit -m "chore(overlays.node-packages): update"
 
 cd "$root/overlays/vscode-extensions" &&
-    ./update.fish &&
+    ./update &&
     git add . &&
     git commit -m "chore(overlays.vscode-extensions): update"
 
