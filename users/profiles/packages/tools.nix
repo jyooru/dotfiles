@@ -39,6 +39,7 @@
     nmap # port scanner
     scrot # screenshot
     lm_sensors # sensor viewer
+    spotdl # spotify downloader
     sysz # systemctl fuzzy finder
     neofetch # system info
     btop # system monitor
