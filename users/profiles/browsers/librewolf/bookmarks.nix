@@ -25,8 +25,8 @@
   nso = "https://search.nixos.org/options?channel=unstable";
   nsp = "https://search.nixos.org/packages?channel=unstable";
 
-  l1 = "https://localhost:1111/";
-  l8 = "https://localhost:8080/";
+  l1 = "http://localhost:1111/";
+  l8 = "http://localhost:8080/";
 
   # s* automatically generated in default.nix
   s = "file:///home/joel/school/";
