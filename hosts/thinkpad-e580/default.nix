@@ -33,8 +33,6 @@
 
   services = {
     ipfs = {
-      # let's me still use offline ipfs without killing my battery
-      # have an alias setup to turn it back on easily
       extraConfig.Reprovider.Strategy = "pinned";
 
       swarmAddress = [
