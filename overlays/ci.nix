@@ -31,7 +31,6 @@ recurseIntoAttrs (
     )
     overlayPackages
   ) // {
-    nodePackages = recurseIntoAttrs (import ./node-packages/composition.nix { inherit pkgs system; });
     vscodeExtensions = recurseIntoAttrs (import ./vscode-extensions/sources.nix { inherit (pkgs) lib vscode-utils; });
   }
 )

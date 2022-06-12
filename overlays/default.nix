@@ -11,7 +11,6 @@ let
     fixNebula = ./fix-nebula;
 
     # package sets
-    nodePackages = ./node-packages;
     packages = ./packages;
     vscodeExtensions = ./vscode-extensions;
   };
