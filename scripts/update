@@ -8,11 +8,6 @@ cd "$root" &&
     git add . &&
     git commit -m "chore(flake): update"
 
-cd "$root/overlays/node-packages" &&
-    ./update &&
-    git add . &&
-    git commit -m "chore(overlays.node-packages): update"
-
 cd "$root/overlays/vscode-extensions" &&
     ./update &&
     git add . &&
