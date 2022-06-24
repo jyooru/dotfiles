@@ -11,8 +11,7 @@
     arduino # ide for arduino
     vlc # media player
     polymc # minecraft launcher
-    openjdk8 # minecraft java version
-    # openjdk17 # minecraft java version
+    jdk # minecraft java version
     spotify # music streaming service
     obsidian # notes
     onlyoffice-bin # office suite
