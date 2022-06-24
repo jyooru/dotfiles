@@ -8,6 +8,7 @@
     gopls # go language server
     nodejs # javascript
     nodePackages.nodemon # javascript auto reload helper
+    yarn # javascript package manager
     nodePackages.typescript # typescript
     nodePackages.ts-node # typescript executor
     nodePackages.typescript-language-server # javascript/typescript language server

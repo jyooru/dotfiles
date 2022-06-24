@@ -6,6 +6,7 @@
     brightnessctl # brightness control
     kalker # calculator
     pastel # colors cli
+    brotli # compression format
     dogdns # dns lookup
     pandoc # document converter
     broot # directory viewer
@@ -37,6 +38,7 @@
     gping # ping but with a graph
     pv # pipe progress monitor
     nmap # port scanner
+    qrencode # qr code generator
     scrot # screenshot
     lm_sensors # sensor viewer
     spotdl # spotify downloader
