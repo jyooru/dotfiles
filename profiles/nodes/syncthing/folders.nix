@@ -7,6 +7,7 @@ let
 in
 
 {
+  ".local/share/Anki2/User 1" = { devices = all'; id = "j29nm-19rfm"; };
   "archive" = { devices = backup'; id = "u4tsv-7hxb7"; };
   "cluster" = { devices = all; id = "jyxof-ssssq"; };
   "code" = { devices = all; id = "wcqyy-zrab5"; };
