@@ -68,20 +68,20 @@
   {
     "name": "python",
     "publisher": "ms-python",
-    "sha256": "1nw9ns0dml7wlyzmsqvykbbs2f0i9v9kpg3qlin7g834nn9nnjql",
-    "version": "2022.9.11681004"
+    "sha256": "0607sfplkin97zrrv00vypfgbpfcljzfd6sb4jn07w7ng2rvwv65",
+    "version": "2022.9.11741005"
   },
   {
     "name": "vscode-pylance",
     "publisher": "ms-python",
-    "sha256": "06rgkk212hgypri51npkyk3qlk5dgfyvqm2c4nm382qixysgkz4r",
-    "version": "2022.6.21"
+    "sha256": "148pbwz2ksaj73xppfd81daf4p9waic63imcmzg36ps64rjma659",
+    "version": "2022.6.30"
   },
   {
     "name": "jupyter",
     "publisher": "ms-toolsai",
-    "sha256": "1fx577jq7lfkag2p80brmlxhjfp9yj4wm03bh8w6g00g609jjhs2",
-    "version": "2022.6.1001691033"
+    "sha256": "0rxxdj0cgkwvhvw28jrwiy6d5726f2nfh28w66pr7g3k6zhsdjif",
+    "version": "2022.6.1001761035"
   },
   {
     "name": "color-highlight",
