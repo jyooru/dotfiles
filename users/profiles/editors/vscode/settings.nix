@@ -52,6 +52,7 @@
     "python.linting.flake8Args" = [ "--max-line-length=88" ];
     "python.testing.pytestEnabled" = true;
     "[typescript]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+    "[typescriptreact]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
     "[yaml]"."editor.defaultFormatter" = "redhat.vscode-yaml";
   };
 }
