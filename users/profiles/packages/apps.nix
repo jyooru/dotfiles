@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
+    brave # backup browser
     signal-desktop # chat (family, friends)
     discord # chat (friends, public)
     alfis # decentralised free blockchain domain name system
