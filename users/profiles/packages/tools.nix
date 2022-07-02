@@ -53,6 +53,7 @@
     git # version control system
     vanieth # ethereum vanity address generator
     vanity-monero # monero vanity address generator
+    sshuttle # vpn over ssh
     whois # whois viewer
 
     timetable # packages/timetable
