@@ -92,8 +92,8 @@
   {
     "name": "material-icon-theme",
     "publisher": "PKief",
-    "sha256": "1mp504i45dy4fx07m921mmzsrblhvkhslm5skq8vv36qfpazivl3",
-    "version": "4.18.1"
+    "sha256": "1azkkp4bnd7n8v0m4325hfrr6p6ikid88xbxaanypji25pnyq5a4",
+    "version": "4.19.0"
   },
   {
     "name": "vscode-css-peek",
@@ -110,7 +110,7 @@
   {
     "name": "vscode-xml",
     "publisher": "redhat",
-    "sha256": "16xb1ka9cad47x8zvrrz7cxz2rcyzyxakj4babzvi9b8mfik0rr1",
+    "sha256": "sha256-yu2Ey9pAV3YsD7nBM0Y6DwgSW1EH7GPz9NgNZCE6WUE=",
     "version": "0.21.2022062916"
   },
   {
