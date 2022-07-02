@@ -151,19 +151,19 @@ keys = [
     Key(
         [],
         "XF86AudioMute",
-        sh("amixer set Master toggle"),
+        sh("pamixer -t"),
         desc="Volume mute toggle",
     ),
     Key(
         [],
         "XF86AudioRaiseVolume",
-        sh("amixer set Master 10%+"),
+        sh("pamixer -i 10"),
         desc="Volume up",
     ),
     Key(
         [],
         "XF86AudioLowerVolume",
-        sh("amixer set Master 10%-"),
+        sh("pamixer -d 10"),
         desc="Volume down",
     ),
     Key(

@@ -1,3 +1,5 @@
+from subprocess import SubprocessError
+
 from libqtile import qtile, widget
 
 from ..colors import base00, base03, base04, base08
@@ -19,6 +21,20 @@ def bracket_wrap(*widgets, padding: int = 8, **kwargs) -> list:
         + list(widgets)
         + [widget.TextBox("]", padding=padding, **kwargs)]
     )
+
+
+class Volume(widget.Volume):
+    def get_volume(self) -> int:
+        try:
+            self.call_process(["pamixer", "--get-mute"])
+            return -1  # is muted
+        except SubprocessError:
+            pass
+
+        try:
+            return int(self.call_process(["pamixer", "--get-volume"]))
+        except SubprocessError:
+            return -1
 
 
 widgets = (
@@ -68,7 +84,7 @@ widgets = (
         widget.Spacer(),
         # widget.CPU(format=" " + u2006 + "{load_percent}% @ {freq_current}GHz"),
         # widget.Net(format=" " + u2006 + " {down}  {up}"),
-        widget.Volume(fmt=" " + u2006 + "{}"),
+        Volume(fmt=" " + u2006 + "{}"),
         widget.Battery(
             charge_char="",
             discharge_char="",
