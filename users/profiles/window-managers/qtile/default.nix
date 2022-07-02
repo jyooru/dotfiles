@@ -5,6 +5,6 @@
     # `config.py` is still the entrypoint for qtile
     file.".config/qtile".source = ./.;
 
-    packages = with pkgs; [ xsecurelock ];
+    packages = with pkgs; [ pamixer xsecurelock ];
   };
 }

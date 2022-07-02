@@ -13,21 +13,30 @@ with lib;
     ];
   };
 
-  hardware.pulseaudio.enable = true;
-  sound.enable = true;
+  security.rtkit.enable = true;
 
-  services.xserver = {
-    enable = true;
-
-    desktopManager.xterm.enable = false;
-
-    displayManager = {
-      defaultSession = "none+qtile";
-      autoLogin = { enable = true; user = "joel"; };
+  services = {
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      jack.enable = true;
+      pulse.enable = true;
     };
-    windowManager.qtile.enable = true;
 
-    libinput.enable = true;
+    xserver = {
+      enable = true;
+
+      desktopManager.xterm.enable = false;
+
+      displayManager = {
+        defaultSession = "none+qtile";
+        autoLogin = { enable = true; user = "joel"; };
+      };
+      windowManager.qtile.enable = true;
+
+      libinput.enable = true;
+    };
   };
 
   programs = {
