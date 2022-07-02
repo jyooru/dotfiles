@@ -21,6 +21,7 @@
     darktable # photo editor and raw developer
     gimp # photo editor
     qimgv # photo viewer
+    inkscape # svg editor
     qbittorrent # torrent app
     openshot-qt # video editor
   ];
