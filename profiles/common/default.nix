@@ -21,7 +21,7 @@ in
   nix = {
     package = pkgs.nixUnstable;
     extraOptions = ''
-      experimental-features = nix-command flakes
+      experimental-features = ca-derivations flakes nix-command
     '';
     settings = {
       trusted-users = [ "root" "joel" ];

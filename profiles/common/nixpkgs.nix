@@ -1,3 +1,4 @@
 {
   allowUnfree = true;
+  contentAddressedByDefault = true;
 }
