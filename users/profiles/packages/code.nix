@@ -28,14 +28,15 @@
       ])
       gcc # rust compile dependency
       cargo-edit # rust package manager addon - lets me "cargo add x"
-      python3 # python
-      python3Packages.black # python formatter
-      python3Packages.flake8 # python linter
-      python3Packages.isort # python import formatter
-      python3Packages.mypy # python type checker
-      python3Packages.poetry # python package manager
-      python3Packages.pytest # python test framework
-      python3Packages.python-lsp-server # python language server
+      (python3Full.withPackages (ps: with ps; [
+        black # python formatter
+        flake8 # python linter
+        isort # python import formatter
+        mypy # python type checker
+        poetry # python package manager
+        pytest # python test framework
+        python-lsp-server # python language server
+      ]))
       deploy-rs.deploy-rs # nixos deployment tool
       nixpkgs-fmt # nix formatter
       statix # nix linter
