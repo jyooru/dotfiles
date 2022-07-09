@@ -68,20 +68,20 @@
   {
     "name": "python",
     "publisher": "ms-python",
-    "sha256": "07k1rnshcd0dlbm9zv6qmm3wi22xyk6rb4sk7g6kcid21axnvwap",
-    "version": "2022.9.11821004"
+    "sha256": "1ygxf5yrr3qz3hnczj4gw41gq0xbdv64gknmj7rg9qvxnn6xrr2g",
+    "version": "2022.11.11891004"
   },
   {
     "name": "vscode-pylance",
     "publisher": "ms-python",
-    "sha256": "19nz01plcwh3b3b8qsj2rlbn5w39rldddjq80wljrvnfjlnn7ar5",
-    "version": "2022.7.11"
+    "sha256": "1m2x6kb7965fisrca24padl3152adxns2rrzkn6wkm9gai9ms7kw",
+    "version": "2022.7.21"
   },
   {
     "name": "jupyter",
     "publisher": "ms-toolsai",
-    "sha256": "046j5rhp3d5j7i1m4qlbdmmnjf0bjdrbqbgvhw9z8j998q99kkwg",
-    "version": "2022.7.1001841019"
+    "sha256": "0dbjghvx5faxkf12sm285hid4i1q0d421bfvpaif9ax8a3nlvil2",
+    "version": "2022.7.1001902022"
   },
   {
     "name": "color-highlight",
@@ -110,8 +110,8 @@
   {
     "name": "vscode-xml",
     "publisher": "redhat",
-    "sha256": "sha256-yu2Ey9pAV3YsD7nBM0Y6DwgSW1EH7GPz9NgNZCE6WUE=",
-    "version": "0.21.2022062916"
+    "sha256": "1057d9s6xab12gp25jx5pykjyglv60vj55gf6phzyy8lsq09w62q",
+    "version": "0.21.2022070713"
   },
   {
     "name": "vscode-yaml",
