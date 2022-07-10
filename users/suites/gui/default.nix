@@ -5,6 +5,7 @@
     ../../profiles/editors/vscode
     ../../profiles/file-managers/ranger
     ../../profiles/launchers/rofi
+    ../../profiles/media-players/termusic
     ../../profiles/notification-daemons/dunst
     ../../profiles/terminal-emulators/alacritty
     ../../profiles/packages/apps.nix

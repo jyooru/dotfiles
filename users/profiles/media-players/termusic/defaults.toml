@@ -1,0 +1,364 @@
+music_dir = "~/Music"
+loop_mode = "Queue"
+volume = 70
+speed = 1.0
+add_playlist_front = false
+disable_exit_confirmation = false
+playlist_display_symbol = true
+theme_selected = "default"
+
+[album_photo_xywh]
+x_between_1_100 = 100
+y_between_1_100 = 77
+width_between_1_100 = 20
+align = "BottomRight"
+
+[style_color_symbol]
+library_foreground = "Foreground"
+library_background = "Reset"
+library_border = "Blue"
+library_highlight = "LightYellow"
+library_highlight_symbol = "🦄"
+playlist_foreground = "Foreground"
+playlist_background = "Reset"
+playlist_border = "Blue"
+playlist_highlight = "LightYellow"
+playlist_highlight_symbol = "🚀"
+progress_foreground = "LightBlack"
+progress_background = "Reset"
+progress_border = "Blue"
+lyric_foreground = "Foreground"
+lyric_background = "Reset"
+lyric_border = "Blue"
+
+[style_color_symbol.alacritty_theme]
+path = ""
+name = "default"
+author = "Larry Hao"
+background = "#101421"
+foreground = "#fffbf6"
+cursor = "#FFFFFF"
+text = "#1E1E1E"
+black = "#2e2e2e"
+red = "#eb4129"
+green = "#abe047"
+yellow = "#f6c744"
+blue = "#47a0f3"
+magenta = "#7b5cb0"
+cyan = "#64dbed"
+white = "#e5e9f0"
+light_black = "#565656"
+light_red = "#ec5357"
+light_green = "#c0e17d"
+light_yellow = "#f9da6a"
+light_blue = "#49a4f8"
+light_magenta = "#a47de9"
+light_cyan = "#99faf2"
+light_white = "#ffffff"
+[keys.global_esc.code]
+type = "Esc"
+
+[keys.global_esc.modifiers]
+type = "KeyModifiers"
+bits = 0
+[keys.global_quit.code]
+type = "Char"
+args = "q"
+
+[keys.global_quit.modifiers]
+type = "KeyModifiers"
+bits = 0
+[keys.global_left.code]
+type = "Char"
+args = "h"
+
+[keys.global_left.modifiers]
+type = "KeyModifiers"
+bits = 0
+[keys.global_down.code]
+type = "Char"
+args = "j"
+
+[keys.global_down.modifiers]
+type = "KeyModifiers"
+bits = 0
+[keys.global_up.code]
+type = "Char"
+args = "k"
+
+[keys.global_up.modifiers]
+type = "KeyModifiers"
+bits = 0
+[keys.global_right.code]
+type = "Char"
+args = "l"
+
+[keys.global_right.modifiers]
+type = "KeyModifiers"
+bits = 0
+[keys.global_goto_top.code]
+type = "Char"
+args = "g"
+
+[keys.global_goto_top.modifiers]
+type = "KeyModifiers"
+bits = 0
+[keys.global_goto_bottom.code]
+type = "Char"
+args = "G"
+
+[keys.global_goto_bottom.modifiers]
+type = "KeyModifiers"
+bits = 1
+[keys.global_player_toggle_pause.code]
+type = "Char"
+args = " "
+
+[keys.global_player_toggle_pause.modifiers]
+type = "KeyModifiers"
+bits = 0
+[keys.global_player_next.code]
+type = "Char"
+args = "n"
+
+[keys.global_player_next.modifiers]
+type = "KeyModifiers"
+bits = 0
+[keys.global_player_previous.code]
+type = "Char"
+args = "N"
+
+[keys.global_player_previous.modifiers]
+type = "KeyModifiers"
+bits = 1
+[keys.global_player_volume_plus_1.code]
+type = "Char"
+args = "+"
+
+[keys.global_player_volume_plus_1.modifiers]
+type = "KeyModifiers"
+bits = 1
+[keys.global_player_volume_plus_2.code]
+type = "Char"
+args = "="
+
+[keys.global_player_volume_plus_2.modifiers]
+type = "KeyModifiers"
+bits = 0
+[keys.global_player_volume_minus_1.code]
+type = "Char"
+args = "_"
+
+[keys.global_player_volume_minus_1.modifiers]
+type = "KeyModifiers"
+bits = 1
+[keys.global_player_volume_minus_2.code]
+type = "Char"
+args = "-"
+
+[keys.global_player_volume_minus_2.modifiers]
+type = "KeyModifiers"
+bits = 0
+[keys.global_help.code]
+type = "Char"
+args = "h"
+
+[keys.global_help.modifiers]
+type = "KeyModifiers"
+bits = 2
+[keys.global_player_seek_forward.code]
+type = "Char"
+args = "f"
+
+[keys.global_player_seek_forward.modifiers]
+type = "KeyModifiers"
+bits = 0
+[keys.global_player_seek_backward.code]
+type = "Char"
+args = "b"
+
+[keys.global_player_seek_backward.modifiers]
+type = "KeyModifiers"
+bits = 0
+[keys.global_lyric_adjust_forward.code]
+type = "Char"
+args = "F"
+
+[keys.global_lyric_adjust_forward.modifiers]
+type = "KeyModifiers"
+bits = 1
+[keys.global_lyric_adjust_backward.code]
+type = "Char"
+args = "B"
+
+[keys.global_lyric_adjust_backward.modifiers]
+type = "KeyModifiers"
+bits = 1
+[keys.global_player_speed_up.code]
+type = "Char"
+args = "f"
+
+[keys.global_player_speed_up.modifiers]
+type = "KeyModifiers"
+bits = 2
+[keys.global_player_speed_down.code]
+type = "Char"
+args = "b"
+
+[keys.global_player_speed_down.modifiers]
+type = "KeyModifiers"
+bits = 2
+[keys.global_lyric_cycle.code]
+type = "Char"
+args = "T"
+
+[keys.global_lyric_cycle.modifiers]
+type = "KeyModifiers"
+bits = 1
+[keys.global_color_editor_open.code]
+type = "Char"
+args = "C"
+
+[keys.global_color_editor_open.modifiers]
+type = "KeyModifiers"
+bits = 1
+[keys.global_key_editor_open.code]
+type = "Char"
+args = "K"
+
+[keys.global_key_editor_open.modifiers]
+type = "KeyModifiers"
+bits = 1
+[keys.global_layout_treeview.code]
+type = "Char"
+args = "1"
+
+[keys.global_layout_treeview.modifiers]
+type = "KeyModifiers"
+bits = 0
+[keys.global_layout_database.code]
+type = "Char"
+args = "2"
+
+[keys.global_layout_database.modifiers]
+type = "KeyModifiers"
+bits = 0
+[keys.library_load_dir.code]
+type = "Char"
+args = "L"
+
+[keys.library_load_dir.modifiers]
+type = "KeyModifiers"
+bits = 1
+[keys.library_delete.code]
+type = "Char"
+args = "d"
+
+[keys.library_delete.modifiers]
+type = "KeyModifiers"
+bits = 0
+[keys.library_yank.code]
+type = "Char"
+args = "y"
+
+[keys.library_yank.modifiers]
+type = "KeyModifiers"
+bits = 0
+[keys.library_paste.code]
+type = "Char"
+args = "p"
+
+[keys.library_paste.modifiers]
+type = "KeyModifiers"
+bits = 0
+[keys.library_search.code]
+type = "Char"
+args = "/"
+
+[keys.library_search.modifiers]
+type = "KeyModifiers"
+bits = 0
+[keys.library_search_youtube.code]
+type = "Char"
+args = "s"
+
+[keys.library_search_youtube.modifiers]
+type = "KeyModifiers"
+bits = 0
+[keys.library_tag_editor_open.code]
+type = "Char"
+args = "t"
+
+[keys.library_tag_editor_open.modifiers]
+type = "KeyModifiers"
+bits = 0
+[keys.playlist_delete.code]
+type = "Char"
+args = "d"
+
+[keys.playlist_delete.modifiers]
+type = "KeyModifiers"
+bits = 0
+[keys.playlist_delete_all.code]
+type = "Char"
+args = "D"
+
+[keys.playlist_delete_all.modifiers]
+type = "KeyModifiers"
+bits = 1
+[keys.playlist_shuffle.code]
+type = "Char"
+args = "s"
+
+[keys.playlist_shuffle.modifiers]
+type = "KeyModifiers"
+bits = 0
+[keys.playlist_mode_cycle.code]
+type = "Char"
+args = "m"
+
+[keys.playlist_mode_cycle.modifiers]
+type = "KeyModifiers"
+bits = 0
+[keys.playlist_play_selected.code]
+type = "Char"
+args = "l"
+
+[keys.playlist_play_selected.modifiers]
+type = "KeyModifiers"
+bits = 0
+[keys.playlist_add_front.code]
+type = "Char"
+args = "a"
+
+[keys.playlist_add_front.modifiers]
+type = "KeyModifiers"
+bits = 0
+[keys.playlist_search.code]
+type = "Char"
+args = "/"
+
+[keys.playlist_search.modifiers]
+type = "KeyModifiers"
+bits = 0
+[keys.playlist_swap_down.code]
+type = "Char"
+args = "j"
+
+[keys.playlist_swap_down.modifiers]
+type = "KeyModifiers"
+bits = 2
+[keys.playlist_swap_up.code]
+type = "Char"
+args = "k"
+
+[keys.playlist_swap_up.modifiers]
+type = "KeyModifiers"
+bits = 2
+[keys.database_add_all.code]
+type = "Char"
+args = "L"
+
+[keys.database_add_all.modifiers]
+type = "KeyModifiers"
+bits = 1
