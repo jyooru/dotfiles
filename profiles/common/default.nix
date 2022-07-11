@@ -37,12 +37,17 @@ in
 
   nixpkgs.config = import ./nixpkgs.nix;
 
-  programs.ssh.knownHosts = listToAttrs (map
-    (name: {
-      inherit name;
-      value = { publicKeyFile = ../../hosts + "/${name}/keys/ssh.pub"; };
-    })
-    hosts);
+  programs = {
+    bandwhich.enable = true;
+    iotop.enable = true;
+
+    ssh.knownHosts = listToAttrs (map
+      (name: {
+        inherit name;
+        value = { publicKeyFile = ../../hosts + "/${name}/keys/ssh.pub"; };
+      })
+      hosts);
+  };
 
   services = {
     logind = {

@@ -13,7 +13,6 @@
     vlc # media player
     polymc # minecraft launcher
     jdk # minecraft java version
-    spotify # music streaming service
     obsidian # notes
     onlyoffice-bin # office suite
     libreoffice # office suite

@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    bandwhich # bandwidth monitor
     nakatoshi # bitcoin vanity address generator
     brightnessctl # brightness control
     kalker # calculator
@@ -19,7 +18,6 @@
     graphviz # graphing tools
     hexyl # hex viewer
     httpie # http cli
-    iotop # I/O monitor
     ipinfo # ipinfo cli
     jisho-api # jisho cli
     jq # json cli
