@@ -27,6 +27,7 @@
     atto # nano cli wallet
     nano-vanity # nano vanity address generator
     docker-compose # manage multi-container applications
+    tldr # manuals
     cmatrix # matrix display
     playerctl # media player control
     ffmpeg # media converter
