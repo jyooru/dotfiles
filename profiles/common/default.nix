@@ -21,10 +21,10 @@ in
   nix = {
     package = pkgs.nixUnstable;
     extraOptions = ''
-      experimental-features = nix-command flakes
+      experimental-features = ca-derivations flakes nix-command
     '';
     settings = {
-      trusted-users = [ "root" "joel" ];
+      trusted-users = [ "root" "@wheel" ];
       substituters = map (x: "https://nix.${x}.${config.networking.domain}") cacheHosts;
       inherit trusted-public-keys;
     };
