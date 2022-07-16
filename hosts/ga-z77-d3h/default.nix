@@ -4,7 +4,6 @@
     ./hardware-configuration.nix
 
     ../../profiles/servers/hercules-ci
-    ../../profiles/servers/minecraft
 
     ../../suites/server
   ];
