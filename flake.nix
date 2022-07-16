@@ -6,7 +6,6 @@
     fenix.url = "github:nix-community/fenix";
     hardware.url = "github:nixos/nixos-hardware";
     home-manager = { url = "github:nix-community/home-manager"; inputs.nixpkgs.follows = "nixpkgs"; };
-    minecraft-servers.url = "github:jyooru/nix-minecraft-servers";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
     nur.url = "github:nix-community/nur";
     ragenix.url = "github:yaxitech/ragenix";
@@ -31,7 +30,6 @@
         fenix.overlay
         nur.overlay
         ragenix.overlay
-        minecraft-servers.overlays.default
       ] ++ (attrValues self.overlays);
 
       channels.nixpkgs.patches = [

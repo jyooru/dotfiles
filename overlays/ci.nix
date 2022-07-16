@@ -9,7 +9,7 @@ let
 
   overlays = import ./.;
   overlayPackages = {
-    customiseDedicatedGPU = [ "minecraft" "steam" ];
+    customiseDedicatedGPU = [ "polymc" "steam" ];
     customiseQtile = [ "qtile" ];
     customiseXsecurelock = [ "xsecurelock" ];
 
@@ -21,10 +21,11 @@ recurseIntoAttrs (
   (mapAttrs
     (overlay: packages:
       recurseIntoAttrs (
-        let pkgs = import nixpkgs {
-          config.allowUnfree = true;
-          overlays = [ overlays.${overlay} ];
-        };
+        let
+          pkgs = import nixpkgs {
+            config.allowUnfree = true;
+            overlays = [ overlays.${overlay} ];
+          };
         in
         getAttrs packages pkgs
       )
