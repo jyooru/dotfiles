@@ -1,11 +1,11 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    bandwhich # bandwidth monitor
     nakatoshi # bitcoin vanity address generator
     brightnessctl # brightness control
     kalker # calculator
     pastel # colors cli
+    brotli # compression format
     dogdns # dns lookup
     pandoc # document converter
     broot # directory viewer
@@ -18,7 +18,6 @@
     graphviz # graphing tools
     hexyl # hex viewer
     httpie # http cli
-    iotop # I/O monitor
     ipinfo # ipinfo cli
     jisho-api # jisho cli
     jq # json cli
@@ -37,6 +36,7 @@
     gping # ping but with a graph
     pv # pipe progress monitor
     nmap # port scanner
+    qrencode # qr code generator
     scrot # screenshot
     lm_sensors # sensor viewer
     spotdl # spotify downloader
@@ -51,6 +51,7 @@
     git # version control system
     vanieth # ethereum vanity address generator
     vanity-monero # monero vanity address generator
+    sshuttle # vpn over ssh
     whois # whois viewer
 
     timetable # packages/timetable

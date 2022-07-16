@@ -11,7 +11,6 @@ let
     "4" = "ga-z77-d3h";
   };
   subjects = [ "business" "english" "it" "japanese" "maths" "science" ];
-  term = "2";
 
   bookmarks = foldl' (x: y: x // y) { } ([
     (import ./bookmarks.nix)
@@ -31,10 +30,9 @@ let
       {
         "s${s}" = "file:///home/joel/school/${subject}/";
         "s${s}x" = "file:///home/joel/school/${subject}/textbook.pdf";
-        "s${s}t" = "file:///home/joel/school/${subject}/term ${term}/";
-        "s${s}e" = "file:///home/joel/school/${subject}/term ${term}/exercises.pdf";
-        "s${s}a" = "file:///home/joel/school/${subject}/term ${term}/assessment/";
-        "s${s}at" = "file:///home/joel/school/${subject}/term ${term}/assessment/task.pdf";
+        "s${s}e" = "file:///home/joel/school/${subject}/exercises.pdf";
+        "s${s}a" = "file:///home/joel/school/${subject}/assessment/";
+        "s${s}at" = "file:///home/joel/school/${subject}/assessment/task.pdf";
       })
     subjects))
   ;

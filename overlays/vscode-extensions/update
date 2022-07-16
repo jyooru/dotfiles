@@ -6,5 +6,8 @@ set nixpkgs (nix eval --expr 'let flake = builtins.getFlake (toString ../..); in
 $nixpkgs/pkgs/applications/editors/vscode/extensions/update_installed_exts.sh $sources > tmp.nix
 nix eval --expr '(import ./tmp.nix).extensions' --json --impure > sources.json
 
+# vscode-xml never seems to have the correct hash
+sed -i "s/1057d9s6xab12gp25jx5pykjyglv60vj55gf6phzyy8lsq09w62q/1dvmfpcw47qp9mri5zjvllyi84jw0hfympp486vh0v1drxhfmbbr/g" sources.json
+
 prettier -w sources.json
 rm tmp.nix

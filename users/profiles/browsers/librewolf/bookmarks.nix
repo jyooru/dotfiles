@@ -15,6 +15,7 @@
   gdc = "https://hercules-ci.com/github/jyooru/dotfiles";
   gi = "https://github.com/notifications";
   gj = "https://github.com/jyooru";
+  gm = "https://github.com/mindustry-space";
   gn = "https://github.com/nixos/nixpkgs";
   gs = "https://github.com/stars";
 
@@ -26,7 +27,9 @@
   nsp = "https://search.nixos.org/packages?channel=unstable";
 
   l1 = "http://localhost:1111/";
-  l8 = "http://localhost:8080/";
+  l3 = "http://localhost:3000/";
+  l8 = "http://localhost:8000/";
+  lg = "http://localhost:8080/";
 
   # s* automatically generated in default.nix
   s = "file:///home/joel/school/";

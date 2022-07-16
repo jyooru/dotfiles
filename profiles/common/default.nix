@@ -24,7 +24,7 @@ in
       experimental-features = ca-derivations flakes nix-command
     '';
     settings = {
-      trusted-users = [ "root" "joel" ];
+      trusted-users = [ "root" "@wheel" ];
       substituters = map (x: "https://nix.${x}.${config.networking.domain}") cacheHosts;
       inherit trusted-public-keys;
     };
@@ -37,12 +37,17 @@ in
 
   nixpkgs.config = import ./nixpkgs.nix;
 
-  programs.ssh.knownHosts = listToAttrs (map
-    (name: {
-      inherit name;
-      value = { publicKeyFile = ../../hosts + "/${name}/keys/ssh.pub"; };
-    })
-    hosts);
+  programs = {
+    bandwhich.enable = true;
+    iotop.enable = true;
+
+    ssh.knownHosts = listToAttrs (map
+      (name: {
+        inherit name;
+        value = { publicKeyFile = ../../hosts + "/${name}/keys/ssh.pub"; };
+      })
+      hosts);
+  };
 
   services = {
     logind = {

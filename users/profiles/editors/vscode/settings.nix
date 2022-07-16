@@ -1,5 +1,5 @@
-{
-  programs.vscode.userSettings = {
+let
+  userSettings = rec {
     # functionality
     "diffEditor.renderSideBySide" = false;
     "editor.formatOnType" = true;
@@ -41,7 +41,7 @@
     "html.format.templating" = true;
     "[javascript]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
     "[json]"."editor.defaultFormatter" = "vscode.json-language-features";
-    "[jsonc]"."editor.defaultFormatter" = "vscode.json-language-features";
+    "[jsonc]" = userSettings."[json]";
     "[markdown]" = {
       "editor.defaultFormatter" = "esbenp.prettier-vscode";
       "editor.wordWrap" = "on";
@@ -52,6 +52,12 @@
     "python.linting.flake8Args" = [ "--max-line-length=88" ];
     "python.testing.pytestEnabled" = true;
     "[typescript]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+    "typescript.extension.sortImports.sortOnSave" = true;
+    "[typescriptreact]" = userSettings."[typescript]";
     "[yaml]"."editor.defaultFormatter" = "redhat.vscode-yaml";
   };
+in
+
+{
+  programs.vscode = { inherit userSettings; };
 }
